@@ -15,7 +15,7 @@ export const App = () => {
       >
         React homework template
       </div>
-      <ConfirmModal />
+      {/* <ConfirmModal /> */}
     </>
   );
 };
