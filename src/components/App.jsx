@@ -1,4 +1,5 @@
 import ConfirmModal from './openModal/confirmModal';
+import LeaveModal from './openModal/leaveModal';
 
 export const App = () => {
   return (
@@ -15,7 +16,8 @@ export const App = () => {
       >
         React homework template
       </div>
-      {/* <ConfirmModal /> */}
+      {/* <ConfirmModal />
+      <LeaveModal /> */}
     </>
   );
 };

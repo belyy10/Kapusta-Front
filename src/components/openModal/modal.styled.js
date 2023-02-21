@@ -38,11 +38,16 @@ export const Button = styled.button`
   line-height: 14px;
   display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-
   color: #ffffff;
+  border-color: transparent;
+  text-align: center;
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
 `;
 export const ButtonBox = styled.div`
   display: flex;
@@ -57,17 +62,20 @@ export const Content = styled.div`
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: #f1f1f1;
-  padding: 14px 28px;
-  border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
+  padding: 50px 58px 60px 58px;
+
+  background: #ffffff;
+  box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+  border-radius: 30px;
 `;
 
 export const CloseButton = styled.button`
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 5px 7px;
+  cursor: pointer;
+  background-color: #0000;
+  border: none;
 `;
 
 export const Title = styled.h2`
@@ -78,6 +86,7 @@ export const Title = styled.h2`
   align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
-
+  justify-content: center;
   color: #52555f;
+  margin-bottom: 20px;
 `;
