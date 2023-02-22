@@ -1,23 +1,19 @@
-import ConfirmModal from './openModal/confirmModal';
-import LeaveModal from './openModal/leaveModal';
+import { Route, Routes } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
-export const App = () => {
+const Header = lazy(() => import('./Header'));
+const Registration = lazy(() => import('../pages/Registration'));
+
+export default function App() {
   return (
-    <>
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
-      >
-        React homework template
-      </div>
-      {/* <ConfirmModal />
-      <LeaveModal /> */}
-    </>
+    <Suspense>
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route path="registration" element={<Registration />} />
+
+          <Route path="*" element={<Registration />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
-};
+}
