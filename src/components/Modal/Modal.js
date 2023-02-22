@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import {
   Button,
   Modal,
@@ -7,12 +9,11 @@ import {
   CloseButton,
   ButtonBox,
   Confirm,
-} from './modal.styled';
+} from './Modal.styled';
 
 import { FiX } from 'react-icons/fi';
-import { useState } from 'react';
 
-export default function ConfirmModal() {
+export default function LeaveModal({ title }) {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -21,12 +22,12 @@ export default function ConfirmModal() {
 
   return (
     <>
-      <Confirm onClick={toggleModal}>Confirm</Confirm>
+      <Confirm onClick={toggleModal}>Leave</Confirm>
       {modal && (
         <Modal>
           <Overlay onClick={toggleModal}>
             <Content>
-              <Title> Are you sure?</Title>
+              <Title>{title}</Title>
               <ButtonBox>
                 <Button>Yes</Button>
                 <Button
