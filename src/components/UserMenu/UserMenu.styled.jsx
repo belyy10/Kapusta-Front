@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { textColor } from 'variables/colors/colors';
 
 export const UserContainer = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ export const Email = styled.p`
   padding-left: 24px;
 
   border-right: 1px solid #e0e5eb;
-  color: #52555f;
+  color: ${textColor};
 `;
 
 export const ExitBtn = styled.button`
@@ -19,5 +20,5 @@ export const ExitBtn = styled.button`
   border: none;
   background-color: transparent;
   text-decoration: underline;
-  color: #52555f;
+  color: ${textColor};
 `;
