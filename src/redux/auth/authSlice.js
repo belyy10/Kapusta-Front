@@ -5,6 +5,7 @@ const authSlice = createSlice({
   initialState: {
     user: {
       email: 'n-sokolov@ukr.net',
+      balance: null,
     },
     accessToken: '',
     refreshToken: '',
