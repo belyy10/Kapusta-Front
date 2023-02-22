@@ -1,16 +1,11 @@
 import styled from 'styled-components';
 import COLORS from 'variables/colors/colors';
 
-export const TableBox = styled.table`
-  max-height: 204px;
+export const TransactionBox = styled.div`
+  overflow: hidden;
 
-  border: none;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  border-spacing: 0;
-  border-collapse: collapse;
-
-  overflow: hidden;
 
   @media screen and (min-width: 1200px) {
     width: 624px;
@@ -18,6 +13,23 @@ export const TableBox = styled.table`
 
   @media screen and (min-width: 1200px) {
     width: 746px;
+    height: 400px;
+  }
+`;
+
+export const TableBox = styled.table`
+  width: 100%;
+
+  border: none;
+
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  table-layout: fixed;
+
+  @media screen and (min-width: 1200px) {
+    width: 746px;
+    height: 400px;
   }
 `;
 
@@ -31,4 +43,22 @@ export const TableTitleItem = styled.th`
 
   background-color: ${COLORS.bgTableTitle};
   text-transform: uppercase;
+`;
+
+export const TableBodys = styled.tbody`
+  display: block;
+  overflow-y: auto;
+  width: 746px;
+  max-height: 400px;
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    background-color: ${COLORS.bgTableTitle};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+
+    background-color: ${COLORS.activeColor};
+  }
 `;

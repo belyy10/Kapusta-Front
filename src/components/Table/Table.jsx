@@ -1,5 +1,11 @@
 import TableBody from 'components/TableBody';
-import { TableBox, TableTitle, TableTitleItem } from './Table.styled';
+import {
+  TableBox,
+  TableTitle,
+  TableTitleItem,
+  TransactionBox,
+  TableBodys,
+} from './Table.styled';
 
 const monthTransaction = [
   {
@@ -72,26 +78,126 @@ const monthTransaction = [
     category: 'car',
     sum: 2000,
   },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
+  },
 ];
 
 export default function Table() {
   return (
-    <TableBox>
-      <thead>
-        <TableTitle>
-          <TableTitleItem>DATE</TableTitleItem>
-          <TableTitleItem>DESCRIPTION</TableTitleItem>
-          <TableTitleItem>category</TableTitleItem>
-          <TableTitleItem>sum</TableTitleItem>
-          <TableTitleItem></TableTitleItem>
-        </TableTitle>
-      </thead>
-      <tbody>
-        {monthTransaction &&
-          monthTransaction.map(transaction => (
-            <TableBody key={transaction.id} transaction={transaction} />
-          ))}
-      </tbody>
-    </TableBox>
+    <TransactionBox>
+      <TableBox>
+        <thead>
+          <TableTitle>
+            <TableTitleItem>DATE</TableTitleItem>
+            <TableTitleItem>DESCRIPTION</TableTitleItem>
+            <TableTitleItem>category</TableTitleItem>
+            <TableTitleItem>sum</TableTitleItem>
+            <TableTitleItem></TableTitleItem>
+          </TableTitle>
+        </thead>
+        <TableBodys>
+          {monthTransaction &&
+            monthTransaction.map(transaction => (
+              <TableBody key={transaction.id} transaction={transaction} />
+            ))}
+        </TableBodys>
+      </TableBox>
+    </TransactionBox>
   );
 }

@@ -3,13 +3,13 @@ import COLORS from 'variables/colors/colors';
 
 export const TableBodyList = styled.tr`
   height: 40px;
-
-  overflow-y: scroll;
-
   border: 2px solid ${COLORS.bgTableTitle};
 `;
 
 export const TableBodyItem = styled.td`
+  height: 100%;
+  width: calc(746px / 5);
+
   text-align: center;
 
   font-family: 'Roboto';
