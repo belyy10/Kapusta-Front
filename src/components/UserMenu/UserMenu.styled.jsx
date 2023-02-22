@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { textColor } from 'variables/colors/colors';
+import COLORS from 'variables/colors/colors';
 
 export const UserContainer = styled.div`
   display: flex;
@@ -10,15 +10,29 @@ export const Email = styled.p`
   padding-right: 20px;
   padding-left: 24px;
 
-  border-right: 1px solid #e0e5eb;
-  color: ${textColor};
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  letter-spacing: 0.04;
+
+  border-right: 1px solid ${COLORS.borderColor};
+  color: ${COLORS.textColor};
 `;
 
 export const ExitBtn = styled.button`
   margin-left: 20px;
 
+  text-decoration: underline;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  letter-spacing: 0.04;
+
   border: none;
   background-color: transparent;
-  text-decoration: underline;
-  color: ${textColor};
+  color: ${COLORS.textColor};
+
+  cursor: pointer;
 `;

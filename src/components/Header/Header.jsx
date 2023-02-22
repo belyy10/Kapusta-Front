@@ -12,7 +12,7 @@ export default function Header() {
       <Container>
         <HeaderBox>
           <picture>
-            <source srcset="./images/logo/logo.webp 1x" type="image/webp" />
+            <source srcSet="./images/logo/logo.webp 1x" type="image/webp" />
 
             <img src="./images/logo/logo.png" alt="logo" />
           </picture>
