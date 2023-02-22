@@ -2,8 +2,7 @@ import { Formik } from 'formik';
 import {
   ButtonGoogle,
   ButtonGroup,
-  ButtonLogin,
-  ButtonReg,
+  Button,
   Form,
   Google,
   Input,
@@ -40,8 +39,8 @@ export const RegisterForm = () => {
             <Input type="text" name="password" placeholder="Password" />
           </Label>
           <ButtonGroup>
-            <ButtonLogin>Log in</ButtonLogin>
-            <ButtonReg>Registration</ButtonReg>
+            <Button>Log in</Button>
+            <Button>Registration</Button>
           </ButtonGroup>
         </Form>
       </Formik>

@@ -54,6 +54,12 @@ export const ButtonGoogle = styled.button`
   border-radius: 26px;
   border: none;
   box-shadow: 1px 3px 7px rgba(170, 178, 197, 0.4);
+  transition: box-shadow 400ms ease-in-out;
+
+  :hover,
+  :focus {
+    box-shadow: 1px 3px 7px rgba(119, 125, 138, 0.466);
+  }
 `;
 
 export const Title = styled.p`
@@ -106,40 +112,29 @@ export const ButtonGroup = styled.div`
   margin-top: 20px;
 `;
 
-export const ButtonLogin = styled.button`
+export const Button = styled.button`
   width: 116px;
   height: 44px;
-  background-color: ${COLORS.activeColor};
-  color: ${COLORS.whiteColor};
   border: none;
   border-radius: 16px;
-  box-shadow: 1px 3px 7px rgba(255, 119, 8, 0.4);
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  cursor: pointer;
-
-  @media screen and (min-width: 768px) {
-    width: 122px;
-  }
-`;
-
-export const ButtonReg = styled.button`
-  width: 116px;
-  height: 44px;
+  box-shadow: 1px 3px 7px rgba(170, 178, 197, 0.4);
   background-color: ${COLORS.backgroungColor};
   color: ${COLORS.textColor};
-  border-radius: 16px;
-  border: none;
-  box-shadow: 1px 3px 7px rgba(170, 178, 197, 0.4);
   font-weight: 700;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   cursor: pointer;
+  transition: background-color 400ms ease-in-out, color 400ms ease-in-out,
+    box-shadow 400ms ease-in-out;
+
+  :hover,
+  :focus {
+    background-color: ${COLORS.activeColor};
+    color: ${COLORS.whiteColor};
+    box-shadow: 1px 3px 7px rgba(255, 119, 8, 0.4);
+  }
 
   @media screen and (min-width: 768px) {
     width: 122px;
