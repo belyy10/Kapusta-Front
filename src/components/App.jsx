@@ -13,7 +13,7 @@ export default function App() {
           <Route path="registration" element={<Registration />} />
           <Route path="main" element={<Main />} />
 
-          <Route path="*" element={<Main />} />
+          <Route path="*" element={<Registration />} />
         </Route>
       </Routes>
     </Suspense>

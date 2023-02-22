@@ -4,6 +4,9 @@ const COLORS = Object.freeze({
   bgTableTitle: '#F5F6FB',
   activeColor: '#FF751D',
   greenColor: '#407946',
+  backgroungColor: '#F6F7FB',
+  blackColor: '#000000',
+  whiteColor: '#FFFFFF',
 });
 
 export default COLORS;
