@@ -1,9 +1,13 @@
 import Container from 'components/Container';
+import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import { Box } from './Registration.styled';
 
 export default function Registration() {
   return (
     <Container>
-      <h2>Rigastraion</h2>
+      <Box>
+        <RegisterForm />
+      </Box>
     </Container>
   );
 }
