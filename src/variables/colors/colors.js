@@ -7,6 +7,7 @@ const COLORS = Object.freeze({
   backgroungColor: '#F6F7FB',
   blackColor: '#000000',
   whiteColor: '#FFFFFF',
+  barColor: '#FFDAC0',
 });
 
 export default COLORS;
