@@ -12,9 +12,15 @@ export default function Header() {
       <Container>
         <HeaderBox>
           <picture>
-            <source srcSet="./images/logo/logo.webp 1x" type="image/webp" />
+            <source
+              srcSet={process.env.PUBLIC_URL + '/images/logo/logo.webp 1x'}
+              type="image/webp"
+            />
 
-            <img src="./images/logo/logo.png" alt="logo" />
+            <img
+              src={process.env.PUBLIC_URL + '/images/logo/logo.png'}
+              alt="logo"
+            />
           </picture>
 
           {isLoggedIn && <UserMenu />}
