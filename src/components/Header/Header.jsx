@@ -1,4 +1,3 @@
-import Container from 'components/Container';
 import { Outlet } from 'react-router-dom';
 import { HeaderBox } from './Header.styled';
 import { useAuth } from 'hooks/useAuth';
@@ -9,17 +8,22 @@ export default function Header() {
 
   return (
     <>
-      <Container>
-        <HeaderBox>
-          <picture>
-            <source srcSet="./images/logo/logo.webp 1x" type="image/webp" />
+      <HeaderBox>
+        <picture>
+          <source
+            srcSet={process.env.PUBLIC_URL + '/images/logo/logo.webp 1x'}
+            type="image/webp"
+          />
 
-            <img src="./images/logo/logo.png" alt="logo" />
-          </picture>
+          <img
+            src={process.env.PUBLIC_URL + '/images/logo/logo.png'}
+            alt="logo"
+          />
+        </picture>
 
-          {isLoggedIn && <UserMenu />}
-        </HeaderBox>
-      </Container>
+        {isLoggedIn && <UserMenu />}
+      </HeaderBox>
+
       <Outlet />
     </>
   );
