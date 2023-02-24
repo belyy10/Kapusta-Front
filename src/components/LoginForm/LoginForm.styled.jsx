@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import COLORS from 'variables/colors/colors';
 import { Field } from 'formik';
+import { fadeInLeft, fadeInRight } from 'react-animations';
+
+const animation2 = keyframes`${fadeInLeft}`;
+const animation3 = keyframes`${fadeInRight}`;
 
 export const FormBox = styled.form`
   display: flex;
@@ -23,6 +27,7 @@ export const Google = styled.div`
   justify-content: center;
   align-items: center;
   padding: 9px;
+  animation: 1s ${animation2};
 `;
 
 export const TitleGoogle = styled.p`
@@ -84,6 +89,7 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  animation: 1s ${animation3};
 `;
 
 export const LabelText = styled.label`
@@ -129,6 +135,7 @@ export const Button = styled.button`
   cursor: pointer;
   transition: background-color 400ms ease-in-out, color 400ms ease-in-out,
     box-shadow 400ms ease-in-out;
+  animation: 1s ${animation2};
 
   :hover,
   :focus {

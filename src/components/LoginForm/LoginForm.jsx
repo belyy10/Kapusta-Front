@@ -18,7 +18,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { logIn } from 'redux/auth/authOperations';
 import schemaRegister from 'schema/shemaRegister';
 
-export const LoginForm = () => {
+export const LoginForm = ({ onRegistrationClick }) => {
   const dispatch = useDispatch();
   const initialValues = { email: '', password: '' };
 
@@ -64,8 +64,9 @@ export const LoginForm = () => {
             />
             <ButtonGroup>
               <Button>Log in</Button>
-
-              <Button>Registration</Button>
+              <Button type="button" onClick={onRegistrationClick}>
+                Registration
+              </Button>
             </ButtonGroup>
           </FormBox>
         </Form>

@@ -1,24 +1,19 @@
 import { Formik, ErrorMessage, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import {
-  ButtonGoogle,
   ButtonGroup,
   Button,
   FormBox,
-  Google,
   Input,
   Label,
   LabelText,
-  TextGoogle,
   Title,
-  TitleGoogle,
   Error,
 } from './RegisterForm.styled';
-import { FcGoogle } from 'react-icons/fc';
 import { logIn } from 'redux/auth/authOperations';
 import schemaRegister from 'schema/shemaRegister';
 
-export const RegisterForm = () => {
+export const RegisterForm = ({ onBackToLogin }) => {
   const dispatch = useDispatch();
   const initialValues = { email: '', password: '' };
 
@@ -36,18 +31,8 @@ export const RegisterForm = () => {
       >
         <Form>
           <FormBox>
-            <Google>
-              <TitleGoogle>
-                You can log in with your Google Account:
-              </TitleGoogle>
-              <ButtonGoogle>
-                <FcGoogle size={18} />
-                <TextGoogle>Google</TextGoogle>
-              </ButtonGoogle>
-            </Google>
-
             <Title>
-              Or log in using an email and password, after registering:
+              Please, enter your email and create a password OR back to login:
             </Title>
             <Label>
               <LabelText>Email:</LabelText>
@@ -63,8 +48,10 @@ export const RegisterForm = () => {
               render={msg => <Error>{msg}</Error>}
             />
             <ButtonGroup>
-              <Button>Log in</Button>
-              <Button>Back</Button>
+              <Button>Sign up</Button>
+              <Button type="button" onClick={onBackToLogin}>
+                Back to login
+              </Button>
             </ButtonGroup>
           </FormBox>
         </Form>
