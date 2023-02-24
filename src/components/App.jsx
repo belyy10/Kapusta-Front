@@ -7,6 +7,7 @@ const Header = lazy(() => import('./Header'));
 const Registration = lazy(() => import('../pages/Registration'));
 const Main = lazy(() => import('../pages/Main'));
 const Reports = lazy(() => import('../pages/Reports'));
+const Login = lazy(() => import('../pages/Login'));
 
 export default function App() {
   return (
@@ -20,6 +21,10 @@ export default function App() {
             }
           />
           <Route
+            path="login"
+            element={<RestrictedRoute component={Login} redirectTo="/main" />}
+          />
+          <Route
             path="main"
             element={<PrivateRoute component={Main} redirectTo="/login" />}
           />
@@ -27,8 +32,7 @@ export default function App() {
             path="reports"
             element={<PrivateRoute component={Reports} redirectTo="/login" />}
           />
-
-          <Route path="*" element={<Registration />} />
+          <Route path="*" element={<Login />} />
         </Route>
       </Routes>
     </Suspense>
