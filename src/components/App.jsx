@@ -12,9 +12,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route path="registration" element={<Registration />} />
+          <Route path="balance" element={<BalancePage />} />
           <Route path="main" element={<Main />} />
           <Route path="reports" element={<Reports />} />
-          <Route path="balance" element={<BalancePage />} />
           <Route path="*" element={<Reports />} />
         </Route>
       </Routes>
