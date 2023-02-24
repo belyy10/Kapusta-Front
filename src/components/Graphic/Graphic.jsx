@@ -217,7 +217,7 @@ const monthTransaction = [
 ];
 
 export default function Graphic() {
-  const { isTablet, isMobile } = useMedia();
+  const { isTabletAndDesktop, isMobile } = useMedia();
 
   const graphicTransact = monthTransaction.reduce(
     (prev, { description, sum }) => {
@@ -239,9 +239,9 @@ export default function Graphic() {
 
   return (
     <>
-      {isTablet && (
+      {isTabletAndDesktop && (
         <GraphicBox>
-          <GraphicBar sortGriphicTransact={sortGriphicTransact} />
+          <GraphicBar transaction={sortGriphicTransact} />
         </GraphicBox>
       )}
       {isMobile && (

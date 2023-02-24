@@ -4,7 +4,7 @@ import COLORS from 'variables/colors/colors';
 const CustomizedLabel = ({ x, y, width, value }) => {
   return (
     <text
-      x={x + width}
+      x={x + 60 > x + width ? x + 60 : x + width}
       y={y}
       fontSize="10"
       fontFamily="Roboto"
@@ -16,6 +16,8 @@ const CustomizedLabel = ({ x, y, width, value }) => {
     </text>
   );
 };
+
+//x + width
 
 const CustomizedTickLabel = ({ x, y, payload }) => {
   return (

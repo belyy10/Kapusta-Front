@@ -2,7 +2,6 @@ import {
   BarChart,
   Bar,
   XAxis,
-  Tooltip,
   CartesianGrid,
   ResponsiveContainer,
   YAxis,
@@ -44,11 +43,11 @@ const CustomizedTickLabel = ({ x, y, payload }) => {
   );
 };
 
-export default function GraphicBar({ sortGriphicTransact }) {
+export default function GraphicBar({ transaction }) {
   return (
     <ResponsiveContainer>
       <BarChart
-        data={sortGriphicTransact}
+        data={transaction}
         stackOffset={'expand'}
         margin={{
           top: 50,
@@ -67,7 +66,6 @@ export default function GraphicBar({ sortGriphicTransact }) {
           tick={<CustomizedTickLabel />}
         />
         <YAxis tickCount={9} hide={true} />
-        <Tooltip />
 
         <Bar
           dataKey="sum"
@@ -77,8 +75,7 @@ export default function GraphicBar({ sortGriphicTransact }) {
           label={<CustomizedLabel />}
           barSize={35}
         >
-          {/* <LabelList dataKey="sum" position="top" /> */}
-          {sortGriphicTransact.map((_, index) => (
+          {transaction.map((_, index) => (
             <Cell fill={index % 3 ? COLORS.barColor : COLORS.activeColor} />
           ))}
         </Bar>
