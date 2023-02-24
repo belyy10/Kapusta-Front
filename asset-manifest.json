@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/Kapusta-Front/static/css/main.27b6f8b4.css",
-    "main.js": "/Kapusta-Front/static/js/main.2d5c68e1.js",
+    "main.js": "/Kapusta-Front/static/js/main.eebb72f4.js",
     "static/js/201.14f66500.chunk.js": "/Kapusta-Front/static/js/201.14f66500.chunk.js",
     "static/js/895.d4a37aad.chunk.js": "/Kapusta-Front/static/js/895.d4a37aad.chunk.js",
     "static/js/782.fe261547.chunk.js": "/Kapusta-Front/static/js/782.fe261547.chunk.js",
     "static/js/41.fe72ae76.chunk.js": "/Kapusta-Front/static/js/41.fe72ae76.chunk.js",
-    "static/js/625.3f3e4e02.chunk.js": "/Kapusta-Front/static/js/625.3f3e4e02.chunk.js",
+    "static/js/970.3ccaf223.chunk.js": "/Kapusta-Front/static/js/970.3ccaf223.chunk.js",
     "static/js/242.b4c35889.chunk.js": "/Kapusta-Front/static/js/242.b4c35889.chunk.js",
     "static/js/444.f1ec52b6.chunk.js": "/Kapusta-Front/static/js/444.f1ec52b6.chunk.js",
     "static/js/905.3be38d8c.chunk.js": "/Kapusta-Front/static/js/905.3be38d8c.chunk.js",
@@ -16,12 +16,12 @@
     "static/js/126.05ca9ecb.chunk.js": "/Kapusta-Front/static/js/126.05ca9ecb.chunk.js",
     "index.html": "/Kapusta-Front/index.html",
     "main.27b6f8b4.css.map": "/Kapusta-Front/static/css/main.27b6f8b4.css.map",
-    "main.2d5c68e1.js.map": "/Kapusta-Front/static/js/main.2d5c68e1.js.map",
+    "main.eebb72f4.js.map": "/Kapusta-Front/static/js/main.eebb72f4.js.map",
     "201.14f66500.chunk.js.map": "/Kapusta-Front/static/js/201.14f66500.chunk.js.map",
     "895.d4a37aad.chunk.js.map": "/Kapusta-Front/static/js/895.d4a37aad.chunk.js.map",
     "782.fe261547.chunk.js.map": "/Kapusta-Front/static/js/782.fe261547.chunk.js.map",
     "41.fe72ae76.chunk.js.map": "/Kapusta-Front/static/js/41.fe72ae76.chunk.js.map",
-    "625.3f3e4e02.chunk.js.map": "/Kapusta-Front/static/js/625.3f3e4e02.chunk.js.map",
+    "970.3ccaf223.chunk.js.map": "/Kapusta-Front/static/js/970.3ccaf223.chunk.js.map",
     "242.b4c35889.chunk.js.map": "/Kapusta-Front/static/js/242.b4c35889.chunk.js.map",
     "444.f1ec52b6.chunk.js.map": "/Kapusta-Front/static/js/444.f1ec52b6.chunk.js.map",
     "905.3be38d8c.chunk.js.map": "/Kapusta-Front/static/js/905.3be38d8c.chunk.js.map",
@@ -32,6 +32,6 @@
   },
   "entrypoints": [
     "static/css/main.27b6f8b4.css",
-    "static/js/main.2d5c68e1.js"
+    "static/js/main.eebb72f4.js"
   ]
 }
