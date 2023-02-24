@@ -1,7 +1,5 @@
-import GraphicBar from 'components/GraphicBar';
-import { GraphicBox, GraphicMobileBox } from './Graphic.styled';
-import { useMedia } from 'hooks/useMedia';
-import GraphicMobileBar from 'components/GraphicMobileBar';
+import { BsTrash } from 'react-icons/bs';
+import { TransactionItem } from './TransactionListMobile.styled';
 
 const monthTransaction = [
   {
@@ -10,20 +8,6 @@ const monthTransaction = [
     description: 'salary',
     category: 'car',
     sum: 2000,
-  },
-  {
-    id: 31242142354235234525234523,
-    date: '21.09.2019',
-    description: 'ali',
-    category: 'car',
-    sum: 20300,
-  },
-  {
-    id: 31242142354235234525234523,
-    date: '21.09.2019',
-    description: 'alic',
-    category: 'car',
-    sum: 11433,
   },
   {
     id: 12,
@@ -56,14 +40,14 @@ const monthTransaction = [
   {
     id: 13,
     date: '21.09.2019',
-    description: 'brakes',
+    description: 'salary',
     category: 'car',
     sum: 2000,
   },
   {
     id: 133,
     date: '21.09.2019',
-    description: 'brakes',
+    description: 'salary',
     category: 'car',
     sum: 2000,
   },
@@ -84,28 +68,28 @@ const monthTransaction = [
   {
     id: 142,
     date: '21.09.2019',
-    description: 'optics',
+    description: 'salary',
     category: 'car',
     sum: 2000,
   },
   {
     id: Math.random(),
     date: '21.09.2019',
-    description: 'optics',
+    description: 'salary',
     category: 'car',
     sum: 2000,
   },
   {
     id: Math.random(),
     date: '21.09.2019',
-    description: 'optics',
+    description: 'salary',
     category: 'car',
     sum: 2000,
   },
   {
     id: Math.random(),
     date: '21.09.2019',
-    description: 'optics',
+    description: 'salary',
     category: 'car',
     sum: 2000,
   },
@@ -140,42 +124,7 @@ const monthTransaction = [
   {
     id: Math.random(),
     date: '21.09.2019',
-    description: 'weels',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'weels',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'weels',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'weels',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'weels',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'weels',
+    description: 'salary',
     category: 'car',
     sum: 2000,
   },
@@ -189,66 +138,60 @@ const monthTransaction = [
   {
     id: Math.random(),
     date: '21.09.2019',
-    description: 'disk',
+    description: 'salary',
     category: 'car',
-    sum: 13000,
+    sum: 2000,
   },
   {
     id: Math.random(),
     date: '21.09.2019',
-    description: 'plastic',
+    description: 'salary',
     category: 'car',
-    sum: 3000,
+    sum: 2000,
   },
   {
     id: Math.random(),
     date: '21.09.2019',
-    description: 'mirror',
+    description: 'salary',
     category: 'car',
-    sum: 5000,
+    sum: 2000,
   },
   {
     id: Math.random(),
     date: '21.09.2019',
-    description: 'driver',
+    description: 'salary',
     category: 'car',
-    sum: 7775,
+    sum: 2000,
+  },
+  {
+    id: Math.random(),
+    date: '21.09.2019',
+    description: 'salary',
+    category: 'car',
+    sum: 2000,
   },
 ];
 
-export default function Graphic() {
-  const { isTabletAndDesktop, isMobile } = useMedia();
-
-  const graphicTransact = monthTransaction.reduce(
-    (prev, { description, sum }) => {
-      const index = prev.findIndex(option => option.name === description);
-
-      if (index !== -1) {
-        prev[index].sum += sum;
-        return prev;
-      }
-
-      prev.push({ name: description, sum: sum });
-      return prev;
-    },
-    []
-  );
-  const sortGriphicTransact = graphicTransact.sort(
-    (firstEl, secondEl) => secondEl.sum - firstEl.sum
-  );
-
+export default function TransactionListMobile() {
   return (
-    <>
-      {isTabletAndDesktop && (
-        <GraphicBox>
-          <GraphicBar transaction={sortGriphicTransact} />
-        </GraphicBox>
-      )}
-      {isMobile && (
-        <GraphicMobileBox>
-          <GraphicMobileBar transaction={sortGriphicTransact} />
-        </GraphicMobileBox>
-      )}
-    </>
+    <ul>
+      {monthTransaction.map(({ id, date, description, category, sum }) => {
+        return (
+          <TransactionItem key={id}>
+            <div>
+              <p>{description}</p>
+              <p>{date}</p>
+              <p>{category}</p>
+            </div>
+            <div>
+              <p>{sum}</p>
+              <button>
+                <BsTrash />
+              </button>
+            </div>
+          </TransactionItem>
+        );
+      })}
+    </ul>
   );
 }
