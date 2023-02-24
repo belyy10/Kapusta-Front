@@ -1,4 +1,6 @@
+import { ResponsiveContainer } from 'recharts';
 import styled from 'styled-components';
+
 export const GraphicBox = styled.div`
   display: flex;
   justify-content: center;
@@ -12,6 +14,15 @@ export const GraphicBox = styled.div`
 
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
+`;
 
-  /* outline: 1px solid tomato; */
+export const GraphicMobileBox = styled(ResponsiveContainer)`
+  display: flex;
+
+  padding: 20px 0;
+  width: 320px;
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    width: 480px;
+  }
 `;

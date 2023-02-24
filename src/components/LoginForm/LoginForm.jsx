@@ -13,12 +13,12 @@ import {
   Title,
   TitleGoogle,
   Error,
-} from './RegisterForm.styled';
+} from './LoginForm.styled';
 import { FcGoogle } from 'react-icons/fc';
 import { logIn } from 'redux/auth/authOperations';
 import schemaRegister from 'schema/shemaRegister';
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const dispatch = useDispatch();
   const initialValues = { email: '', password: '' };
 
@@ -64,7 +64,8 @@ export const RegisterForm = () => {
             />
             <ButtonGroup>
               <Button>Log in</Button>
-              <Button>Back</Button>
+
+              <Button>Registration</Button>
             </ButtonGroup>
           </FormBox>
         </Form>
