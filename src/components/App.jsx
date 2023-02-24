@@ -5,7 +5,7 @@ const Header = lazy(() => import('./Header'));
 const Registration = lazy(() => import('../pages/Registration'));
 const Main = lazy(() => import('../pages/Main'));
 const Reports = lazy(() => import('../pages/Reports'));
-
+const BalancePage = lazy(() => import('../pages/BalancePage'))
 export default function App() {
   return (
     <Suspense>
@@ -14,7 +14,7 @@ export default function App() {
           <Route path="registration" element={<Registration />} />
           <Route path="main" element={<Main />} />
           <Route path="reports" element={<Reports />} />
-
+          <Route path="balance" element={<BalancePage />} />
           <Route path="*" element={<Reports />} />
         </Route>
       </Routes>

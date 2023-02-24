@@ -1,19 +1,10 @@
-import Container from 'components/Container';
-import { Input } from 'components/RegisterForm/RegisterForm.styled';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { balanceSelectors } from '../../redux/balance';
 import balanceOperations from '../../redux/balance/balance-operations';
-import {
- Title,
- Container,
- Section,
- Input,
- Button,
+import {Wrapper, Button, Title, Section, Input} from './Balance.styled';
 
-} from './Balance.styled';
-
-const Balance = () => {
+export default function Balance () {
   const dispatch = useDispatch();
 
   const currentBalance = useSelector(balanceSelectors.balanceCurrent);
@@ -60,7 +51,7 @@ const Balance = () => {
   };
 
   return (
-    <Container>
+    <Wrapper>
       <Title>Баланс:</Title>
       <Section>
         <Input
@@ -91,8 +82,7 @@ const Balance = () => {
           </p>
         </div>
       )}
-    </Container>
+    </Wrapper>
   );
 };
 
-export default Balance;
