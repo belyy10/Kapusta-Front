@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { balanceSelectors } from '../../redux/balance';
 import balanceOperations from '../../redux/balance/balance-operations';
-import {Wrapper, Button, Title, Section, Input} from './Balance.styled';
+import { Wrapper, Button, Title, Section, Input } from './Balance.styled';
 
-export default function Balance () {
+export default function Balance() {
   const dispatch = useDispatch();
 
   const currentBalance = useSelector(balanceSelectors.balanceCurrent);
@@ -64,10 +64,7 @@ export default function Balance () {
           onBlur={inputBlurHandler}
           onKeyDown={enterKeyHandler}
         />
-        <Button
-          type="button"
-          onClick={handleClick}
-        >
+        <Button type="button" onClick={handleClick}>
           Подтвердить
         </Button>
       </Section>
@@ -78,11 +75,10 @@ export default function Balance () {
             Привет! Для начала работы внеси текущий баланс своего счета!
           </p>
           <p className="balance__tooltip__text-second">
-            Ты не можешь тратить деньги пока их у тебя нет {' '}
+            Ты не можешь тратить деньги пока их у тебя нет{' '}
           </p>
         </div>
       )}
     </Wrapper>
   );
-};
-
+}
