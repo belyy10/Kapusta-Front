@@ -4,7 +4,6 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 
 const Header = lazy(() => import('./Header'));
-const Registration = lazy(() => import('../pages/Registration'));
 const Main = lazy(() => import('../pages/Main'));
 const Reports = lazy(() => import('../pages/Reports'));
 const Login = lazy(() => import('../pages/Login'));
@@ -14,12 +13,6 @@ export default function App() {
     <Suspense>
       <Routes>
         <Route path="/" element={<Header />}>
-          <Route
-            path="registration"
-            element={
-              <RestrictedRoute component={Registration} redirectTo="/main" />
-            }
-          />
           <Route
             path="login"
             element={<RestrictedRoute component={Login} redirectTo="/main" />}

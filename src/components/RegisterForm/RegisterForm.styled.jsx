@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import COLORS from 'variables/colors/colors';
 import { Field } from 'formik';
+import { fadeInLeft, fadeInRight } from 'react-animations';
+
+const animation2 = keyframes`${fadeInLeft}`;
+const animation3 = keyframes`${fadeInRight}`;
 
 export const FormBox = styled.form`
   display: flex;
@@ -17,52 +21,6 @@ export const FormBox = styled.form`
   }
 `;
 
-export const Google = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 9px;
-`;
-
-export const TitleGoogle = styled.p`
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 12px;
-  line-height: 1.17;
-  text-align: center;
-  letter-spacing: 0.04em;
-  color: ${COLORS.textColor};
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 25px;
-  }
-`;
-
-export const ButtonGoogle = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 122px;
-  height: 40px;
-  margin-bottom: 32px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14x;
-  letter-spacing: 0.02em;
-  color: ${COLORS.blackColor};
-  background-color: ${COLORS.backgroungColor};
-  border-radius: 26px;
-  border: none;
-  box-shadow: 1px 3px 7px rgba(170, 178, 197, 0.4);
-  transition: box-shadow 400ms ease-in-out;
-
-  :hover,
-  :focus {
-    box-shadow: 1px 3px 7px rgba(119, 125, 138, 0.466);
-  }
-`;
-
 export const Title = styled.p`
   font-weight: 400;
   margin-bottom: 16px;
@@ -70,20 +28,18 @@ export const Title = styled.p`
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: ${COLORS.textColor};
+  animation: 1s ${animation2};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 25px;
   }
 `;
 
-export const TextGoogle = styled.p`
-  margin-left: 10px;
-`;
-
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  animation: 1s ${animation3};
 `;
 
 export const LabelText = styled.label`
@@ -129,6 +85,7 @@ export const Button = styled.button`
   cursor: pointer;
   transition: background-color 400ms ease-in-out, color 400ms ease-in-out,
     box-shadow 400ms ease-in-out;
+  animation: 1s ${animation2};
 
   :hover,
   :focus {
