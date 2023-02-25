@@ -1,4 +1,4 @@
-import { Formik, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import {
   ButtonGoogle,
@@ -29,41 +29,45 @@ export const LoginForm = ({ onRegistrationClick }) => {
 
   return (
     <>
-      <Formik
-        onSubmit={handleSubmit}
-        validationSchema={schemaRegister}
-        initialValues={initialValues}
-      >
-        <FormBox>
-          <Google>
-            <TitleGoogle>You can log in with your Google Account:</TitleGoogle>
-            <ButtonGoogle>
-              <FcGoogle size={18} />
-              <TextGoogle>Google</TextGoogle>
-            </ButtonGoogle>
-          </Google>
-
-          <Title>
-            Or log in using an email and password, after registering:
-          </Title>
-          <Label>
-            <LabelText>Email:</LabelText>
-            <Input type="email" name="email" placeholder="your@email.com" />
-          </Label>
-          <ErrorMessage name="email" render={msg => <Error>{msg}</Error>} />
-          <Label>
-            <LabelText>Password:</LabelText>
-            <Input type="password" name="password" placeholder="Password" />
-          </Label>
-          <ErrorMessage name="password" render={msg => <Error>{msg}</Error>} />
-          <ButtonGroup>
-            <Button>Log in</Button>
-            <Button type="button" onClick={onRegistrationClick}>
-              Registration
-            </Button>
-          </ButtonGroup>
-        </FormBox>
-      </Formik>
+      <FormBox>
+        <Google>
+          <TitleGoogle>You can log in with your Google Account:</TitleGoogle>
+          <ButtonGoogle href="https://kapusta-deployment.onrender.com/api/auth/google">
+            <FcGoogle size={18} />
+            <TextGoogle>Google</TextGoogle>
+          </ButtonGoogle>
+        </Google>
+        <Formik
+          onSubmit={handleSubmit}
+          validationSchema={schemaRegister}
+          initialValues={initialValues}
+        >
+          <Form>
+            <Title>
+              Or log in using an email and password, after registering:
+            </Title>
+            <Label>
+              <LabelText>Email:</LabelText>
+              <Input type="email" name="email" placeholder="your@email.com" />
+            </Label>
+            <ErrorMessage name="email" render={msg => <Error>{msg}</Error>} />
+            <Label>
+              <LabelText>Password:</LabelText>
+              <Input type="password" name="password" placeholder="Password" />
+            </Label>
+            <ErrorMessage
+              name="password"
+              render={msg => <Error>{msg}</Error>}
+            />
+            <ButtonGroup>
+              <Button>Log in</Button>
+              <Button type="button" onClick={onRegistrationClick}>
+                Registration
+              </Button>
+            </ButtonGroup>
+          </Form>
+        </Formik>
+      </FormBox>
     </>
   );
 };

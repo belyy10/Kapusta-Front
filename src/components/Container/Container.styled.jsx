@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ContainerBox = styled.div`
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   width: 320px;
