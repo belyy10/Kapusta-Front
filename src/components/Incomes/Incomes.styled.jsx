@@ -39,11 +39,11 @@ export const InputDescription = styled.input`
 `;
 
 export const Input = styled.input`
-  padding: 17px 19px;
-  border: #f5f6fb;
-  outline: none;
-  border-bottom-left-radius: 30px;
-  background-color: ${COLORS.backgroungColor};
+  //   padding: 17px 19px;
+  //   border: #f5f6fb;
+  //   outline: none;
+  //   border-bottom-left-radius: 30px;
+  //   background-color: ${COLORS.backgroungColor};
 `;
 
 export const InputSum = styled.input`
