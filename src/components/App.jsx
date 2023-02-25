@@ -15,7 +15,7 @@ export default function App() {
           <Route path="main" element={<Main />} />
           <Route path="reports" element={<Reports />} />
 
-          <Route path="*" element={<Reports />} />
+          <Route path="*" element={<Main />} />
         </Route>
       </Routes>
     </Suspense>

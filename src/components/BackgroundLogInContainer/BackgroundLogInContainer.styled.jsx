@@ -8,7 +8,7 @@ export const ContainerTop = styled.div`
   height: 286px;
   background-color: #f5f6fb;
   border-bottom-left-radius: 100px 100px;
-  background-image: url('public/images/1.png');
+  background-image: url('images/1.png');
   background-size: contain;
   background-repeat: no-repeat;
 
