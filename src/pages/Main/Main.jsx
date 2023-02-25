@@ -1,4 +1,7 @@
+
 import BackgroundPrivateContainer from 'components/BackgroundPrivateContainer';
+
+import Balance from 'components/Balance';
 import Container from 'components/Container';
 //
 import Table from 'components/Table';
@@ -14,8 +17,9 @@ export default function Main() {
     <BackgroundPrivateContainer>
       <Container>
         <h1>MAIN PAGE</h1>
-        {/* <TransactionsContainer> */}
-        {/* <CreateExpenses /> */}
+
+        <Balance />
+
         {isTabletAndDesktop && <Table />}
         {isMobile && <TransactionListMobile />}
       </Container>

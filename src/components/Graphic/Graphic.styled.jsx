@@ -11,7 +11,6 @@ export const GraphicBox = styled.div`
 
   width: 1034px;
   height: 422px;
-
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
 `;

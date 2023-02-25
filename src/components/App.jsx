@@ -6,7 +6,6 @@ import { PrivateRoute } from './PrivateRoute';
 const Header = lazy(() => import('./Header'));
 const Main = lazy(() => import('../pages/Main'));
 const Reports = lazy(() => import('../pages/Reports'));
-const BalancePage = lazy(() => import('../pages/BalancePage'));
 const Login = lazy(() => import('../pages/Login'));
 
 export default function App() {
@@ -14,7 +13,6 @@ export default function App() {
     <Suspense>
       <Routes>
         <Route path="/" element={<Header />}>
-          <Route path="balance" element={<BalancePage />} />
           <Route
             path="login"
             element={
@@ -31,7 +29,7 @@ export default function App() {
               <PrivateRoute component={<Reports />} redirectTo="/login" />
             }
           />
-          <Route path="*" element={<Login />} />
+          <Route path="*" element={<Main />} />
         </Route>
       </Routes>
     </Suspense>
