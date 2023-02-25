@@ -1,4 +1,4 @@
-import { Formik, ErrorMessage, Form } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import {
   ButtonGroup,
@@ -10,7 +10,7 @@ import {
   Title,
   Error,
 } from './RegisterForm.styled';
-import { logIn } from 'redux/auth/authOperations';
+import { register } from 'redux/auth/authOperations';
 import schemaRegister from 'schema/shemaRegister';
 
 export const RegisterForm = ({ onBackToLogin }) => {
@@ -18,7 +18,7 @@ export const RegisterForm = ({ onBackToLogin }) => {
   const initialValues = { email: '', password: '' };
 
   const handleSubmit = (initialValues, { resetForm }) => {
-    dispatch(logIn(initialValues));
+    dispatch(register(initialValues));
     resetForm();
   };
 
@@ -29,32 +29,27 @@ export const RegisterForm = ({ onBackToLogin }) => {
         validationSchema={schemaRegister}
         initialValues={initialValues}
       >
-        <Form>
-          <FormBox>
-            <Title>
-              Please, enter your email and create a password OR back to login:
-            </Title>
-            <Label>
-              <LabelText>Email:</LabelText>
-              <Input type="email" name="email" placeholder="your@email.com" />
-            </Label>
-            <ErrorMessage name="email" render={msg => <Error>{msg}</Error>} />
-            <Label>
-              <LabelText>Password:</LabelText>
-              <Input type="password" name="password" placeholder="Password" />
-            </Label>
-            <ErrorMessage
-              name="password"
-              render={msg => <Error>{msg}</Error>}
-            />
-            <ButtonGroup>
-              <Button>Sign up</Button>
-              <Button type="button" onClick={onBackToLogin}>
-                Back to login
-              </Button>
-            </ButtonGroup>
-          </FormBox>
-        </Form>
+        <FormBox>
+          <Title>
+            Please, enter your email and create a password OR back to login:
+          </Title>
+          <Label>
+            <LabelText>Email:</LabelText>
+            <Input type="email" name="email" placeholder="your@email.com" />
+          </Label>
+          <ErrorMessage name="email" render={msg => <Error>{msg}</Error>} />
+          <Label>
+            <LabelText>Password:</LabelText>
+            <Input type="password" name="password" placeholder="Password" />
+          </Label>
+          <ErrorMessage name="password" render={msg => <Error>{msg}</Error>} />
+          <ButtonGroup>
+            <Button>Sign up</Button>
+            <Button type="button" onClick={onBackToLogin}>
+              Back to login
+            </Button>
+          </ButtonGroup>
+        </FormBox>
       </Formik>
     </>
   );
