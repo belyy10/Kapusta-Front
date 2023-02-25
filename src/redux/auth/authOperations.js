@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-hot-toast';
 
-axios.defaults.baseURL = '';
+axios.defaults.baseURL = 'https://kapusta-deployment.onrender.com/api';
 
 //add token to axios
 function setAuthToken(token) {
