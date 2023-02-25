@@ -4,6 +4,8 @@ import Container from 'components/Container';
 import Table from 'components/Table';
 import TransactionListMobile from 'components/TransactionListMobile';
 import { useMedia } from 'hooks/useMedia';
+// import CreateExpenses from 'components/Expenses/Expenses';
+// import TransactionsContainer from 'components/TransactionsContainer/TransactionsContainer';
 
 export default function Main() {
   const { isTabletAndDesktop, isMobile } = useMedia();
@@ -12,6 +14,8 @@ export default function Main() {
     <BackgroundPrivateContainer>
       <Container>
         <h1>MAIN PAGE</h1>
+        {/* <TransactionsContainer> */}
+        {/* <CreateExpenses /> */}
         {isTabletAndDesktop && <Table />}
         {isMobile && <TransactionListMobile />}
       </Container>
