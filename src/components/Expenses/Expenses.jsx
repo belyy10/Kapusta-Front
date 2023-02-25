@@ -17,9 +17,9 @@ export default function CreateExpenses() {
     <>
       <Formik>
         <Form>
-          <Label>
+          {/* <Label>
             <Input type="date" min="1920-01-01" max="Date.now()" />
-          </Label>
+          </Label> */}
           <Label>
             <InputDescription
               type="text"
