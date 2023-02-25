@@ -1,4 +1,4 @@
-import BackgroundLogInContainer from 'components/BackgroundLogInContainer/BackgroundLogInContainer';
+import BackgroundPrivateContainer from 'components/BackgroundPrivateContainer';
 import Container from 'components/Container';
 import Table from 'components/Table';
 import TransactionListMobile from 'components/TransactionListMobile';
@@ -8,12 +8,12 @@ export default function Main() {
   const { isTabletAndDesktop, isMobile } = useMedia();
 
   return (
-    <BackgroundLogInContainer>
+    <BackgroundPrivateContainer>
       <Container>
         <h1>MAIN PAGE</h1>
         {isTabletAndDesktop && <Table />}
         {isMobile && <TransactionListMobile />}
       </Container>
-    </BackgroundLogInContainer>
+    </BackgroundPrivateContainer>
   );
 }
