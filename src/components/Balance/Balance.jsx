@@ -1,8 +1,9 @@
+import Container from 'components/Container';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { balanceSelectors } from '../../redux/balance';
 import balanceOperations from '../../redux/balance/balance-operations';
-import { Wrapper, Button, Title, Section, Input } from './Balance.styled';
+import { Wrapper, Button, Title, Section, Input, Wrapper2, Text, Styled,  } from './Balance.styled';
 
 export default function Balance() {
   const dispatch = useDispatch();
@@ -15,9 +16,9 @@ export default function Balance() {
 
   const loadingMessage = 'loading...';
 
-  useEffect(() => {
-    dispatch(balanceOperations.getBalance());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(balanceOperations.getBalance());
+  // }, [dispatch]);
 
   useEffect(() => {
     setBalance(`${parseFloat(currentBalance).toFixed(2)} UAH` || '');
@@ -51,6 +52,7 @@ export default function Balance() {
   };
 
   return (
+    <Container>
     <Wrapper>
       <Title>Баланс:</Title>
       <Section>
@@ -63,22 +65,23 @@ export default function Balance() {
           onFocus={inputFocusHandler}
           onBlur={inputBlurHandler}
           onKeyDown={enterKeyHandler}
-        />
+          />
         <Button type="button" onClick={handleClick}>
           Подтвердить
         </Button>
       </Section>
 
       {!parseFloat(balance) && !balanceLoading && tooltipOpen && (
-        <div className="balance__tooltip" onClick={removeTooltip}>
-          <p className="balance__tooltip__text-first">
-            Привет! Для начала работы внеси текущий баланс своего счета!
-          </p>
-          <p className="balance__tooltip__text-second">
-            Ты не можешь тратить деньги пока их у тебя нет{' '}
-          </p>
-        </div>
+        <Wrapper2  onClick={removeTooltip}>
+          <Text>
+          Hello! To get started, enter the current balance of your account!
+          </Text>
+          <Styled>
+          You can't spend money until you have it :{' ) '}
+          </Styled>
+        </Wrapper2>
       )}
     </Wrapper>
+      </Container>
   );
 }

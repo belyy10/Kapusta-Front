@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import Balance from './Balance';
 
 const Header = lazy(() => import('./Header'));
 const Main = lazy(() => import('../pages/Main'));
@@ -14,7 +15,12 @@ export default function App() {
     <Suspense>
       <Routes>
         <Route path="/" element={<Header />}>
-          <Route path="balance" element={<BalancePage />} />
+          <Route 
+            path="balance" 
+            element={
+              <RestrictedRoute component={BalancePage} redirectTo="/balance" />
+            }
+            />
           <Route
             path="login"
             element={
@@ -31,7 +37,7 @@ export default function App() {
               <PrivateRoute component={<Reports />} redirectTo="/login" />
             }
           />
-          <Route path="*" element={<Login />} />
+          <Route path="*" element={<Balance />} />
         </Route>
       </Routes>
     </Suspense>
