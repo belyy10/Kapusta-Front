@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import CreateExpenses from './Expenses/Expenses';
+import CreateIncomes from './Incomes/Incomes';
 
 const Header = lazy(() => import('./Header'));
 const Main = lazy(() => import('../pages/Main'));
@@ -22,7 +24,10 @@ export default function App() {
           <Route
             path="main"
             element={<PrivateRoute component={<Main />} redirectTo="/login" />}
-          />
+          >
+            <Route path="expenses" element={<CreateExpenses />} />
+            <Route path="incomes" element={<CreateIncomes />} />
+          </Route>
           <Route
             path="reports"
             element={
