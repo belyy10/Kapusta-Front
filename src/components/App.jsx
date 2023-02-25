@@ -1,19 +1,37 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
 
 const Header = lazy(() => import('./Header'));
-const Registration = lazy(() => import('../pages/Registration'));
 const Main = lazy(() => import('../pages/Main'));
+const Reports = lazy(() => import('../pages/Reports'));
+const BalancePage = lazy(() => import('../pages/BalancePage'));
+const Login = lazy(() => import('../pages/Login'));
 
 export default function App() {
   return (
     <Suspense>
       <Routes>
         <Route path="/" element={<Header />}>
-          <Route path="registration" element={<Registration />} />
-          <Route path="main" element={<Main />} />
-
-          <Route path="*" element={<Main />} />
+          <Route path="balance" element={<BalancePage />} />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute component={<Login />} redirectTo="/main" />
+            }
+          />
+          <Route
+            path="main"
+            element={<PrivateRoute component={<Main />} redirectTo="/login" />}
+          />
+          <Route
+            path="reports"
+            element={
+              <PrivateRoute component={<Reports />} redirectTo="/login" />
+            }
+          />
+          <Route path="*" element={<Login />} />
         </Route>
       </Routes>
     </Suspense>
