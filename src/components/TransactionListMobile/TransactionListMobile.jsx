@@ -1,5 +1,13 @@
 import { BsTrash } from 'react-icons/bs';
-import { TransactionItem } from './TransactionListMobile.styled';
+import {
+  TransactionBox,
+  TransactionDeleteBtn,
+  TransactionDescription,
+  TransactionInfo,
+  TransactionInfoBox,
+  TransactionItem,
+  TransactionSum,
+} from './TransactionListMobile.styled';
 
 const monthTransaction = [
   {
@@ -179,16 +187,18 @@ export default function TransactionListMobile() {
         return (
           <TransactionItem key={id}>
             <div>
-              <p>{description}</p>
-              <p>{date}</p>
-              <p>{category}</p>
+              <TransactionDescription>{description}</TransactionDescription>
+              <TransactionInfoBox>
+                <TransactionInfo>{date}</TransactionInfo>
+                <TransactionInfo>{category}</TransactionInfo>
+              </TransactionInfoBox>
             </div>
-            <div>
-              <p>{sum}</p>
-              <button>
-                <BsTrash />
-              </button>
-            </div>
+            <TransactionBox>
+              <TransactionSum>{sum}</TransactionSum>
+              <TransactionDeleteBtn>
+                <BsTrash width={15} height={18} />
+              </TransactionDeleteBtn>
+            </TransactionBox>
           </TransactionItem>
         );
       })}

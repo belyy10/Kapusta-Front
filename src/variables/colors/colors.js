@@ -8,6 +8,7 @@ const COLORS = Object.freeze({
   blackColor: '#000000',
   whiteColor: '#FFFFFF',
   barColor: '#FFDAC0',
+  redColor: '#E7192E',
 });
 
 export default COLORS;

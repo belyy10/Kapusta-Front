@@ -8,7 +8,6 @@ const authSlice = createSlice({
     user: {
       email: '',
       balance: 0,
-
     },
     accessToken: '',
     refreshToken: '',

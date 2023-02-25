@@ -6,7 +6,7 @@ import { PrivateRoute } from './PrivateRoute';
 const Header = lazy(() => import('./Header'));
 const Main = lazy(() => import('../pages/Main'));
 const Reports = lazy(() => import('../pages/Reports'));
-const BalancePage = lazy(() => import('../pages/BalancePage'))
+const BalancePage = lazy(() => import('../pages/BalancePage'));
 const Login = lazy(() => import('../pages/Login'));
 
 export default function App() {
@@ -17,15 +17,19 @@ export default function App() {
           <Route path="balance" element={<BalancePage />} />
           <Route
             path="login"
-            element={<RestrictedRoute component={Login} redirectTo="/main" />}
+            element={
+              <RestrictedRoute component={<Login />} redirectTo="/main" />
+            }
           />
           <Route
             path="main"
-            element={<PrivateRoute component={Main} redirectTo="/login" />}
+            element={<PrivateRoute component={<Main />} redirectTo="/login" />}
           />
           <Route
             path="reports"
-            element={<PrivateRoute component={Reports} redirectTo="/login" />}
+            element={
+              <PrivateRoute component={<Reports />} redirectTo="/login" />
+            }
           />
           <Route path="*" element={<Login />} />
         </Route>
