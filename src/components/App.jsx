@@ -29,7 +29,7 @@ export default function App() {
               <PrivateRoute component={<Reports />} redirectTo="/login" />
             }
           />
-          <Route path="*" element={<Main />} />
+          <Route path="*" element={<Login />} />
         </Route>
       </Routes>
     </Suspense>
