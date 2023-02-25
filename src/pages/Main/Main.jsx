@@ -1,6 +1,6 @@
 import BackgroundPrivateContainer from 'components/BackgroundPrivateContainer';
 import Container from 'components/Container';
-// import Summary from 'components/Summary';
+//
 import Table from 'components/Table';
 import TransactionListMobile from 'components/TransactionListMobile';
 import { useMedia } from 'hooks/useMedia';

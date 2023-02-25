@@ -60,7 +60,7 @@ export const LoginForm = ({ onRegistrationClick }) => {
               render={msg => <Error>{msg}</Error>}
             />
             <ButtonGroup>
-              <Button type="button">Log in</Button>
+              <Button>Log in</Button>
               <Button type="button" onClick={onRegistrationClick}>
                 Registration
               </Button>
