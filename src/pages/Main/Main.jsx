@@ -1,4 +1,5 @@
 import Container from 'components/Container';
+import Summary from 'components/Summary';
 import Table from 'components/Table';
 
 export default function Main() {
@@ -6,6 +7,7 @@ export default function Main() {
     <Container>
       <h1>MAIN PAGE</h1>
       <Table />
+      <Summary />
     </Container>
   );
 }
