@@ -32,7 +32,7 @@ export const LoginForm = ({ onRegistrationClick }) => {
       <FormBox>
         <Google>
           <TitleGoogle>You can log in with your Google Account:</TitleGoogle>
-          <ButtonGoogle href="https://kapusta-deployment.onrender.com/api/auth/google">
+          <ButtonGoogle href="https://kapusta-deployment.onrender.com/api/users/google">
             <FcGoogle size={18} />
             <TextGoogle>Google</TextGoogle>
           </ButtonGoogle>
