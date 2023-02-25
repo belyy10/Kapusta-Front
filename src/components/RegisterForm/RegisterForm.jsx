@@ -44,7 +44,7 @@ export const RegisterForm = ({ onBackToLogin }) => {
           </Label>
           <ErrorMessage name="password" render={msg => <Error>{msg}</Error>} />
           <ButtonGroup>
-            <Button type="button">Sign up</Button>
+            <Button>Sign up</Button>
             <Button type="button" onClick={onBackToLogin}>
               Back to login
             </Button>
