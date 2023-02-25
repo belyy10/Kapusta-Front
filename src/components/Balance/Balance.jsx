@@ -54,7 +54,7 @@ export default function Balance() {
   return (
     <Container>
     <Wrapper>
-      <Title>Баланс:</Title>
+      <Title>Balance:</Title>
       <Section>
         <Input
           type="text"
@@ -67,7 +67,7 @@ export default function Balance() {
           onKeyDown={enterKeyHandler}
           />
         <Button type="button" onClick={handleClick}>
-          Подтвердить
+          Confirm
         </Button>
       </Section>
 

@@ -1,4 +1,5 @@
 import BackgroundLogInContainer from 'components/BackgroundLogInContainer/BackgroundLogInContainer';
+import Balance from 'components/Balance';
 import Container from 'components/Container';
 import Table from 'components/Table';
 import TransactionListMobile from 'components/TransactionListMobile';
@@ -11,6 +12,7 @@ export default function Main() {
     <BackgroundLogInContainer>
       <Container>
         <h1>MAIN PAGE</h1>
+        <Balance />
         {isTabletAndDesktop && <Table />}
         {isMobile && <TransactionListMobile />}
       </Container>
