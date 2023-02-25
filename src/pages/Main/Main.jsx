@@ -1,4 +1,4 @@
-import BackgroundLogInContainer from 'components/BackgroundLogInContainer/BackgroundLogInContainer';
+import BackgroundPrivateContainer from 'components/BackgroundPrivateContainer';
 import Container from 'components/Container';
 import Summary from 'components/Summary';
 import Table from 'components/Table';
@@ -10,12 +10,12 @@ export default function Main() {
 
   return (
 
-    <BackgroundLogInContainer>
+    <BackgroundPrivateContainer>
       <Container>
         <h1>MAIN PAGE</h1>
         {isTabletAndDesktop && <Table />}
         {isMobile && <TransactionListMobile />}
       </Container>
-    </BackgroundLogInContainer>
+    </BackgroundPrivateContainer>
   );
 }
