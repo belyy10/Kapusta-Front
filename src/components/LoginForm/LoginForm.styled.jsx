@@ -1,12 +1,12 @@
 import styled, { keyframes } from 'styled-components';
 import COLORS from 'variables/colors/colors';
-import { Field, Form } from 'formik';
+import { Field } from 'formik';
 import { fadeInLeft, fadeInRight } from 'react-animations';
 
 const animation2 = keyframes`${fadeInLeft}`;
 const animation3 = keyframes`${fadeInRight}`;
 
-export const FormBox = styled(Form)`
+export const FormBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 240px;
@@ -21,6 +21,54 @@ export const FormBox = styled(Form)`
   }
 `;
 
+export const Google = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 9px;
+  animation: 1s ${animation2};
+`;
+
+export const TitleGoogle = styled.p`
+  font-weight: 400;
+  margin-bottom: 16px;
+  font-size: 12px;
+  line-height: 1.17;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: ${COLORS.textColor};
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 25px;
+  }
+`;
+
+export const ButtonGoogle = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 122px;
+  height: 40px;
+  margin-bottom: 32px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14x;
+  letter-spacing: 0.02em;
+  color: ${COLORS.blackColor};
+  background-color: ${COLORS.backgroungColor};
+  border-radius: 26px;
+  border: none;
+  box-shadow: 1px 3px 7px rgba(170, 178, 197, 0.4);
+  transition: box-shadow 400ms ease-in-out;
+  text-decoration: none;
+
+  :hover,
+  :focus {
+    box-shadow: 1px 3px 7px rgba(119, 125, 138, 0.466);
+  }
+`;
+
 export const Title = styled.p`
   font-weight: 400;
   margin-bottom: 16px;
@@ -28,11 +76,16 @@ export const Title = styled.p`
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: ${COLORS.textColor};
-  animation: 1s ${animation2};
+  animation: 1s ${animation3};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 25px;
   }
+`;
+
+export const TextGoogle = styled.p`
+  margin-left: 10px;
+  text-decoration: none;
 `;
 
 export const Label = styled.label`
