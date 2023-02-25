@@ -11,7 +11,7 @@ const authSlice = createSlice({
     },
     accessToken: '',
     refreshToken: '',
-    isLoggedIn: true,
+    isLoggedIn: false,
     isRefreshing: false,
   },
 
