@@ -10,7 +10,7 @@ export const TransactionsWrapper = styled.section`
     flex-direction: column;
     position: relative;
     background-color: ${COLORS.whiteColor};
-    box-shadow: 5px 10px 20px rgba(170, 178, W197, 0.4);
+    box-shadow: 0px 10px 60px rgba(170, 178, W197, 0.2);
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;

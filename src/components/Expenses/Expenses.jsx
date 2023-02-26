@@ -65,7 +65,7 @@ export default function CreateExpenses() {
                 placeholder="0,00 UAH"
               />
               <Calculator>
-                <BiCalculator />
+                <BiCalculator size={18} />
               </Calculator>
             </InputSumWrapper>
           </InputGroup>

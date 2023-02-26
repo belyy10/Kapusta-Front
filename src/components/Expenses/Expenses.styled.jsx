@@ -32,6 +32,7 @@ export const Arrow = styled.span`
 export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -87,11 +88,13 @@ export const InputDate = styled.input`
 `;
 
 export const InputSumWrapper = styled.div`
-  display: flex;
-  margin-bottom: 80px;
-  margin-top: 32px;
-
+  @media screen and (max-width: 767px) {
+    display: flex;
+    margin-bottom: 80px;
+    margin-top: 32px;
+  }
   @media screen and (min-width: 768px) {
+    position: relative;
   }
 `;
 
@@ -126,21 +129,33 @@ export const InputSum = styled.input`
 `;
 
 export const Calculator = styled.span`
-  width: 60px;
-  hight: 44px;
-  background-color: transparent;
-  border: 2px solid #ffffff;
-  outline: none;
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
-  text-align: center;
-  justify-content: center;
+  @media screen and (max-width: 767px) {
+    width: 60px;
+    height: 46px;
+    display: flex;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    outline: none;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 16px;
+    left: 96px;
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const SelectCategory = styled.select`
   padding-left: 20px;
   height: 50px;
-  width: 280px;
+  width: 306px;
   border: 2px solid #ffffff;
   outline: none;
   background-color: transparent;
