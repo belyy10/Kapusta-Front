@@ -1,5 +1,7 @@
-import { SummaryBox, SummaryTitle, SummayrTitleRow, SummaryBody, SummaryItem } from './Summary.styled';
+import { useState } from 'react';
+import { SummaryBox, SummaryTitle, SummaryBody } from './Summary.styled';
 import SummaryBodyList from './SummaryList';
+
 
 const monthSummary = [
     {
@@ -9,17 +11,20 @@ const monthSummary = [
     {
         "_id": "2023-01",
         "expenses": 370
+    },
+     {
+        "_id": "2022-12",
+        "expenses": 312
     }
 ]
 
 export default function Summary() {
+    // const [monthSummary, setMonthSummary] = useState('');
+
     return (
         <SummaryBox>
-            <theader>
-                <SummayrTitleRow>
-                    <SummaryTitle>Summary</SummaryTitle>
-                </SummayrTitleRow>  
-            </theader>
+            <SummaryTitle>Summary</SummaryTitle>
+
             <SummaryBody>
                 {monthSummary && monthSummary.map(item => <SummaryBodyList key={item.id}
                     item={item} />)}
@@ -28,36 +33,3 @@ export default function Summary() {
         </SummaryBox>
     )
 }
-
-// import TableBody from 'components/TableBody';
-// import {
-//   TableBox,
-//   TableTitle,
-//   TableTitleItem,
-//   TransactionBox,
-//   TableBodys,
-// } from './Table.styled';
-
-// // export default function Table() {
-//   return (
-//     <TransactionBox>
-//       <TableBox>
-//         <thead>
-//           <TableTitle>
-//             <TableTitleItem>DATE</TableTitleItem>
-//             <TableTitleItem>DESCRIPTION</TableTitleItem>
-//             <TableTitleItem>category</TableTitleItem>
-//             <TableTitleItem>sum</TableTitleItem>
-//             <TableTitleItem></TableTitleItem>
-//           </TableTitle>
-//         </thead>
-//         <TableBodys>
-//           {monthTransaction &&
-//             monthTransaction.map(transaction => (
-//               <TableBody key={transaction.id} transaction={transaction} />
-//             ))}
-//         </TableBodys>
-//       </TableBox>
-//     </TransactionBox>
-//   );
-// }
