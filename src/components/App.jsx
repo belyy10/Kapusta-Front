@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
-import CreateExpenses from './Expenses/Expenses';
+import CreateExpenses from './CreateTransaction/CreateTransaction';
 import CreateIncomes from './Incomes/Incomes';
 
 const Header = lazy(() => import('./Header'));
