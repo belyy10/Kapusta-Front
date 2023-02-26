@@ -23,8 +23,12 @@ export const LinkToMain = styled(Link)`
   @media screen and (min-width: 678px) {
     position: absolute;
     top: 57px;
-    left: 0;
+    left: calc((100% - 704px) / 2);
     z-index: 20;
+  }
+
+  @media screen and (min-width: 1200px) {
+    left: calc((100% - 1034px) / 2);
   }
 `;
 
