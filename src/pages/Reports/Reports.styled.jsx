@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { RiBarChartFill } from 'react-icons/ri';
 
-export const LinkReport = styled(Link)`
+import { HiArrowNarrowLeft } from 'react-icons/hi';
+import COLORS from 'variables/colors/colors';
+
+export const LinkToMain = styled(Link)`
   display: flex;
   align-items: center;
 
@@ -12,6 +14,7 @@ export const LinkReport = styled(Link)`
   font-weight: 400;
   font-size: 12px;
   line-height: calc(14 / 12);
+  /* identical to box height */
 
   letter-spacing: 0.04;
 
@@ -20,11 +23,12 @@ export const LinkReport = styled(Link)`
   @media screen and (min-width: 678px) {
     position: absolute;
     top: 57px;
-    right: 0;
+    left: 0;
     z-index: 20;
   }
 `;
 
-export const IconLink = styled(RiBarChartFill)`
-  margin-left: 20px;
+export const IconLink = styled(HiArrowNarrowLeft)`
+  margin-right: 20px;
+  color: ${COLORS.activeColor};
 `;

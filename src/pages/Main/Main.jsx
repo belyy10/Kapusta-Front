@@ -1,5 +1,4 @@
 import BackgroundPrivateContainer from 'components/BackgroundPrivateContainer';
-
 import Balance from 'components/Balance';
 import Container from 'components/Container';
 //
@@ -17,13 +16,13 @@ export default function Main() {
   return (
     <BackgroundPrivateContainer>
       <Container>
-        <h1>MAIN PAGE</h1>
+        {/* <h1>MAIN PAGE</h1> */}
 
-        <Balance />
         <LinkReport to="/reports">
           reports
           <IconLink size={14} color=" #52555F" />
         </LinkReport>
+        <Balance />
 
         {isTabletAndDesktop && <Table />}
         {isMobile && <TransactionListMobile />}
