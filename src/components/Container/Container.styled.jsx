@@ -5,8 +5,7 @@ export const ContainerBox = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 320px;
-  background: #F2F5FC;
-
+  background: #f2f5fc;
 
   @media screen and (min-width: 768px) {
     width: 768px;

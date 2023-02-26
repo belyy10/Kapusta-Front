@@ -7,23 +7,25 @@ export const TransactionsWrapper = styled.section`
     width: 704px;
     padding: 24px 40px 42px 40px;
     display: flex;
+    flex-direction: column;
     position: relative;
     background-color: ${COLORS.whiteColor};
-    box-shadow: 5px 10px 20px rgba(170, 178, W197, 0.4);
+    box-shadow: 0px 10px 60px rgba(170, 178, W197, 0.2);
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
-    border: 1px solid black;
   }
 
   @media screen and (min-width: 1200px) {
     width: 1098px;
-    height: 579px;
     padding: 32px 32px;
   }
 `;
 
 export const Expenses = styled.a`
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
   @media screen and (min-width: 768px) {
     width: 138px;
     higth: 40px;
@@ -40,11 +42,13 @@ export const Expenses = styled.a`
     border-top-right-radius: 16px;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    border: 1px solid black;
   }
 `;
 
-export const Incomes = styled.div`
+export const Incomes = styled.a`
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
   @media screen and (min-width: 768px) {
     width: 138px;
     higth: 40px;
@@ -61,6 +65,5 @@ export const Incomes = styled.div`
     border-top-right-radius: 16px;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    border: 1px solid black;
   }
 `;

@@ -28,7 +28,8 @@ const authSlice = createSlice({
     },
     [logOut.fulfilled](state) {
       state.user = { email: null };
-      state.token = null;
+      state.accessToken = null;
+      state.refreshToken = null;
       state.isLoggedIn = false;
     },
     [refreshUser.pending](state) {
