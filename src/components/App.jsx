@@ -34,7 +34,7 @@ export default function App() {
               <PrivateRoute component={<Reports />} redirectTo="/login" />
             }
           />
-          <Route path="*" element={<Login />} />
+          <Route path="*" element={<Main />} />
         </Route>
       </Routes>
     </Suspense>
