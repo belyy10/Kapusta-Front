@@ -6,7 +6,7 @@ axios.defaults.baseURL = 'https://kapusta-deployment.onrender.com/api';
 
 //add token to axios
 function setAuthToken(token) {
-  axios.defaults.headers.common['Authorization'] = token;
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 }
 
 //remove token from axios

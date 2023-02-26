@@ -41,7 +41,7 @@ export const SpanTitle = styled.span`
 
     position: absolute;
     right: calc((100% - 8px) / 2);
-    top: 29px;
+    top: 33px;
 
     background-color: ${COLORS.blackColor};
   }
