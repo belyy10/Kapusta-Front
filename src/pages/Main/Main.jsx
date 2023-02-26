@@ -6,7 +6,8 @@ import Container from 'components/Container';
 import Table from 'components/Table';
 import TransactionListMobile from 'components/TransactionListMobile';
 import { useMedia } from 'hooks/useMedia';
-import { Link } from 'react-router-dom';
+import { IconLink, LinkReport } from './Main.styled';
+
 // import CreateExpenses from 'components/Expenses/Expenses';
 // import TransactionsContainer from 'components/TransactionsContainer/TransactionsContainer';
 
@@ -19,7 +20,10 @@ export default function Main() {
         <h1>MAIN PAGE</h1>
 
         <Balance />
-        <Link to="/reports">reports</Link>
+        <LinkReport to="/reports">
+          reports
+          <IconLink size={14} color=" #52555F" />
+        </LinkReport>
 
         {isTabletAndDesktop && <Table />}
         {isMobile && <TransactionListMobile />}
