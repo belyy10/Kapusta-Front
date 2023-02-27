@@ -1,6 +1,8 @@
+// import { useDispatch } from 'react-redux';
+// import { useState } from 'react';
 import { Formik } from 'formik';
 import { BiCalculator } from 'react-icons/bi';
-import schemaTransactions from 'schema/schemaTransactions';
+// import schemaTransactions from 'schema/schemaTransactions';
 
 import {
   Wrapper,
@@ -20,17 +22,25 @@ import {
 const initialValues = {
   date: new Date(),
   description: '',
-  category: '',
+
   sum: 0,
 };
 
 export default function CreateTransaction() {
   const currentDate = new Date().toISOString().slice(0, 10);
 
+  // const dispatch = useDispatch();
+
+  // const [data, setData] = useState({});
+
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
     resetForm();
   };
+
+  // const reset = () => {
+  //   setData({});
+  // };
 
   return (
     <>
@@ -59,7 +69,7 @@ export default function CreateTransaction() {
             </Label>
 
             <SelectCategory name="category" as="select">
-              <Option disabled selected value="">
+              <Option disabled defaultValue="Product category">
                 Product category
               </Option>
               <Option value="transport">Transport</Option>
