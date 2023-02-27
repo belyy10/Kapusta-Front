@@ -10,6 +10,7 @@ const COLORS = Object.freeze({
   barColor: '#FFDAC0',
   redColorExpenses: '#E53935',
   greenColorIncoms: '#407946',
+  redColor: '#E7192E',
 });
 
 export default COLORS;

@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const ContainerBox = styled.div`
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   width: 320px;
+  background: #f2f5fc;
 
   @media screen and (min-width: 768px) {
     width: 768px;
