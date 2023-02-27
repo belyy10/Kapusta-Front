@@ -1,5 +1,6 @@
-// import CreateExpenses from 'components/Expenses/Expenses';
-import CreateExpenses from 'components/Expenses/Expenses';
+import { useState } from 'react';
+
+import CreateExpenses from 'components/CreateTransaction/CreateTransaction';
 import {
   TransactionsWrapper,
   Incomes,
@@ -11,17 +12,46 @@ import TransactionListMobile from 'components/TransactionListMobile';
 
 export default function TransactionsContainer() {
   const { isTabletAndDesktop, isMobile } = useMedia();
+  const [transactions, setTransactions] = useState('incomes');
+  const [isActive, setIsActive] = useState({
+    incomes: true,
+    expenses: false,
+  });
+
+  function changeTransaction(state) {
+    setTransactions(state);
+
+    if (state === 'incomes') {
+      setIsActive({
+        incomes: true,
+        expenses: false,
+      });
+      return;
+    }
+    setIsActive({
+      incomes: false,
+      expenses: true,
+    });
+    return;
+  }
+
   return (
     <TransactionsWrapper>
-      <Incomes to="incomes" state={{}}>
+      <Incomes
+        isActive={isActive.incomes}
+        onClick={() => changeTransaction('incomes')}
+      >
         Incomes
       </Incomes>
-      <Expenses to="expenses" state={{}}>
+      <Expenses
+        isActive={isActive.expenses}
+        onClick={() => changeTransaction('expenses')}
+      >
         Expenses
       </Expenses>
-      <CreateExpenses />
-      {isTabletAndDesktop && <Table />}
-      {isMobile && <TransactionListMobile />}
+      <CreateExpenses transactions={transactions} />
+      {isTabletAndDesktop && <Table transactions={transactions} />}
+      {isMobile && <TransactionListMobile transactions={transactions} />}
     </TransactionsWrapper>
   );
 }
