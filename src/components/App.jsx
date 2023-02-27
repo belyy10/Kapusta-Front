@@ -1,10 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
-import { lazy, Suspense, useEffect  } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 
-import CreateExpenses from './CreateTransaction/CreateTransaction';
-import CreateIncomes from './Incomes/Incomes';
+import CreateTransactions from './CreateTransaction/CreateTransaction';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
 
@@ -34,8 +33,8 @@ export default function App() {
             path="main"
             element={<PrivateRoute component={<Main />} redirectTo="/login" />}
           >
-            <Route path="expenses" element={<CreateExpenses />} />
-            <Route path="incomes" element={<CreateIncomes />} />
+            <Route path="expenses" element={<CreateTransactions />} />
+            <Route path="incomes" element={<CreateTransactions />} />
           </Route>
           <Route
             path="reports"
