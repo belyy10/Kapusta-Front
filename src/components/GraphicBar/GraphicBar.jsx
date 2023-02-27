@@ -1,3 +1,4 @@
+import { useMedia } from 'hooks/useMedia';
 import {
   BarChart,
   Bar,
@@ -44,6 +45,11 @@ const CustomizedTickLabel = ({ x, y, payload }) => {
 };
 
 export default function GraphicBar({ transaction }) {
+  const { isDesktop } = useMedia();
+
+  const padding = isDesktop ? 77 : 5;
+  const margin = isDesktop ? 150 : 50;
+
   return (
     <ResponsiveContainer>
       <BarChart
@@ -51,8 +57,8 @@ export default function GraphicBar({ transaction }) {
         stackOffset={'expand'}
         margin={{
           top: 50,
-          right: 150,
-          left: 150,
+          right: margin,
+          left: margin,
           bottom: 5,
         }}
         barGap={25}
@@ -60,7 +66,7 @@ export default function GraphicBar({ transaction }) {
         <CartesianGrid vertical={false} stroke={COLORS.bgTableTitle} />
         <XAxis
           dataKey="name"
-          padding={{ left: 77, right: 77 }}
+          padding={{ left: padding, right: padding }}
           axisLine={false}
           tickLine={false}
           tick={<CustomizedTickLabel />}
