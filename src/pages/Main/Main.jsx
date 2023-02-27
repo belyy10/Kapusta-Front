@@ -14,7 +14,6 @@ export default function Main() {
           <IconLink size={14} color=" #52555F" />
         </LinkReport>
         <Balance />
-
         <TransactionsContainer />
       </Container>
     </BackgroundPrivateContainer>
