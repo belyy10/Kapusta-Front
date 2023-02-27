@@ -9,12 +9,12 @@ export default function Main() {
   return (
     <BackgroundPrivateContainer>
       <Container>
-        {/* <LinkReport to="/reports">
+        <LinkReport to="/reports">
           reports
           <IconLink size={14} color=" #52555F" />
-        </LinkReport> */}
+        </LinkReport>
         <Balance />
-        {/* <TransactionsContainer /> */}
+        <TransactionsContainer />
       </Container>
     </BackgroundPrivateContainer>
   );
