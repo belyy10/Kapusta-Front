@@ -1,6 +1,8 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+axios.defaults.baseURL = '';
+
 export const changeDate = createAction('transactions/changeDate');
 export const changeType = createAction('transactions/changeType');
 

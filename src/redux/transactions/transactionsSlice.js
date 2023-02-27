@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import FormatDate from "utils/FormatDate";
 import {
     fetchUserTransactions,
     addTransaction,
@@ -12,11 +13,12 @@ import {
 
 const initialState = {
     transactions: [],
-    summary: [],
+    summaryExpenses: [],
+    summaryIncomes: [],
     reportsData: [],
     type: 'all',
     isLoading: false,
-    // date: newDate()
+    date: FormatDate.getDateObj(new Date()),
 };
 
 const transactionSlice = createSlice({
@@ -59,7 +61,7 @@ const transactionSlice = createSlice({
             state.isLoading = true;
         },
         [fetchSummaryExpenses.fulfilled]: (state, action) => {
-            state.summary = action.payload.data;
+            state.summaryExpenses = action.payload.data;
             state.isLoading = false;
         },
         [fetchSummaryExpenses.rejected]: state => {
@@ -69,7 +71,7 @@ const transactionSlice = createSlice({
             state.isLoading = true;
         },
         [fetchSummaryIncomes.fulfilled]: (state, action) => {
-            state.summary = action.payload.data;
+            state.summaryIncomes = action.payload.data;
             state.isLoading = false;
         },
         [fetchSummaryIncomes.rejected]: state => {

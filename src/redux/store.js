@@ -11,6 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { transactionReducer } from './transactions/transactionsSlice';
 
 const persistConfig = {
   key: 'auth',
@@ -19,7 +20,9 @@ const persistConfig = {
 };
 
 export const store = configureStore({
-  reducer: { auth: persistReducer(persistConfig, authReducer) },
+  reducer: {
+    auth: persistReducer(persistConfig, authReducer),
+    transactions: transactionReducer},
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
