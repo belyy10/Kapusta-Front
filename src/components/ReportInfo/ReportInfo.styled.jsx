@@ -4,7 +4,6 @@ import styled from 'styled-components';
 export const Wraper = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 15px;
   width: 280px;
   height: 85px;
   border-radius: 20px;
@@ -13,10 +12,12 @@ export const Wraper = styled.div`
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
 
   @media screen and (min-width: 772px) {
-    width: 100%;
     height: 50px;
     border-radius: 30px;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    width: 1034px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   div {
