@@ -59,9 +59,6 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
     },
-    [fetchUserBalance.fulfilled]: (state, action) => {
-      state.user.balance = action.payload.balance;
-    },
   },
 });
 

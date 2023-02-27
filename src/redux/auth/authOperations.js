@@ -96,15 +96,3 @@ export const updateBalance = createAsyncThunk(
     }
   }
 );
-
-export const fetchUserBalance = createAsyncThunk(
-  'user/fetchUserBalance',
-  async (_, thunkAPI) => {
-    try {
-      const { data } = await axios.get('/users/current');
-      return data.data.balance;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
