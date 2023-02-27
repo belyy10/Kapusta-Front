@@ -1,46 +1,54 @@
-export const category = [
+export const categoryList = [
   {
     name: 'Products',
-    type: 'expenses',
+    type: 'Expenses',
   },
   {
     name: 'Alcohol',
-    type: 'expenses',
+    type: 'Expenses',
   },
   {
     name: 'Entertainment',
-    type: 'expenses',
+    type: 'Expenses',
   },
   {
     name: 'Health',
-    type: 'expenses',
+    type: 'Expenses',
   },
   {
     name: 'Transport',
-    type: 'expenses',
+    type: 'Expenses',
   },
   {
     name: 'Housing',
-    type: 'expenses',
+    type: 'Expenses',
   },
   {
     name: 'Technique',
-    type: 'expenses',
+    type: 'Expenses',
   },
   {
     name: 'Communal, communication',
-    type: 'expenses',
+    type: 'Expenses',
   },
   {
     name: 'Sports, hobbies',
-    type: 'expenses',
+    type: 'Expenses',
   },
   {
     name: 'Education',
-    type: 'expenses',
+    type: 'Expenses',
   },
   {
     name: 'Other',
-    type: 'expenses',
+    type: 'Expenses',
+  },
+  {
+    name: 'Salary',
+    type: 'Incomes',
+  },
+  {
+    name: 'Add. income',
+    type: 'Incomes',
   },
 ];

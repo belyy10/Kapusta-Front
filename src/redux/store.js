@@ -12,6 +12,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { transactionReducer } from './transactions/transactionsSlice';
 
 const persistConfig = {
   key: 'auth',
@@ -19,8 +20,19 @@ const persistConfig = {
   whitelist: ['accessToken', 'refreshToken'],
 };
 
+const balancePersistConfig = {
+  key: 'balance',
+  storage,
+  whitelist: ['balance'],
+};
+
 export const store = configureStore({
-  reducer: { auth: persistReducer(persistConfig, authReducer), balance: balanceReducer,},
+  reducer: {
+    auth: persistReducer(persistConfig, authReducer),
+    transactions: transactionReducer,
+    balance: persistReducer(balancePersistConfig, balanceReducer),
+  },
+
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

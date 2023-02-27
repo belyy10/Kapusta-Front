@@ -1,3 +1,5 @@
+// import { useState } from 'react';
+
 import BackgroundPrivateContainer from 'components/BackgroundPrivateContainer';
 import Balance from 'components/Balance';
 import CategoryContainer from 'components/CategoryContainer';
@@ -6,9 +8,11 @@ import Graphic from 'components/Graphic';
 import Swager from 'components/Swager';
 import { IconLink, LinkToMain } from './Reports.styled';
 import { useState } from 'react';
+// import TypeSwitcher from 'components/TypeSwitcher';
+import ReportInfo from 'components/ReportInfo';
 
 export default function Reports() {
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Products');
   const [transactions, setTransactions] = useState('Expenses');
 
   function changeTransaction() {
@@ -31,6 +35,8 @@ export default function Reports() {
 
         <Swager />
 
+        {/* <TypeSwitcher /> */}
+        <ReportInfo />
         <CategoryContainer
           setCategory={setCategory}
           category={category}
