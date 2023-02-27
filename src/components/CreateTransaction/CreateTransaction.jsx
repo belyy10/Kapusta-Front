@@ -1,6 +1,7 @@
 // import { useDispatch } from 'react-redux';
 // import { useState } from 'react';
 import { Formik } from 'formik';
+import { useState } from 'react';
 import { BiCalculator } from 'react-icons/bi';
 // import schemaTransactions from 'schema/schemaTransactions';
 
@@ -22,7 +23,7 @@ import {
 const initialValues = {
   date: new Date(),
   description: '',
-
+  category: '',
   sum: 0,
 };
 
@@ -57,7 +58,7 @@ export default function CreateTransaction() {
                 type="date"
                 min="1920-01-01"
                 max={currentDate}
-                defaultValue={new Date().toLocaleDateString('sv').split(' ')[0]}
+                value={new Date().toLocaleDateString('sv').split(' ')[0]}
               />
             </Label>
             <Label>
@@ -69,7 +70,7 @@ export default function CreateTransaction() {
             </Label>
 
             <SelectCategory name="category" as="select">
-              <Option disabled defaultValue="Product category">
+              <Option disabled value="Product category">
                 Product category
               </Option>
               <Option value="transport">Transport</Option>

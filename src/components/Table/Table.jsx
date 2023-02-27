@@ -1,4 +1,6 @@
 import TableBody from 'components/TableBody';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   TableBox,
   TableTitle,
@@ -6,6 +8,14 @@ import {
   TransactionBox,
   TableBodys,
 } from './Table.styled';
+
+import {
+  getDate,
+  getTransactions,
+  getType,
+} from 'redux/transactions/transactionsSelectors';
+
+import { fetchUserTransactions } from 'redux/transactions/transactionsOperations';
 
 const monthTransaction = [
   {
@@ -179,6 +189,16 @@ const monthTransaction = [
 ];
 
 export default function Table() {
+  const dispatch = useDispatch();
+  const date = useSelector(getDate);
+  const type = useSelector(getType);
+  useEffect(() => {
+    dispatch(fetchUserTransactions(date));
+  }, [dispatch, date]);
+
+  const transactions = useSelector(getTransactions);
+  const filtredTransactions = transactions.filter(tr => tr.type === type);
+
   return (
     <TransactionBox>
       <TableBox>
