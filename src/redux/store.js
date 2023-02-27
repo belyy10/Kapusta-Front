@@ -20,10 +20,18 @@ const persistConfig = {
   whitelist: ['accessToken', 'refreshToken'],
 };
 
+const balancePersistConfig = {
+  key: 'balance',
+  storage,
+  whitelist: ['balance'],
+};
+
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
-    transactions: transactionReducer},
+    transactions: transactionReducer,
+    balance: persistReducer(balancePersistConfig, balanceReducer),
+  },
 
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

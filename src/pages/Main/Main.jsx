@@ -13,7 +13,7 @@ export default function Main() {
           reports
           <IconLink size={14} color=" #52555F" />
         </LinkReport>
-        {/* <Balance /> */}
+        <Balance />
         <TransactionsContainer />
       </Container>
     </BackgroundPrivateContainer>
