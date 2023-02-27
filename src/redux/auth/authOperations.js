@@ -77,8 +77,32 @@ export const refreshUser = createAsyncThunk(
 
       setAuthToken(persistedToken);
       const responce = await axios.get('/users/current');
-
       return responce.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+// update user balance
+export const updateBalance = createAsyncThunk(
+  'user/updateBalance',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.patch('/users/balance');
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchUserBalance = createAsyncThunk(
+  'user/fetchUserBalance',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get('/users/current');
+      return data.data.balance;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

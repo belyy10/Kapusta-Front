@@ -1,4 +1,11 @@
-import { register, logIn, logOut, refreshUser } from './authOperations';
+import {
+  register,
+  logIn,
+  logOut,
+  refreshUser,
+  updateBalance,
+  fetchUserBalance,
+} from './authOperations';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
@@ -19,6 +26,7 @@ const authSlice = createSlice({
     [register.fulfilled](state, action) {
       state.user = action.payload.user;
       state.isLoggedIn = true;
+      state.balance = 0;
     },
     [logIn.fulfilled](state, action) {
       state.user = action.payload.user;
@@ -42,6 +50,17 @@ const authSlice = createSlice({
     },
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
+    },
+    [updateBalance.fulfilled]: (state, action) => {
+      state.user = action.payload.user;
+    },
+    [updateBalance.rejected]: state => {
+      state.user = { email: null };
+      state.token = null;
+      state.isLoggedIn = false;
+    },
+    [fetchUserBalance.fulfilled]: (state, action) => {
+      state.user.balance = action.payload.balance;
     },
   },
 });
