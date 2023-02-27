@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import COLORS from 'variables/colors/colors';
+import { Form, Field } from 'formik';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Form)`
   display: flex;
   margin: 0 auto;
   flex-direction: column;
@@ -37,7 +38,7 @@ export const Label = styled.label`
   display: flex;
 `;
 
-export const InputDescription = styled.input`
+export const InputDescription = styled(Field)`
   padding-left: 20px;
   height: 44px;
   width: 280px;
@@ -63,7 +64,7 @@ export const InputDescription = styled.input`
   }
 `;
 
-export const InputDate = styled.input`
+export const InputDate = styled(Field)`
  @media screen and (max-width: 767px) {
    display: none;
   }
@@ -90,7 +91,7 @@ export const InputSumWrapper = styled.div`
   }
 `;
 
-export const InputSum = styled.input`
+export const InputSum = styled(Field)`
   background-color: transparent;
   height: 44px;
   width: 125px;
@@ -146,7 +147,7 @@ export const Calculator = styled.span`
   }
 `;
 
-export const SelectCategory = styled.select`
+export const SelectCategory = styled(Field)`
   padding-left: 20px;
   height: 50px;
   width: 306px;
