@@ -147,7 +147,7 @@ export const Calculator = styled.span`
   }
 `;
 
-export const SelectCategory = styled(Field)`
+export const SelectCategory = styled.select`
   padding-left: 20px;
   height: 50px;
   width: 306px;
@@ -232,5 +232,22 @@ export const Button = styled.button`
     :not(:first-child) {
       margin-left: 16px;
     }
+  }
+`;
+
+export const Error = styled.div`
+  position: relative;
+  margin-top: -15px;
+  margin-bottom: 16px;
+  margin-left: 20px;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: #eb5757;
+
+  ::before {
+    position: absolute;
+    top: -81px;
+    left: -25px;
+    content: '*';
   }
 `;
