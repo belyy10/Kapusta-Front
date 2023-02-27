@@ -3,16 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { balanceSelectors } from '../../redux/balance';
 import balanceOperations from '../../redux/balance/balance-operations';
-import {
-  Wrapper,
-  Button,
-  Title,
-  Section,
-  Input,
-  Wrapper2,
-  Text,
-  Styled,
-} from './Balance.styled';
+import { Wrapper, Button, Title, Section, Input, Wrapper2, Text, Styled,  } from './Balance.styled';
 
 export default function Balance() {
   const dispatch = useDispatch();
@@ -62,33 +53,35 @@ export default function Balance() {
 
   return (
     <Container>
-      <Wrapper>
-        <Title>Balance:</Title>
-        <Section>
-          <Input
-            type="text"
-            pattern="^[ 0-9]+$"
-            placeholder="00.00 UAH"
-            value={balanceLoading ? loadingMessage : balance}
-            onChange={onInputHandler}
-            onFocus={inputFocusHandler}
-            onBlur={inputBlurHandler}
-            onKeyDown={enterKeyHandler}
+    <Wrapper>
+      <Title>Balance:</Title>
+      <Section>
+        <Input
+          type="text"
+          pattern="^[ 0-9]+$"
+          placeholder="00.00 UAH"
+          value={balanceLoading ? loadingMessage : balance}
+          onChange={onInputHandler}
+          onFocus={inputFocusHandler}
+          onBlur={inputBlurHandler}
+          onKeyDown={enterKeyHandler}
           />
-          <Button type="button" onClick={handleClick}>
-            Confirm
-          </Button>
-        </Section>
+        <Button type="button" onClick={handleClick}>
+          Confirm
+        </Button>
+      </Section>
 
-        {!parseFloat(balance) && !balanceLoading && tooltipOpen && (
-          <Wrapper2 onClick={removeTooltip}>
-            <Text>
-              Hello! To get started, enter the current balance of your account!
-            </Text>
-            <Styled>You can't spend money until you have it :{' ) '}</Styled>
-          </Wrapper2>
-        )}
-      </Wrapper>
-    </Container>
+      {!parseFloat(balance) && !balanceLoading && tooltipOpen && (
+        <Wrapper2  onClick={removeTooltip}>
+          <Text>
+          Hello! To get started, enter the current balance of your account!
+          </Text>
+          <Styled>
+          You can't spend money until you have it :{' ) '}
+          </Styled>
+        </Wrapper2>
+      )}
+    </Wrapper>
+      </Container>
   );
 }

@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
-import { lazy, Suspense, useEffect  } from 'react';
+import { lazy, Suspense } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
-
-import CreateExpenses from './CreateTransaction/CreateTransaction';
+import { useEffect } from 'react';
+import CreateExpenses from './Expenses/Expenses';
 import CreateIncomes from './Incomes/Incomes';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';

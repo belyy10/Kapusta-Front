@@ -22,7 +22,7 @@ export const TransactionsWrapper = styled.section`
   }
 `;
 
-export const Expenses = styled.button`
+export const Expenses = styled.a`
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -31,25 +31,21 @@ export const Expenses = styled.button`
     higth: 40px;
     display: inline-block;
     position: absolute;
-    top: -38px;
+    top: -40px;
     left: 0px;
     padding: 10px 20px;
     background-color: #fefefe;
-    color: ${props =>
-      props.isActive ? COLORS.activeColor : COLORS.blackColor};
+    color: ${COLORS.blackColor};
     font-weight: bold;
     text-align: center;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
-    border: transparent;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    cursor: pointer;
-    outline: none;
   }
 `;
 
-export const Incomes = styled.button`
+export const Incomes = styled.a`
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -58,20 +54,16 @@ export const Incomes = styled.button`
     higth: 40px;
     display: inline-block;
     position: absolute;
-    top: -38px;
-    left: 138px;
+    top: -40px;
+    left: 180px;
     padding: 10px 20px;
     background-color: #fefefe;
-    color: ${props =>
-      props.isActive ? COLORS.activeColor : COLORS.blackColor};
+    color: ${COLORS.blackColor};
     font-weight: bold;
     text-align: center;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    cursor: pointer;
-    outline: none;
-    border: transparent;
   }
 `;

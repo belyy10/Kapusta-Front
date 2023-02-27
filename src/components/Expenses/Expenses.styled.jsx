@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import COLORS from 'variables/colors/colors';
 
-export const Wrapper = styled.div`
+export const Form = styled.form`
   display: flex;
   margin: 0 auto;
   flex-direction: column;
@@ -18,6 +18,14 @@ export const Wrapper = styled.div`
     width: 1098px;
     align-item: center;
     margin-bottom: 60px;
+  }
+`;
+
+export const Arrow = styled.span`
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  @media screen and (min-width: 1200px) {
   }
 `;
 
@@ -99,9 +107,6 @@ export const InputSum = styled.input`
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
   text-align: center;
-  font-weight: 700;
-  font-size: 12px;
-  color: ${COLORS.textColor};
 
   ::placeholder {
     color: #000000;
@@ -119,6 +124,7 @@ export const InputSum = styled.input`
     border-bottom-left-radius: 0px;
     border-top-right-radius: 16px;
     background-color: ${COLORS.whiteColor};
+    color: #c7ccdc;
   }
 `;
 
