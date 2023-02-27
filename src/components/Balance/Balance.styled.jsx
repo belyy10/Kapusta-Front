@@ -35,7 +35,7 @@ export const Title = styled.p`
     margin-bottom: 0px;
   }
 `;
-export const Section = styled.div`
+export const Section = styled.form`
   display: flex;
   justify-content: center;
   width: 100%;

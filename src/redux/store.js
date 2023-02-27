@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/authSlice';
 import storage from 'redux-persist/lib/storage';
-import { balanceReducer } from './balance';
 import {
   persistStore,
   persistReducer,
@@ -20,17 +19,10 @@ const persistConfig = {
   whitelist: ['accessToken', 'refreshToken'],
 };
 
-const balancePersistConfig = {
-  key: 'balance',
-  storage,
-  whitelist: ['balance'],
-};
-
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
     transactions: transactionReducer,
-    balance: persistReducer(balancePersistConfig, balanceReducer),
   },
 
   middleware: getDefaultMiddleware =>

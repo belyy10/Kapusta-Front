@@ -1,8 +1,14 @@
 import Container from 'components/Container';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { balanceSelectors } from '../../redux/balance';
-import balanceOperations from '../../redux/balance/balance-operations';
+import { selectUserBalance } from 'redux/auth/authSelectors';
+import { getDate } from 'redux/transactions/transactionsSelectors';
+import { updateBalance } from 'redux/auth/authOperations';
+import {
+  fetchUserTransactions,
+  fetchSummaryExpenses,
+  fetchSummaryIncomes,
+} from 'redux/transactions/transactionsOperations';
 import {
   Wrapper,
   Button,
@@ -16,72 +22,42 @@ import {
 
 export default function Balance() {
   const dispatch = useDispatch();
+  const currentBalance = useSelector(selectUserBalance);
 
-  const currentBalance = useSelector(balanceSelectors.balanceCurrent);
-  const balanceLoading = useSelector(balanceSelectors.balanceLoading);
-
-  const [balance, setBalance] = useState('');
+  const [value, setValue] = useState(0);
   const [tooltipOpen, setTooltipOpen] = useState(true);
+  const [isSent, setIsSent] = useState(false);
 
-  const loadingMessage = 'loading...';
-
-  // useEffect(() => {
-  //   dispatch(balanceOperations.getBalance());
-  // }, [dispatch]);
-
-  useEffect(() => {
-    setBalance(`${parseFloat(currentBalance).toFixed(2)} UAH` || '');
-  }, [currentBalance]);
-
-  const removeTooltip = () => {
-    setTooltipOpen(false);
-  };
-
-  const handleClick = () => {
-    dispatch(balanceOperations.updateBalance(parseFloat(balance)));
-  };
-
-  const enterKeyHandler = e => {
-    if (e.code === 'Enter') {
-      dispatch(balanceOperations.updateBalance(parseFloat(balance)));
-      e.target.blur();
-    }
-  };
-
-  const inputFocusHandler = e => {
-    setBalance(parseFloat(e.target.value).toFixed(2));
-  };
-
-  const inputBlurHandler = () => {
-    setBalance(`${parseFloat(balance).toFixed(2)} UAH`);
+  const handleClick = e => {
+    setValue(+e.target.value.split(' ').join('').slice(0, -3));
+    setIsSent(false);
   };
 
   const onInputHandler = e => {
-    setBalance(e.target.value);
+    e.preventDefault();
+    dispatch(updateBalance({ balance: value }));
+    setIsSent(true);
+    return;
   };
 
   return (
     <Container>
       <Wrapper>
         <Title>Balance:</Title>
-        <Section>
+        <Section onSubmit={onInputHandler} autoComplete="off">
           <Input
-            type="text"
-            pattern="^[ 0-9]+$"
+            type="number"
             placeholder="00.00 UAH"
-            value={balanceLoading ? loadingMessage : balance}
-            onChange={onInputHandler}
-            onFocus={inputFocusHandler}
-            onBlur={inputBlurHandler}
-            onKeyDown={enterKeyHandler}
+            // value={value}
+            onChange={handleClick}
           />
-          <Button type="button" onClick={handleClick}>
+
+          <Button type="submit" disabled={!value || isSent}>
             Confirm
           </Button>
         </Section>
-
-        {!parseFloat(balance) && !balanceLoading && tooltipOpen && (
-          <Wrapper2 onClick={removeTooltip}>
+        {!currentBalance > 0 && (
+          <Wrapper2 setTooltipOpen={setTooltipOpen}>
             <Text>
               Hello! To get started, enter the current balance of your account!
             </Text>
