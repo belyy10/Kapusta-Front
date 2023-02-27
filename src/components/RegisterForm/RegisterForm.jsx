@@ -1,48 +1,55 @@
-import { Formik } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
 import {
-  ButtonGoogle,
   ButtonGroup,
   Button,
-  Form,
-  Google,
+  FormBox,
   Input,
   Label,
   LabelText,
-  TextGoogle,
   Title,
-  TitleGoogle,
+  Error,
 } from './RegisterForm.styled';
-import { FcGoogle } from 'react-icons/fc';
+import { register } from 'redux/auth/authOperations';
+import schemaRegister from 'schema/shemaRegister';
 
-export const RegisterForm = () => {
+export const RegisterForm = ({ onBackToLogin }) => {
+  const dispatch = useDispatch();
+  const initialValues = { email: '', password: '' };
+
+  const handleSubmit = (initialValues, { resetForm }) => {
+    dispatch(register(initialValues));
+    resetForm();
+  };
+
   return (
     <>
-      <Formik>
-        <Form>
-          <Google>
-            <TitleGoogle>You can log in with your Google Account:</TitleGoogle>
-            <ButtonGoogle>
-              <FcGoogle size={18} />
-              <TextGoogle>Google</TextGoogle>
-            </ButtonGoogle>
-          </Google>
-
+      <Formik
+        onSubmit={handleSubmit}
+        validationSchema={schemaRegister}
+        initialValues={initialValues}
+      >
+        <FormBox>
           <Title>
-            Or log in using an email and password, after registering:
+            Please, enter your email and create a password OR back to login:
           </Title>
           <Label>
             <LabelText>Email:</LabelText>
-            <Input type="text" name="email" placeholder="your@email.com" />
+            <Input type="email" name="email" placeholder="your@email.com" />
           </Label>
+          <ErrorMessage name="email" render={msg => <Error>{msg}</Error>} />
           <Label>
             <LabelText>Password:</LabelText>
-            <Input type="text" name="password" placeholder="Password" />
+            <Input type="password" name="password" placeholder="Password" />
           </Label>
+          <ErrorMessage name="password" render={msg => <Error>{msg}</Error>} />
           <ButtonGroup>
-            <Button>Log in</Button>
-            <Button>Registration</Button>
+            <Button>Sign up</Button>
+            <Button type="button" onClick={onBackToLogin}>
+              Back to login
+            </Button>
           </ButtonGroup>
-        </Form>
+        </FormBox>
       </Formik>
     </>
   );

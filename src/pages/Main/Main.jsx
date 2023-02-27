@@ -1,13 +1,21 @@
+import BackgroundPrivateContainer from 'components/BackgroundPrivateContainer';
+import Balance from 'components/Balance';
 import Container from 'components/Container';
-import Summary from 'components/Summary';
-import Table from 'components/Table';
+import { IconLink, LinkReport } from './Main.styled';
+// import CreateExpenses from 'components/Expenses/Expenses';
+import TransactionsContainer from 'components/TransactionsContainer/TransactionsContainer';
 
 export default function Main() {
   return (
-    <Container>
-      <h1>MAIN PAGE</h1>
-      <Table />
-      <Summary />
-    </Container>
+    <BackgroundPrivateContainer>
+      <Container>
+        <LinkReport to="/reports">
+          reports
+          <IconLink size={14} color=" #52555F" />
+        </LinkReport>
+        <Balance />
+        <TransactionsContainer />
+      </Container>
+    </BackgroundPrivateContainer>
   );
 }

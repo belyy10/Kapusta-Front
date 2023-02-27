@@ -1,7 +1,12 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import COLORS from 'variables/colors/colors';
+import { Field, Form } from 'formik';
+import { fadeInLeft, fadeInRight } from 'react-animations';
 
-export const Form = styled.form`
+const animation2 = keyframes`${fadeInLeft}`;
+const animation3 = keyframes`${fadeInRight}`;
+
+export const FormBox = styled(Form)`
   display: flex;
   flex-direction: column;
   width: 240px;
@@ -16,52 +21,6 @@ export const Form = styled.form`
   }
 `;
 
-export const Google = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 9px;
-`;
-
-export const TitleGoogle = styled.p`
-  font-weight: 400;
-  margin-bottom: 16px;
-  font-size: 12px;
-  line-height: 1.17;
-  text-align: center;
-  letter-spacing: 0.04em;
-  color: ${COLORS.textColor};
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 25px;
-  }
-`;
-
-export const ButtonGoogle = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 122px;
-  height: 40px;
-  margin-bottom: 32px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14x;
-  letter-spacing: 0.02em;
-  color: ${COLORS.blackColor};
-  background-color: ${COLORS.backgroungColor};
-  border-radius: 26px;
-  border: none;
-  box-shadow: 1px 3px 7px rgba(170, 178, 197, 0.4);
-  transition: box-shadow 400ms ease-in-out;
-
-  :hover,
-  :focus {
-    box-shadow: 1px 3px 7px rgba(119, 125, 138, 0.466);
-  }
-`;
-
 export const Title = styled.p`
   font-weight: 400;
   margin-bottom: 16px;
@@ -69,20 +28,18 @@ export const Title = styled.p`
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: ${COLORS.textColor};
+  animation: 1s ${animation2};
 
   @media screen and (min-width: 768px) {
     margin-bottom: 25px;
   }
 `;
 
-export const TextGoogle = styled.p`
-  margin-left: 10px;
-`;
-
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  animation: 1s ${animation3};
 `;
 
 export const LabelText = styled.label`
@@ -97,7 +54,7 @@ export const LabelText = styled.label`
   }
 `;
 
-export const Input = styled.input`
+export const Input = styled(Field)`
   padding: 17px 19px;
   border: none;
   outline: none;
@@ -128,6 +85,7 @@ export const Button = styled.button`
   cursor: pointer;
   transition: background-color 400ms ease-in-out, color 400ms ease-in-out,
     box-shadow 400ms ease-in-out;
+  animation: 1s ${animation2};
 
   :hover,
   :focus {
@@ -138,5 +96,21 @@ export const Button = styled.button`
 
   @media screen and (min-width: 768px) {
     width: 122px;
+  }
+`;
+export const Error = styled.div`
+  position: relative;
+  margin-top: -15px;
+  margin-bottom: 16px;
+  margin-left: 20px;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: #eb5757;
+
+  ::before {
+    position: absolute;
+    top: -81px;
+    left: -25px;
+    content: '*';
   }
 `;
