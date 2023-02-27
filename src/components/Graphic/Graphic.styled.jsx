@@ -1,5 +1,6 @@
 import { ResponsiveContainer } from 'recharts';
 import styled from 'styled-components';
+import COLORS from 'variables/colors/colors';
 
 export const GraphicBox = styled.div`
   display: flex;
@@ -9,10 +10,16 @@ export const GraphicBox = styled.div`
   margin-left: auto;
   margin-right: auto;
 
-  width: 1034px;
+  width: 704px;
   height: 422px;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
+
+  background-color: ${COLORS.whiteColor};
+
+  @media screen and (min-width: 1200px) {
+    width: 1034px;
+  }
 `;
 
 export const GraphicMobileBox = styled(ResponsiveContainer)`
