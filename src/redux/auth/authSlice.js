@@ -51,17 +51,17 @@ const authSlice = createSlice({
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
     },
-    // [updateBalance.fulfilled]: (state, action) => {
-    //   state.user = action.payload.user;
-    // },
-    // [updateBalance.rejected]: state => {
-    //   state.user = { email: null };
-    //   state.token = null;
-    //   state.isLoggedIn = false;
-    // },
-    // [fetchUserBalance.fulfilled]: (state, action) => {
-    //   state.user.balance = action.payload.balance;
-    // },
+    [updateBalance.fulfilled]: (state, action) => {
+      state.user = action.payload.user;
+    },
+    [updateBalance.rejected]: state => {
+      state.user = { email: null };
+      state.token = null;
+      state.isLoggedIn = false;
+    },
+    [fetchUserBalance.fulfilled]: (state, action) => {
+      state.user.balance = action.payload.balance;
+    },
   },
 });
 
