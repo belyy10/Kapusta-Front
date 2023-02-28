@@ -96,7 +96,7 @@ const transactionSlice = createSlice({
       state.isLoading = true;
     },
     [fetchSummaryExpenses.fulfilled]: (state, action) => {
-      state.summaryExpenses = action.payload.data;
+      state.summaryExpenses = [...action.payload];
       state.isLoading = false;
     },
     [fetchSummaryExpenses.rejected]: state => {
@@ -106,7 +106,7 @@ const transactionSlice = createSlice({
       state.isLoading = true;
     },
     [fetchSummaryIncomes.fulfilled]: (state, action) => {
-      state.summaryIncomes = action.payload.data;
+      state.summaryIncomes = [...action.payload];
       state.isLoading = false;
     },
     [fetchSummaryIncomes.rejected]: state => {
