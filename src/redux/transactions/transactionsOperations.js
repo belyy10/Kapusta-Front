@@ -6,9 +6,13 @@ export const changeType = createAction('transactions/changeType');
 
 export const fetchUserTransactions = createAsyncThunk(
   'transaction/fetchUserTransactions',
-  async (_, thunkAPI) => {
+  async ({ controller, type }, thunkAPI) => {
     try {
-      const { data } = await axios.get('/transaction/:type');
+      console.log(controller);
+
+      const { data } = await axios.get(`/transaction?type=${type}`, {
+        signal: controller.signal,
+      });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -27,6 +31,7 @@ export const addTransaction = createAsyncThunk(
         `/transaction/${credentials.type}`,
         credentials
       );
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
