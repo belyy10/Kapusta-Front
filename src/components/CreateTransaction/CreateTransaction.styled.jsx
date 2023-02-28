@@ -65,8 +65,8 @@ export const InputDescription = styled(Field)`
 `;
 
 export const InputDate = styled(Field)`
- @media screen and (max-width: 767px) {
-   display: none;
+  @media screen and (max-width: 767px) {
+    display: none;
   }
 
   margin-right: 16px;
@@ -76,7 +76,7 @@ export const InputDate = styled(Field)`
   outline: none;
 
   background-color: ${COLORS.whiteColor};
-  color: #52555F
+  color: #52555f;
   text-align: center;
 `;
 
