@@ -22,7 +22,8 @@ export const TableBodyItem = styled.td`
 
   :nth-child(4) {
     font-weight: 700;
-    color: ${COLORS.greenColor};
+    color: ${props =>
+      props.isExpenses ? COLORS.redColorExpenses : COLORS.greenColor};
   }
   :nth-child(5) {
     display: flex;

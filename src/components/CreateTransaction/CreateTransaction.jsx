@@ -1,9 +1,5 @@
-import { useState } from 'react';
 import { Formik, ErrorMessage } from 'formik';
 import moment from 'moment';
-
-// import { useDispatch } from 'react-redux';
-
 import { BiCalculator } from 'react-icons/bi';
 import schemaTransactions from 'schema/schemaTransactions';
 import expenseCategories from './ExpenseCategories';
@@ -24,8 +20,9 @@ import {
   Calculator,
   Error,
 } from './CreateTransaction.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTransaction } from 'redux/transactions/transactionsOperations';
+import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
 
 const initialValues = {
   date: moment().format('YYYY-MM-DD'),
@@ -34,7 +31,8 @@ const initialValues = {
   sum: 0,
 };
 
-export default function CreateTransaction({ transactions }) {
+export default function CreateTransaction() {
+  const type = useSelector(selectTypeTransactionMain);
   const dispatch = useDispatch();
   const currentDate = new Date().toISOString().slice(0, 10);
 
@@ -52,7 +50,7 @@ export default function CreateTransaction({ transactions }) {
         description,
         category,
         sum,
-        type: transactions,
+        type,
       })
     );
     resetForm(initialValues);
@@ -96,7 +94,7 @@ export default function CreateTransaction({ transactions }) {
                 render={msg => <Error>{msg}</Error>}
               />
 
-              {transactions === 'incomes' ? (
+              {type.toLowerCase() === 'incomes' ? (
                 <SelectCategory
                   name="category"
                   as="select"

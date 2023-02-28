@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import CreateExpenses from 'components/CreateTransaction/CreateTransaction';
 import {
   TransactionsWrapper,
@@ -9,58 +7,32 @@ import {
 import { useMedia } from 'hooks/useMedia';
 import Table from 'components/Table';
 import TransactionListMobile from 'components/TransactionListMobile';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleTransaction } from 'redux/transactions/transactionsSlice';
+import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
 
 export default function TransactionsContainer() {
   const dispatch = useDispatch();
+  const transactions = useSelector(selectTypeTransactionMain);
   const { isTabletAndDesktop, isMobile } = useMedia();
-  const [transactions, setTransactions] = useState('incomes');
-  const [isActive, setIsActive] = useState({
-    incomes: true,
-    expenses: false,
-  });
-
-  function changeTransaction(state) {
-    setTransactions(state);
-
-    if (state === 'incomes') {
-      setIsActive({
-        incomes: true,
-        expenses: false,
-      });
-      return;
-    }
-    setIsActive({
-      incomes: false,
-      expenses: true,
-    });
-    return;
-  }
 
   return (
     <TransactionsWrapper>
       <Incomes
-        isActive={isActive.incomes}
-        onClick={() => {
-          changeTransaction('incomes');
-          dispatch(toggleTransaction('incomes'));
-        }}
+        isActive={transactions === 'incomes'}
+        onClick={() => dispatch(toggleTransaction('incomes'))}
       >
         Incomes
       </Incomes>
       <Expenses
-        isActive={isActive.expenses}
-        onClick={() => {
-          changeTransaction('expenses');
-          dispatch(toggleTransaction('expenses'));
-        }}
+        isActive={transactions === 'expenses'}
+        onClick={() => dispatch(toggleTransaction('expenses'))}
       >
         Expenses
       </Expenses>
       <CreateExpenses transactions={transactions} />
-      {isTabletAndDesktop && <Table transactions={transactions} />}
-      {isMobile && <TransactionListMobile transactions={transactions} />}
+      {isTabletAndDesktop && <Table />}
+      {isMobile && <TransactionListMobile />}
     </TransactionsWrapper>
   );
 }

@@ -18,9 +18,14 @@ const initialState = {
   type: 'all',
   isLoading: false,
   date: FormatDate.getDateObj(new Date()),
-  transaction: 'incomes',
-  categoryExpenses: 'Products',
-  categoryIncomes: 'Salary',
+  mainType: 'incomes',
+  reports: {
+    type: 'Expenses',
+    categoryExpenses: 'Products',
+    categoryIncomes: 'Salary',
+    currentMonth: 9,
+    currentYear: 2022,
+  },
 };
 
 const transactionSlice = createSlice({
@@ -28,13 +33,24 @@ const transactionSlice = createSlice({
   initialState,
   reducers: {
     toggleTransaction(state, action) {
-      state.transaction = action.payload;
+      state.mainType = action.payload;
+    },
+    toggleReportType(state, action) {
+      if (state.reports.type === 'Expenses') {
+        state.reports.type = 'Incomes';
+        return;
+      }
+      state.reports.type = 'Expenses';
     },
     changeCategoryExpenses(state, action) {
-      state.categoryExpenses = action.payload;
+      state.reports.categoryExpenses = action.payload;
     },
     changeCategoryIncomes(state, action) {
-      state.categoryIncomes = action.payload;
+      state.reports.categoryIncomes = action.payload;
+    },
+    setCurrentPeriod(state, action) {
+      state.reports.currentMonth = action.payload.mm;
+      state.reports.currentYear = action.payload.year;
     },
   },
   extraReducers: {
@@ -123,5 +139,7 @@ export const {
   toggleTransaction,
   changeCategoryExpenses,
   changeCategoryIncomes,
+  toggleReportType,
+  setCurrentPeriod,
 } = transactionSlice.actions;
 export const transactionReducer = transactionSlice.reducer;
