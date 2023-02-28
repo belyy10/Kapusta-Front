@@ -1,6 +1,6 @@
 import Container from 'components/Container';
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { updateBalance } from 'redux/auth/authOperations';
 
 import {
@@ -13,13 +13,11 @@ import {
   Text,
   Styled,
 } from './Balance.styled';
-// import { useAuth } from 'hooks/useAuth';
-import { selectUserBalance } from 'redux/auth/authSelectors';
+import { useAuth } from 'hooks/useAuth';
 
 export default function Balance() {
   const dispatch = useDispatch();
-  const balance = useSelector(selectUserBalance);
-  // const { balance } = useAuth();
+  const { balance } = useAuth();
 
   const [value, setValue] = useState({ balance } ?? 0);
   const [tooltipOpen, setTooltipOpen] = useState(true);
@@ -49,7 +47,7 @@ export default function Balance() {
             type="number"
             placeholder={`${balance}.00 UAH`}
             name="balance"
-            value={value || 0}
+            value={{ balance } || 0}
             disabled={balance > 0 ? true : false}
             onChange={onChange}
           />
