@@ -1,6 +1,14 @@
+import { useState } from 'react';
 import { Formik, ErrorMessage } from 'formik';
+import moment from 'moment';
+
+// import { useDispatch } from 'react-redux';
+
 import { BiCalculator } from 'react-icons/bi';
 import schemaTransactions from 'schema/schemaTransactions';
+import expenseCategories from './ExpenseCategories';
+import incomeCategories from './IncomeCategories';
+
 import {
   Wrapper,
   Label,
@@ -20,7 +28,7 @@ import { useDispatch } from 'react-redux';
 import { addTransaction } from 'redux/transactions/transactionsOperations';
 
 const initialValues = {
-  date: new Date(),
+  date: moment().format('YYYY-MM-DD'),
   description: '',
   category: null,
   sum: 0,
@@ -29,6 +37,7 @@ const initialValues = {
 export default function CreateTransaction({ transactions }) {
   const dispatch = useDispatch();
   const currentDate = new Date().toISOString().slice(0, 10);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   const handleSubmit = (
     { date, description, category, sum },
@@ -57,7 +66,7 @@ export default function CreateTransaction({ transactions }) {
         validationSchema={schemaTransactions}
         onSubmit={handleSubmit}
       >
-        {({ handleChange }) => (
+        {({ handleChange, setFieldValue }) => (
           <Wrapper>
             <InputGroup>
               <Label>
@@ -66,8 +75,11 @@ export default function CreateTransaction({ transactions }) {
                   type="date"
                   min="1920-01-01"
                   max={currentDate}
-                  defaultValue={
-                    new Date().toLocaleDateString('sv').split(' ')[0]
+                  onChange={event =>
+                    setFieldValue(
+                      'date',
+                      moment(event.target.value).format('YYYY-MM-DD')
+                    )
                   }
                 />
               </Label>
@@ -88,22 +100,24 @@ export default function CreateTransaction({ transactions }) {
               <SelectCategory
                 name="category"
                 as="select"
+                value={selectedCategory}
+                defaultValue=""
                 onChange={handleChange}
               >
-                <Option disabled selected="Product category">
+                <Option disabled value="">
                   Product category
                 </Option>
-                <Option value="transport">Transport</Option>
-                <Option value="products">Products</Option>
-                <Option value="health">Health</Option>
-                <Option value="alcohol">Alcohol</Option>
-                <Option value="entertainment">Entertainment</Option>
-                <Option value="housing">Housing</Option>
-                <Option value="technique">Technique</Option>
-                <Option value="communal">Communal, communication</Option>
-                <Option value="sports">Sports, hobbies</Option>
-                <Option value="education">Education</Option>
-                <Option value="other">Other</Option>
+                {transactions === 'incomes'
+                  ? incomeCategories.map(category => (
+                      <Option key={category.value} value={category.value}>
+                        {category.label}
+                      </Option>
+                    ))
+                  : expenseCategories.map(category => (
+                      <Option key={category.value} value={category.value}>
+                        {category.label}
+                      </Option>
+                    ))}
               </SelectCategory>
               <ErrorMessage
                 name="category"
