@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { Formik, ErrorMessage } from 'formik';
 import moment from 'moment';
-
-// import { useDispatch } from 'react-redux';
-
 import { BiCalculator } from 'react-icons/bi';
 import schemaTransactions from 'schema/schemaTransactions';
 import expenseCategories from './ExpenseCategories';

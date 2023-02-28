@@ -4,6 +4,8 @@ import 'swiper/css/navigation';
 import { Slide, SwagerBox, SwagerTitle } from './Swager.styled';
 import { Navigation } from 'swiper';
 import { Swiper } from 'swiper/react';
+import { useDispatch } from 'react-redux';
+import { setCurrentPeriod } from 'redux/transactions/transactionsSlice';
 
 const periods = [
   {
@@ -39,6 +41,8 @@ const periods = [
 ];
 
 export default function Swager({ setCurrentTime }) {
+  const dispatch = useDispatch();
+
   return (
     <SwagerBox>
       <SwagerTitle>Current period: </SwagerTitle>
@@ -54,6 +58,7 @@ export default function Swager({ setCurrentTime }) {
           const { activeIndex } = swiperCore;
 
           setCurrentTime(periods[activeIndex]);
+          dispatch(setCurrentPeriod(periods[activeIndex]));
         }}
       >
         {periods.map((period, index) => (
