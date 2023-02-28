@@ -44,6 +44,35 @@ export const selectCategoryByType = state => {
   return selectReportsCategoryIncomes(state);
 };
 
+export const selectIncomesByCurrentPeriod = state => {
+  const currentPeriod = selectCurrentPeriod(state);
+  const getIncome = getSummaryIncomes(state);
+  if (!getIncome) {
+    return [];
+  }
+  return getIncome.filter(el => {
+    const id = el._id.split('-');
+    return (
+      parseInt(id[0]) === currentPeriod.year &&
+      parseInt(id[1]) === currentPeriod.month
+    );
+  });
+};
+export const selectExpensesByCurrentPeriod = state => {
+  const currentPeriod = selectCurrentPeriod(state);
+  const getExpenses = getSummaryExpenses(state);
+  if (!getExpenses) {
+    return [];
+  }
+  return getExpenses.filter(el => {
+    const id = el._id.split('-');
+    return (
+      parseInt(id[0]) === currentPeriod.year &&
+      parseInt(id[1]) === currentPeriod.month
+    );
+  });
+};
+
 export const selectDescriptionsByCategory = state => {
   const type = selectTypeTransactionReports(state);
   const category = selectCategoryByType(state);
