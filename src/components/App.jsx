@@ -7,6 +7,8 @@ import CreateTransactions from './CreateTransaction/CreateTransaction';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
 import { fetchUserTransactions } from 'redux/transactions/transactionsOperations';
+import { fetchSummaryIncomes } from 'redux/transactions/transactionsOperations';
+import { fetchSummaryExpenses } from 'redux/transactions/transactionsOperations';
 
 const Header = lazy(() => import('./Header'));
 const Main = lazy(() => import('../pages/Main'));
@@ -32,7 +34,8 @@ export default function App() {
         controller,
       })
     );
-
+    dispatch(fetchSummaryIncomes(controller));
+    dispatch(fetchSummaryExpenses(controller));
     return () => controller.abort();
   }, [dispatch]);
 
