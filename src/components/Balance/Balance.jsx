@@ -45,9 +45,11 @@ export default function Balance() {
         <Section autoComplete="off" onSubmit={onSubmit}>
           <Input
             type="number"
-            placeholder={`${balance}.00 UAH`}
+            // placeholder={`${balance} UAH`}
             name="balance"
-            value={{ balance } || 0}
+            value={value}
+            readOnly={balance}
+            pattern="[0-9, .UAH]*"
             disabled={balance > 0 ? true : false}
             onChange={onChange}
           />
