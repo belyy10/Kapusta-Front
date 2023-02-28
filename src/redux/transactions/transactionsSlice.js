@@ -28,13 +28,13 @@ const transactionSlice = createSlice({
   initialState,
   reducers: {
     toggleTransaction(state, action) {
-      state.transaction(action.payload);
+      state.transaction = action.payload;
     },
     changeCategoryExpenses(state, action) {
-      state.categoryExpenses(action.payload);
+      state.categoryExpenses = action.payload;
     },
     changeCategoryIncomes(state, action) {
-      state.categoryIncomes(action.payload);
+      state.categoryIncomes = action.payload;
     },
   },
   extraReducers: {
