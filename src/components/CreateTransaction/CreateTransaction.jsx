@@ -34,9 +34,13 @@ const initialValues = {
   sum: 0,
 };
 
+const defaultValue = 'Product category';
+
 export default function CreateTransaction({ transactions }) {
   const dispatch = useDispatch();
   const currentDate = new Date().toISOString().slice(0, 10);
+
+  const [defaultSelectValues, setDefaultSelectValues] = useState(defaultValue);
 
   const handleSubmit = (
     { date, description, category, sum },
@@ -55,7 +59,8 @@ export default function CreateTransaction({ transactions }) {
         type: transactions,
       })
     );
-    resetForm(initialValues);
+    resetForm();
+    setDefaultSelectValues(defaultValue);
   };
 
   return (
@@ -103,7 +108,7 @@ export default function CreateTransaction({ transactions }) {
                   defaultValue=""
                   onChange={handleChange}
                 >
-                  <Option disabled value="">
+                  <Option disabled value={defaultSelectValues}>
                     Product category
                   </Option>
                   {incomeCategories.map(category => (
@@ -119,7 +124,7 @@ export default function CreateTransaction({ transactions }) {
                   defaultValue=""
                   onChange={handleChange}
                 >
-                  <Option disabled value="">
+                  <Option disabled value={defaultSelectValues}>
                     Product category
                   </Option>
                   {expenseCategories.map(category => (
