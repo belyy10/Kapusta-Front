@@ -14,6 +14,11 @@ import ReportInfo from 'components/ReportInfo';
 export default function Reports() {
   const [category, setCategory] = useState('Products');
   const [transactions, setTransactions] = useState('Expenses');
+  const [currentTime, setCurrentTime] = useState({
+    month: 'September',
+    year: 2022,
+    mm: 9,
+  });
 
   function changeTransaction() {
     if (transactions === 'Expenses') {
@@ -33,7 +38,7 @@ export default function Reports() {
 
         <Balance />
 
-        <Swager />
+        <Swager setCurrentTime={setCurrentTime} />
 
         {/* <TypeSwitcher /> */}
         <ReportInfo />
@@ -43,7 +48,11 @@ export default function Reports() {
           transactions={transactions}
           changeTransaction={changeTransaction}
         />
-        <Graphic category={category} transactions={transactions} />
+        <Graphic
+          category={category}
+          transactions={transactions}
+          currentTime={currentTime}
+        />
       </Container>
     </BackgroundPrivateContainer>
   );

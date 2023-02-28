@@ -182,9 +182,15 @@ import {
 // ];
 
 export default function Table({ transactions }) {
-  const [transaction, setTransaction] = useState(
-    useSelector(selectTransactions)
-  );
+  const [filteredTransactions, setFilteredTransactions] = useState(null);
+  const transaction = useSelector(selectTransactions);
+
+  useEffect(() => {
+    const filterTransaction = transaction.filter(
+      element => element.type.toLowerCase() === transactions.toLowerCase()
+    );
+    setFilteredTransactions(filterTransaction);
+  }, [transactions, transaction]);
 
   return (
     <TransactionBox>
@@ -199,8 +205,8 @@ export default function Table({ transactions }) {
           </TableTitle>
         </thead>
         <TableBodys>
-          {transaction &&
-            transaction.map(transaction => (
+          {filteredTransactions &&
+            filteredTransactions.map(transaction => (
               <TableBody key={transaction._id} transaction={transaction} />
             ))}
         </TableBodys>
