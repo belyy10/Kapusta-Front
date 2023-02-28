@@ -1,12 +1,6 @@
-import { useState } from 'react';
-// import axios from 'axios';
 import { Formik, ErrorMessage } from 'formik';
-
-// import { useDispatch } from 'react-redux';
-
 import { BiCalculator } from 'react-icons/bi';
 import schemaTransactions from 'schema/schemaTransactions';
-
 import {
   Wrapper,
   Label,
@@ -22,39 +16,39 @@ import {
   Calculator,
   Error,
 } from './CreateTransaction.styled';
+import { useDispatch } from 'react-redux';
+import { addTransaction } from 'redux/transactions/transactionsOperations';
 
 const initialValues = {
   date: new Date(),
   description: '',
-
   category: null,
-
   sum: 0,
 };
 
-export default function CreateTransaction() {
+export default function CreateTransaction({ transactions }) {
+  const dispatch = useDispatch();
   const currentDate = new Date().toISOString().slice(0, 10);
 
-  const [data, setData] = useState({});
+  const handleSubmit = (
+    { date, description, category, sum },
+    { resetForm }
+  ) => {
+    const d = date.split('-');
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    setData(values);
+    dispatch(
+      addTransaction({
+        year: parseInt(d[0]),
+        month: parseInt(d[1]),
+        day: parseInt(d[2]),
+        description,
+        category,
+        sum,
+        type: transactions,
+      })
+    );
     resetForm();
   };
-  console.log(data);
-  // axios
-  //   .post(
-  //     'https://kapusta-deployment.onrender.com/api/transactions/expenses',
-  //     data
-  //   )
-  //   .then(response => {
-  //     console.log('Data sent successfully', response);
-  //     setData({});
-  //   })
-  //   .catch(error => {
-  //     console.error('Error while sending data', error);
-  //   });
 
   return (
     <>

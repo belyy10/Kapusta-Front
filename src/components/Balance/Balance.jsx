@@ -57,13 +57,13 @@ export default function Balance() {
           <Button type="button">Confirm</Button>
         </Section>
         {/* {!balance > 0 && ( */}
-        <Wrapper2>
-          {/* <Wrapper2 setTooltipOpen={setTooltipOpen}> */}
-          <Text>
-            Hello! To get started, enter the current balance of your account!
-          </Text>
-          <Styled>You can't spend money until you have it :{' ) '}</Styled>
-        </Wrapper2>
+        {/* <Wrapper2> */}
+        {/* <Wrapper2 setTooltipOpen={setTooltipOpen}> */}
+        {/* <Text> */}
+        {/* Hello! To get started, enter the current balance of your account! */}
+        {/* </Text> */}
+        {/* <Styled>You can't spend money until you have it :{' ) '}</Styled> */}
+        {/* </Wrapper2> */}
         {/* )} */}
       </Wrapper>
     </Container>
