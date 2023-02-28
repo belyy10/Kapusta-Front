@@ -40,7 +40,7 @@ const periods = [
   },
 ];
 
-export default function Swager({ setCurrentTime }) {
+export default function Swager() {
   const dispatch = useDispatch();
 
   return (
@@ -57,7 +57,6 @@ export default function Swager({ setCurrentTime }) {
         onSlideChange={swiperCore => {
           const { activeIndex } = swiperCore;
 
-          setCurrentTime(periods[activeIndex]);
           dispatch(setCurrentPeriod(periods[activeIndex]));
         }}
       >
