@@ -18,17 +18,34 @@ const initialState = {
   type: 'all',
   isLoading: false,
   date: FormatDate.getDateObj(new Date()),
+  transaction: 'incomes',
+  categoryExpenses: 'Products',
+  categoryIncomes: 'Salary',
 };
 
 const transactionSlice = createSlice({
   name: 'transaction',
   initialState,
+  reducers: {
+    toggleTransaction(state, action) {
+      state.transaction(action.payload);
+    },
+    changeCategoryExpenses(state, action) {
+      state.categoryExpenses(action.payload);
+    },
+    changeCategoryIncomes(state, action) {
+      state.categoryIncomes(action.payload);
+    },
+  },
   extraReducers: {
     [fetchUserTransactions.pending]: state => {
       state.isLoading = true;
     },
     [fetchUserTransactions.fulfilled]: (state, action) => {
-      state.transactions.push(action.payload.transactions);
+      state.transactions = [
+        ...state.transactions,
+        ...action.payload.transactions,
+      ];
       state.isLoading = false;
     },
     [fetchUserTransactions.rejected]: state => {
@@ -38,7 +55,10 @@ const transactionSlice = createSlice({
       state.isLoading = true;
     },
     [addTransaction.fulfilled]: (state, action) => {
-      state.transactions = [action.payload.data, ...state.transactions];
+      state.transactions = [
+        action.payload.data,
+        ...state.transactions.transactions,
+      ];
       state.isLoading = false;
     },
     [addTransaction.rejected]: state => {
@@ -99,4 +119,9 @@ const transactionSlice = createSlice({
   },
 });
 
+export const {
+  toggleTransaction,
+  changeCategoryExpenses,
+  changeCategoryIncomes,
+} = transactionSlice.actions;
 export const transactionReducer = transactionSlice.reducer;

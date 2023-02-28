@@ -1,6 +1,7 @@
 import TableBody from 'components/TableBody';
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectTransactions } from 'redux/transactions/transactionsSelectors';
 import {
   TableBox,
   TableTitle,
@@ -9,195 +10,181 @@ import {
   TableBodys,
 } from './Table.styled';
 
-// import {
-//   getDate,
-//   getTransactions,
-//   getType,
-// } from 'redux/transactions/transactionsSelectors';
+// const monthTransaction = [
+//   {
+//     id: 1,
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: 12,
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: 13321,
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: 14,
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: 41,
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: 13,
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: 133,
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: 132,
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: 1432423,
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: 142,
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+//   {
+//     id: Math.random(),
+//     date: '21.09.2019',
+//     description: 'salary',
+//     category: 'car',
+//     sum: 2000,
+//   },
+// ];
 
-// import { fetchUserTransactions } from 'redux/transactions/transactionsOperations';
-
-const monthTransaction = [
-  {
-    id: 1,
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: 12,
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: 13321,
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: 14,
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: 41,
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: 13,
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: 133,
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: 132,
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: 1432423,
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: 142,
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-  {
-    id: Math.random(),
-    date: '21.09.2019',
-    description: 'salary',
-    category: 'car',
-    sum: 2000,
-  },
-];
-
-export default function Table() {
-  // const dispatch = useDispatch();
-  // const date = useSelector(getDate);
-  // const type = useSelector(getType);
-  // useEffect(() => {
-  //   dispatch(fetchUserTransactions(date));
-  // }, [dispatch, date]);
-
-  // const transactions = useSelector(getTransactions);
-  // const filtredTransactions = transactions.filter(tr => tr.type === type);
+export default function Table({ transactions }) {
+  const [transaction, setTransaction] = useState(
+    useSelector(selectTransactions)
+  );
 
   return (
     <TransactionBox>
@@ -212,9 +199,9 @@ export default function Table() {
           </TableTitle>
         </thead>
         <TableBodys>
-          {monthTransaction &&
-            monthTransaction.map(transaction => (
-              <TableBody key={transaction.id} transaction={transaction} />
+          {transaction &&
+            transaction.map(transaction => (
+              <TableBody key={transaction._id} transaction={transaction} />
             ))}
         </TableBodys>
       </TableBox>
