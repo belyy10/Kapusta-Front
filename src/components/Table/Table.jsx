@@ -1,5 +1,4 @@
 import TableBody from 'components/TableBody';
-import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectTransactions } from 'redux/transactions/transactionsSelectors';
 import {
@@ -182,8 +181,9 @@ import {
 // ];
 
 export default function Table({ transactions }) {
-  const [transaction, setTransaction] = useState(
-    useSelector(selectTransactions)
+  const transaction = useSelector(selectTransactions);
+  const filterTransaction = transaction.filter(
+    element => element.type.toLowerCase() === transactions.toLowerCase()
   );
 
   return (
@@ -199,8 +199,8 @@ export default function Table({ transactions }) {
           </TableTitle>
         </thead>
         <TableBodys>
-          {transaction &&
-            transaction.map(transaction => (
+          {filterTransaction &&
+            filterTransaction.map(transaction => (
               <TableBody key={transaction._id} transaction={transaction} />
             ))}
         </TableBodys>
