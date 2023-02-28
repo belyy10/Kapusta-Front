@@ -1,6 +1,11 @@
+
 import { useState } from 'react';
 // import axios from 'axios';
 import { Formik, ErrorMessage } from 'formik';
+
+// import { useDispatch } from 'react-redux';
+
+
 import { BiCalculator } from 'react-icons/bi';
 import schemaTransactions from 'schema/schemaTransactions';
 
@@ -23,7 +28,9 @@ import {
 const initialValues = {
   date: new Date(),
   description: '',
+
   category: null,
+
   sum: 0,
 };
 
@@ -82,9 +89,11 @@ export default function CreateTransaction() {
                 />
               </Label>
               <ErrorMessage
+
                 name="description"
                 render={msg => <Error>{msg}</Error>}
               />
+
               <SelectCategory
                 name="category"
                 as="select"
@@ -108,7 +117,7 @@ export default function CreateTransaction() {
               <ErrorMessage
                 name="category"
                 render={msg => <Error>{msg}</Error>}
-              />
+
 
               <InputSumWrapper>
                 <InputSum
