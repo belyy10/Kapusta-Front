@@ -15,6 +15,7 @@ export default function Main() {
         </LinkReport>
         <Balance />
         <TransactionsContainer />
+        
       </Container>
     </BackgroundPrivateContainer>
   );

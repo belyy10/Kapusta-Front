@@ -9,6 +9,7 @@ import {
 import { useMedia } from 'hooks/useMedia';
 import Table from 'components/Table';
 import TransactionListMobile from 'components/TransactionListMobile';
+import Summary from 'components/Summary';
 
 export default function TransactionsContainer() {
   const { isTabletAndDesktop, isMobile } = useMedia();
@@ -34,7 +35,7 @@ export default function TransactionsContainer() {
     });
     return;
   }
-
+  
   return (
     <TransactionsWrapper>
       <Incomes
@@ -52,6 +53,7 @@ export default function TransactionsContainer() {
       <CreateExpenses transactions={transactions} />
       {isTabletAndDesktop && <Table transactions={transactions} />}
       {isMobile && <TransactionListMobile transactions={transactions} />}
+      {!isMobile && <Summary/>}
     </TransactionsWrapper>
   );
 }
