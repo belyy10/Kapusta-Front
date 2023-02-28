@@ -20,10 +20,11 @@ import {
 import {
   selectReportsCategoryExpenses,
   selectReportsCategoryIncomes,
+  selectSummaryByCategory,
   selectTypeTransactionReports,
 } from 'redux/transactions/transactionsSelectors';
 
-export default function CategoryContainer({ setCategory }) {
+export default function CategoryContainer() {
   const dispatch = useDispatch();
   const type = useSelector(selectTypeTransactionReports);
   const categoryExpenses = useSelector(selectReportsCategoryExpenses);
@@ -32,12 +33,30 @@ export default function CategoryContainer({ setCategory }) {
     category => category.type === type
   );
 
+  const summary = useSelector(selectSummaryByCategory);
+  console.log(summary);
+
   function handleSetCategory(name) {
     if (type === 'Expenses') {
       dispatch(changeCategoryExpenses(name));
       return;
     }
     dispatch(changeCategoryIncomes(name));
+  }
+
+  function summaryCategory(name) {
+    if (summary.length === 0) {
+      return 0;
+    }
+
+    const index = summary.findIndex(
+      el => el.name.toLowerCase() === name.toLowerCase()
+    );
+    if (index === -1) {
+      return 0;
+    }
+
+    return summary[index].sum;
   }
 
   return (
@@ -57,6 +76,7 @@ export default function CategoryContainer({ setCategory }) {
           return (
             <li key={element.name}>
               <Btn onClick={() => handleSetCategory(element.name)}>
+                <BtnTitle>{summaryCategory(element.name)}</BtnTitle>
                 <IconMaker
                   category={element.name}
                   size={56}

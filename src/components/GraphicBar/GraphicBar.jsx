@@ -10,6 +10,8 @@ import {
   Text,
 } from 'recharts';
 import COLORS from 'variables/colors/colors';
+import { selectDescriptionsByCategory } from 'redux/transactions/transactionsSelectors';
+import { useSelector } from 'react-redux';
 
 const CustomizedLabel = ({ x, y, _, value }) => {
   return (
@@ -46,6 +48,7 @@ const CustomizedTickLabel = ({ x, y, payload }) => {
 
 export default function GraphicBar({ transaction }) {
   const { isDesktop } = useMedia();
+  const desriptions = useSelector(selectDescriptionsByCategory);
 
   const padding = isDesktop ? 77 : 5;
   const margin = isDesktop ? 150 : 50;
@@ -53,7 +56,7 @@ export default function GraphicBar({ transaction }) {
   return (
     <ResponsiveContainer>
       <BarChart
-        data={transaction}
+        data={desriptions}
         stackOffset={'expand'}
         margin={{
           top: 50,
@@ -81,8 +84,11 @@ export default function GraphicBar({ transaction }) {
           label={<CustomizedLabel />}
           barSize={35}
         >
-          {transaction.map((_, index) => (
-            <Cell fill={index % 3 ? COLORS.barColor : COLORS.activeColor} />
+          {desriptions.map((element, index) => (
+            <Cell
+              fill={index % 3 ? COLORS.barColor : COLORS.activeColor}
+              key={element.id}
+            />
           ))}
         </Bar>
       </BarChart>
