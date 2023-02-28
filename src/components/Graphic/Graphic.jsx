@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { selectTransactions } from 'redux/transactions/transactionsSelectors';
 import { useSelector } from 'react-redux';
 
-export default function Graphic({ category, transactions }) {
+export default function Graphic({ category, transactions, currentTime }) {
   const { isTabletAndDesktop, isMobile } = useMedia();
   const transactionsRedux = useSelector(selectTransactions);
   const [filtered, setFiltered] = useState([]);
@@ -15,7 +15,9 @@ export default function Graphic({ category, transactions }) {
     const filter = transactionsRedux.filter(
       transaction =>
         transaction.type.toLowerCase() === transactions.toLowerCase() &&
-        transaction.category.toLowerCase() === category.toLowerCase()
+        transaction.category.toLowerCase() === category.toLowerCase() &&
+        transaction.month === currentTime.mm &&
+        transaction.year === currentTime.year
     );
 
     const graphicTransact = filter.reduce((prev, { description, sum }) => {
@@ -40,7 +42,7 @@ export default function Graphic({ category, transactions }) {
     );
 
     setFiltered(sortGriphicTransact);
-  }, [category, transactions, transactionsRedux]);
+  }, [category, transactions, transactionsRedux, currentTime]);
 
   return (
     <>

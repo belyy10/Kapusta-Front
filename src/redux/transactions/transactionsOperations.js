@@ -8,8 +8,6 @@ export const fetchUserTransactions = createAsyncThunk(
   'transaction/fetchUserTransactions',
   async ({ controller, type }, thunkAPI) => {
     try {
-      console.log(controller);
-
       const { data } = await axios.get(`/transaction?type=${type}`, {
         signal: controller.signal,
       });

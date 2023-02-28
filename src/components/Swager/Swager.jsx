@@ -4,22 +4,41 @@ import 'swiper/css/navigation';
 import { Slide, SwagerBox, SwagerTitle } from './Swager.styled';
 import { Navigation } from 'swiper';
 import { Swiper } from 'swiper/react';
-import { useState } from 'react';
 
 const periods = [
-  'September 2022',
-  'October 2022',
-  'November 2022',
-  'December 2022',
-  'January 2023',
-  'February 2023',
+  {
+    month: 'September',
+    year: 2022,
+    mm: 9,
+  },
+  {
+    month: 'October',
+    year: 2022,
+    mm: 10,
+  },
+  {
+    month: 'November',
+    year: 2022,
+    mm: 11,
+  },
+  {
+    month: 'December',
+    year: 2022,
+    mm: 12,
+  },
+  {
+    month: 'January',
+    year: 2023,
+    mm: 1,
+  },
+  {
+    month: 'February',
+    year: 2023,
+    mm: 2,
+  },
 ];
 
-export default function Swager() {
-  const [currentPeriod, setCurrentPeriod] = useState(null);
-
-  console.log(currentPeriod);
-
+export default function Swager({ setCurrentTime }) {
   return (
     <SwagerBox>
       <SwagerTitle>Current period: </SwagerTitle>
@@ -34,11 +53,14 @@ export default function Swager() {
         onSlideChange={swiperCore => {
           const { activeIndex } = swiperCore;
 
-          setCurrentPeriod(periods[activeIndex]);
+          setCurrentTime(periods[activeIndex]);
         }}
       >
-        {periods.map(period => (
-          <Slide>{period}</Slide>
+        {periods.map((period, index) => (
+          <Slide key={index}>
+            {period.month}
+            <span> {period.year}</span>
+          </Slide>
         ))}
       </Swiper>
     </SwagerBox>
