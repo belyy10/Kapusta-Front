@@ -1,4 +1,5 @@
 const expenseCategories = [
+  //   { label: 'Product category', value: null },
   { label: 'Transport', value: 'transport' },
   { label: 'Products', value: 'products' },
   { label: 'Health', value: 'health' },

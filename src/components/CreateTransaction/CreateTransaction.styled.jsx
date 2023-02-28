@@ -139,7 +139,7 @@ export const Calculator = styled.span`
   @media screen and (min-width: 768px) {
     position: absolute;
     top: 16px;
-    left: 80px;
+    left: 96px;
     display: flex;
     background-color: transparent;
     align-items: center;
@@ -237,14 +237,17 @@ export const Button = styled.button`
 
 export const Error = styled.div`
   position: relative;
+  margin-top: -15px;
+  margin-bottom: 16px;
+  margin-left: 20px;
   font-size: 10px;
   letter-spacing: 0.04em;
   color: #eb5757;
 
-  ::after {
+  ::before {
     position: absolute;
-    top: -200px;
-    left: -50px;
+    top: -81px;
+    left: -25px;
     content: '*';
   }
 `;
