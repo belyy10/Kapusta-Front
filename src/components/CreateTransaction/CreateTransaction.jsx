@@ -34,7 +34,6 @@ const initialValues = {
 export default function CreateTransaction({ transactions }) {
   const dispatch = useDispatch();
   const currentDate = new Date().toISOString().slice(0, 10);
-  const [selectedCategory, setSelectedCategory] = useState('');
 
   const handleSubmit = (
     { date, description, category, sum },
@@ -53,7 +52,7 @@ export default function CreateTransaction({ transactions }) {
         type: transactions,
       })
     );
-    resetForm();
+    resetForm(initialValues);
   };
 
   return (
@@ -94,28 +93,40 @@ export default function CreateTransaction({ transactions }) {
                 render={msg => <Error>{msg}</Error>}
               />
 
-              <SelectCategory
-                name="category"
-                as="select"
-                value={selectedCategory}
-                defaultValue=""
-                onChange={handleChange}
-              >
-                <Option disabled value="">
-                  Product category
-                </Option>
-                {transactions === 'incomes'
-                  ? incomeCategories.map(category => (
-                      <Option key={category.value} value={category.value}>
-                        {category.label}
-                      </Option>
-                    ))
-                  : expenseCategories.map(category => (
-                      <Option key={category.value} value={category.value}>
-                        {category.label}
-                      </Option>
-                    ))}
-              </SelectCategory>
+              {transactions === 'incomes' ? (
+                <SelectCategory
+                  name="category"
+                  as="select"
+                  defaultValue=""
+                  onChange={handleChange}
+                >
+                  <Option disabled value="">
+                    Product category
+                  </Option>
+                  {incomeCategories.map(category => (
+                    <Option key={category.value} value={category.value}>
+                      {category.label}
+                    </Option>
+                  ))}
+                </SelectCategory>
+              ) : (
+                <SelectCategory
+                  name="category"
+                  as="select"
+                  defaultValue=""
+                  onChange={handleChange}
+                >
+                  <Option disabled value="">
+                    Product category
+                  </Option>
+                  {expenseCategories.map(category => (
+                    <Option key={category.value} value={category.value}>
+                      {category.label}
+                    </Option>
+                  ))}
+                </SelectCategory>
+              )}
+
               <ErrorMessage
                 name="category"
                 render={msg => <Error>{msg}</Error>}
