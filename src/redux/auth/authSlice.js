@@ -4,7 +4,6 @@ import {
   logOut,
   refreshUser,
   updateBalance,
-  fetchUserBalance,
 } from './authOperations';
 
 const { createSlice } = require('@reduxjs/toolkit');

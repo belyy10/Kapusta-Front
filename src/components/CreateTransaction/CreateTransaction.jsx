@@ -1,10 +1,8 @@
-
 import { useState } from 'react';
 // import axios from 'axios';
 import { Formik, ErrorMessage } from 'formik';
 
 // import { useDispatch } from 'react-redux';
-
 
 import { BiCalculator } from 'react-icons/bi';
 import schemaTransactions from 'schema/schemaTransactions';
@@ -89,7 +87,6 @@ export default function CreateTransaction() {
                 />
               </Label>
               <ErrorMessage
-
                 name="description"
                 render={msg => <Error>{msg}</Error>}
               />
@@ -117,7 +114,7 @@ export default function CreateTransaction() {
               <ErrorMessage
                 name="category"
                 render={msg => <Error>{msg}</Error>}
-
+              />
 
               <InputSumWrapper>
                 <InputSum
