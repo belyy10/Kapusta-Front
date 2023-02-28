@@ -1,15 +1,8 @@
 import Container from 'components/Container';
-import React from 'react';
-// import React, { useState, useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { selectUserBalance } from 'redux/auth/authSelectors';
-// import { getDate } from 'redux/transactions/transactionsSelectors';
-// import { updateBalance } from 'redux/auth/authOperations';
-// import {
-//   fetchUserTransactions,
-//   fetchSummaryExpenses,
-//   fetchSummaryIncomes,
-// } from 'redux/transactions/transactionsOperations';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateBalance } from 'redux/auth/authOperations';
+
 import {
   Wrapper,
   Button,
@@ -20,51 +13,59 @@ import {
   Text,
   Styled,
 } from './Balance.styled';
+import { useAuth } from 'hooks/useAuth';
+import { selectUserBalance } from 'redux/auth/authSelectors';
 
 export default function Balance() {
-  // const dispatch = useDispatch();
-  // const balance = useSelector(selectUserBalance);
-  // const token = useSelector(state => state.auth.user.accessToken);
+  const dispatch = useDispatch();
+  const balance = useSelector(selectUserBalance);
+  // const { balance } = useAuth();
 
-  // const [value, setValue] = useState(balance ?? 0);
-  // const [tooltipOpen, setTooltipOpen] = useState(true);
-  // const [isSent, setIsSent] = useState(false);
+  const [value, setValue] = useState({ balance } ?? 0);
+  const [tooltipOpen, setTooltipOpen] = useState(true);
 
-  // const onBlur = e => {
-  //   const data = e.target.value.split(' ').join('');
-  //   setValue(data);
-  //   setIsSent(false);
-  // };
+  useEffect(() => {
+    setValue(balance);
+  }, [balance]);
 
-  // const onClick = () => {
-  //   dispatch(updateBalance({ value, token }));
-  //   setIsSent(true);
-  // };
+  const onSubmit = e => {
+    e.preventDefault();
+    dispatch(updateBalance({ balance: e.target.elements.balance.value }));
+  };
+
+  const onChange = e => {
+    if (e.target.value < 0) {
+      return;
+    }
+    setValue(e.target.value);
+  };
 
   return (
     <Container>
       <Wrapper>
         <Title>Balance:</Title>
-        <Section autoComplete="off">
+        <Section autoComplete="off" onSubmit={onSubmit}>
           <Input
-          // type="number"
-          // placeholder="00.00 UAH"
-          // value={value}
-          // onBlur={onBlur}
+            type="number"
+            placeholder={`${balance}.00 UAH`}
+            name="balance"
+            value={value || 0}
+            disabled={balance > 0 ? true : false}
+            onChange={onChange}
           />
 
-          {/* <Button type="button" onClick={onClick}> */}
-          <Button type="button">Confirm</Button>
+          <Button type="submit" disabled={balance > 0 ? true : false}>
+            Confirm
+          </Button>
         </Section>
-        {/* {!balance > 0 && ( */}
-        {/* <Wrapper2> */}
-        {/* <Wrapper2 setTooltipOpen={setTooltipOpen}> */}
-        {/* <Text> */}
-        {/* Hello! To get started, enter the current balance of your account! */}
-        {/* </Text> */}
-        {/* <Styled>You can't spend money until you have it :{' ) '}</Styled> */}
-        {/* </Wrapper2> */}
-        {/* )} */}
+        {!balance > 0 && (
+          <Wrapper2 active={tooltipOpen} setActive={setTooltipOpen}>
+            <Text>
+              Hello! To get started, enter the current balance of your account!
+            </Text>
+            <Styled>You can't spend money until you have it :{' ) '}</Styled>
+          </Wrapper2>
+        )}
       </Wrapper>
     </Container>
   );

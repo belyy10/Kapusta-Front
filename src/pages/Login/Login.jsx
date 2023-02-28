@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Container from 'components/Container';
+// import Container from 'components/Container';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 import { Box } from './Login.styled';
@@ -17,16 +17,16 @@ export default function Login() {
   };
   return (
     <BackgroundLogInContainer>
-      <Container>
-        <LoginTitle />
-        <Box>
-          {loginFormNeeded ? (
-            <LoginForm onRegistrationClick={onRegistrationClick} />
-          ) : (
-            <RegisterForm onBackToLogin={onBackToLogin} />
-          )}
-        </Box>
-      </Container>
+      {/* <Container> */}
+      <LoginTitle />
+      <Box>
+        {loginFormNeeded ? (
+          <LoginForm onRegistrationClick={onRegistrationClick} />
+        ) : (
+          <RegisterForm onBackToLogin={onBackToLogin} />
+        )}
+      </Box>
+      {/* </Container> */}
     </BackgroundLogInContainer>
   );
 }
