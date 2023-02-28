@@ -9,6 +9,8 @@ export const Wraper = styled.div`
   height: 85px;
   border-radius: 20px;
   margin-bottom: 32px;
+  margin-right: 20px;
+  margin-left: 20px;
   background: ${COLORS.whiteColor};
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
 
@@ -27,7 +29,6 @@ export const Wraper = styled.div`
     justify-content: center;
     width: calc(100% / 2);
     height: 100%;
-    padding: 10px;
 
     :first-child {
       padding-right: 20px;

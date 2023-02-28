@@ -4,8 +4,6 @@ export const ContainerBox = styled.div`
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  padding-right: 20px;
-  padding-left: 20px;
   width: 320px;
   background: #f2f5fc;
 
