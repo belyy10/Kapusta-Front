@@ -43,7 +43,7 @@ export default function Reports() {
           transactions={transactions}
           changeTransaction={changeTransaction}
         />
-        <Graphic />
+        <Graphic category={category} transactions={transactions} />
       </Container>
     </BackgroundPrivateContainer>
   );

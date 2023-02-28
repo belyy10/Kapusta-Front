@@ -9,8 +9,11 @@ import {
 import { useMedia } from 'hooks/useMedia';
 import Table from 'components/Table';
 import TransactionListMobile from 'components/TransactionListMobile';
+import { useDispatch } from 'react-redux';
+import { toggleTransaction } from 'redux/transactions/transactionsSlice';
 
 export default function TransactionsContainer() {
+  const dispatch = useDispatch();
   const { isTabletAndDesktop, isMobile } = useMedia();
   const [transactions, setTransactions] = useState('incomes');
   const [isActive, setIsActive] = useState({
@@ -39,13 +42,19 @@ export default function TransactionsContainer() {
     <TransactionsWrapper>
       <Incomes
         isActive={isActive.incomes}
-        onClick={() => changeTransaction('incomes')}
+        onClick={() => {
+          changeTransaction('incomes');
+          dispatch(toggleTransaction('incomes'));
+        }}
       >
         Incomes
       </Incomes>
       <Expenses
         isActive={isActive.expenses}
-        onClick={() => changeTransaction('expenses')}
+        onClick={() => {
+          changeTransaction('expenses');
+          dispatch(toggleTransaction('expenses'));
+        }}
       >
         Expenses
       </Expenses>

@@ -11,3 +11,5 @@ export const getType = state => state.transactions.type;
 export const getReportsData = state => state.transactions.reportsData;
 
 export const isLoading = state => state.transactions.isLoading;
+
+export const selectTransactions = state => state.transactions.transactions;

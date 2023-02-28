@@ -22,8 +22,6 @@ export default function CategoryContainer({
     category => category.type === transactions
   );
 
-  console.log(fileredCategory);
-
   return (
     <Container>
       <ChoseBox>
@@ -40,7 +38,11 @@ export default function CategoryContainer({
         {fileredCategory.map(element => {
           return (
             <li key={element.name}>
-              <Btn onClick={() => setCategory(element.name)}>
+              <Btn
+                onClick={() => {
+                  setCategory(element.name);
+                }}
+              >
                 <IconMaker
                   category={element.name}
                   size={56}
