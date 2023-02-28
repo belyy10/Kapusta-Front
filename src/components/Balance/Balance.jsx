@@ -13,7 +13,7 @@ import {
   Text,
   Styled,
 } from './Balance.styled';
-import { useAuth } from 'hooks/useAuth';
+// import { useAuth } from 'hooks/useAuth';
 import { selectUserBalance } from 'redux/auth/authSelectors';
 
 export default function Balance() {
