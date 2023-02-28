@@ -53,8 +53,9 @@ const authSlice = createSlice({
     [updateBalance.fulfilled]: (state, action) => {
       state.user = action.payload.user;
     },
-    [updateBalance.rejected]: state => {
+    [updateBalance.rejected]: (state, action) => {
       state.user = { email: null };
+      state.balance = action.payload.balance;
       state.token = null;
       state.isLoggedIn = false;
     },
