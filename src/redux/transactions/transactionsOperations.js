@@ -62,7 +62,7 @@ export const fetchSummaryExpenses = createAsyncThunk(
         signal: controller.signal,
       });
 
-      return { expenses: data, incomes: response.data };
+      return { expenses: data, incomes: responce.data };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
