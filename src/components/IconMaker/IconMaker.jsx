@@ -120,5 +120,6 @@ export default function IconMaker({ category, bgColor, color }) {
         </svg>
       </IconBox>
       )
+
   }
 }
