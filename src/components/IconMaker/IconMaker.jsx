@@ -48,7 +48,7 @@ export default function IconMaker({ category, size, color }) {
   if (category === 'Salary') {
     return <GrMoney size={size} color={color} />;
   }
-  if (category === 'Add. income') {
+  if (category === 'Add.income') {
     return <FcMoneyTransfer size={size} color={color} />;
   }
 }
