@@ -35,7 +35,6 @@ export default function CategoryContainer() {
   );
 
   const summary = useSelector(selectSummaryByCategory);
-  console.log(summary);
 
   function handleSetCategory(name) {
     if (type === 'Expenses') {
