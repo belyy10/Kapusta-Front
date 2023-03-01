@@ -8,7 +8,7 @@ import { useMedia } from 'hooks/useMedia';
 import Table from 'components/Table';
 import TransactionListMobile from 'components/TransactionListMobile';
 
-import Summary from 'components/Summary';
+// import Summary from 'components/Summary';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTransaction } from 'redux/transactions/transactionsSlice';
@@ -36,8 +36,7 @@ export default function TransactionsContainer() {
 
       {isTabletAndDesktop && <Table />}
       {isMobile && <TransactionListMobile />}
-       {!isMobile && <Summary/>}
-
+      {/* {!isMobile && <Summary/>} */}
     </TransactionsWrapper>
   );
 }
