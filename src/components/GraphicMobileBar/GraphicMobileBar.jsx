@@ -36,8 +36,6 @@ const CustomizedTickLabel = ({ x, y, payload }) => {
 };
 
 export default function GraphicMobileBar({ transaction }) {
-  console.log(transaction);
-
   return (
     <BarChart
       width={320}
