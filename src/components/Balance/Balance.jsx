@@ -1,4 +1,3 @@
-import Container from 'components/Container';
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateBalance } from 'redux/auth/authOperations';
@@ -39,34 +38,32 @@ export default function Balance() {
   };
 
   return (
-    <Container>
-      <Wrapper>
-        <Title>Balance:</Title>
-        <Section autoComplete="off" onSubmit={onSubmit}>
-          <Input
-            type="number"
-            placeholder={`0.00 UAH`}
-            name="balance"
-            value={value}
-            readOnly={balance}
-            pattern="[0-9, UAH]*"
-            disabled={balance > 0 ? true : false}
-            onChange={onChange}
-          />
+    <Wrapper>
+      <Title>Balance:</Title>
+      <Section autoComplete="off" onSubmit={onSubmit}>
+        <Input
+          type="number"
+          placeholder={`0.00 UAH`}
+          name="balance"
+          value={value}
+          readOnly={balance}
+          pattern="[0-9, UAH]*"
+          disabled={balance > 0 ? true : false}
+          onChange={onChange}
+        />
 
-          <Button type="submit" disabled={balance > 0 ? true : false}>
-            Confirm
-          </Button>
-        </Section>
-        {!balance > 0 && (
-          <Wrapper2 active={tooltipOpen} setActive={setTooltipOpen}>
-            <Text>
-              Hello! To get started, enter the current balance of your account!
-            </Text>
-            <Styled>You can't spend money until you have it :{' ) '}</Styled>
-          </Wrapper2>
-        )}
-      </Wrapper>
-    </Container>
+        <Button type="submit" disabled={balance > 0 ? true : false}>
+          Confirm
+        </Button>
+      </Section>
+      {!balance > 0 && (
+        <Wrapper2 active={tooltipOpen} setActive={setTooltipOpen}>
+          <Text>
+            Hello! To get started, enter the current balance of your account!
+          </Text>
+          <Styled>You can't spend money until you have it :{' ) '}</Styled>
+        </Wrapper2>
+      )}
+    </Wrapper>
   );
 }
