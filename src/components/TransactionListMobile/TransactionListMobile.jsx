@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 import { selectTransactionsByType } from 'redux/transactions/transactionsSelectors';
 import Moment from 'react-moment';
 
-export default function TransactionListMobile() {
+export default function TransactionListMobile({ openTrForm }) {
   const filteredTransactions = useSelector(selectTransactionsByType);
 
   return (

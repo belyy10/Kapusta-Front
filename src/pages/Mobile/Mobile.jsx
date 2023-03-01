@@ -1,5 +1,5 @@
 import {
-  // useEffect,
+  useEffect,
   useState,
 } from 'react';
 
@@ -16,18 +16,18 @@ import {
   LinkToReport,
   InputDate,
 } from './Mobile.styled.jsx';
-// import { changeType } from 'redux/transactions';
-// import { useDispatch } from 'react-redux';
+import { changeType } from 'redux/transactions/transactionsOperations.js';
+import { useDispatch } from 'react-redux';
 
 export default function Mobile() {
   const [trForm, openTrForm] = useState(false);
   const currentDate = new Date().toISOString().slice(0, 10);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(changeType('all'));
-  // }, []);
+  useEffect(() => {
+    dispatch(changeType('all'));
+  });
 
   return (
     <>
@@ -46,8 +46,6 @@ export default function Mobile() {
             </LinkToReport>
 
             <Balance />
-            {/* календарь */}
-
             <InputDate
               name="date"
               type="date"
@@ -62,8 +60,10 @@ export default function Mobile() {
             />
           </MobileInfo>
         )}
+  
       </MobileContainer>
-      <MobileTypeBtn openTrForm={openTrForm} />
+      <MobileTypeBtn 
+      openTrForm={openTrForm} />
     </>
   );
 }

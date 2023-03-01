@@ -1,20 +1,33 @@
 import styled from 'styled-components';
 import COLORS from 'variables/colors/colors';
 
-export const Container = styled.div`
-
+export const BtnContainer = styled.div`
 
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
 
-  padding: 36px 0;
+  padding: 20px 0 0 0;
 
   width: 100%;
+  border-radius: 0px;
+
 
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-  border-radius: 30px;
   background-color: ${COLORS.whiteColor};
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 20px;
+    max-width:704px;
+    border-radius: 30px;
+
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width:1034px;
+    border-radius: 30px;
+
+  }
 
   
 `;
@@ -53,12 +66,12 @@ export const BtnList = styled.ul`
 
   @media screen and (min-width: 768px) {
     padding: 0;
-    gap: 25px;
+    gap: 10px;
   }
 
   @media screen and (min-width: 1200px) {
-    padding: 20px 170px;
-    gap: 52px;
+    padding: 20px 150px;
+    gap: 15px;
   }
 `;
 
@@ -80,6 +93,7 @@ export const Btn = styled.button`
   position: relative;
   border: none;
   background-color: transparent;
+  
 `;
 
 export const BtnTitle = styled.span`
