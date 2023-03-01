@@ -9,7 +9,7 @@ export default function ReportInfo() {
     <Wraper>
       <div>
         <ItemText>Expenses:</ItemText>
-        <Sum type={'expenses'}>- {expenses}.00 UAH.</Sum>
+        <Sum type={'expenses'}> {expenses}.00 UAH.</Sum>
       </div>
       <div>
         <ItemText>Incomes:</ItemText>

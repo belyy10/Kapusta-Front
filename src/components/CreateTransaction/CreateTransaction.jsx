@@ -47,6 +47,7 @@ export default function CreateTransaction() {
       addTransaction({
         year: parseInt(d[0]),
         month: parseInt(d[1]),
+        day: parseInt(d[2]),
         description,
         category,
         sum,
