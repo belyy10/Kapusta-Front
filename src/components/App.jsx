@@ -12,6 +12,7 @@ const Header = lazy(() => import('./Header'));
 const Main = lazy(() => import('../pages/Main'));
 const Reports = lazy(() => import('../pages/Reports'));
 const Login = lazy(() => import('../pages/Login'));
+// const Mobile = lazy(() => import('../pages/Mobile'));
 
 export default function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,8 @@ export default function App() {
 
     return () => controller.abort();
   }, [dispatch]);
+
+  // const isMobile = useMedia();
 
   return (
     <Suspense>
