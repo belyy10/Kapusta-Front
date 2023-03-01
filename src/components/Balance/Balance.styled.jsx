@@ -42,7 +42,19 @@ export const Section = styled.form`
   justify-content: center;
   width: 100%;
 `;
+
+export const InputContainer = styled.div`
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  position: relative;
+`;
+
 export const Input = styled.input`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
   border: 2px solid #ffffff;
   border-radius: 16px;
   background-color: transparent;
@@ -64,6 +76,19 @@ export const Input = styled.input`
     border-right: 1px solid #ffffff;
   }
 `;
+export const Label = styled.label`
+  position: absolute;
+  top: 17px;
+  right: 5px;
+  font-weight: 600;
+  color: black;
+
+  @media screen and (min-width: 768px) {
+    top: 17px;
+    right: 22px;
+  }
+`;
+
 export const Button = styled.button`
   background-color: transparent;
   border: 2px solid #ffffff;
