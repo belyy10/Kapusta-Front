@@ -20,7 +20,7 @@ export const LinkReport = styled(Link)`
   @media screen and (min-width: 678px) {
     position: absolute;
     top: 57px;
-    right: 0;
+    right: calc((100% - 1098px) / 2);
     z-index: 20;
   }
 `;
