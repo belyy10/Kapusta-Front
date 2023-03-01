@@ -1,8 +1,11 @@
+import { nanoid } from '@reduxjs/toolkit';
+
 export const getTransactions = state => state.transactions.transactions;
 
-export const getSummaryExpenses = state => state.transactions.summaryExpenses;
+export const selectSummaryExpenses = state =>
+  state.transactions.summary.expenses;
 
-export const getSummaryIncomes = state => state.transactions.summaryIncomes;
+export const selectSummaryIncomes = state => state.transactions.summary.incomes;
 
 export const getDate = state => state.transactions.date;
 
@@ -44,35 +47,39 @@ export const selectCategoryByType = state => {
   return selectReportsCategoryIncomes(state);
 };
 
-export const selectIncomesByCurrentPeriod = state => {
-  const currentPeriod = selectCurrentPeriod(state);
-  const getIncome = getSummaryIncomes(state);
-  if (!getIncome) {
-    return [];
-  }
-  return getIncome.filter(el => {
-    const id = el._id.split('-');
-    return (
-      parseInt(id[0]) === currentPeriod.year &&
-      parseInt(id[1]) === currentPeriod.month
-    );
-  });
-};
-export const selectExpensesByCurrentPeriod = state => {
-  const currentPeriod = selectCurrentPeriod(state);
-  const getExpenses = getSummaryExpenses(state);
-  if (!getExpenses) {
-    return [];
-  }
-  return getExpenses.filter(el => {
-    const id = el._id.split('-');
-    return (
-      parseInt(id[0]) === currentPeriod.year &&
-      parseInt(id[1]) === currentPeriod.month
-    );
-  });
+//selectSummary
+export const selectSummary = state => {
+  const { year, mm } = selectCurrentPeriod(state);
+  const transactions = selectTransactions(state);
+
+  const filteredExpenses = transactions.filter(
+    transaction =>
+      transaction.month === mm &&
+      transaction.year === year &&
+      transaction.type === 'expenses'
+  );
+
+  const filteredIncomes = transactions.filter(
+    transaction =>
+      transaction.month === mm &&
+      transaction.year === year &&
+      transaction.type === 'incomes'
+  );
+
+  const summaryExpenses = filteredExpenses.reduce(
+    (prevState, { sum }) => (prevState += sum),
+    0
+  );
+
+  const summaryIncomes = filteredIncomes.reduce(
+    (prevState, { sum }) => (prevState += sum),
+    0
+  );
+
+  return { incomes: summaryIncomes, expenses: summaryExpenses };
 };
 
+//graphic
 export const selectDescriptionsByCategory = state => {
   const type = selectTypeTransactionReports(state);
   const category = selectCategoryByType(state);
@@ -101,6 +108,7 @@ export const selectDescriptionsByCategory = state => {
       prev.push({
         name: description,
         sum: cost,
+        id: nanoid(),
       });
       return prev;
     },
@@ -108,4 +116,40 @@ export const selectDescriptionsByCategory = state => {
   );
 
   return descriptions.sort((firstEl, secondEl) => secondEl.sum - firstEl.sum);
+};
+
+export const selectSummaryByCategory = state => {
+  const type = selectTypeTransactionReports(state);
+  const { mm, year } = selectCurrentPeriod(state);
+  const transactions = selectTransactions(state);
+
+  const filteredTransactions = transactions.filter(
+    transaction =>
+      transaction.type.toLowerCase() === type.toLowerCase() &&
+      transaction.month === mm &&
+      transaction.year === year
+  );
+
+  const descriptions = filteredTransactions.reduce(
+    (prev, { category, sum }) => {
+      const index = prev.findIndex(option => option.name === category);
+
+      const cost = type === 'Expenses' ? sum * -1 : sum;
+
+      if (index !== -1) {
+        prev[index].sum += cost;
+        return prev;
+      }
+
+      prev.push({
+        name: category,
+        sum: cost,
+        id: nanoid(),
+      });
+      return prev;
+    },
+    []
+  );
+
+  return descriptions;
 };

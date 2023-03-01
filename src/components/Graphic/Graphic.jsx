@@ -9,7 +9,6 @@ export default function Graphic() {
   const { isTabletAndDesktop, isMobile } = useMedia();
   const desriptions = useSelector(selectDescriptionsByCategory);
 
-  console.log(desriptions);
   return (
     <>
       {isTabletAndDesktop && (

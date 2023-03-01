@@ -5,15 +5,13 @@ import {
   addTransaction,
   removeTransaction,
   fetchSummaryExpenses,
-  fetchSummaryIncomes,
   fetchReportExpenses,
   fetchReportIncomes,
 } from './transactionsOperations';
 
 const initialState = {
   transactions: [],
-  summaryExpenses: [],
-  summaryIncomes: [],
+  summary: null,
   reportsData: [],
   type: 'all',
   isLoading: false,
@@ -35,7 +33,7 @@ const transactionSlice = createSlice({
     toggleTransaction(state, action) {
       state.mainType = action.payload;
     },
-    toggleReportType(state, action) {
+    toggleReportType(state) {
       if (state.reports.type === 'Expenses') {
         state.reports.type = 'Incomes';
         return;
@@ -96,20 +94,10 @@ const transactionSlice = createSlice({
       state.isLoading = true;
     },
     [fetchSummaryExpenses.fulfilled]: (state, action) => {
-      state.summaryExpenses = [...action.payload];
+      state.summary = action.payload;
       state.isLoading = false;
     },
     [fetchSummaryExpenses.rejected]: state => {
-      state.isLoading = false;
-    },
-    [fetchSummaryIncomes.pending]: state => {
-      state.isLoading = true;
-    },
-    [fetchSummaryIncomes.fulfilled]: (state, action) => {
-      state.summaryIncomes = [...action.payload];
-      state.isLoading = false;
-    },
-    [fetchSummaryIncomes.rejected]: state => {
       state.isLoading = false;
     },
     [fetchReportExpenses.pending]: state => {
