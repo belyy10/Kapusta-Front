@@ -40,7 +40,6 @@ export default function Balance() {
   };
 
   return (
-
     <Container>
       <Wrapper>
         <Title>Balance:</Title>
@@ -58,18 +57,19 @@ export default function Balance() {
             />
             <Label>UAH</Label>
           </InputContainer>
-        <Button type="submit" disabled={balance > 0 ? true : false}>
-          Confirm
-        </Button>
-      </Section>
-      {!balance > 0 && (
-        <Wrapper2 active={tooltipOpen} setActive={setTooltipOpen}>
-          <Text>
-            Hello! To get started, enter the current balance of your account!
-          </Text>
-          <Styled>You can't spend money until you have it :{' ) '}</Styled>
-        </Wrapper2>
-      )}
-    </Wrapper>
+          <Button type="submit" disabled={balance > 0 ? true : false}>
+            Confirm
+          </Button>
+        </Section>
+        {!balance > 0 && (
+          <Wrapper2 active={tooltipOpen} setActive={setTooltipOpen}>
+            <Text>
+              Hello! To get started, enter the current balance of your account!
+            </Text>
+            <Styled>You can't spend money until you have it :{' ) '}</Styled>
+          </Wrapper2>
+        )}
+      </Wrapper>
+    </Container>
   );
 }
