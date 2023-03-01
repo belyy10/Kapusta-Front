@@ -58,11 +58,11 @@ export const fetchSummaryExpenses = createAsyncThunk(
       const { data } = await axios.get('/transaction/expensesByMonthYear', {
         signal: controller.signal,
       });
-      const responce = await axios.get('/transaction/incomesByMonthYear', {
+      const response = await axios.get('/transaction/incomesByMonthYear', {
         signal: controller.signal,
       });
 
-      return { expenses: data, incomes: responce.data };
+      return { expenses: data, incomes: response.data };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
