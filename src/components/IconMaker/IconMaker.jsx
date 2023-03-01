@@ -3,9 +3,10 @@ import { IconBox } from './IconMaker.styled';
 
 
 export default function IconMaker({ category, bgColor, color }) {
+  console.log(bgColor)
   if (category === 'Products') {
     return (
-      <IconBox  style={{backgroundColor: bgColor}}>
+      <IconBox  style={{backgroundColor: bgColor} }>
         <svg  width="59" height="57" fill={color}>
           <use href= {`${reportsIcon}#icon-products`}></use>
         </svg>
@@ -116,7 +117,7 @@ export default function IconMaker({ category, bgColor, color }) {
     return (
       <IconBox  style={{backgroundColor: bgColor}}>
         <svg  width="59" height="57" fill={color}>
-          <use href= {`${reportsIcon}#icon-add_income`}></use>
+          <use href= {`${reportsIcon}#icon-add-income`}></use>
         </svg>
       </IconBox>
       )
