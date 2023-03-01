@@ -54,7 +54,6 @@ export default function App() {
           />
           <Route
             path="main"
-            // element={<PrivateRoute component={<Main />} redirectTo="/login" />}
             element={ isMobile ? <PrivateRoute path="transactions" component={<Mobile/>} redirectTo="/login" /> 
             : <PrivateRoute component={<Main />} redirectTo="/login" />}
           >
