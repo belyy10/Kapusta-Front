@@ -9,12 +9,10 @@ export const LinkToMain = styled(Link)`
   align-items: center;
 
   text-decoration: none;
-  font-family: 'Roboto';
 
   font-weight: 400;
   font-size: 12px;
   line-height: calc(14 / 12);
-  /* identical to box height */
 
   letter-spacing: 0.04;
 
