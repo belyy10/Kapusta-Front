@@ -5,6 +5,8 @@ import { RiBarChartFill } from 'react-icons/ri';
 export const LinkReport = styled(Link)`
   display: flex;
   align-items: center;
+  padding-top: 10px;
+  padding-left: 10px;
 
   text-decoration: none;
   font-family: 'Roboto';
@@ -17,10 +19,10 @@ export const LinkReport = styled(Link)`
 
   color: rgba(82, 85, 95, 0.7);
 
-  @media screen and (min-width: 678px) {
+  @media screen and (min-width: 768px) {
     position: absolute;
     top: 57px;
-    right: calc((100% - 1098px) / 2);
+    right: 50px;
     z-index: 20;
   }
 `;
