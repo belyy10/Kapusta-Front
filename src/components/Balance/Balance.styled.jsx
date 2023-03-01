@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   flex-direction: column;
@@ -16,7 +17,6 @@ export const Wrapper = styled.div`
     align-self: center;
     padding-bottom: 40px;
     padding-top: 40px;
-    padding-right: 367px;
   }
   @media (min-width: 1200px) {
     margin-bottom: 48px;
@@ -160,4 +160,27 @@ export const Styled = styled.p`
   line-height: 16px;
   color: #ffffff;
   margin: 0;
+`;
+
+export const LinkReport = styled(Link)`
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+  font-family: 'Roboto';
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+
+  letter-spacing: 0.04;
+
+  color: rgba(82, 85, 95, 0.7);
+
+  @media screen and (min-width: 678px) {
+    position: absolute;
+    top: 57px;
+    right: 0;
+    z-index: 20;
+  }
 `;
