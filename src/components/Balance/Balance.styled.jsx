@@ -78,13 +78,13 @@ export const Input = styled.input`
 `;
 export const Label = styled.label`
   position: absolute;
-  top: 17px;
+  top: 21px;
   right: 5px;
   font-weight: 600;
   color: black;
-
+  font-size: 12px;
   @media screen and (min-width: 768px) {
-    top: 17px;
+    top: 19px;
     right: 22px;
   }
 `;

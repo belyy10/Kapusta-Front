@@ -38,9 +38,7 @@ export default function App() {
     return () => controller.abort();
   }, [dispatch]);
 
-
-  const {isMobile} = useMedia();
-
+  const { isMobile } = useMedia();
 
   return (
     <Suspense>
@@ -55,12 +53,46 @@ export default function App() {
           <Route
             path="main"
             // element={<PrivateRoute component={<Main />} redirectTo="/login" />}
-            element={ isMobile ? <PrivateRoute path="transactions" component={<Mobile/>} redirectTo="/login" /> 
-            : <PrivateRoute component={<Main />} redirectTo="/login" />}
+            element={
+              isMobile ? (
+                <PrivateRoute
+                  path="transactions"
+                  component={<Mobile />}
+                  redirectTo="/login"
+                />
+              ) : (
+                <PrivateRoute component={<Main />} redirectTo="/login" />
+              )
+            }
           >
-
-            <Route path="expenses" element={ isMobile ? (<><Mobile/></>) : (<><CreateTransactions /></>)} />
-            <Route path="incomes" element={ isMobile ? (<><Mobile/></>) : (<><CreateTransactions /></>)} />
+            <Route
+              path="expenses"
+              element={
+                isMobile ? (
+                  <>
+                    <Mobile />
+                  </>
+                ) : (
+                  <>
+                    <CreateTransactions />
+                  </>
+                )
+              }
+            />
+            <Route
+              path="incomes"
+              element={
+                isMobile ? (
+                  <>
+                    <Mobile />
+                  </>
+                ) : (
+                  <>
+                    <CreateTransactions />
+                  </>
+                )
+              }
+            />
           </Route>
           <Route
             path="reports"
@@ -68,7 +100,10 @@ export default function App() {
               <PrivateRoute component={<Reports />} redirectTo="/login" />
             }
           />
-          <Route path="*" element={<Main />} />
+          <Route
+            path="*"
+            element={<PrivateRoute component={<Main />} redirectTo="/login" />}
+          />
         </Route>
       </Routes>
     </Suspense>
