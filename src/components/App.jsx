@@ -6,18 +6,38 @@ import { PrivateRoute } from './PrivateRoute';
 import CreateTransactions from './CreateTransaction/CreateTransaction';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
+import { fetchUserTransactions } from 'redux/transactions/transactionsOperations';
 
 const Header = lazy(() => import('./Header'));
 const Main = lazy(() => import('../pages/Main'));
 const Reports = lazy(() => import('../pages/Reports'));
 const Login = lazy(() => import('../pages/Login'));
+// const Mobile = lazy(() => import('../pages/Mobile'));
 
 export default function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const controller = new AbortController();
     dispatch(refreshUser());
+
+    dispatch(
+      fetchUserTransactions({
+        type: 'expenses',
+        controller,
+      })
+    );
+    dispatch(
+      fetchUserTransactions({
+        type: 'incomes',
+        controller,
+      })
+    );
+
+    return () => controller.abort();
   }, [dispatch]);
+
+  // const isMobile = useMedia();
 
   return (
     <Suspense>

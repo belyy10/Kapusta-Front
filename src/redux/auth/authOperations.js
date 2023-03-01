@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-hot-toast';
+import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://kapusta-deployment.onrender.com/api';
 
@@ -22,8 +22,15 @@ export const register = createAsyncThunk(
       const responce = await axios.post('/users/register', credentials);
       // After successful registration, add the token to the HTTP header
       // setAuthToken(responce.data.token);
+      Notiflix.Notify.success('Welcome to Kapu$ta! Please verify your email');
       return responce.data;
     } catch (error) {
+      const errorMes = error.response.data.message;
+      if (errorMes === 'Email in use') {
+        return Notiflix.Notify.failure('This email is already used');
+      }
+
+      Notiflix.Notify.failure(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -39,9 +46,10 @@ export const logIn = createAsyncThunk(
       console.log(responce);
       // After successful login, add the token to the HTTP header
       setAuthToken(responce.data.accessToken);
+      Notiflix.Notify.success('Welcome to Kapu$ta!');
       return responce.data;
     } catch (error) {
-      toast.error('Check e-mail or password');
+      Notiflix.Notify.failure('Check e-mail or password');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -52,7 +60,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     const responce = await axios.post('/users/logout');
     clearAuthToken();
-
+    Notiflix.Notify.info('Goodbye!');
     return responce.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
@@ -87,9 +95,9 @@ export const refreshUser = createAsyncThunk(
 // update user balance
 export const updateBalance = createAsyncThunk(
   'user/updateBalance',
-  async (_, thunkAPI) => {
+  async (balance, thunkAPI) => {
     try {
-      const { data } = await axios.patch('/users/balance');
+      const { data } = await axios.patch('/users/balance', balance);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

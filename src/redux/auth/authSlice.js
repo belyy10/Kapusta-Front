@@ -32,6 +32,7 @@ const authSlice = createSlice({
       state.accessToken = action.payload.accessToken;
       state.refreshToken = action.payload.refreshToken;
       state.isLoggedIn = true;
+      state.balance = action.payload.balance;
     },
     [logOut.fulfilled](state) {
       state.user = { email: null };
@@ -46,15 +47,18 @@ const authSlice = createSlice({
       state.user = action.payload.user;
       state.isLoggedIn = true;
       state.isRefreshing = false;
+      state.balance = action.payload.balance;
     },
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
     },
     [updateBalance.fulfilled]: (state, action) => {
       state.user = action.payload.user;
+      state.balance = action.payload.balance;
     },
-    [updateBalance.rejected]: state => {
+    [updateBalance.rejected]: (state, action) => {
       state.user = { email: null };
+      state.balance = action.payload.balance;
       state.token = null;
       state.isLoggedIn = false;
     },

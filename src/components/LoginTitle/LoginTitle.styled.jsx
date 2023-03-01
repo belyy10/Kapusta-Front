@@ -5,6 +5,8 @@ export const TitleBox = styled.div`
   @media screen and (min-width: 320px) {
     width: 183px;
     padding-top: 86px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   @media screen and (min-width: 768px) {

@@ -6,9 +6,11 @@ export const changeType = createAction('transactions/changeType');
 
 export const fetchUserTransactions = createAsyncThunk(
   'transaction/fetchUserTransactions',
-  async (_, thunkAPI) => {
+  async ({ controller, type }, thunkAPI) => {
     try {
-      const { data } = await axios.get('/transaction/:type');
+      const { data } = await axios.get(`/transaction?type=${type}`, {
+        signal: controller.signal,
+      });
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -18,9 +20,18 @@ export const fetchUserTransactions = createAsyncThunk(
 
 export const addTransaction = createAsyncThunk(
   'transaction/addTransaction',
-  async (newTransaction, thunkAPI) => {
+  async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/transaction', newTransaction);
+      console.log('addTransaction', credentials);
+      console.log('type: ', credentials.type);
+
+      const { data } = await axios.post(
+        `/transaction/${credentials.type}`,
+        credentials
+      );
+
+      console.log(data);
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -42,24 +53,25 @@ export const removeTransaction = createAsyncThunk(
 
 export const fetchSummaryExpenses = createAsyncThunk(
   'transaction/fetchSummaryExp',
-  async (_, thunkAPI) => {
+  async (controller, thunkAPI) => {
     try {
-      const { data } = await axios.get('/transaction/expensesByMonthYear');
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+      const { data } = await axios.get('/transaction/expensesByMonthYear', {
+        signal: controller.signal,
+      });
+      const responce = await axios.get('/transaction/incomesByMonthYear', {
+        signal: controller.signal,
+      });
+
 
 export const fetchSummaryIncomes = createAsyncThunk(
   'transaction/fetchSummaryInc',
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get('/transaction/incomesByMonthYear');
-      console.log('data', data);
-      // return data;
-  
+
+
+      return { expenses: data, incomes: responce.data };
+
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

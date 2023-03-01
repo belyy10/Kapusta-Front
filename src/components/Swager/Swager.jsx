@@ -4,21 +4,31 @@ import 'swiper/css/navigation';
 import { Slide, SwagerBox, SwagerTitle } from './Swager.styled';
 import { Navigation } from 'swiper';
 import { Swiper } from 'swiper/react';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCurrentPeriod } from 'redux/transactions/transactionsSlice';
+import { nanoid } from '@reduxjs/toolkit';
 
 const periods = [
-  'September 2022',
-  'October 2022',
-  'November 2022',
-  'December 2022',
-  'January 2023',
-  'February 2023',
+  {
+    id: nanoid(),
+    month: 'September',
+    year: 2022,
+    mm: 9,
+  },
+  {
+    id: nanoid(),
+    month: 'October',
+    year: 2022,
+    mm: 10,
+  },
+  { id: nanoid(), month: 'November', year: 2022, mm: 11 },
+  { id: nanoid(), month: 'December', year: 2022, mm: 12 },
+  { id: nanoid(), month: 'January', year: 2023, mm: 1 },
+  { id: nanoid(), month: 'February', year: 2023, mm: 2 },
 ];
 
 export default function Swager() {
-  const [currentPeriod, setCurrentPeriod] = useState(null);
-
-  console.log(currentPeriod);
+  const dispatch = useDispatch();
 
   return (
     <SwagerBox>
@@ -34,11 +44,14 @@ export default function Swager() {
         onSlideChange={swiperCore => {
           const { activeIndex } = swiperCore;
 
-          setCurrentPeriod(periods[activeIndex]);
+          dispatch(setCurrentPeriod(periods[activeIndex]));
         }}
       >
         {periods.map(period => (
-          <Slide>{period}</Slide>
+          <Slide key={period.id}>
+            {period.month}
+            <span> {period.year}</span>
+          </Slide>
         ))}
       </Swiper>
     </SwagerBox>

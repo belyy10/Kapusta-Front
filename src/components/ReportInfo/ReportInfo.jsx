@@ -1,19 +1,19 @@
-// import { useSelector } from 'react-redux';
-// import { getReportsData } from 'redux/transactions/transactionsSelectors.js';
+import { useSelector } from 'react-redux';
+import { selectSummary } from 'redux/transactions/transactionsSelectors.js';
 import { Sum, ItemText, Wraper } from './ReportInfo.styled.jsx';
 
 export default function ReportInfo() {
-  // const reportsData = useSelector(getReportsData);
+  const { incomes, expenses } = useSelector(selectSummary);
 
   return (
     <Wraper>
       <div>
         <ItemText>Expenses:</ItemText>
-        <Sum type={'expenses'}>- 0.00 UAH.</Sum>
+        <Sum type={'expenses'}> {expenses}.00 UAH.</Sum>
       </div>
       <div>
         <ItemText>Incomes:</ItemText>
-        <Sum type={'incomes'}>+ 0.00 UAH.</Sum>
+        <Sum type={'incomes'}>+ {incomes}.00 UAH.</Sum>
       </div>
     </Wraper>
   );

@@ -1,11 +1,9 @@
-import { useState } from 'react';
-// import axios from 'axios';
 import { Formik, ErrorMessage } from 'formik';
-
-// import { useDispatch } from 'react-redux';
-
+import moment from 'moment';
 import { BiCalculator } from 'react-icons/bi';
 import schemaTransactions from 'schema/schemaTransactions';
+import expenseCategories from './ExpenseCategories';
+import incomeCategories from './IncomeCategories';
 
 import {
   Wrapper,
@@ -22,39 +20,41 @@ import {
   Calculator,
   Error,
 } from './CreateTransaction.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTransaction } from 'redux/transactions/transactionsOperations';
+import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
 
 const initialValues = {
-  date: new Date(),
+  date: moment().format('YYYY-MM-DD'),
   description: '',
-
   category: null,
-
   sum: 0,
 };
 
 export default function CreateTransaction() {
+  const type = useSelector(selectTypeTransactionMain);
+  const dispatch = useDispatch();
   const currentDate = new Date().toISOString().slice(0, 10);
 
-  const [data, setData] = useState({});
+  const handleSubmit = (
+    { date, description, category, sum },
+    { resetForm }
+  ) => {
+    const d = date.split('-');
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    setData(values);
-    resetForm();
+    dispatch(
+      addTransaction({
+        year: parseInt(d[0]),
+        month: parseInt(d[1]),
+        day: parseInt(d[2]),
+        description,
+        category,
+        sum,
+        type,
+      })
+    );
+    resetForm(initialValues);
   };
-  console.log(data);
-  // axios
-  //   .post(
-  //     'https://kapusta-deployment.onrender.com/api/transactions/expenses',
-  //     data
-  //   )
-  //   .then(response => {
-  //     console.log('Data sent successfully', response);
-  //     setData({});
-  //   })
-  //   .catch(error => {
-  //     console.error('Error while sending data', error);
-  //   });
 
   return (
     <>
@@ -63,7 +63,7 @@ export default function CreateTransaction() {
         validationSchema={schemaTransactions}
         onSubmit={handleSubmit}
       >
-        {({ handleChange }) => (
+        {({ handleChange, setFieldValue }) => (
           <Wrapper>
             <InputGroup>
               <Label>
@@ -72,8 +72,11 @@ export default function CreateTransaction() {
                   type="date"
                   min="1920-01-01"
                   max={currentDate}
-                  defaultValue={
-                    new Date().toLocaleDateString('sv').split(' ')[0]
+                  onChange={event =>
+                    setFieldValue(
+                      'date',
+                      moment(event.target.value).format('YYYY-MM-DD')
+                    )
                   }
                 />
               </Label>
@@ -91,26 +94,40 @@ export default function CreateTransaction() {
                 render={msg => <Error>{msg}</Error>}
               />
 
-              <SelectCategory
-                name="category"
-                as="select"
-                onChange={handleChange}
-              >
-                <Option disabled selected="Product category">
-                  Product category
-                </Option>
-                <Option value="transport">Transport</Option>
-                <Option value="products">Products</Option>
-                <Option value="health">Health</Option>
-                <Option value="alcohol">Alcohol</Option>
-                <Option value="entertainment">Entertainment</Option>
-                <Option value="housing">Housing</Option>
-                <Option value="technique">Technique</Option>
-                <Option value="communal">Communal, communication</Option>
-                <Option value="sports">Sports, hobbies</Option>
-                <Option value="education">Education</Option>
-                <Option value="other">Other</Option>
-              </SelectCategory>
+              {type.toLowerCase() === 'incomes' ? (
+                <SelectCategory
+                  name="category"
+                  as="select"
+                  defaultValue=""
+                  onChange={handleChange}
+                >
+                  <Option disabled value="">
+                    Product category
+                  </Option>
+                  {incomeCategories.map(category => (
+                    <Option key={category.value} value={category.value}>
+                      {category.label}
+                    </Option>
+                  ))}
+                </SelectCategory>
+              ) : (
+                <SelectCategory
+                  name="category"
+                  as="select"
+                  defaultValue=""
+                  onChange={handleChange}
+                >
+                  <Option disabled value="">
+                    Product category
+                  </Option>
+                  {expenseCategories.map(category => (
+                    <Option key={category.value} value={category.value}>
+                      {category.label}
+                    </Option>
+                  ))}
+                </SelectCategory>
+              )}
+
               <ErrorMessage
                 name="category"
                 render={msg => <Error>{msg}</Error>}

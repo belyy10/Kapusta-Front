@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Box = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 
   @media screen and (min-width: 320px) {
     margin-top: 50px;
@@ -14,9 +14,11 @@ export const Box = styled.div`
 
   @media screen and (min-width: 1200px) {
     margin-top: 0;
-    position: absolute;
+    /* position: absolute;
     top: 117px;
-    right: 0;
+    right: 0; */
+    margin-right: 91px;
+    padding-top: 117px;
     justify-content: flex-end;
   }
 `;
