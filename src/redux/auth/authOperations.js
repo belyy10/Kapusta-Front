@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://kapusta-deployment.onrender.com/api';
 
@@ -22,9 +22,15 @@ export const register = createAsyncThunk(
       const responce = await axios.post('/users/register', credentials);
       // After successful registration, add the token to the HTTP header
       // setAuthToken(responce.data.token);
-      toast.success('Welcome to Kapu$ta! Please verify your email');
+      Notiflix.Notify.success('Welcome to Kapu$ta! Please verify your email');
       return responce.data;
     } catch (error) {
+      const errorMes = error.response.data.message;
+      if (errorMes === 'Email in use') {
+        return Notiflix.Notify.failure('This email is already used');
+      }
+
+      Notiflix.Notify.failure(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -40,10 +46,10 @@ export const logIn = createAsyncThunk(
       console.log(responce);
       // After successful login, add the token to the HTTP header
       setAuthToken(responce.data.accessToken);
-      toast.success('Welcome to Kapu$ta!');
+      Notiflix.Notify.success('Welcome to Kapu$ta!');
       return responce.data;
     } catch (error) {
-      toast.error('Check e-mail or password');
+      Notiflix.Notify.failure('Check e-mail or password');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -54,7 +60,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     const responce = await axios.post('/users/logout');
     clearAuthToken();
-    toast.success('Goodbye!');
+    Notiflix.Notify.info('Goodbye!');
     return responce.data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e.message);
