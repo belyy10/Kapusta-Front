@@ -25,6 +25,7 @@ const periods = [
   { id: nanoid(), month: 'December', year: 2022, mm: 12 },
   { id: nanoid(), month: 'January', year: 2023, mm: 1 },
   { id: nanoid(), month: 'February', year: 2023, mm: 2 },
+  { id: nanoid(), month: 'March', year: 2023, mm: 3 },
 ];
 
 export default function Swager() {

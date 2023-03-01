@@ -27,7 +27,6 @@ const initialState = {
 };
 
 const transactionSlice = createSlice({
-
   name: 'transaction',
   initialState,
   reducers: {
@@ -70,10 +69,7 @@ const transactionSlice = createSlice({
       state.isLoading = true;
     },
     [addTransaction.fulfilled]: (state, action) => {
-      state.transactions = [
-        action.payload.data,
-        ...state.transactions.transactions,
-      ];
+      state.transactions.push(action.payload);
       state.isLoading = false;
     },
     [addTransaction.rejected]: state => {
@@ -84,7 +80,7 @@ const transactionSlice = createSlice({
     },
     [removeTransaction.fulfilled]: (state, action) => {
       state.transactions = state.transactions?.filter(
-        tr => tr._id !== action.payload.data._id
+        tr => tr._id !== action.payload._id
       );
       state.isLoading = false;
     },
