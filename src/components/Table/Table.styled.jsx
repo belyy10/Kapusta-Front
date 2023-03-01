@@ -3,7 +3,6 @@ import COLORS from 'variables/colors/colors';
 
 export const TransactionBox = styled.div`
   overflow: hidden;
-
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 

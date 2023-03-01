@@ -7,7 +7,7 @@ import COLORS from 'variables/colors/colors';
 export const LinkToMain = styled(Link)`
   display: flex;
   align-items: center;
-
+  padding-top: 10px;
   text-decoration: none;
 
   font-weight: 400;

@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 import COLORS from 'variables/colors/colors';
 
-export const BtnContainer = styled.div`
+
+export const Container = styled.div`
 
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
 
-  padding: 20px 0 0 0;
 
+  padding: 36px 0;
   width: 100%;
-  border-radius: 0px;
-
 
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   background-color: ${COLORS.whiteColor};
+
 
   @media screen and (min-width: 768px) {
     padding-bottom: 20px;
@@ -29,7 +29,7 @@ export const BtnContainer = styled.div`
 
   }
 
-  
+
 `;
 
 export const ChoseBox = styled.div`
@@ -80,14 +80,14 @@ export const BtnListItem = styled.li`
   padding-left: 5px;
   border-bottom: 2px solid rgb(224, 229, 235);
   padding-bottom: 20px;
-  padding-top:21px;
+  padding-top: 21px;
 
   @media screen and (min-width: 768px) {
-    border:none;
+    border: none;
     padding-bottom: 0px;
-    padding-top:0px;
+    padding-top: 0px;
   }
-`
+`;
 
 export const Btn = styled.button`
   position: relative;
@@ -108,9 +108,9 @@ export const BtnTitle = styled.span`
   letter-spacing: 0.04em;
   text-transform: uppercase;
 
-  color: #52555F;
+  color: #52555f;
 `;
 
 export const IconBox = styled.div`
   border-radius: 24px;
-`
+`;

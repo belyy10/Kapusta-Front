@@ -5,8 +5,13 @@ import COLORS from 'variables/colors/colors';
 export const SwagerBox = styled.div`
   width: 180px;
   position: absolute;
-  right: calc((100% - 704px) / 2);
-  top: 42px;
+  right: 75px;
+  top: 100px;
+
+  @media screen and (min-width: 768px) {
+    right: calc((100% - 750px) / 2);
+    top: 100px;
+  }
 
   @media screen and (min-width: 1200px) {
     right: calc((100% - 1034px) / 2);
