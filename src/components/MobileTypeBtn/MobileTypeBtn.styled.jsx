@@ -2,7 +2,9 @@ import COLORS from 'variables/colors/colors.js';
 import styled from 'styled-components';
 
 export const Container = styled.div`
+display:flex;
   position: fixed;
+  flex-direction: row;
   bottom: 0px;
 `;
 

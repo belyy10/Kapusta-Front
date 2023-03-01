@@ -70,9 +70,10 @@ export const IconLinkReport = styled(RiBarChartFill)`
 `;
 
 export const InputDate = styled.input`
-  // margin-right: 16px;
+  margin-right: auto;
+  margin-left:auto;
   height: 44px;
-  width: 119px;
+  // width: 119px;
   border: 2px solid white;
   outline: none;
 

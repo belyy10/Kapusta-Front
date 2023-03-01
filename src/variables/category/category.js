@@ -48,7 +48,7 @@ export const categoryList = [
     type: 'Incomes',
   },
   {
-    name: 'Add.income',
+    name: 'Add. income',
     type: 'Incomes',
   },
 ];
