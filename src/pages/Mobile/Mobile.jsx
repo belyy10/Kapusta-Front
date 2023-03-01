@@ -13,17 +13,17 @@ import {
   LinkToTransaction,
   IconLink,
 } from './Mobile.styled.jsx';
-import { changeType } from 'redux/transactions';
-import { useDispatch } from 'react-redux';
+// import { changeType } from 'redux/transactions';
+// import { useDispatch } from 'react-redux';
 
 export default function Mobile() {
   const [trForm, openTrForm] = useState(false);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(changeType('all'));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(changeType('all'));
+  // }, []);
 
   return (
     <>
