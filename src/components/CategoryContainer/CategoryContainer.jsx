@@ -6,6 +6,7 @@ import {
   ChoseBox,
   ChosenTitle,
   ChoseBtn,
+  BtnListItem
 } from './CategoryContainer.styled';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import COLORS from 'variables/colors/colors';
@@ -74,22 +75,40 @@ export default function CategoryContainer() {
       <BtnList>
         {fileredCategory.map(element => {
           return (
-            <li key={element.name}>
-              <Btn onClick={() => handleSetCategory(element.name)}>
-                <BtnTitle>{summaryCategory(element.name)}</BtnTitle>
+            <BtnListItem key={element.name}>
+              <BtnTitle>{summaryCategory(element.name)}</BtnTitle>
+
+              <Btn style ={{
+                  width: 90,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+                onClick={() => {
+                  handleSetCategory(element.name);
+                }}
+              >
+
                 <IconMaker
                   category={element.name}
-                  size={56}
                   color={
                     categoryExpenses === element.name ||
                     categoryIncomes === element.name
                       ? COLORS.activeColor
                       : '#071F41'
                   }
+                  bgColor = {
+                    categoryExpenses === element.name ||
+                    categoryIncomes === element.name
+                      ? COLORS.reportsIconBg
+                      : '#F5F6FB'
+                  }
+                  
                 />
+
                 <BtnTitle>{element.name}</BtnTitle>
               </Btn>
-            </li>
+            </BtnListItem>
           );
         })}
       </BtnList>

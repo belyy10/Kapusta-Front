@@ -1,6 +1,7 @@
 import { Formik, ErrorMessage } from 'formik';
 import moment from 'moment';
 import { BiCalculator } from 'react-icons/bi';
+
 import schemaTransactions from 'schema/schemaTransactions';
 import expenseCategories from './ExpenseCategories';
 import incomeCategories from './IncomeCategories';
@@ -27,7 +28,7 @@ import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelect
 const initialValues = {
   date: moment().format('YYYY-MM-DD'),
   description: '',
-  category: null,
+  category: '',
   sum: 0,
 };
 
@@ -46,7 +47,6 @@ export default function CreateTransaction() {
       addTransaction({
         year: parseInt(d[0]),
         month: parseInt(d[1]),
-        day: parseInt(d[2]),
         description,
         category,
         sum,
@@ -63,96 +63,106 @@ export default function CreateTransaction() {
         validationSchema={schemaTransactions}
         onSubmit={handleSubmit}
       >
-        {({ handleChange, setFieldValue }) => (
-          <Wrapper>
-            <InputGroup>
-              <Label>
-                <InputDate
-                  name="date"
-                  type="date"
-                  min="1920-01-01"
-                  max={currentDate}
-                  onChange={event =>
-                    setFieldValue(
-                      'date',
-                      moment(event.target.value).format('YYYY-MM-DD')
-                    )
-                  }
-                />
-              </Label>
-              <ErrorMessage name="date" render={msg => <Error>{msg}</Error>} />
+        {({ handleChange, setFieldValue, values, resetForm }) => {
+          return (
+            <Wrapper>
+              <InputGroup>
+                <Label>
+                  <InputDate
+                    name="date"
+                    type="date"
+                    min="1920-01-01"
+                    max={currentDate}
+                    onChange={event =>
+                      setFieldValue(
+                        'date',
+                        moment(event.target.value).format('YYYY-MM-DD')
+                      )
+                    }
+                  />
+                </Label>
 
-              <Label>
-                <InputDescription
-                  type="text"
-                  name="description"
-                  placeholder="Product description"
-                />
-              </Label>
-              <ErrorMessage
-                name="description"
-                render={msg => <Error>{msg}</Error>}
-              />
+                <Label>
+                  <InputDescription
+                    type="text"
+                    name="description"
+                    placeholder="Product description"
+                  />
+                  <ErrorMessage
+                    name="description"
+                    render={msg => <Error>{msg}</Error>}
+                  />
+                </Label>
 
-              {type.toLowerCase() === 'incomes' ? (
-                <SelectCategory
-                  name="category"
-                  as="select"
-                  defaultValue=""
-                  onChange={handleChange}
-                >
-                  <Option disabled value="">
+                <Label>
+                  {type.toLowerCase() === 'incomes' ? (
+                    <SelectCategory
+                      name="category"
+                      as="select"
+                      value={values.category}
+                      onChange={handleChange}
+                    >
+                      {/* <Option disabled value="">
                     Product category
-                  </Option>
-                  {incomeCategories.map(category => (
-                    <Option key={category.value} value={category.value}>
-                      {category.label}
-                    </Option>
-                  ))}
-                </SelectCategory>
-              ) : (
-                <SelectCategory
-                  name="category"
-                  as="select"
-                  defaultValue=""
-                  onChange={handleChange}
-                >
-                  <Option disabled value="">
+                  </Option> */}
+                      {incomeCategories.map(category => (
+                        <Option key={category.value} value={category.value}>
+                          {category.label}
+                        </Option>
+                      ))}
+                    </SelectCategory>
+                  ) : (
+                    <SelectCategory
+                      name="category"
+                      as="select"
+                      value={values.category}
+                      onChange={handleChange}
+                    >
+                      {/* <Option disabled value="">
                     Product category
-                  </Option>
-                  {expenseCategories.map(category => (
-                    <Option key={category.value} value={category.value}>
-                      {category.label}
-                    </Option>
-                  ))}
-                </SelectCategory>
-              )}
+                  </Option> */}
+                      {expenseCategories.map(category => (
+                        <Option key={category.value} value={category.value}>
+                          {category.label}
+                        </Option>
+                      ))}
+                    </SelectCategory>
+                  )}
 
-              <ErrorMessage
-                name="category"
-                render={msg => <Error>{msg}</Error>}
-              />
+                  <ErrorMessage
+                    name="category"
+                    render={msg => <Error>{msg}</Error>}
+                  />
+                </Label>
 
-              <InputSumWrapper>
-                <InputSum
-                  type="number"
-                  name="sum"
-                  min="0"
-                  step="0.01"
-                  placeholder="0,00 UAH"
-                />
-                <Calculator>
-                  <BiCalculator size={18} />
-                </Calculator>
-              </InputSumWrapper>
-            </InputGroup>
+                <InputSumWrapper>
+                  <InputSum
+                    type="number"
+                    name="sum"
+                    min="0"
+                    step="0.1"
+                    placeholder="0.0 UAH"
+                  />
+                  <Calculator>
+                    <BiCalculator size={18} />
+                  </Calculator>
 
-            <ButtonGroup>
-              <Button type="submit">Input</Button>
-              <Button type="button">Clear</Button>
-            </ButtonGroup>
-          </Wrapper>
-        )}
+                  <ErrorMessage
+                    name="sum"
+                    render={msg => <Error>{msg}</Error>}
+                  />
+                </InputSumWrapper>
+              </InputGroup>
+
+              <ButtonGroup>
+                <Button type="submit">Input</Button>
+                <Button type="button" onClick={resetForm}>
+                  Clear
+                </Button>
+              </ButtonGroup>
+            </Wrapper>
+          );
+        }}
       </Formik>
     </>
   );

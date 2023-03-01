@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-
+  padding-top: 104px;
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
@@ -14,7 +14,9 @@ export const Wrapper = styled.div`
     margin: 0 auto;
     flex-direction: row;
     align-self: center;
-    margin-bottom: 60px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    padding-right: 367px;
   }
   @media (min-width: 1200px) {
     margin-bottom: 48px;
@@ -100,7 +102,7 @@ export const Button = styled.button`
 `;
 export const Wrapper2 = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: 42px;
   transform: translateY(calc(100% + 18px)) translateX(16%);
   width: 292px;
   background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);

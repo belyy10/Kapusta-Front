@@ -38,7 +38,9 @@ export default function App() {
     return () => controller.abort();
   }, [dispatch]);
 
-  const { isMobile } = useMedia();
+
+  const {isMobile} = useMedia();
+
 
   return (
     <Suspense>
@@ -56,12 +58,9 @@ export default function App() {
             element={ isMobile ? <PrivateRoute path="transactions" component={<Mobile/>} redirectTo="/login" /> 
             : <PrivateRoute component={<Main />} redirectTo="/login" />}
           >
-          
-            
-            <Route path="expenses" element={<CreateTransactions />} />
-            <Route path="incomes" element={<CreateTransactions />} />
 
-            
+            <Route path="expenses" element={ isMobile ? (<><Mobile/></>) : (<><CreateTransactions /></>)} />
+            <Route path="incomes" element={ isMobile ? (<><Mobile/></>) : (<><CreateTransactions /></>)} />
           </Route>
           <Route
             path="reports"
