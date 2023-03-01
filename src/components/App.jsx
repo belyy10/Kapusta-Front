@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { useMedia } from 'hooks/useMedia';
 
 import CreateTransactions from './CreateTransaction/CreateTransaction';
 import { useDispatch } from 'react-redux';
@@ -12,7 +13,7 @@ const Header = lazy(() => import('./Header'));
 const Main = lazy(() => import('../pages/Main'));
 const Reports = lazy(() => import('../pages/Reports'));
 const Login = lazy(() => import('../pages/Login'));
-// const Mobile = lazy(() => import('../pages/Mobile'));
+const Mobile = lazy(() => import('../pages/Mobile'));
 
 export default function App() {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ export default function App() {
     return () => controller.abort();
   }, [dispatch]);
 
-  // const isMobile = useMedia();
+  const { isMobile } = useMedia();
 
   return (
     <Suspense>
@@ -51,10 +52,16 @@ export default function App() {
           />
           <Route
             path="main"
-            element={<PrivateRoute component={<Main />} redirectTo="/login" />}
+            // element={<PrivateRoute component={<Main />} redirectTo="/login" />}
+            element={ isMobile ? <PrivateRoute path="transactions" component={<Mobile/>} redirectTo="/login" /> 
+            : <PrivateRoute component={<Main />} redirectTo="/login" />}
           >
+          
+            
             <Route path="expenses" element={<CreateTransactions />} />
             <Route path="incomes" element={<CreateTransactions />} />
+
+            
           </Route>
           <Route
             path="reports"
