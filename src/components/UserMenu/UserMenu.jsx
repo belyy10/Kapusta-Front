@@ -12,7 +12,7 @@ export default function UserMenu() {
   const { userEmail } = useAuth();
   const [modalOpen, setModalOpen] = useState(false);
 
-  const { isMobile, isTabletAndDesktop } = useMedia();
+  const { isTabletAndDesktop } = useMedia();
   const dispatch = useDispatch();
 
   const handleModalOpen = () => {
