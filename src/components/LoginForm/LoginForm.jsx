@@ -15,14 +15,31 @@ import {
   Error,
 } from './LoginForm.styled';
 import { FcGoogle } from 'react-icons/fc';
-import { logIn } from 'redux/auth/authOperations';
+import { logIn, register } from 'redux/auth/authOperations';
 import schemaRegister from 'schema/shemaRegister';
+import { useState } from 'react';
 
 export const LoginForm = ({ onRegistrationClick }) => {
   const dispatch = useDispatch();
   const initialValues = { email: '', password: '' };
+  const [button, setButton] = useState(null);
+
+  const handleClick = e => {
+    switch (e.target.name) {
+      case 'login':
+        return setButton(true);
+      case 'register':
+        return setButton(false);
+      default:
+        return;
+    }
+  };
 
   const handleSubmit = (initialValues, { resetForm }) => {
+    if (!button) {
+      dispatch(register(initialValues));
+      return;
+    }
     dispatch(logIn(initialValues));
     resetForm();
   };
@@ -60,8 +77,10 @@ export const LoginForm = ({ onRegistrationClick }) => {
               render={msg => <Error>{msg}</Error>}
             />
             <ButtonGroup>
-              <Button>Log in</Button>
-              <Button type="button" onClick={onRegistrationClick}>
+              <Button type="login" name="login" onClick={handleClick}>
+                Log in
+              </Button>
+              <Button type="register" name="register" onClick={handleClick}>
                 Registration
               </Button>
             </ButtonGroup>

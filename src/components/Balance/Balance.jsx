@@ -12,6 +12,8 @@ import {
   Wrapper2,
   Text,
   Styled,
+  InputContainer,
+  Label,
 } from './Balance.styled';
 import { useAuth } from 'hooks/useAuth';
 
@@ -43,16 +45,19 @@ export default function Balance() {
       <Wrapper>
         <Title>Balance:</Title>
         <Section autoComplete="off" onSubmit={onSubmit}>
-          <Input
-            type="number"
-            placeholder={`0.00 UAH`}
-            name="balance"
-            value={value}
-            readOnly={balance}
-            pattern="[0-9, UAH]*"
-            disabled={balance > 0 ? true : false}
-            onChange={onChange}
-          />
+          <InputContainer>
+            <Input
+              type="number"
+              placeholder={`0.00`}
+              name="balance"
+              value={value}
+              readOnly={balance}
+              pattern="[0-9, UAH]"
+              disabled={balance > 0 ? true : false}
+              onChange={onChange}
+            />
+            <Label>UAH</Label>
+          </InputContainer>
 
           <Button type="submit" disabled={balance > 0 ? true : false}>
             Confirm
