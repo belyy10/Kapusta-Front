@@ -4,6 +4,7 @@ import { Form, Field } from 'formik';
 
 export const Wrapper = styled(Form)`
   display: flex;
+  position: relative;
   margin: 0 auto;
   flex-direction: column;
   width: 280px;
@@ -24,6 +25,7 @@ export const Wrapper = styled(Form)`
 
 export const InputGroup = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
 
@@ -36,6 +38,7 @@ export const InputGroup = styled.div`
 
 export const Label = styled.label`
   display: flex;
+  position: relative;
 `;
 
 export const InputDescription = styled(Field)`
@@ -85,6 +88,7 @@ export const InputSumWrapper = styled.div`
     display: flex;
     margin-bottom: 80px;
     margin-top: 32px;
+    position: relative;
   }
   @media screen and (min-width: 768px) {
     position: relative;
@@ -120,6 +124,13 @@ export const InputSum = styled(Field)`
     border-bottom-left-radius: 0px;
     border-top-right-radius: 16px;
     background-color: ${COLORS.whiteColor};
+
+    ::placeholder {
+      color: #000000;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 14.06;
+    }
   }
 `;
 
@@ -139,7 +150,7 @@ export const Calculator = styled.span`
   @media screen and (min-width: 768px) {
     position: absolute;
     top: 16px;
-    left: 96px;
+    left: 88px;
     display: flex;
     background-color: transparent;
     align-items: center;
@@ -236,18 +247,20 @@ export const Button = styled.button`
 `;
 
 export const Error = styled.div`
-  position: relative;
-  margin-top: -15px;
-  margin-bottom: 16px;
-  margin-left: 20px;
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  color: #eb5757;
-
-  ::before {
+  @media screen and (max-width: 767px) {
     position: absolute;
-    top: -81px;
-    left: -25px;
-    content: '*';
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    color: #eb5757;
+    top: 53px;
+    left: 20px;
+  }
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: #eb5757;
+    top: 53px;
+    left: 20px;
   }
 `;
