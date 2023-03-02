@@ -1,6 +1,6 @@
 import {
   BtnList,
-  BtnContainer,
+  Container,
   Btn,
   BtnTitle,
   ChoseBox,
@@ -62,7 +62,7 @@ export default function CategoryContainer() {
   }
 
   return (
-    <BtnContainer>
+    <Container>
       <ChoseBox>
         <ChoseBtn onClick={() => dispatch(toggleReportType())}>
           <MdKeyboardArrowLeft size={20} color={COLORS.activeColor} />
@@ -78,30 +78,25 @@ export default function CategoryContainer() {
           return (
             <BtnListItem key={element.name}>
               <BtnTitle
-                style= {{
-                  pointerEvents: summaryCategory(element.name) > 0
-                  ? "auto"
-                  : 'none',
-                  opacity: summaryCategory(element.name) > 0
-                  ? 1
-                  : 0.5
+                style={{
+                  pointerEvents:
+                    summaryCategory(element.name) > 0 ? 'auto' : 'none',
+                  opacity: summaryCategory(element.name) > 0 ? 1 : 0.5,
                 }}
-                >{summaryCategory(element.name)}</BtnTitle>
+              >
+                {summaryCategory(element.name)}
+              </BtnTitle>
 
               <Btn
                 style={{
                   width: 90,
 
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  pointerEvents: summaryCategory(element.name) > 0
-                  ? "auto"
-                  : 'none',
-                  opacity: summaryCategory(element.name) > 0
-                  ? 1
-                  : 0.5
-
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  pointerEvents:
+                    summaryCategory(element.name) > 0 ? 'auto' : 'none',
+                  opacity: summaryCategory(element.name) > 0 ? 1 : 0.5,
                 }}
                 onClick={() => {
                   handleSetCategory(element.name);
@@ -109,16 +104,13 @@ export default function CategoryContainer() {
               >
                 <IconMaker
                   category={element.name}
-
                   color={
                     categoryExpenses === element.name ||
                     categoryIncomes === element.name
                       ? COLORS.activeColor
                       : '#071F41'
                   }
-
                   bgColor={
-
                     categoryExpenses === element.name ||
                     categoryIncomes === element.name
                       ? COLORS.reportsIconBg
@@ -132,6 +124,6 @@ export default function CategoryContainer() {
           );
         })}
       </BtnList>
-    </BtnContainer>
+    </Container>
   );
 }

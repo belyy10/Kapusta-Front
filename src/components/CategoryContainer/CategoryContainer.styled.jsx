@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import COLORS from 'variables/colors/colors';
 
-export const BtnContainer = styled.div`
+export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;

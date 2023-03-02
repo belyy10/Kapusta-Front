@@ -23,8 +23,8 @@ export const LinkReport = styled(Link)`
 
   @media screen and (min-width: 768px) {
     position: absolute;
-    top: 57px;
-    right: 50px;
+    top: 103px;
+    right: 34px;
     z-index: 20;
   }
 `;
@@ -34,13 +34,13 @@ export const IconLink = styled(RiBarChartFill)`
 `;
 
 export const LinkToMain = styled(Link)`
-text-decoration: none;
+  text-decoration: none;
 `;
 
 export const IconLinkMain = styled(HiArrowNarrowLeft)`
   margin-left: 22px;
   margin-bottom: 22px;
-  margin-top:22px;
+  margin-top: 22px;
 
   color: ${COLORS.activeColor};
 `;

@@ -25,7 +25,7 @@ export const Wraper = styled.div`
   }
 
   @media screen and (min-width: 1200px) {
-    width: 1120px;
+    width: 1034px;
   }
 
   div {

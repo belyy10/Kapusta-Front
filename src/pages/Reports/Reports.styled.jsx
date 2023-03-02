@@ -20,7 +20,7 @@ export const LinkToMain = styled(Link)`
 
   @media screen and (min-width: 678px) {
     position: absolute;
-    top: 57px;
+    top: 103px;
     left: calc((100% - 704px) / 2);
     z-index: 20;
   }

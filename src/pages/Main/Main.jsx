@@ -11,20 +11,21 @@ export default function Main() {
   return (
     <BackgroundPrivateContainer>
       {/* <Container> */}
-      {isMobile? (
-      <>
-            <LinkToMain to="/main">
-              <IconLinkMain size={18} />
-            </LinkToMain>
-      </>): null}
+      {isMobile ? (
+        <>
+          <LinkToMain to="/main">
+            <IconLinkMain size={18} />
+          </LinkToMain>
+        </>
+      ) : null}
 
       {!isMobile && (
         <>
-        <LinkReport to="/reports">
-        reports
-        <IconLink size={14} color=" #52555F" />
-        </LinkReport>
-        <Balance />
+          <LinkReport to="/reports">
+            Reports
+            <IconLink size={14} color=" #52555F" />
+          </LinkReport>
+          <Balance />
         </>
       )}
       {/* <LinkReport to="/reports">
