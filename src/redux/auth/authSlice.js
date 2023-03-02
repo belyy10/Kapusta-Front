@@ -25,6 +25,9 @@ const authSlice = createSlice({
     changeBalance(state, action) {
       state.user.balance = state.user.balance + action.payload;
     },
+    deleteStranBalanseChange(state, action) {
+      state.user.balance = state.user.balance - action.payload;
+    },
   },
   extraReducers: {
     [register.fulfilled](state, action) {
@@ -84,5 +87,5 @@ const authSlice = createSlice({
     },
   },
 });
-export const { changeBalance } = authSlice.actions;
+export const { changeBalance, deleteStranBalanseChange } = authSlice.actions;
 export const authReducer = authSlice.reducer;
