@@ -38,7 +38,6 @@ export default function Swager() {
     <SwagerBox>
       <SwagerTitle>Current period: </SwagerTitle>
       <Swiper
-        loop={true}
         navigation
         modules={[Navigation]}
         className="mySwiper"
