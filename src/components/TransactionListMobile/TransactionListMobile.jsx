@@ -8,12 +8,14 @@ import {
   TransactionItem,
   TransactionSum,
 } from './TransactionListMobile.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectTransactionsByType } from 'redux/transactions/transactionsSelectors';
 import Moment from 'react-moment';
+import { removeTransaction } from 'redux/transactions/transactionsOperations';
 
 export default function TransactionListMobile({ openTrForm }) {
   const filteredTransactions = useSelector(selectTransactionsByType);
+  const dispatch = useDispatch();
 
   return (
     <ul>
@@ -36,7 +38,9 @@ export default function TransactionListMobile({ openTrForm }) {
                 <TransactionSum isExpenses={type === 'expenses'}>
                   {sum}
                 </TransactionSum>
-                <TransactionDeleteBtn>
+                <TransactionDeleteBtn
+                  onClick={() => dispatch(removeTransaction(_id))}
+                >
                   <BsTrash width={15} height={18} />
                 </TransactionDeleteBtn>
               </TransactionBox>
