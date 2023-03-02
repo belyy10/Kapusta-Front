@@ -72,15 +72,19 @@ export const InputDate = styled(Field)`
     display: none;
   }
 
-  margin-right: 16px;
-  height: 44px;
-  width: 119px;
-  border: 2px solid white;
-  outline: none;
-
-  background-color: ${COLORS.whiteColor};
-  color: #52555f;
-  text-align: center;
+  @media screen and (min-width: 768px) {
+    margin-right: 16px;
+    height: 44px;
+    width: 119px;
+    border: 2px solid white;
+    outline: none;
+    background-color: ${COLORS.whiteColor};
+    color: #52555f;
+    font-weight: 900;
+    font-size: 12px;
+    font-style: Roboto;
+    text-align: center;
+  }
 `;
 
 export const InputSumWrapper = styled.div`
@@ -199,6 +203,50 @@ export const ButtonGroup = styled.div`
   @media screen and (min-width: 1200px) {
     margin-top: 0px;
     margin-left: 32px;
+  }
+`;
+
+export const ButtonInput = styled.button`
+  width: 130px;
+  height: 44px;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 1px 3px 7px rgba(170, 178, 197, 0.4);
+  background-color: ${COLORS.activeColor};
+  color: ${COLORS.whiteColor};
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: center;
+  transition: background-color 400ms ease-in-out, color 400ms ease-in-out,
+    box-shadow 400ms ease-in-out;
+
+  :not(:first-child) {
+    margin-left: 20px;
+  }
+
+  :hover,
+  :focus {
+    background-color: ${COLORS.activeColor};
+    color: ${COLORS.whiteColor};
+    box-shadow: 1px 3px 7px rgba(255, 119, 8, 0.4);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 125px;
+
+    :not(:first-child) {
+      margin-left: 15px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    width: 136px;
+    :not(:first-child) {
+      margin-left: 16px;
+    }
   }
 `;
 

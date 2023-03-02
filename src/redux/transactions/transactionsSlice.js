@@ -91,7 +91,7 @@ const transactionSlice = createSlice({
       state.isLoading = true;
     },
     [fetchSummaryExpenses.fulfilled]: (state, action) => {
-      console.log('action', action.payload )
+      // console.log('action', action.payload )
       state.summary = action.payload;
     
       state.isLoading = false;
