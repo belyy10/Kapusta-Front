@@ -21,7 +21,11 @@ const authSlice = createSlice({
     isLoggedIn: false,
     isRefreshing: false,
   },
-
+  reducers: {
+    changeBalance(state, action) {
+      state.user.balance = state.user.balance + action.payload;
+    },
+  },
   extraReducers: {
     [register.fulfilled](state, action) {
       state.user = action.payload.user;
@@ -80,5 +84,5 @@ const authSlice = createSlice({
     },
   },
 });
-
+export const { changeBalance } = authSlice.actions;
 export const authReducer = authSlice.reducer;
