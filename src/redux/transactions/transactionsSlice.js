@@ -56,8 +56,18 @@ const transactionSlice = createSlice({
       );
       if (summary) {
         state.mainType === 'expenses'
-          ? (summary.expenses = summary.expenses - action.payload.sum)
-          : (summary.incomes = summary.incomes + action.payload.sum);
+          ? (summary.expenses = summary.expenses + action.payload.sum)
+          : (summary.incomes = summary.incomes - action.payload.sum);
+      }
+    },
+    changesSummaryDelete(state, action) {
+      const summary = state.summary.find(element =>
+        action.payload.date.includes(element._id)
+      );
+      if (summary) {
+        state.mainType === 'expenses'
+          ? (summary.expenses = summary.expenses + action.payload.sum)
+          : (summary.incomes = summary.incomes - action.payload.sum);
       }
     },
   },
@@ -138,5 +148,6 @@ export const {
   toggleReportType,
   setCurrentPeriod,
   changesSummary,
+  changesSummaryDelete,
 } = transactionSlice.actions;
 export const transactionReducer = transactionSlice.reducer;
