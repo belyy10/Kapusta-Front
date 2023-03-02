@@ -5,6 +5,7 @@ export const TransactionItem = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* width: 280px; */
 
   padding: 8px 0;
   border-bottom: 1px solid ${COLORS.bgTableTitle};
@@ -49,7 +50,7 @@ export const TransactionSum = styled.p`
   line-height: calc(14 / 12);
   letter-spacing: 0.04em;
 
-  color: ${COLORS.greenColor};
+  color: ${props => (props.isExpenses ? COLORS.redColor : COLORS.greenColor)};
 `;
 
 export const TransactionDeleteBtn = styled.button`

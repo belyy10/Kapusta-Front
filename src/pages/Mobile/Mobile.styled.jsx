@@ -1,9 +1,9 @@
-// import { Container } from 'common';
+import COLORS from 'variables/colors/colors';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { HiArrowNarrowLeft } from 'react-icons/hi';
-import COLORS from 'variables/colors/colors';
+import { RiBarChartFill } from 'react-icons/ri';
 
 export const MobileContainer = styled.div`
   display: flex;
@@ -12,11 +12,11 @@ export const MobileContainer = styled.div`
 
   margin-left: auto;
   margin-right: auto;
-  margin-top: 56px;
-  padding-top: 30px;
-  padding-left: 52px;
-  padding-right: 52px;
-  padding-bottom: 57px;
+  padding-top: 19px;
+
+  height: 296px;
+  background-color: ${COLORS.bgTableTitle};
+  border-bottom-left-radius: 100px 100px;
 `;
 
 export const MobileInfo = styled.div`
@@ -28,21 +28,61 @@ export const MobileInfo = styled.div`
 export const LinkToTransaction = styled(Link)`
   display: flex;
   align-items: center;
+  margin-bottom: 24px;
 
   text-decoration: none;
   font-family: 'Roboto';
+  text-transform: uppercase;
 
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: 700;
+  font-size: 10px;
   line-height: calc(14 / 12);
   /* identical to box height */
 
-  letter-spacing: 0.04;
+  letter-spacing: 0.02;
 
-  color: rgba(82, 85, 95, 0.7);
+  color: ${COLORS.blackColor};
 `;
 
+export const LinkToReport = styled(Link)`
+display: flex;
+align-items: center;
+margin-bottom: 35px;
+margin-left: auto;
+margin-right: auto;
+
+text-decoration: none;
+font-family: 'Roboto';
+
+font-weight: 400;
+font-size: 12px;
+line-height: calc(14 / 12);
+/* identical to box height */
+
+letter-spacing: 0.02;
+
+color: rgba(82, 85, 95, 0.7);`
+
 export const IconLink = styled(HiArrowNarrowLeft)`
-  margin-right: 20px;
+  margin-right: 6px;
+  // margin-left: 22px;
   color: ${COLORS.activeColor};
+`;
+
+export const IconLinkReport = styled(RiBarChartFill)`
+  margin-left: 20px;
+`;
+
+export const InputDate = styled.input`
+  margin-right: auto;
+  margin-left:auto;
+  margin-bottom:60px;
+  height: 44px;
+  // border: 2px solid white;
+  border:none;
+  outline: none;
+
+  background-color: transparent;
+  color: #52555f;
+  text-align: center;
 `;

@@ -6,10 +6,22 @@ export const Container = styled.div`
   margin-right: auto;
   margin-bottom: 40px;
 
-  padding: 20px 0;
+  padding: 36px 0;
+  width: 100%;
 
-  width: 1034px;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   background-color: ${COLORS.whiteColor};
+
+  @media screen and (min-width: 768px) {
+    padding-bottom: 20px;
+    max-width: 704px;
+    border-radius: 30px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 1034px;
+    border-radius: 30px;
+  }
 `;
 
 export const ChoseBox = styled.div`
@@ -22,8 +34,6 @@ export const ChoseBox = styled.div`
 
 export const ChosenTitle = styled.p`
   padding: 0 16px;
-
-  font-family: 'Roboto';
 
   font-weight: 700;
   font-size: 14px;
@@ -44,10 +54,31 @@ export const BtnList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 52px;
-
   list-style: none;
-  padding: 20px 224px;
+
+  @media screen and (min-width: 768px) {
+    padding: 0;
+    gap: 10px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 20px 150px;
+    gap: 15px;
+  }
+`;
+
+export const BtnListItem = styled.li`
+  padding-right: 5px;
+  padding-left: 5px;
+  border-bottom: 2px solid rgb(224, 229, 235);
+  padding-bottom: 20px;
+  padding-top: 21px;
+
+  @media screen and (min-width: 768px) {
+    border: none;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
 `;
 
 export const Btn = styled.button`
@@ -58,4 +89,19 @@ export const Btn = styled.button`
 
 export const BtnTitle = styled.span`
   display: block;
+  text-align: center;
+  margin: 5px 0px 5px 0px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: #52555f;
+`;
+
+export const IconBox = styled.div`
+  border-radius: 24px;
 `;

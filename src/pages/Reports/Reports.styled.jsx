@@ -7,14 +7,12 @@ import COLORS from 'variables/colors/colors';
 export const LinkToMain = styled(Link)`
   display: flex;
   align-items: center;
-
+  padding-top: 10px;
   text-decoration: none;
-  font-family: 'Roboto';
 
   font-weight: 400;
   font-size: 12px;
   line-height: calc(14 / 12);
-  /* identical to box height */
 
   letter-spacing: 0.04;
 
@@ -22,7 +20,7 @@ export const LinkToMain = styled(Link)`
 
   @media screen and (min-width: 678px) {
     position: absolute;
-    top: 57px;
+    top: 103px;
     left: calc((100% - 704px) / 2);
     z-index: 20;
   }

@@ -8,33 +8,46 @@ import {
   TransactionItem,
   TransactionSum,
 } from './TransactionListMobile.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectTransactionsByType } from 'redux/transactions/transactionsSelectors';
+import Moment from 'react-moment';
+import { removeTransaction } from 'redux/transactions/transactionsOperations';
 
-export default function TransactionListMobile() {
+export default function TransactionListMobile({ openTrForm }) {
   const filteredTransactions = useSelector(selectTransactionsByType);
+  const dispatch = useDispatch();
 
   return (
     <ul>
-      {filteredTransactions.map(({ _id, date, description, category, sum }) => {
-        return (
-          <TransactionItem key={_id}>
-            <div>
-              <TransactionDescription>{description}</TransactionDescription>
-              <TransactionInfoBox>
-                <TransactionInfo>{date}</TransactionInfo>
-                <TransactionInfo>{category}</TransactionInfo>
-              </TransactionInfoBox>
-            </div>
-            <TransactionBox>
-              <TransactionSum>{sum}</TransactionSum>
-              <TransactionDeleteBtn>
-                <BsTrash width={15} height={18} />
-              </TransactionDeleteBtn>
-            </TransactionBox>
-          </TransactionItem>
-        );
-      })}
+      {filteredTransactions.map(
+        ({ _id, date, description, category, sum, type }) => {
+          console.log(type === 'expenses');
+
+          return (
+            <TransactionItem key={_id}>
+              <div>
+                <TransactionDescription>{description}</TransactionDescription>
+                <TransactionInfoBox>
+                  <TransactionInfo>
+                    <Moment format="DD.MM.YYYY">{date}</Moment>
+                  </TransactionInfo>
+                  <TransactionInfo>{category}</TransactionInfo>
+                </TransactionInfoBox>
+              </div>
+              <TransactionBox>
+                <TransactionSum isExpenses={type === 'expenses'}>
+                  {sum}
+                </TransactionSum>
+                <TransactionDeleteBtn
+                  onClick={() => dispatch(removeTransaction(_id))}
+                >
+                  <BsTrash width={15} height={18} />
+                </TransactionDeleteBtn>
+              </TransactionBox>
+            </TransactionItem>
+          );
+        }
+      )}
     </ul>
   );
 }

@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
+  align-items: center;
+  margin: 0 auto 40px auto;
+  // padding-top: 104px;
 
   @media (min-width: 768px) {
     display: flex;
@@ -14,7 +17,8 @@ export const Wrapper = styled.div`
     margin: 0 auto;
     flex-direction: row;
     align-self: center;
-    margin-bottom: 60px;
+    padding-bottom: 40px;
+    padding-top: 40px;
   }
   @media (min-width: 1200px) {
     margin-bottom: 48px;
@@ -40,7 +44,19 @@ export const Section = styled.form`
   justify-content: center;
   width: 100%;
 `;
+
+export const InputContainer = styled.div`
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  position: relative;
+`;
+
 export const Input = styled.input`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
   border: 2px solid #ffffff;
   border-radius: 16px;
   background-color: transparent;
@@ -62,6 +78,19 @@ export const Input = styled.input`
     border-right: 1px solid #ffffff;
   }
 `;
+export const Label = styled.label`
+  position: absolute;
+  top: 21px;
+  right: 5px;
+  font-weight: 600;
+  color: black;
+  font-size: 12px;
+  @media screen and (min-width: 768px) {
+    top: 19px;
+    right: 22px;
+  }
+`;
+
 export const Button = styled.button`
   background-color: transparent;
   border: 2px solid #ffffff;
@@ -100,7 +129,7 @@ export const Button = styled.button`
 `;
 export const Wrapper2 = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: 42px;
   transform: translateY(calc(100% + 18px)) translateX(16%);
   width: 292px;
   background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
@@ -133,4 +162,27 @@ export const Styled = styled.p`
   line-height: 16px;
   color: #ffffff;
   margin: 0;
+`;
+
+export const LinkReport = styled(Link)`
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+  font-family: 'Roboto';
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+
+  letter-spacing: 0.04;
+
+  color: rgba(82, 85, 95, 0.7);
+
+  @media screen and (min-width: 678px) {
+    position: absolute;
+    top: 57px;
+    right: 0;
+    z-index: 20;
+  }
 `;

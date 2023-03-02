@@ -2,7 +2,6 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://maximgyda.github.io/Kapusta-Front/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.3",
@@ -19,6 +18,7 @@
     "react-avatar": "^5.0.3",
     "react-dom": "^18.1.0",
     "react-icons": "^4.7.1",
+    "react-moment": "^1.1.3",
     "react-redux": "^8.0.5",
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.8.1",
@@ -36,7 +36,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:js": "eslint src/**/*.{js,jsx}"
+    "lint:js": "eslint src/**/*.{js,jsx}",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [

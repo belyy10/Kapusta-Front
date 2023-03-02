@@ -6,7 +6,7 @@ import {
 } from './TransactionsContainer.styled';
 import { useMedia } from 'hooks/useMedia';
 import Table from 'components/Table';
-import TransactionListMobile from 'components/TransactionListMobile';
+// import TransactionListMobile from 'components/TransactionListMobile';
 
 import Summary from 'components/Summary';
 
@@ -17,6 +17,7 @@ import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelect
 export default function TransactionsContainer() {
   const dispatch = useDispatch();
   const transactions = useSelector(selectTypeTransactionMain);
+
   const { isTabletAndDesktop, isMobile } = useMedia();
 
   return (
@@ -34,7 +35,6 @@ export default function TransactionsContainer() {
         Expenses
       </Expenses>
       <CreateExpenses transactions={transactions} />
-
       {isTabletAndDesktop && <Table />}
       {isMobile && <TransactionListMobile />}
       {!isMobile && <Summary />}
