@@ -23,6 +23,8 @@ export const Container = styled.div`
 export const ContainerTop = styled.div`
   margin-left: auto;
   margin-right: auto;
+  padding-left:20px;
+  padding-right:20px;
 
   height: 258px;
   background-color: #f5f6fb;
@@ -31,10 +33,14 @@ export const ContainerTop = styled.div`
 
   @media screen and (min-width: 768px) {
     height: 582px;
+    padding-left:0;
+    padding-right:0px;
   }
 
   @media screen and (min-width: 1200px) {
     height: 583px;
+    padding-left:0;
+    padding-right:0px;
   }
 `;
 
