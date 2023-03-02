@@ -60,6 +60,7 @@ export const Input = styled.input`
   border: 2px solid #ffffff;
   border-radius: 16px;
   background-color: transparent;
+  font: inherit;
   font-weight: 700;
   text-align: center;
   color: black;
@@ -82,8 +83,9 @@ export const Label = styled.label`
   position: absolute;
   top: 21px;
   right: 5px;
-  font-weight: 600;
+  font-weight: 700;
   color: black;
+  font: inherit;
   font-size: 12px;
   @media screen and (min-width: 768px) {
     top: 19px;
