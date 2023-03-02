@@ -9,13 +9,7 @@ import { useMedia } from 'hooks/useMedia';
 import Table from 'components/Table';
 // import TransactionListMobile from 'components/TransactionListMobile';
 
-// import Summary from 'components/Summary';
-
-
-import Table from 'components/Table';
-// import TransactionListMobile from 'components/TransactionListMobile';
-
-
+import Summary from 'components/Summary';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTransaction } from 'redux/transactions/transactionsSlice';
