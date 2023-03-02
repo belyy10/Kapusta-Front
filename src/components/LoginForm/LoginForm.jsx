@@ -15,10 +15,11 @@ import {
   Error,
 } from './LoginForm.styled';
 import { FcGoogle } from 'react-icons/fc';
-import { logIn, register, googleUser } from 'redux/auth/authOperations';
+import { logIn, register } from 'redux/auth/authOperations';
 import schemaRegister from 'schema/shemaRegister';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { setGoogleAuth } from 'redux/auth/authSlice';
 
 export const LoginForm = ({ onRegistrationClick }) => {
   const dispatch = useDispatch();
