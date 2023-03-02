@@ -12,7 +12,7 @@ export const TableBodyItem = styled.td`
 
   text-align: center;
 
-  font-family: 'Roboto';
+  font-style: 'Roboto';
   font-weight: 400;
   font-size: 12px;
   line-height: calc(14 / 12);
