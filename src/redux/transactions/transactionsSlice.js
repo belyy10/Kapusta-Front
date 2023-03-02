@@ -11,7 +11,7 @@ import {
 
 const initialState = {
   transactions: [],
-  summary: null,
+  summary: [],
   reportsData: [],
   type: 'all',
   isLoading: false,
@@ -91,7 +91,9 @@ const transactionSlice = createSlice({
       state.isLoading = true;
     },
     [fetchSummaryExpenses.fulfilled]: (state, action) => {
+      // console.log('action', action.payload )
       state.summary = action.payload;
+    
       state.isLoading = false;
     },
     [fetchSummaryExpenses.rejected]: state => {

@@ -2,8 +2,7 @@ import { nanoid } from '@reduxjs/toolkit';
 
 export const getTransactions = state => state.transactions.transactions;
 
-export const selectSummaryExpenses = state =>
-  state.transactions.summary.expenses;
+export const selectSummaryExpenses = state => state.transactions.summary;
 
 export const selectSummaryIncomes = state => state.transactions.summary.incomes;
 
@@ -47,7 +46,7 @@ export const selectCategoryByType = state => {
   return selectReportsCategoryIncomes(state);
 };
 
-//selectSummary
+// selectSummary
 export const selectSummary = state => {
   const { year, mm } = selectCurrentPeriod(state);
   const transactions = selectTransactions(state);

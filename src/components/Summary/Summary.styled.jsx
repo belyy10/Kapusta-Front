@@ -23,6 +23,7 @@ export const SummaryBox = styled.div`
   }
 
   @media screen and (min-width: 1200px) {
+    margin-top: 0px;
     width: 213px;
   }
 `;
@@ -48,9 +49,8 @@ export const SummaryBox = styled.div`
 //    /* border-bottom: 4px solid ${COLORS.whiteColor}; */
 //   `;
 
-export const SummaryTitle = styled.th`
+export const SummaryTitle = styled.h4`
   /* width: 100%;*/
-
   display: flex;
     justify-content: center;
     align-items: center;
@@ -61,7 +61,6 @@ export const SummaryTitle = styled.th`
   text-align: center;
   list-style:none;
 
-  /* column-span: 2; */
    font-family: 'Roboto';
   font-weight: 700;
   font-size: 12px;
@@ -75,36 +74,26 @@ export const SummaryTitle = styled.th`
   letter-spacing: 0.04em;
 
    border-bottom: 4px solid ${COLORS.whiteColor};
-  /* border: 4px;
-  border-color: white; */
 `;
 
-export const SummaryBody = styled.tbody`
-  /* display: flex;
-  justify-content: space-between; */
+export const SummaryBody = styled.ul`
+  list-style: none;
 
-  /* overflow-y: auto; */
-
-  /* max-height: 400px; */
- /* display: block; */
-  /* border: 2px solid ${COLORS.whiteColor}; */
-  /* border: 2px;
-  border-color: white; */
 `;
 
-export const SummaryList = styled.tr`
+export const SummaryList = styled.li`
   height: 38px;
-  width: 100%;
+  /* width: 100%; */
   border-bottom: 2px solid ${COLORS.whiteColor};
-`;
 
-export const SummaryItem = styled.td`
-  height: 100%;
-  width: 100%;
-  height: 38px;
   padding-left: 22px;
   padding-right: 20px;
 
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 100%; */
+  height: 38px;
   /* text-align: ; */
 
   font-family: 'Roboto';
@@ -113,6 +102,27 @@ export const SummaryItem = styled.td`
   line-height: 1.167;
   letter-spacing: 0.04em;
 
-  border-bottom: 2px solid ${COLORS.whiteColor};
+  /* border-bottom: 2px solid ${COLORS.whiteColor}; */
   color: ${COLORS.textColor};
+`;
+
+export const SummaryItem = styled.p`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 100%; */
+  height: 38px;
+  /* text-align: ; */
+
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.167;
+  letter-spacing: 0.04em;
+
+  /* border-bottom: 2px solid ${COLORS.whiteColor}; */
+  color: ${COLORS.textColor};
+`;
+
+export const SummaryItemSpan = styled.p`
 `;

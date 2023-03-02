@@ -16,6 +16,7 @@ import {
   InputSumWrapper,
   ButtonGroup,
   Button,
+  ButtonInput,
   SelectCategory,
   Option,
   Calculator,
@@ -29,7 +30,7 @@ const initialValues = {
   date: moment().format('YYYY-MM-DD'),
   description: '',
   category: '',
-  sum: 0,
+  sum: '',
 };
 
 export default function CreateTransaction() {
@@ -141,8 +142,7 @@ export default function CreateTransaction() {
                     type="number"
                     name="sum"
                     min="0"
-                    step="0.1"
-                    placeholder="0.0 UAH"
+                    placeholder="00.00"
                   />
                   <Calculator>
                     <BiCalculator size={18} />
@@ -156,7 +156,7 @@ export default function CreateTransaction() {
               </InputGroup>
 
               <ButtonGroup>
-                <Button type="submit">Input</Button>
+                <ButtonInput type="submit">Input</ButtonInput>
                 <Button type="button" onClick={resetForm}>
                   Clear
                 </Button>

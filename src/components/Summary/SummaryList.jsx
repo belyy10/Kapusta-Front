@@ -1,10 +1,15 @@
-import { SummaryList, SummaryItem } from './Summary.styled';
+import { useSelector } from 'react-redux';
+import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
+import { SummaryList, SummaryItemSpan } from './Summary.styled';
 let nameMon;
 
+
 export default function SummaryBodyList({ item }) {
+    const type = useSelector(selectTypeTransactionMain);
+    // console.log(type);
     const numMonth = item._id.slice(item._id.length - 2);
-    // console.log(nm);
-    switch ( numMonth ) {
+
+    switch (numMonth) {
         case '01': nameMon = 'January';
             break;
         case '02': nameMon = 'February';
@@ -32,13 +37,24 @@ export default function SummaryBodyList({ item }) {
         default: nameMon = 'Month';
             
     }
-    console.log('nameMon', nameMon);
+    // console.log('nameMon', nameMon);
+    if (type === 'incomes') {
     return (
-        <SummaryList>
-            <SummaryItem>
-                {nameMon} </SummaryItem>
-            <SummaryItem> {item.expenses} </SummaryItem>
-        </SummaryList>
-    
-    );
+            <SummaryList>
+             {nameMon}
+                <SummaryItemSpan> {item.incomes}.00 </SummaryItemSpan>
+            {/* </SummaryItem> */}
+               
+            </SummaryList>
+        );
+    } else {
+        return (
+            <SummaryList>
+                {/* <SummaryItem> */}
+                    {nameMon}
+                    <SummaryItemSpan> {item.expenses}.00 </SummaryItemSpan>
+                {/* </SummaryItem> */}
+            </SummaryList>
+        );
+    }
 }
