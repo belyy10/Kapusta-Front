@@ -50,6 +50,7 @@ const transactionSlice = createSlice({
       state.reports.currentMonth = action.payload.mm;
       state.reports.currentYear = action.payload.year;
     },
+    changesSummary(state, action) {},
   },
   extraReducers: {
     [fetchUserTransactions.pending]: state => {
@@ -127,5 +128,6 @@ export const {
   changeCategoryIncomes,
   toggleReportType,
   setCurrentPeriod,
+  changesSummary,
 } = transactionSlice.actions;
 export const transactionReducer = transactionSlice.reducer;
