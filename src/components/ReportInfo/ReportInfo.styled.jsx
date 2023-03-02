@@ -5,13 +5,13 @@ export const Wraper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  width: 280px;
+  width: 290px;
   height: 85px;
   border-radius: 20px;
   margin-top: 32px;
   margin-bottom: 32px;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
   background: ${COLORS.whiteColor};
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
 
@@ -21,7 +21,7 @@ export const Wraper = styled.div`
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     margin-left: auto;
     margin-right: auto;
-    width: 728px;
+    width: 704px;
   }
 
   @media screen and (min-width: 1200px) {

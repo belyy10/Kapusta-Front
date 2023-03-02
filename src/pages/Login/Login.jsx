@@ -5,20 +5,9 @@ import { LoginForm } from 'components/LoginForm/LoginForm';
 import { Box } from './Login.styled';
 import BackgroundLogInContainer from 'components/BackgroundLogInContainer/BackgroundLogInContainer';
 import LoginTitle from 'components/LoginTitle';
-import { useSearchParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { googleUser } from 'redux/auth/authOperations';
-import { useDispatch } from 'react-redux';
 
 export default function Login() {
-  const dispatch = useDispatch();
-  const [searchParams] = useSearchParams();
-  useEffect(() => {
-    const accessToken = searchParams.get('accessToken');
-    if (accessToken) {
-      dispatch(googleUser({ accessToken }));
-    }
-  }, [dispatch, searchParams]);
+
 
   // const [loginFormNeeded, setLoginFormNeeded] = useState(true);
   // const onRegistrationClick = () => {

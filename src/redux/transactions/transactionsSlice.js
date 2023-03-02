@@ -21,8 +21,8 @@ const initialState = {
     type: 'Expenses',
     categoryExpenses: 'Products',
     categoryIncomes: 'Salary',
-    currentMonth: 9,
-    currentYear: 2022,
+    currentMonth: 3,
+    currentYear: 2023,
   },
 };
 
@@ -50,6 +50,18 @@ const transactionSlice = createSlice({
       state.reports.currentMonth = action.payload.mm;
       state.reports.currentYear = action.payload.year;
     },
+    changesSummary(state, action) {
+      const index = state.summary.findIndex(
+        element => element._id === action.payload.data
+      );
+
+      if (action.payload.type === 'expenses') {
+        state.summary[index].expenses =
+          state.summary[index].expenses + action.payload.sum;
+      }
+      state.summary[index].incomes =
+        state.summary[index].incomes + action.payload.sum;
+    },
   },
   extraReducers: {
     [fetchUserTransactions.pending]: state => {
@@ -69,7 +81,7 @@ const transactionSlice = createSlice({
       state.isLoading = true;
     },
     [addTransaction.fulfilled]: (state, action) => {
-      state.transactions.push(action.payload);
+      state.transactions = [action.payload, ...state.transactions];
       state.isLoading = false;
     },
     [addTransaction.rejected]: state => {
@@ -91,9 +103,8 @@ const transactionSlice = createSlice({
       state.isLoading = true;
     },
     [fetchSummaryExpenses.fulfilled]: (state, action) => {
-      // console.log('action', action.payload )
       state.summary = action.payload;
-    
+
       state.isLoading = false;
     },
     [fetchSummaryExpenses.rejected]: state => {
@@ -128,5 +139,6 @@ export const {
   changeCategoryIncomes,
   toggleReportType,
   setCurrentPeriod,
+  changesSummary,
 } = transactionSlice.actions;
 export const transactionReducer = transactionSlice.reducer;
