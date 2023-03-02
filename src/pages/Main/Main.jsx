@@ -10,7 +10,6 @@ export default function Main() {
 
   return (
     <BackgroundPrivateContainer>
-      {/* <Container> */}
       {isMobile ? (
         <>
           <LinkToMain to="/main">
@@ -28,14 +27,7 @@ export default function Main() {
           <Balance />
         </>
       )}
-      {/* <LinkReport to="/reports">
-        reports
-        <IconLink size={14} color=" #52555F" />
-      </LinkReport>
-      <Balance /> */}
       <TransactionsContainer />
-
-      {/* </Container> */}
     </BackgroundPrivateContainer>
   );
 }

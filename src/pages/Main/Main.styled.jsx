@@ -24,8 +24,11 @@ export const LinkReport = styled(Link)`
   @media screen and (min-width: 768px) {
     position: absolute;
     top: 103px;
-    right: 34px;
+    right: 37px;
     z-index: 20;
+  }
+  @media screen and (min-width: 1200px) {
+    right: 37px;
   }
 `;
 
