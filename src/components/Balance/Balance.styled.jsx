@@ -112,7 +112,7 @@ export const Button = styled.button`
     border-radius: 16px;
   }
 
-  :hover {
+  :hover:enabled {
     background-color: #ff751d;
   }
 

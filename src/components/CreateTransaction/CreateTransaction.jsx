@@ -25,6 +25,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { addTransaction } from 'redux/transactions/transactionsOperations';
 import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
+import { changeBalance, changesSummary } from 'redux/auth/authSlice';
 
 const initialValues = {
   date: moment().format('YYYY-MM-DD'),
@@ -55,6 +56,8 @@ export default function CreateTransaction() {
         type,
       })
     );
+    dispatch(changeBalance(sum));
+    dispatch(changesSummary(sum));
     resetForm(initialValues);
   };
 

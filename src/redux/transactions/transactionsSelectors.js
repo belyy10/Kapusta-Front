@@ -15,7 +15,11 @@ export const getReportsData = state => state.transactions.reportsData;
 export const isLoading = state => state.transactions.isLoading;
 
 //useNick
-export const selectTransactions = state => state.transactions.transactions;
+export const selectTransactions = state => {
+  const transaction = state.transactions.transactions;
+
+  return [...transaction].reverse();
+};
 export const selectTypeTransactionMain = state => state.transactions.mainType;
 export const selectTypeTransactionReports = state =>
   state.transactions.reports.type;
