@@ -4,11 +4,11 @@ import {
   Incomes,
   Expenses,
 } from './TransactionsContainer.styled';
-import { useMedia } from 'hooks/useMedia';
+
 import Table from 'components/Table';
 // import TransactionListMobile from 'components/TransactionListMobile';
-
-// import Summary from 'components/Summary';
+import { useMedia } from 'hooks/useMedia';
+import Summary from 'components/Summary';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTransaction } from 'redux/transactions/transactionsSlice';
@@ -18,7 +18,7 @@ export default function TransactionsContainer() {
   const dispatch = useDispatch();
   const transactions = useSelector(selectTypeTransactionMain);
 
-  const { isTabletAndDesktop } = useMedia();
+  const { isTabletAndDesktop, isMobile } = useMedia();
 
   return (
     <TransactionsWrapper>
@@ -38,7 +38,6 @@ export default function TransactionsContainer() {
       {isTabletAndDesktop && <Table />}
       {/* {isMobile && <TransactionListMobile />} */}
       {!isMobile && <Summary />}
-
     </TransactionsWrapper>
   );
 }
