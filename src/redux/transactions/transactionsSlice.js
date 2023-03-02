@@ -69,7 +69,7 @@ const transactionSlice = createSlice({
       state.isLoading = true;
     },
     [addTransaction.fulfilled]: (state, action) => {
-      state.transactions.push(action.payload);
+      state.transactions = [action.payload, ...state.transactions];
       state.isLoading = false;
     },
     [addTransaction.rejected]: state => {
@@ -91,9 +91,8 @@ const transactionSlice = createSlice({
       state.isLoading = true;
     },
     [fetchSummaryExpenses.fulfilled]: (state, action) => {
-      // console.log('action', action.payload )
       state.summary = action.payload;
-    
+
       state.isLoading = false;
     },
     [fetchSummaryExpenses.rejected]: state => {
