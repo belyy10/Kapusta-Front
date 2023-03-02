@@ -1,18 +1,37 @@
 import BackgroundPrivateContainer from 'components/BackgroundPrivateContainer';
 import Balance from 'components/Balance';
 // import Container from 'components/Container';
-import { IconLink, LinkReport } from './Main.styled';
+import { IconLink, LinkReport, LinkToMain, IconLinkMain } from './Main.styled';
 import TransactionsContainer from 'components/TransactionsContainer/TransactionsContainer';
+import { useMedia } from 'hooks/useMedia';
 
 export default function Main() {
+  const { isMobile } = useMedia();
+
   return (
     <BackgroundPrivateContainer>
       {/* <Container> */}
-      <LinkReport to="/reports">
+      {isMobile? (
+      <>
+            <LinkToMain to="/main">
+              <IconLinkMain size={18} />
+            </LinkToMain>
+      </>): null}
+
+      {!isMobile && (
+        <>
+        <LinkReport to="/reports">
+        reports
+        <IconLink size={14} color=" #52555F" />
+        </LinkReport>
+        <Balance />
+        </>
+      )}
+      {/* <LinkReport to="/reports">
         reports
         <IconLink size={14} color=" #52555F" />
       </LinkReport>
-      <Balance />
+      <Balance /> */}
       <TransactionsContainer />
 
       {/* </Container> */}

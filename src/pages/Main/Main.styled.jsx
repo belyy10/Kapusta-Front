@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { RiBarChartFill } from 'react-icons/ri';
+import { HiArrowNarrowLeft } from 'react-icons/hi';
+import COLORS from 'variables/colors/colors';
 
 export const LinkReport = styled(Link)`
   display: flex;
@@ -29,4 +31,16 @@ export const LinkReport = styled(Link)`
 
 export const IconLink = styled(RiBarChartFill)`
   margin-left: 20px;
+`;
+
+export const LinkToMain = styled(Link)`
+text-decoration: none;
+`;
+
+export const IconLinkMain = styled(HiArrowNarrowLeft)`
+  margin-left: 22px;
+  margin-bottom: 22px;
+  margin-top:22px;
+
+  color: ${COLORS.activeColor};
 `;

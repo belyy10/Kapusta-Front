@@ -5,8 +5,9 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  padding-top: 104px;
+  margin: 0 auto 40px auto;
+  // padding-top: 104px;
+
   @media (min-width: 768px) {
     display: flex;
     align-items: center;

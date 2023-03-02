@@ -13,6 +13,10 @@ export const MobileContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding-top: 19px;
+
+  height: 296px;
+  background-color: ${COLORS.bgTableTitle};
+  border-bottom-left-radius: 100px 100px;
 `;
 
 export const MobileInfo = styled.div`
@@ -72,12 +76,13 @@ export const IconLinkReport = styled(RiBarChartFill)`
 export const InputDate = styled.input`
   margin-right: auto;
   margin-left:auto;
+  margin-bottom:60px;
   height: 44px;
-  // width: 119px;
-  border: 2px solid white;
+  // border: 2px solid white;
+  border:none;
   outline: none;
 
-  background-color: ${COLORS.whiteColor};
+  background-color: transparent;
   color: #52555f;
   text-align: center;
 `;
