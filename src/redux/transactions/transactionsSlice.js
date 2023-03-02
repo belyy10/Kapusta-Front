@@ -50,7 +50,18 @@ const transactionSlice = createSlice({
       state.reports.currentMonth = action.payload.mm;
       state.reports.currentYear = action.payload.year;
     },
-    changesSummary(state, action) {},
+    changesSummary(state, action) {
+      const index = state.summary.findIndex(
+        element => element._id === action.payload.data
+      );
+
+      if (action.payload.type === 'expenses') {
+        state.summary[index].expenses =
+          state.summary[index].expenses + action.payload.sum;
+      }
+      state.summary[index].incomes =
+        state.summary[index].incomes + action.payload.sum;
+    },
   },
   extraReducers: {
     [fetchUserTransactions.pending]: state => {

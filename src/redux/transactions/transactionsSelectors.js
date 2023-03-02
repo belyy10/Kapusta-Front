@@ -92,9 +92,9 @@ export const selectDescriptionsByCategory = state => {
   const filteredTransactions = transactions.filter(
     transaction =>
       transaction.type.toLowerCase() === type.toLowerCase() &&
-      transaction.category.toLowerCase() === category.toLowerCase() &&
       transaction.month === mm &&
-      transaction.year === year
+      transaction.year === year &&
+      category.toLowerCase().includes(transaction.category.toLowerCase())
   );
 
   const descriptions = filteredTransactions.reduce(
