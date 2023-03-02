@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
-import { SummaryList, SummaryItem,SummaryItemSpan } from './Summary.styled';
+import { SummaryList, SummaryItemSpan } from './Summary.styled';
 let nameMon;
 
 
@@ -37,22 +37,23 @@ export default function SummaryBodyList({ item }) {
         default: nameMon = 'Month';
             
     }
-    console.log('nameMon', nameMon);
+    // console.log('nameMon', nameMon);
     if (type === 'incomes') {
     return (
             <SummaryList>
-            <SummaryItem> {nameMon}
+             {nameMon}
                 <SummaryItemSpan> {item.incomes}.00 </SummaryItemSpan>
-            </SummaryItem>
+            {/* </SummaryItem> */}
                
             </SummaryList>
         );
     } else {
         return (
             <SummaryList>
-                <SummaryItem> {nameMon}
+                {/* <SummaryItem> */}
+                    {nameMon}
                     <SummaryItemSpan> {item.expenses}.00 </SummaryItemSpan>
-                </SummaryItem>
+                {/* </SummaryItem> */}
             </SummaryList>
         );
     }

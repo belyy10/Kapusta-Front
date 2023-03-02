@@ -2,16 +2,22 @@ import styled from 'styled-components';
 import COLORS from 'variables/colors/colors';
 
 export const TransactionBox = styled.div`
+display: flex;
+justify-content: space-between;
+
   overflow: hidden;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 
+
   @media screen and (min-width: 768px) {
     width: 624px;
+    flex-direction: column;
   }
 
   @media screen and (min-width: 1200px) {
-    width: 746px;
+     flex-direction: row;
+    width: 1079px;
     height: 400px;
   }
 `;
