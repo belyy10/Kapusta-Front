@@ -32,9 +32,6 @@ export default function Mobile() {
   return (
     <>
       <MobileContainer>
-        {trForm ? (
-          <TransactionListMobile openTrForm={openTrForm} />
-        ) : (
           <MobileInfo>
             <LinkToTransaction to="/transaction">
               <IconLink size={18} />
@@ -44,7 +41,6 @@ export default function Mobile() {
               Reports
               <IconLinkReport size={14} color=" #52555F" />
             </LinkToReport>
-
             <Balance />
             <InputDate
               name="date"
@@ -58,12 +54,14 @@ export default function Mobile() {
               //   )
               // }
             />
+
+            {trForm ? <TransactionListMobile openTrForm={openTrForm} /> : null}
+            
           </MobileInfo>
-        )}
-  
       </MobileContainer>
       <MobileTypeBtn 
       openTrForm={openTrForm} />
+     
     </>
   );
 }
