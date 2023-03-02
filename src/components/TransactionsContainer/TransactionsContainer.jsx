@@ -19,7 +19,7 @@ export default function TransactionsContainer() {
   const dispatch = useDispatch();
   const transactions = useSelector(selectTypeTransactionMain);
 
-  const { isTabletAndDesktop, isMobile } = useMedia();
+  const { isTabletAndDesktop } = useMedia();
 
   return (
     <TransactionsWrapper>
