@@ -26,7 +26,7 @@ export const LinkReport = styled(Link)`
     top: 103px;
     right: 37px;
     z-index: 20;
-  }=
+  }
 
   :hover,
   :focus {
