@@ -3,9 +3,17 @@ import { useDispatch } from 'react-redux';
 import { removeTransaction } from 'redux/transactions/transactionsOperations';
 import { DeleteBtn, TableBodyItem, TableBodyList } from './TableBody.styled';
 import Moment from 'react-moment';
+import { deleteStranBalanseChange } from 'redux/auth/authSlice';
+// import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
 
 export default function TableBody({ transaction }) {
   const dispatch = useDispatch();
+  // const type = useSelector(selectTypeTransactionMain);
+
+  function handleDelete(id, sum) {
+    dispatch(removeTransaction(id));
+    dispatch(deleteStranBalanseChange(sum));
+  }
 
   return (
     <TableBodyList>
@@ -18,7 +26,9 @@ export default function TableBody({ transaction }) {
         {transaction.sum} UAH.
       </TableBodyItem>
       <TableBodyItem>
-        <DeleteBtn onClick={() => dispatch(removeTransaction(transaction._id))}>
+        <DeleteBtn
+          onClick={() => handleDelete(transaction._id, transaction.sum)}
+        >
           <BsTrash />
         </DeleteBtn>
       </TableBodyItem>
