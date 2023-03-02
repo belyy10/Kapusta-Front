@@ -34,6 +34,8 @@ export const TableBox = styled.table`
 
   background-color: ${COLORS.whiteColor};
 
+  
+
   @media screen and (min-width: 1200px) {
     width: 746px;
     height: 400px;
@@ -43,7 +45,7 @@ export const TableBox = styled.table`
 export const TableTitle = styled.tr``;
 
 export const TableTitleItem = styled.th`
-  width: calc(100% / 5);
+  width: calc(100% / 4);
   height: 40px;
 
   border-spacing: 0;
@@ -68,4 +70,12 @@ export const TableBodys = styled.tbody`
 
     background-color: ${COLORS.activeColor};
   }
+
+   @media screen and (min-width: 768px) {
+    width: 624px;
+    height: 400px;}
+
+       @media screen and (min-width: 1200px) {
+    width: 746px;
+    height: 400px;}
 `;
