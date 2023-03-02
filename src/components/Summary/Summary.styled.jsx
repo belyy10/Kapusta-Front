@@ -23,6 +23,7 @@ export const SummaryBox = styled.div`
   }
 
   @media screen and (min-width: 1200px) {
+    margin-top: 0px;
     width: 213px;
   }
 `;
@@ -87,6 +88,22 @@ export const SummaryList = styled.li`
 
   padding-left: 22px;
   padding-right: 20px;
+
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 100%; */
+  height: 38px;
+  /* text-align: ; */
+
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.167;
+  letter-spacing: 0.04em;
+
+  /* border-bottom: 2px solid ${COLORS.whiteColor}; */
+  color: ${COLORS.textColor};
 `;
 
 export const SummaryItem = styled.p`
