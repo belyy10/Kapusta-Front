@@ -6,7 +6,7 @@ import {
 } from './TransactionsContainer.styled';
 import { useMedia } from 'hooks/useMedia';
 import Table from 'components/Table';
-import TransactionListMobile from 'components/TransactionListMobile';
+// import TransactionListMobile from 'components/TransactionListMobile';
 
 import Summary from 'components/Summary';
 
@@ -36,7 +36,7 @@ export default function TransactionsContainer() {
       </Expenses>
       <CreateExpenses transactions={transactions} />
       {isTabletAndDesktop && <Table />}
-      {isMobile && <TransactionListMobile />}
+      {/* {isMobile && <TransactionListMobile />} */}
       {!isMobile && <Summary />}
     </TransactionsWrapper>
   );

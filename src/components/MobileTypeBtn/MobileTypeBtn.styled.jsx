@@ -19,6 +19,7 @@ export const Btn = styled.button`
 
   color: ${COLORS.blackColor};
   background-color: ${COLORS.bgTableTitle};
+  // background-color: ${props=> props.isActive ? COLORS.activeColor : COLORS.bgTableTitle}
 
   transition: 0.2s ease-out;
 
@@ -27,8 +28,7 @@ export const Btn = styled.button`
   }
 
   &:hover,
-  &:focus,
-  &.active {
+  &:focus {
     color: ${COLORS.whiteColor};
     background-color: ${COLORS.activeColor};
   }
