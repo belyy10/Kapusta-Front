@@ -15,23 +15,25 @@ import {
   Error,
 } from './LoginForm.styled';
 import { FcGoogle } from 'react-icons/fc';
-import { logIn, register } from 'redux/auth/authOperations';
+import { logIn, register, googleUser } from 'redux/auth/authOperations';
 import schemaRegister from 'schema/shemaRegister';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { googleUser } from 'redux/auth/authOperations';
 
 export const LoginForm = ({ onRegistrationClick }) => {
   const dispatch = useDispatch();
   const initialValues = { email: '', password: '' };
   const [button, setButton] = useState(null);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   useEffect(() => {
-    const accessToken = searchParams.get('accessToken');
-    if (accessToken) {
-      dispatch(googleUser({ accessToken }));
+    const email = searchParams.get('email');
+    const token = searchParams.get('token');
+    const balance = searchParams.get('balance');
+    if (email && token && balance) {
+      dispatch(setGoogleAuth({ email, token, balance }));
+      setSearchParams('', { replace: true });
     }
-  }, [dispatch, searchParams]);
+  }, [searchParams, dispatch, setSearchParams]);
 
   const handleClick = e => {
     switch (e.target.name) {
