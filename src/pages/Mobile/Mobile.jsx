@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import moment from 'moment';
 
 import Balance from 'components/Balance';
 import TransactionListMobile from 'components/TransactionListMobile';
@@ -18,6 +19,7 @@ import { useDispatch } from 'react-redux';
 
 export default function Mobile() {
   const [trForm, openTrForm] = useState(false);
+  const [data, setData] = useState(moment().format('YYYY-MM-DD'));
   const currentDate = new Date().toISOString().slice(0, 10);
 
   const dispatch = useDispatch();
@@ -30,7 +32,7 @@ export default function Mobile() {
     <>
       <MobileContainer>
         <MobileInfo>
-          <LinkToTransaction to="/transaction">
+          <LinkToTransaction to="/transaction" state={{ data: data }}>
             <IconLink size={18} />
             TO TRANSACTION
           </LinkToTransaction>
@@ -44,12 +46,9 @@ export default function Mobile() {
             type="date"
             min="1920-01-01"
             max={currentDate}
-            // onChange={event =>
-            //   setFieldValue(
-            //     'date',
-            //     moment(event.target.value).format('YYYY-MM-DD')
-            //   )
-            // }
+            onChange={event =>
+              setData(moment(event.target.value).format('YYYY-MM-DD'))
+            }
           />
 
           {trForm ? <TransactionListMobile openTrForm={openTrForm} /> : null}

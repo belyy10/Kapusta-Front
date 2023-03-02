@@ -27,6 +27,7 @@ import { addTransaction } from 'redux/transactions/transactionsOperations';
 import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
 import { changeBalance } from 'redux/auth/authSlice';
 import { changesSummary } from 'redux/transactions/transactionsSlice';
+import { useLocation } from 'react-router-dom';
 
 const initialValues = {
   date: moment().format('YYYY-MM-DD'),
@@ -39,12 +40,19 @@ export default function CreateTransaction() {
   const type = useSelector(selectTypeTransactionMain);
   const dispatch = useDispatch();
   const currentDate = new Date().toISOString().slice(0, 10);
+  const location = useLocation();
+
+  if (location.state.data) {
+    initialValues.date = location.state.data;
+  }
 
   const handleSubmit = (
     { date, description, category, sum },
     { resetForm }
   ) => {
-    const d = date.split('-');
+    const d = location.state.data
+      ? location.state.data.split('-')
+      : date.split('-');
 
     dispatch(
       addTransaction({
