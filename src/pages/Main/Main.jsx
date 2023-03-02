@@ -23,7 +23,7 @@ export default function Main() {
         <>
           <LinkReport to="/reports">
             Reports
-            <IconLink size={14} color=" #52555F" />
+            <IconLink size={14} />
           </LinkReport>
           <Balance />
         </>

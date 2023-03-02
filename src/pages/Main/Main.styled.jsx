@@ -27,10 +27,20 @@ export const LinkReport = styled(Link)`
     right: 34px;
     z-index: 20;
   }
+
+  :hover,
+  :focus {
+    color: ${COLORS.activeColor};
+  }
 `;
 
 export const IconLink = styled(RiBarChartFill)`
   margin-left: 20px;
+  color: ' #52555F';
+  :hover,
+  :focus {
+    color: ${COLORS.activeColor};
+  }
 `;
 
 export const LinkToMain = styled(Link)`

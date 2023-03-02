@@ -30,4 +30,9 @@ export const ExitBtn = styled.button`
   background-color: transparent;
   color: ${COLORS.textColor};
   cursor: pointer;
+
+  :hover,
+  :focus {
+    color: ${COLORS.activeColor};
+  }
 `;
