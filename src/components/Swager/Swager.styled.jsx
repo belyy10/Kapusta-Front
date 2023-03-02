@@ -5,8 +5,8 @@ import COLORS from 'variables/colors/colors';
 export const SwagerBox = styled.div`
   width: 180px;
   position: absolute;
-  right: 75px;
-  top: 100px;
+  right: 70px;
+  top: 70px;
 
   @media screen and (min-width: 768px) {
     right: calc((100% - 750px) / 2);

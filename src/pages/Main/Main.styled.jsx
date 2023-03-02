@@ -32,9 +32,9 @@ export const LinkReport = styled(Link)`
   :focus {
     color: ${COLORS.activeColor};
 
-  @media screen and (min-width: 1200px) {
-    right: 37px;
-
+    @media screen and (min-width: 1200px) {
+      right: 37px;
+    }
   }
 `;
 

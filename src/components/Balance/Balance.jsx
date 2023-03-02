@@ -14,7 +14,7 @@ import {
   Label,
 } from './Balance.styled';
 import { useAuth } from 'hooks/useAuth';
-import Container from 'components/Container';
+// import Container from 'components/Container';
 
 export default function Balance() {
   const dispatch = useDispatch();
@@ -40,7 +40,7 @@ export default function Balance() {
   };
 
   return (
-    <Container>
+    // <Container>
     <Wrapper>
       <Title>Balance:</Title>
       <Section autoComplete="off" onSubmit={onSubmit}>
@@ -70,6 +70,6 @@ export default function Balance() {
         </Wrapper2>
       )}
     </Wrapper>
-    </Container>
+    // </Container>
   );
 }
