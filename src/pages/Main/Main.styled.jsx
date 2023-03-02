@@ -52,9 +52,9 @@ export const LinkToMain = styled(Link)`
 `;
 
 export const IconLinkMain = styled(HiArrowNarrowLeft)`
-  margin-left: 22px;
-  margin-bottom: 22px;
-  margin-top: 22px;
+  margin-left: 32px;
+  margin-bottom: 10px;
+  margin-top: 15px;
 
   color: ${COLORS.activeColor};
 `;

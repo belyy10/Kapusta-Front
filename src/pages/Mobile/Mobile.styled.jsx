@@ -23,6 +23,8 @@ export const MobileInfo = styled.div`
   display: flex;
   flex-direction: column;
   height: calc(100vh - 96px);
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
 export const LinkToTransaction = styled(Link)`
