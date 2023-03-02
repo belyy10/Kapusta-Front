@@ -76,5 +76,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { changeBalance } = authSlice.actions;
+export const { changeBalance, setGoogleAuth } = authSlice.actions;
+
 export const authReducer = authSlice.reducer;
