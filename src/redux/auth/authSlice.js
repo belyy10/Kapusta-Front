@@ -4,6 +4,7 @@ import {
   logOut,
   refreshUser,
   updateBalance,
+  googleUser,
 } from './authOperations';
 
 const { createSlice } = require('@reduxjs/toolkit');
@@ -20,7 +21,11 @@ const authSlice = createSlice({
     isLoggedIn: false,
     isRefreshing: false,
   },
-
+  reducers: {
+    changeBalance(state, action) {
+      state.user.balance = state.user.balance + action.payload;
+    },
+  },
   extraReducers: {
     [register.fulfilled](state, action) {
       state.user = action.payload.user;
@@ -62,7 +67,23 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
     },
+    [googleUser.pending]: state => {
+      state.isLoggedIn = true;
+      state.isRefreshing = true;
+    },
+    [googleUser.fulfilled]: (state, action) => {
+      state.user = action.payload.user;
+      state.accessToken = action.payload.accessToken;
+      state.refreshToken = action.payload.refreshToken;
+      state.isLoggedIn = true;
+      state.balance = action.payload.balance;
+    },
+    [googleUser.rejected]: state => {
+      state.isRefreshing = false;
+      state.isLoggedIn = false;
+    },
   },
 });
 
+export const { changeBalance } = authSlice.actions;
 export const authReducer = authSlice.reducer;

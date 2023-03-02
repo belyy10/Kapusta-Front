@@ -26,6 +26,7 @@ export const addTransaction = createAsyncThunk(
         `/transaction/${credentials.type}`,
         credentials
       );
+
       return data.data.transaction;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -48,10 +49,10 @@ export const removeTransaction = createAsyncThunk(
 export const fetchSummaryExpenses = createAsyncThunk(
   'transaction/fetchSummaryExp',
   // async (controller, thunkAPI) => {
-  async(_, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const response = await axios.get('/transaction/expensesByMonthYear');
-        // { signal: controller.signal,} );
+      // { signal: controller.signal,} );
       // const response = await axios.get('/transaction/incomesByMonthYear', {
       //   signal: controller.signal,
       // });
