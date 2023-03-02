@@ -7,26 +7,23 @@ export const SwagerBox = styled.div`
 
   position: absolute;
   right: 70px;
-  top: 70px;
+  top: 50px;
 
- 
   @media screen and (max-width: 768px) {
     margin: 22px auto 32px;
-   
   }
 
-
   @media screen and (min-width: 768px) {
-      position: absolute;
+    position: absolute;
     right: calc((100% - 750px) / 2);
     top: 100px;
-     right: 32px;
+    right: 32px;
   }
 
   @media screen and (min-width: 1200px) {
-      position: absolute;
-       top: 100px;
-        right: 75px;
+    position: absolute;
+    top: 100px;
+    right: 75px;
     right: calc((100% - 1034px) / 2);
   }
 `;
