@@ -11,12 +11,15 @@ export const TableBodyList = styled.tr`
 
   @media screen and (min-width: 1200px) {
     width: 746px;
+
+    height: 40px;
+
   }
 `;
 
 export const TableBodyItem = styled.td`
   height: 100%;
-  width: calc(624px / 5);
+  width: calc(724px / 5);
 
   @media screen and (min-width: 1200px) {
     width: calc(746px / 5);
@@ -42,6 +45,14 @@ export const TableBodyItem = styled.td`
     justify-content: center;
     align-items: center;
   }
+
+   @media screen and (min-width: 768px) {
+    width: calc (624px / 5);
+    }
+
+       @media screen and (min-width: 1200px) {
+    width: calc (746px / 5);
+    }
 `;
 
 export const DeleteBtn = styled.button`
