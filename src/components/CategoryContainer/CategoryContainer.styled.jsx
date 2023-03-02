@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 import COLORS from 'variables/colors/colors';
 
-
-export const Container = styled.div`
-
+export const BtnContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
-
 
   padding: 36px 0;
   width: 100%;
@@ -15,21 +12,16 @@ export const Container = styled.div`
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   background-color: ${COLORS.whiteColor};
 
-
   @media screen and (min-width: 768px) {
     padding-bottom: 20px;
-    max-width:704px;
+    max-width: 704px;
     border-radius: 30px;
-
   }
 
   @media screen and (min-width: 1200px) {
-    max-width:1034px;
+    max-width: 1034px;
     border-radius: 30px;
-
   }
-
-
 `;
 
 export const ChoseBox = styled.div`
@@ -93,7 +85,6 @@ export const Btn = styled.button`
   position: relative;
   border: none;
   background-color: transparent;
-  
 `;
 
 export const BtnTitle = styled.span`
