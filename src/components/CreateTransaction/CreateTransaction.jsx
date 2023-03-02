@@ -57,8 +57,11 @@ export default function CreateTransaction() {
         type,
       })
     );
-    dispatch(changeBalance(sum));
-    dispatch(changesSummary({ sum, date: date.slice(0, 7) }), type);
+    const bal = type === 'expenses' ? sum * -1 : sum;
+
+    dispatch(changeBalance(bal));
+    dispatch(changesSummary({ sum, date }));
+
     resetForm(initialValues);
   };
 

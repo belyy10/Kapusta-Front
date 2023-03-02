@@ -51,16 +51,14 @@ const transactionSlice = createSlice({
       state.reports.currentYear = action.payload.year;
     },
     changesSummary(state, action) {
-      const index = state.summary.findIndex(
-        element => element._id === action.payload.data
+      const summary = state.summary.find(element =>
+        action.payload.date.includes(element._id)
       );
-
-      if (action.payload.type === 'expenses') {
-        state.summary[index].expenses =
-          state.summary[index].expenses + action.payload.sum;
+      if (summary) {
+        state.mainType === 'expenses'
+          ? (summary.expenses = summary.expenses - action.payload.sum)
+          : (summary.incomes = summary.incomes + action.payload.sum);
       }
-      state.summary[index].incomes =
-        state.summary[index].incomes + action.payload.sum;
     },
   },
   extraReducers: {
