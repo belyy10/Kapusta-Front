@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateBalance } from 'redux/auth/authOperations';
-
 import {
   Wrapper,
   Button,
@@ -15,6 +14,7 @@ import {
   Label,
 } from './Balance.styled';
 import { useAuth } from 'hooks/useAuth';
+import Container from 'components/Container';
 
 export default function Balance() {
   const dispatch = useDispatch();
@@ -40,6 +40,7 @@ export default function Balance() {
   };
 
   return (
+    <Container>
     <Wrapper>
       <Title>Balance:</Title>
       <Section autoComplete="off" onSubmit={onSubmit}>
@@ -69,5 +70,6 @@ export default function Balance() {
         </Wrapper2>
       )}
     </Wrapper>
+    </Container>
   );
 }
