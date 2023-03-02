@@ -26,14 +26,25 @@ export const LinkReport = styled(Link)`
     top: 103px;
     right: 37px;
     z-index: 20;
-  }
+  }=
+
+  :hover,
+  :focus {
+    color: ${COLORS.activeColor};
+
   @media screen and (min-width: 1200px) {
     right: 37px;
+
   }
 `;
 
 export const IconLink = styled(RiBarChartFill)`
   margin-left: 20px;
+  color: ' #52555F';
+  :hover,
+  :focus {
+    color: ${COLORS.activeColor};
+  }
 `;
 
 export const LinkToMain = styled(Link)`

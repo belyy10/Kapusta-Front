@@ -4,11 +4,20 @@ import COLORS from 'variables/colors/colors';
 export const TableBodyList = styled.tr`
   height: 40px;
   border: 2px solid ${COLORS.bgTableTitle};
+
+  @media screen and (min-width: 768px) {
+    width: 624px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 746px;
+    height: 400px;
+  }
 `;
 
 export const TableBodyItem = styled.td`
   height: 100%;
-  width: calc(746px / 5);
+  width: calc(624px / 5);
 
   text-align: center;
 

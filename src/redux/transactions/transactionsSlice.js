@@ -16,7 +16,7 @@ const initialState = {
   type: 'all',
   isLoading: false,
   date: FormatDate.getDateObj(new Date()),
-  mainType: 'incomes',
+  mainType: 'expenses',
   reports: {
     type: 'Expenses',
     categoryExpenses: 'Products',
