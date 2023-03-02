@@ -34,3 +34,11 @@ export const IconLink = styled(HiArrowNarrowLeft)`
   margin-right: 20px;
   color: ${COLORS.activeColor};
 `;
+
+export const IconLinkMain = styled(HiArrowNarrowLeft)`
+  margin-left: 22px;
+  margin-bottom: 20px;
+  margin-top: 12px;
+
+  color: ${COLORS.activeColor};
+`;

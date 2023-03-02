@@ -52,7 +52,7 @@ export const LinkToMain = styled(Link)`
 `;
 
 export const IconLinkMain = styled(HiArrowNarrowLeft)`
-  margin-left: 32px;
+  margin-left: 20px;
   margin-bottom: 10px;
   margin-top: 15px;
 
