@@ -133,7 +133,7 @@ export const Wrapper2 = styled.div`
   position: absolute;
   bottom: 42px;
   transform: translateY(calc(100% + 18px)) translateX(16%);
-  width: 292px;
+  width: 200px;
   background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   padding: 30px;
@@ -150,6 +150,10 @@ export const Wrapper2 = styled.div`
     border-left: 11px solid transparent;
     border-right: 11px solid transparent;
     border-bottom: 11px solid #172d5d;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 292px;
   }
 `;
 

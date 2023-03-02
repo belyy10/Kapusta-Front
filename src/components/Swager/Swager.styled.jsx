@@ -4,11 +4,17 @@ import COLORS from 'variables/colors/colors';
 
 export const SwagerBox = styled.div`
   width: 180px;
+
+  position: absolute;
+  right: 70px;
+  top: 70px;
+
  
   @media screen and (max-width: 768px) {
     margin: 22px auto 32px;
    
   }
+
 
   @media screen and (min-width: 768px) {
       position: absolute;
