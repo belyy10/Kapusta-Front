@@ -21,7 +21,7 @@ export const register = createAsyncThunk(
     try {
       const responce = await axios.post('/users/register', credentials);
       // After successful registration, add the token to the HTTP header
-      setAuthToken(responce.data.token);
+      // setAuthToken(responce.data.token);
       Notiflix.Notify.success('Welcome to Kapu$ta! Please verify your email');
       return responce.data;
     } catch (error) {
@@ -29,12 +29,9 @@ export const register = createAsyncThunk(
       if (errorMes === 'Email in use') {
         return Notiflix.Notify.failure('This email is already used');
       }
-      if (errorMes === 'Please confirm your email') {
-        return Notiflix.Notify.info('Please confirm your email');
-      }
 
-      Notiflix.Notify.failure(error.message);
-      return thunkAPI.rejectWithValue(error.message);
+      Notiflix.Notify.info(error.response.data.message);
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );
