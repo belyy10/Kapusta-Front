@@ -17,10 +17,9 @@ export const Btn = styled.button`
   font-size: 12px;
   text-transform: uppercase;
 
-  color: ${COLORS.blackColor};
-  background-color: ${COLORS.bgTableTitle};
-  // background-color: ${props=> props.isActive ? COLORS.activeColor : COLORS.bgTableTitle}
-
+  background-color: ${props => props.isActive ? COLORS.activeColor : COLORS.bgTableTitle};
+  color: ${props => props.isActive ? COLORS.whiteColor : COLORS.blackColor};
+      
   transition: 0.2s ease-out;
 
   &:first-child {
@@ -28,7 +27,8 @@ export const Btn = styled.button`
   }
 
   &:hover,
-  &:focus {
+  &:focus, 
+  &:active {
     color: ${COLORS.whiteColor};
     background-color: ${COLORS.activeColor};
   }
