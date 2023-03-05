@@ -11,7 +11,8 @@ const COLORS = Object.freeze({
   redColorExpenses: '#E53935',
   greenColorIncoms: '#407946',
   redColor: '#E7192E',
-  reportsIconBg: '#FFDAC0'
+  reportsIconBg: '#FFDAC0',
+  redColorText: '#eb5757',
 });
 
 export default COLORS;
