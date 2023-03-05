@@ -90,10 +90,10 @@ export const LoginForm = ({ onRegistrationClick }) => {
               render={msg => <Error>{msg}</Error>}
             />
             <ButtonGroup>
-              <Button type="login" name="login" onClick={handleClick}>
+              <Button type="submit" name="login" onClick={handleClick}>
                 Log in
               </Button>
-              <Button type="register" name="register" onClick={handleClick}>
+              <Button type="button" name="register" onClick={handleClick}>
                 Registration
               </Button>
             </ButtonGroup>
