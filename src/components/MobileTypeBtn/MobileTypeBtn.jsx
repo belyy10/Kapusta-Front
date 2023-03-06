@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTransaction } from 'redux/transactions/transactionsSlice.js';
 import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
-import { activeBtn, Btn, Container } from './MobileTypeBtn.styled.jsx';
-import COLORS from 'variables/colors/colors.js';
+import { Btn, Container } from './MobileTypeBtn.styled.jsx';
+// import COLORS from 'variables/colors/colors.js';
 // import { useState } from 'react';
 
 export default function MobileTypesBtn({openTrForm}) {
