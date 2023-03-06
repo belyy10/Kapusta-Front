@@ -17,20 +17,21 @@ import {
 import { FcGoogle } from 'react-icons/fc';
 import { logIn, register } from 'redux/auth/authOperations';
 import schemaRegister from 'schema/shemaRegister';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-export const LoginForm = () => {
+export const LoginForm = ({ onRegistrationClick }) => {
+  const [button, setButton] = useState(null);
   const dispatch = useDispatch();
   const urlParams = new URLSearchParams(window.location.search);
   const email = urlParams.get('email');
   const password = urlParams.get('password');
+  const initialValues = { email: '', password: '' };
   useEffect(() => {
     // console.log('LoginForm ---> value:', { email, password });
     if (email) {
       dispatch(logIn({ email, password }));
     }
   }, [dispatch, email, password]);
-
   const handleClick = e => {
     switch (e.target.name) {
       case 'login':
