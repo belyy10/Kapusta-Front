@@ -56,8 +56,8 @@ const transactionSlice = createSlice({
       );
       if (summary) {
         state.mainType === 'expenses'
-          ? (summary.expenses = summary.expenses + action.payload.sum)
-          : (summary.incomes = summary.incomes - action.payload.sum);
+          ? (summary.expenses = summary.expenses - action.payload.sum)
+          : (summary.incomes = summary.incomes + action.payload.sum);
       }
     },
     changesSummaryDelete(state, action) {
@@ -69,6 +69,20 @@ const transactionSlice = createSlice({
           ? (summary.expenses = summary.expenses + action.payload.sum)
           : (summary.incomes = summary.incomes - action.payload.sum);
       }
+    },
+    clearTransaction(state, action) {
+      state.transactions = [];
+      state.summary = [];
+      state.reportsData = [];
+      state.type = 'all';
+      state.isLoading = false;
+      state.date = FormatDate.getDateObj(new Date());
+      state.mainType = 'expenses';
+      state.reportstype = 'Expenses';
+      state.reportscategoryExpenses = 'Products';
+      state.reportscategoryIncomes = 'Salary';
+      state.reportscurrentMonth = 3;
+      state.reportscurrentYear = 2023;
     },
   },
   extraReducers: {
@@ -149,5 +163,6 @@ export const {
   setCurrentPeriod,
   changesSummary,
   changesSummaryDelete,
+  clearTransaction,
 } = transactionSlice.actions;
 export const transactionReducer = transactionSlice.reducer;

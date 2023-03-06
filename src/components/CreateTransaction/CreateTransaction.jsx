@@ -1,7 +1,6 @@
 import { Formik, ErrorMessage } from 'formik';
 import moment from 'moment';
 import { BiCalculator } from 'react-icons/bi';
-
 import schemaTransactions from 'schema/schemaTransactions';
 import expenseCategories from './ExpenseCategories';
 import incomeCategories from './IncomeCategories';
@@ -29,7 +28,7 @@ import { changeBalance } from 'redux/auth/authSlice';
 import { changesSummary } from 'redux/transactions/transactionsSlice';
 
 const initialValues = {
-  date: moment().format('YYYY-MM-DD'),
+  date: moment().format('yyyy-MM-DD'),
   description: '',
   category: '',
   sum: '',
@@ -46,6 +45,10 @@ export default function CreateTransaction() {
   ) => {
     const d = date.split('-');
 
+    const newDate = new Date(date);
+
+    console.log(newDate);
+
     dispatch(
       addTransaction({
         year: parseInt(d[0]),
@@ -55,6 +58,7 @@ export default function CreateTransaction() {
         category,
         sum,
         type,
+        date: newDate,
       })
     );
     const bal = type === 'expenses' ? sum * -1 : sum;
