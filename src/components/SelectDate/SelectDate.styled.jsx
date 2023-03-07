@@ -5,7 +5,17 @@ export const Form = styled.form``;
 
 export const InputDate = styled.input`
   @media screen and (max-width: 767px) {
-    display: none;
+    margin: 0 auto;
+    height: 40px;
+    width: 100px;
+    border: 2px solid transparent;
+    outline: none;
+    background-color: transparent;
+    color: #52555f;
+    font-weight: 900;
+    font-size: 12px;
+    font-style: Roboto;
+    text-align: center;
   }
 
   @media screen and (min-width: 768px) {
