@@ -1,4 +1,4 @@
-// import Summary from 'components/Summary';
+import Summary from 'components/Summary';
 import TableBody from 'components/TableBody';
 import { useSelector } from 'react-redux';
 import { selectTransactionsByType } from 'redux/transactions/transactionsSelectors';
