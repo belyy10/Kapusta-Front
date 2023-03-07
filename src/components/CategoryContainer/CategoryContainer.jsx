@@ -25,26 +25,26 @@ import {
   // selectReportsCategoryIncomes,
   // selectSummaryByCategory,
   selectTypeTransactionReports,
- 
+
   // fetchReportIncomes,
   // selectReportExpenses,
-  getReportsData
+  getReportsData,
 } from 'redux/transactions/transactionsSelectors';
-import { fetchReportExpenses} from '../../redux/transactions/transactionsOperations'
+import { fetchReportExpenses } from '../../redux/transactions/transactionsOperations';
 
 export default function CategoryContainer() {
   const dispatch = useDispatch();
 
   const type = useSelector(selectTypeTransactionReports);
-  console.log("type",type)
+  console.log('type', type);
 
   useEffect(() => {
-    dispatch(fetchReportExpenses());
+    dispatch(fetchReportExpenses(type));
   }, [dispatch]);
 
   const reportData = useSelector(getReportsData);
-  console.log("reportData", reportData)
-  
+  console.log('reportData', reportData);
+
   // const categoryExpenses = useSelector(selectReportsCategoryExpenses);
   // const categoryIncomes = useSelector(selectReportsCategoryIncomes);
   // const fileredCategory = categoryList.filter(
@@ -52,9 +52,6 @@ export default function CategoryContainer() {
   // );
 
   // const summary = useSelector(selectSummaryByCategory);
-
-  
-
 
   // function handleSetCategory(name) {
   //   if (type === 'Expenses') {
@@ -65,7 +62,6 @@ export default function CategoryContainer() {
   // }
 
   return (
-     
     <Container>
       <ChoseBox>
         <ChoseBtn onClick={() => dispatch(toggleReportType())}>
@@ -82,11 +78,11 @@ export default function CategoryContainer() {
           return (
             <BtnListItem key={element.id}>
               <BtnTitle
-                // style={{
-                //   pointerEvents:
-                //     summaryCategory(element.name) > 0 ? 'auto' : 'none',
-                //   opacity: summaryCategory(element.name) > 0 ? 1 : 0.5,
-                // }}
+              // style={{
+              //   pointerEvents:
+              //     summaryCategory(element.name) > 0 ? 'auto' : 'none',
+              //   opacity: summaryCategory(element.name) > 0 ? 1 : 0.5,
+              // }}
               >
                 {/* {element.name} */}
               </BtnTitle>
@@ -131,7 +127,6 @@ export default function CategoryContainer() {
     </Container>
   );
 }
-
 
 // import {
 //   BtnList,
@@ -266,6 +261,5 @@ export default function CategoryContainer() {
 //     </Container>
 //   );
 // }
-
 
 // transaction/reportbyexpenses?type=expenses
