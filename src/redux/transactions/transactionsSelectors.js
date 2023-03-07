@@ -6,7 +6,7 @@ export const selectSummaryExpenses = state => state.transactions.summary;
 
 export const selectSummaryIncomes = state => state.transactions.summary.incomes;
 
-export const getDate = state => state.transactions.date;
+export const selectDate = state => state.transactions.date;
 
 export const getType = state => state.transactions.type;
 
@@ -14,12 +14,8 @@ export const getReportsData = state => state.transactions.reportsData;
 
 export const isLoading = state => state.transactions.isLoading;
 
-//useNick
-export const selectTransactions = state => {
-  const transaction = state.transactions.transactions;
+export const selectTransactions = state => state.transactions.transactions;
 
-  return [...transaction].reverse();
-};
 export const selectTypeTransactionMain = state => state.transactions.mainType;
 export const selectTypeTransactionReports = state =>
   state.transactions.reports.type;

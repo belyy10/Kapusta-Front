@@ -14,7 +14,7 @@ import { selectTransactionsByType } from 'redux/transactions/transactionsSelecto
 import Moment from 'react-moment';
 import { removeTransaction } from 'redux/transactions/transactionsOperations';
 
-export default function TransactionListMobile({ openTrForm }) {
+export default function TransactionListMobile() {
   const filteredTransactions = useSelector(selectTransactionsByType);
   const dispatch = useDispatch();
 
@@ -22,8 +22,6 @@ export default function TransactionListMobile({ openTrForm }) {
     <TransactionUl>
       {filteredTransactions.map(
         ({ _id, date, description, category, sum, type }) => {
-          console.log(type === 'expenses');
-
           return (
             <TransactionItem key={_id}>
               <div>

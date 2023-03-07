@@ -32,7 +32,7 @@ export default function Table() {
             ))}
         </TableBodys>
       </TableBox>
-      {/* <Summary /> */}
+      <Summary />
     </TransactionBox>
   );
 }
