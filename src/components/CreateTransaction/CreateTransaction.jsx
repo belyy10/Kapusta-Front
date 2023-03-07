@@ -4,11 +4,12 @@ import { BiCalculator } from 'react-icons/bi';
 import schemaTransactions from 'schema/schemaTransactions';
 import expenseCategories from './ExpenseCategories';
 import incomeCategories from './IncomeCategories';
-
+import { useState } from 'react';
 import {
   Wrapper,
+  Container,
   Label,
-  InputDate,
+  // InputDate,
   InputGroup,
   InputDescription,
   InputSum,
@@ -26,6 +27,7 @@ import { addTransaction } from 'redux/transactions/transactionsOperations';
 import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
 import { changeBalance } from 'redux/auth/authSlice';
 import { changesSummary } from 'redux/transactions/transactionsSlice';
+import SelectDate from 'components/SelectDate/SelectDate';
 
 const initialValues = {
   date: moment().format('yyyy-MM-DD'),
@@ -37,23 +39,17 @@ const initialValues = {
 export default function CreateTransaction() {
   const type = useSelector(selectTypeTransactionMain);
   const dispatch = useDispatch();
-  const currentDate = new Date().toISOString().slice(0, 10);
 
-  const handleSubmit = (
-    { date, description, category, sum },
-    { resetForm }
-  ) => {
-    const d = date.split('-');
+  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
 
-    const newDate = new Date(date);
+  const newDate = new Date(date);
 
-    console.log(newDate);
+  console.log(newDate);
 
+  function handleSubmit({ description, category, sum }, { resetForm }) {
     dispatch(
       addTransaction({
-        year: parseInt(d[0]),
-        month: parseInt(d[1]),
-        day: parseInt(d[2]),
+        date: date,
         description,
         category,
         sum,
@@ -67,10 +63,11 @@ export default function CreateTransaction() {
     dispatch(changesSummary({ sum, date }));
 
     resetForm(initialValues);
-  };
+  }
 
   return (
-    <>
+    <Container>
+      <SelectDate value={date} handleDateChange={setDate} />
       <Formik
         initialValues={initialValues}
         validationSchema={schemaTransactions}
@@ -80,7 +77,7 @@ export default function CreateTransaction() {
           return (
             <Wrapper>
               <InputGroup>
-                <Label>
+                {/* <Label>
                   <InputDate
                     name="date"
                     type="date"
@@ -93,7 +90,7 @@ export default function CreateTransaction() {
                       )
                     }
                   />
-                </Label>
+                </Label> */}
 
                 <Label>
                   <InputDescription
@@ -176,6 +173,6 @@ export default function CreateTransaction() {
           );
         }}
       </Formik>
-    </>
+    </Container>
   );
 }

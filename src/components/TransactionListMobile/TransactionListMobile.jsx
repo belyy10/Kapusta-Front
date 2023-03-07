@@ -1,5 +1,6 @@
 import { BsTrash } from 'react-icons/bs';
 import {
+  TransactionUl,
   TransactionBox,
   TransactionDeleteBtn,
   TransactionDescription,
@@ -18,7 +19,7 @@ export default function TransactionListMobile({ openTrForm }) {
   const dispatch = useDispatch();
 
   return (
-    <ul>
+    <TransactionUl>
       {filteredTransactions.map(
         ({ _id, date, description, category, sum, type }) => {
           console.log(type === 'expenses');
@@ -48,6 +49,6 @@ export default function TransactionListMobile({ openTrForm }) {
           );
         }
       )}
-    </ul>
+    </TransactionUl>
   );
 }

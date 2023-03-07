@@ -18,25 +18,20 @@ import { FcGoogle } from 'react-icons/fc';
 import { logIn, register } from 'redux/auth/authOperations';
 import schemaRegister from 'schema/shemaRegister';
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { googleUser } from 'redux/auth/authOperations';
 
 export const LoginForm = ({ onRegistrationClick }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const dispatch = useDispatch();
-  const initialValues = { email: '', password: '' };
   const [button, setButton] = useState(null);
-
+  const dispatch = useDispatch();
+  const urlParams = new URLSearchParams(window.location.search);
+  const email = urlParams.get('email');
+  const password = urlParams.get('password');
+  const initialValues = { email: '', password: '' };
   useEffect(() => {
-    const email = searchParams.get('email');
-    const token = searchParams.get('token');
-    const balance = searchParams.get('balance');
-
-    if (email && token && balance) {
-      dispatch(googleUser({ email, token, balance }));
-      setSearchParams('', { replace: true });
+    // console.log('LoginForm ---> value:', { email, password });
+    if (email) {
+      dispatch(logIn({ email, password }));
     }
-  }, [searchParams, dispatch, setSearchParams]);
+  }, [dispatch, email, password]);
   const handleClick = e => {
     switch (e.target.name) {
       case 'login':
@@ -90,10 +85,10 @@ export const LoginForm = ({ onRegistrationClick }) => {
               render={msg => <Error>{msg}</Error>}
             />
             <ButtonGroup>
-              <Button type="login" name="login" onClick={handleClick}>
+              <Button type="submit" name="login" onClick={handleClick}>
                 Log in
               </Button>
-              <Button type="register" name="register" onClick={handleClick}>
+              <Button type="button" name="register" onClick={handleClick}>
                 Registration
               </Button>
             </ButtonGroup>

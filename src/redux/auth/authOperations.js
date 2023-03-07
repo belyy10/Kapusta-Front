@@ -106,7 +106,7 @@ export const updateBalance = createAsyncThunk(
 );
 
 export const googleUser = createAsyncThunk(
-  'auth/google',
+  'users/google',
   async ({ accessToken }, thunkAPI) => {
     try {
       setAuthToken(accessToken);
