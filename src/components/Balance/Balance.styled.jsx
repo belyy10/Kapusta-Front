@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import COLORS from 'variables/colors/colors';
 
 export const Wrapper = styled.div`
   flex-direction: column;
@@ -31,12 +32,17 @@ export const Title = styled.p`
   font-weight: 500;
   text-align: center;
   letter-spacing: 0.02em;
-  color: rgba(82, 85, 95, 0.7);
+  color: ${COLORS.textColorOpacity};
+
+  @media screen and (max-width: 767px) {
+      padding-top: 15px;
   margin-right: 20px;
-  margin-bottom: 8px;
+  padding-bottom: 8px;
+  }
+
   @media screen and (min-width: 768px) and (max-width: 1280px) {
     margin-right: 21px;
-    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
 `;
 export const Section = styled.form`
@@ -57,13 +63,13 @@ export const Input = styled.input`
   flex-direction: row;
   align-items: center;
   align-content: center;
-  border: 2px solid #ffffff;
+  border: 2px solid ${COLORS.whiteColor};
   border-radius: 16px;
   background-color: transparent;
   font: inherit;
   font-weight: 700;
   text-align: center;
-  color: black;
+  color: ${COLORS.blackColor};
   width: 140px;
   height: 44px;
   border-radius: 22px 0px 0px 22px;
@@ -76,7 +82,7 @@ export const Input = styled.input`
     margin-right: 0;
     border-radius: 16px;
     margin-right: 15px;
-    border-right: 1px solid #ffffff;
+    border-right: 1px solid ${COLORS.whiteColor};
   }
 `;
 export const Label = styled.label`
@@ -160,13 +166,13 @@ export const Wrapper2 = styled.div`
 export const Text = styled.p`
   font-size: 14px;
   line-height: 20px;
-  color: #ffffff;
+  color: ${COLORS.whiteColor};
   margin: 0px 0px 20px 0px;
 `;
 export const Styled = styled.p`
   font-size: 12px;
   line-height: 16px;
-  color: #ffffff;
+  color: ${COLORS.whiteColor};
   margin: 0;
 `;
 
