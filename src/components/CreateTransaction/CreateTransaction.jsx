@@ -1,13 +1,13 @@
 import { Formik, ErrorMessage } from 'formik';
 import moment from 'moment';
 import { BiCalculator } from 'react-icons/bi';
+
 import { useState } from 'react';
 import Notiflix from 'notiflix';
-
 import schemaTransactions from 'schema/schemaTransactions';
 import expenseCategories from './ExpenseCategories';
 import incomeCategories from './IncomeCategories';
-
+import { useState } from 'react';
 import {
   Wrapper,
   Container,
@@ -33,6 +33,7 @@ import { changesSummary } from 'redux/transactions/transactionsSlice';
 import SelectDate from 'components/SelectDate/SelectDate';
 
 const initialValues = {
+  date: moment().format('yyyy-MM-DD'),
   description: '',
   category: '',
   sum: '',
@@ -44,9 +45,11 @@ export default function CreateTransaction() {
 
   const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
 
-  const handleDateChange = e => {
-    setDate(e.target.value);
-  };
+  const newDate = new Date(date);
+
+  console.log(newDate);
+
+
 
   const handleSubmit = ({ description, category, sum }, { resetForm }) => {
     const bal = type === 'expenses' ? sum * -1 : sum;
@@ -63,6 +66,7 @@ export default function CreateTransaction() {
         category,
         sum,
         type,
+        date: newDate,
       })
     );
 
@@ -70,11 +74,11 @@ export default function CreateTransaction() {
     dispatch(changesSummary({ sum, date }));
 
     resetForm(initialValues);
-  };
+  }
 
   return (
     <Container>
-      <SelectDate value={date} handleDateChange={handleDateChange} />
+      <SelectDate value={date} handleDateChange={setDate} />
       <Formik
         initialValues={initialValues}
         validationSchema={schemaTransactions}

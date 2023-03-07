@@ -36,10 +36,12 @@ const CustomizedTickLabel = ({ x, y, payload }) => {
 };
 
 export default function GraphicMobileBar({ transaction }) {
+  const heightBarChart = 54 * transaction.length;
+
   return (
     <BarChart
       width={320}
-      height={540}
+      height={heightBarChart}
       data={transaction}
       layout="vertical"
       barCategoryGap={36}
@@ -62,7 +64,10 @@ export default function GraphicMobileBar({ transaction }) {
         barSize={15}
       >
         {transaction.map((_, index) => (
-          <Cell fill={index % 3 ? COLORS.barColor : COLORS.activeColor} />
+          <Cell
+            key={index}
+            fill={index % 3 ? COLORS.barColor : COLORS.activeColor}
+          />
         ))}
       </Bar>
     </BarChart>
