@@ -15,7 +15,7 @@ const initialState = {
   reportsData: [],
   type: 'all',
   isLoading: false,
-  date: FormatDate.getDateObj(new Date()),
+  date: new Date().toISOString().slice(0, 10),
   mainType: 'expenses',
   reports: {
     type: 'Expenses',
@@ -39,6 +39,9 @@ const transactionSlice = createSlice({
         return;
       }
       state.reports.type = 'Expenses';
+    },
+    changeDate(state, action) {
+      state.date = action.payload;
     },
     changeCategoryExpenses(state, action) {
       state.reports.categoryExpenses = action.payload;
@@ -159,6 +162,7 @@ export const {
   toggleTransaction,
   changeCategoryExpenses,
   changeCategoryIncomes,
+  changeDate,
   toggleReportType,
   setCurrentPeriod,
   changesSummary,
