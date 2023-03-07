@@ -30,8 +30,8 @@ export const register = createAsyncThunk(
         return Notiflix.Notify.failure('This email is already used');
       }
 
-      Notiflix.Notify.failure(error.message);
-      return thunkAPI.rejectWithValue(error.message);
+      Notiflix.Notify.info(error.response.data.message);
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );
@@ -100,13 +100,13 @@ export const updateBalance = createAsyncThunk(
       const { data } = await axios.patch('/users/balance', balance);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );
 
 export const googleUser = createAsyncThunk(
-  'auth/google',
+  'users/google',
   async ({ accessToken }, thunkAPI) => {
     try {
       setAuthToken(accessToken);

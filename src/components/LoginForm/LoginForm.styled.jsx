@@ -141,12 +141,16 @@ export const Button = styled.button`
   animation: 1s ${animation2};
 
   :hover,
-  :focus {
+  :focus,
+  :active:first-child {
     background-color: ${COLORS.activeColor};
     color: ${COLORS.whiteColor};
     box-shadow: 1px 3px 7px rgba(255, 119, 8, 0.4);
   }
 
+  /* {
+    :active
+  } */
   @media screen and (min-width: 768px) {
     width: 122px;
   }
@@ -158,7 +162,7 @@ export const Error = styled.div`
   margin-left: 20px;
   font-size: 10px;
   letter-spacing: 0.04em;
-  color: #eb5757;
+  color: ${COLORS.redColorText};
 
   ::before {
     position: absolute;

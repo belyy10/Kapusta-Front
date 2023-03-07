@@ -38,7 +38,9 @@ export default function Mobile({ date }) {
             <IconLinkReport size={14} color=" #52555F" />
           </LinkToReport>
           <Balance />
+
           <SelectDate />
+
           {trForm ? <TransactionListMobile openTrForm={openTrForm} /> : null}
         </MobileInfo>
       </MobileContainer>

@@ -35,4 +35,7 @@ export const ExitBtn = styled.button`
   :focus {
     color: ${COLORS.activeColor};
   }
+
+  @media screen { max-width: 767px;}
+  margin-left: 16px;
 `;
