@@ -11,14 +11,13 @@ import {
   IconLink,
   IconLinkReport,
   LinkToReport,
-  InputDate,
 } from './Mobile.styled.jsx';
 import { changeType } from 'redux/transactions/transactionsOperations.js';
 import { useDispatch } from 'react-redux';
+import SelectDate from 'components/SelectDate/SelectDate.jsx';
 
-export default function Mobile() {
+export default function Mobile({ date }) {
   const [trForm, openTrForm] = useState(false);
-  const currentDate = new Date().toISOString().slice(0, 10);
 
   const dispatch = useDispatch();
 
@@ -39,19 +38,7 @@ export default function Mobile() {
             <IconLinkReport size={14} color=" #52555F" />
           </LinkToReport>
           <Balance />
-          <InputDate
-            name="date"
-            type="date"
-            min="1920-01-01"
-            max={currentDate}
-            // onChange={event =>
-            //   setFieldValue(
-            //     'date',
-            //     moment(event.target.value).format('YYYY-MM-DD')
-            //   )
-            // }
-          />
-
+          <SelectDate />
           {trForm ? <TransactionListMobile openTrForm={openTrForm} /> : null}
         </MobileInfo>
       </MobileContainer>
