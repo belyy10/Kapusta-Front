@@ -1,6 +1,9 @@
 import { Formik, ErrorMessage } from 'formik';
 import moment from 'moment';
 import { BiCalculator } from 'react-icons/bi';
+
+import { useState } from 'react';
+import Notiflix from 'notiflix';
 import schemaTransactions from 'schema/schemaTransactions';
 import expenseCategories from './ExpenseCategories';
 import incomeCategories from './IncomeCategories';
@@ -46,7 +49,16 @@ export default function CreateTransaction() {
 
   console.log(newDate);
 
-  function handleSubmit({ description, category, sum }, { resetForm }) {
+
+
+  const handleSubmit = ({ description, category, sum }, { resetForm }) => {
+    const bal = type === 'expenses' ? sum * -1 : sum;
+    if (bal < 0) {
+      return Notiflix.Notify.failure(
+        "You don't have enough money in your balance to perform this transaction"
+      );
+    }
+
     dispatch(
       addTransaction({
         date: date,
@@ -57,7 +69,6 @@ export default function CreateTransaction() {
         date: newDate,
       })
     );
-    const bal = type === 'expenses' ? sum * -1 : sum;
 
     dispatch(changeBalance(bal));
     dispatch(changesSummary({ sum, date }));
