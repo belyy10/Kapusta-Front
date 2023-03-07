@@ -51,7 +51,6 @@ export default function Mobile() {
             //   )
             // }
           />
-
           {trForm ? <TransactionListMobile openTrForm={openTrForm} /> : null}
         </MobileInfo>
       </MobileContainer>

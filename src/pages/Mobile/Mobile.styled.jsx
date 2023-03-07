@@ -13,8 +13,10 @@ export const MobileContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding-top: 19px;
+  /* margin-bottom: 55px; */
 
   height: 296px;
+  /* height: calc(100vh - 55px); */
   background-color: ${COLORS.bgTableTitle};
   border-bottom-left-radius: 100px 100px;
 `;
@@ -22,7 +24,7 @@ export const MobileContainer = styled.div`
 export const MobileInfo = styled.div`
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 96px);
+  /* height: calc(100vh - 96px); */
   padding-left: 20px;
   padding-right: 20px;
 `;
@@ -30,7 +32,8 @@ export const MobileInfo = styled.div`
 export const LinkToTransaction = styled(Link)`
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
+  padding-bottom: 24px;
 
   text-decoration: none;
   font-family: 'Roboto';
@@ -49,7 +52,8 @@ export const LinkToTransaction = styled(Link)`
 export const LinkToReport = styled(Link)`
 display: flex;
 align-items: center;
-margin-bottom: 35px;
+padding-bottom: 20px;
+/* margin-bottom: 35px; */
 margin-left: auto;
 margin-right: auto;
 
@@ -63,7 +67,13 @@ line-height: calc(14 / 12);
 
 letter-spacing: 0.02;
 
-color: rgba(82, 85, 95, 0.7);`
+color: ${COLORS.textColorOpacity};
+
+&:hover,
+:focus{
+  color: ${COLORS.activeColor};
+}
+`
 
 export const IconLink = styled(HiArrowNarrowLeft)`
   margin-right: 6px;

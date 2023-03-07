@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import COLORS from '../../variables/colors/colors';
 
+export const TransactionUl = styled.ul`
+  margin-bottom: 55px;
+`;
+
 export const TransactionItem = styled.li`
   display: flex;
   justify-content: space-between;
