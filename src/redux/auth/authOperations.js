@@ -109,9 +109,9 @@ export const googleUser = createAsyncThunk(
   'users/google',
   async (token, thunkAPI) => {
     try {
-      setAuthToken(`Bearer ${token}`);
-      const { data } = await axios.get('/users/current');
+      setAuthToken(token);
       console.log(token);
+      const { data } = await axios.get('/users/current');
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
