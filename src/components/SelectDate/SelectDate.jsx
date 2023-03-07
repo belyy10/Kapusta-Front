@@ -3,6 +3,7 @@ import { InputDate, Label, Form } from './SelectDate.styled';
 import { changeDate } from 'redux/transactions/transactionsSlice';
 import { selectDate } from 'redux/transactions/transactionsSelectors';
 
+
 export default function SelectDate() {
   const dispatch = useDispatch();
   const date = useSelector(selectDate);

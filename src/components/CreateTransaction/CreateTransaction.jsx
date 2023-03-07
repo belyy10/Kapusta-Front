@@ -32,6 +32,7 @@ import SelectDate from 'components/SelectDate/SelectDate';
 import { selectUserBalance } from 'redux/auth/authSelectors';
 import { useMedia } from 'hooks/useMedia';
 
+
 const initialValues = {
   description: '',
   category: '',
@@ -58,7 +59,6 @@ export default function CreateTransaction() {
 
     dispatch(
       addTransaction({
-        date: date,
         description,
         category,
         sum,
