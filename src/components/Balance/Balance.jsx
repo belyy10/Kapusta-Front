@@ -47,15 +47,15 @@ export default function Balance() {
         <InputContainer>
           <Input
             type="number"
-            placeholder={`0.00`}
+            placeholder={`${value}.00 UAH`}
             name="balance"
-            value={value}
+            // value={value}
             readOnly={balance}
-            pattern="[0-9, UAH]"
+            pattern="[0-9, .UAH]"
             disabled={balance > 0 ? true : false}
             onChange={onChange}
           />
-          <Label>UAH</Label>
+          {/* <Label>UAH</Label> */}
         </InputContainer>
         <Button type="submit" disabled={balance > 0 ? true : false}>
           Confirm

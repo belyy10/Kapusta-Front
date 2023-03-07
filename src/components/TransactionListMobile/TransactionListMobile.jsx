@@ -22,7 +22,7 @@ export default function TransactionListMobile({ openTrForm }) {
     <TransactionUl>
       {filteredTransactions.map(
         ({ _id, date, description, category, sum, type }) => {
-          console.log(type === 'expenses');
+          // console.log(type === 'expenses');
 
           return (
             <TransactionItem key={_id}>
