@@ -1,16 +1,13 @@
 import { Formik, ErrorMessage } from 'formik';
-import moment from 'moment';
 import { BiCalculator } from 'react-icons/bi';
 import Notiflix from 'notiflix';
 import schemaTransactions from 'schema/schemaTransactions';
 import expenseCategories from './ExpenseCategories';
 import incomeCategories from './IncomeCategories';
-
 import {
   Wrapper,
   Container,
   Label,
-  // InputDate,
   InputGroup,
   InputDescription,
   InputSum,
@@ -25,35 +22,39 @@ import {
 } from './CreateTransaction.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTransaction } from 'redux/transactions/transactionsOperations';
-import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
+import {
+  selectDate,
+  selectTypeTransactionMain,
+} from 'redux/transactions/transactionsSelectors';
 import { changeBalance } from 'redux/auth/authSlice';
 import { changesSummary } from 'redux/transactions/transactionsSlice';
 import SelectDate from 'components/SelectDate/SelectDate';
-import { useState } from 'react';
+import { selectUserBalance } from 'redux/auth/authSelectors';
+import { useMedia } from 'hooks/useMedia';
+
 
 const initialValues = {
-  date: moment().format('yyyy-MM-DD'),
   description: '',
   category: '',
   sum: '',
 };
 
 export default function CreateTransaction() {
+  const { isTabletAndDesktop } = useMedia();
+  const date = useSelector(selectDate);
   const type = useSelector(selectTypeTransactionMain);
+  const balance = useSelector(selectUserBalance);
   const dispatch = useDispatch();
-
-  const [date, setDate] = useState(moment().format('YYYY-MM-DD'));
-
-  const newDate = new Date(date);
-
-  console.log(newDate);
 
   const handleSubmit = ({ description, category, sum }, { resetForm }) => {
     const bal = type === 'expenses' ? sum * -1 : sum;
-    if (bal < 0) {
-      return Notiflix.Notify.failure(
+    const isNegative = balance - sum;
+
+    if (type === 'expenses' && isNegative < 0) {
+      Notiflix.Notify.failure(
         "You don't have enough money in your balance to perform this transaction"
       );
+      return;
     }
 
     dispatch(
@@ -62,7 +63,6 @@ export default function CreateTransaction() {
         category,
         sum,
         type,
-        date: newDate,
       })
     );
 
@@ -74,31 +74,16 @@ export default function CreateTransaction() {
 
   return (
     <Container>
-      <SelectDate value={date} handleDateChange={setDate} />
+      {isTabletAndDesktop && <SelectDate />}
       <Formik
         initialValues={initialValues}
         validationSchema={schemaTransactions}
         onSubmit={handleSubmit}
       >
-        {({ handleChange, setFieldValue, values, resetForm }) => {
+        {({ handleChange, values, resetForm }) => {
           return (
             <Wrapper>
               <InputGroup>
-                {/* <Label>
-                  <InputDate
-                    name="date"
-                    type="date"
-                    min="1920-01-01"
-                    max={currentDate}
-                    onChange={event =>
-                      setFieldValue(
-                        'date',
-                        moment(event.target.value).format('YYYY-MM-DD')
-                      )
-                    }
-                  />
-                </Label> */}
-
                 <Label>
                   <InputDescription
                     type="text"
@@ -119,9 +104,6 @@ export default function CreateTransaction() {
                       value={values.category}
                       onChange={handleChange}
                     >
-                      {/* <Option disabled value="">
-                    Product category
-                  </Option> */}
                       {incomeCategories.map(category => (
                         <Option key={category.value} value={category.value}>
                           {category.label}
@@ -135,9 +117,6 @@ export default function CreateTransaction() {
                       value={values.category}
                       onChange={handleChange}
                     >
-                      {/* <Option disabled value="">
-                    Product category
-                  </Option> */}
                       {expenseCategories.map(category => (
                         <Option key={category.value} value={category.value}>
                           {category.label}
