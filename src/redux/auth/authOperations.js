@@ -107,10 +107,11 @@ export const updateBalance = createAsyncThunk(
 
 export const googleUser = createAsyncThunk(
   'users/google',
-  async ({ accessToken }, thunkAPI) => {
+  async (accessToken, thunkAPI) => {
     try {
       setAuthToken(accessToken);
       const { data } = await axios.get('/users/current');
+      data.token = accessToken;
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

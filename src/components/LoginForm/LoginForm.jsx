@@ -21,21 +21,17 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { googleUser } from 'redux/auth/authOperations';
 
-export const LoginForm = ({ onRegistrationClick }) => {
+export const LoginForm = () => {
   const [button, setButton] = useState(null);
   const dispatch = useDispatch();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const initialValues = { email: '', password: '' };
   useEffect(() => {
-    const email = searchParams.get('email');
     const accessToken = searchParams.get('accessToken');
-    const balance = searchParams.get('balance');
-
-    if (email && accessToken && balance) {
-      dispatch(googleUser({ email, accessToken, balance }));
-      setSearchParams('', { replace: true });
+    if (accessToken) {
+      dispatch(googleUser({ accessToken }));
     }
-  }, [searchParams, dispatch, setSearchParams]);
+  }, [dispatch, searchParams]);
 
   const handleClick = e => {
     switch (e.target.name) {
