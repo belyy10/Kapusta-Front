@@ -65,8 +65,6 @@ export const Input = styled.input`
   align-content: center;
   border: 2px solid ${COLORS.whiteColor};
   border-radius: 16px;
-  background-color: transparent;
-  font: inherit;
   font-weight: 700;
   text-align: center;
   color: ${COLORS.blackColor};
@@ -84,13 +82,16 @@ export const Input = styled.input`
     margin-right: 15px;
     border-right: 1px solid ${COLORS.whiteColor};
   }
+
+  ::placeholder {
+    color: ${COLORS.blackColor};}
 `;
 export const Label = styled.label`
   position: absolute;
   top: 21px;
   right: 5px;
   font-weight: 700;
-  color: black;
+  color: ${COLORS.blackColor};
   font: inherit;
   font-size: 12px;
   @media screen and (min-width: 768px) {
@@ -100,9 +101,8 @@ export const Label = styled.label`
 `;
 
 export const Button = styled.button`
-  background-color: transparent;
-  border: 2px solid #ffffff;
-  color: rgba(82, 85, 95, 0.7);
+  border: 2px solid ${COLORS.whiteColor};
+  color: ${COLORS.textColorOpacity};
   font-weight: 400;
   border-radius: 0px 22px 22px 0px;
   display: inline-block;
@@ -121,7 +121,7 @@ export const Button = styled.button`
   }
 
   :hover:enabled {
-    background-color: #ff751d;
+    background-color: ${COLORS.activeColor};
   }
 
   ::placeholder {
@@ -132,7 +132,7 @@ export const Button = styled.button`
     align-items: center;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    color: #000000;
+    color: ${COLORS.blackColor};
   }
 `;
 export const Wrapper2 = styled.div`

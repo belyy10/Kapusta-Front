@@ -77,7 +77,7 @@ color: ${COLORS.textColorOpacity};
 
 export const IconLink = styled(HiArrowNarrowLeft)`
   margin-right: 6px;
-  // margin-left: 22px;
+   /* margin-left: 22px; */
   color: ${COLORS.activeColor};
 `;
 
@@ -87,7 +87,7 @@ export const IconLinkReport = styled(RiBarChartFill)`
 
 export const InputDate = styled.input`
   margin-right: auto;
-  margin-left:auto;
+  margin-left: auto;
   margin-bottom:60px;
   height: 44px;
   // border: 2px solid white;
