@@ -17,9 +17,9 @@ import {
 import { FcGoogle } from 'react-icons/fc';
 import { logIn, register } from 'redux/auth/authOperations';
 import schemaRegister from 'schema/shemaRegister';
-import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { googleUser } from 'redux/auth/authOperations';
+import { useState } from 'react';
+// import { useSearchParams } from 'react-router-dom';
+// import { googleUser } from 'redux/auth/authOperations';
 
 export const LoginForm = () => {
   const [button, setButton] = useState(null);
