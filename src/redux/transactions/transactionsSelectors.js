@@ -37,6 +37,18 @@ export const selectTransactionsByType = state => {
   );
 };
 
+export const selectTransactionsByTypeAndDate = state => {
+  const transactions = selectTransactions(state);
+  const type = selectTypeTransactionMain(state);
+  const date = selectDate(state);
+
+  return transactions.filter(
+    transaction =>
+      transaction.type.toLowerCase() === type.toLowerCase() &&
+      transaction.date.includes(date)
+  );
+};
+
 export const selectCategoryByType = state => {
   const type = selectTypeTransactionReports(state);
 
@@ -46,22 +58,22 @@ export const selectCategoryByType = state => {
   return selectReportsCategoryIncomes(state);
 };
 
-// selectSummary
+// selectSummary in REPORTS
 export const selectSummary = state => {
   const { year, mm } = selectCurrentPeriod(state);
   const transactions = selectTransactions(state);
 
   const filteredExpenses = transactions.filter(
     transaction =>
-      transaction.month === mm &&
-      transaction.year === year &&
+      transaction.date.includes(mm) &&
+      transaction.date.includes(year) &&
       transaction.type === 'expenses'
   );
 
   const filteredIncomes = transactions.filter(
     transaction =>
-      transaction.month === mm &&
-      transaction.year === year &&
+      transaction.date.includes(mm) &&
+      transaction.date.includes(year) &&
       transaction.type === 'incomes'
   );
 
@@ -78,7 +90,7 @@ export const selectSummary = state => {
   return { incomes: summaryIncomes, expenses: summaryExpenses };
 };
 
-//graphic
+//graphic in REPORTS
 export const selectDescriptionsByCategory = state => {
   const type = selectTypeTransactionReports(state);
   const category = selectCategoryByType(state);
@@ -88,8 +100,8 @@ export const selectDescriptionsByCategory = state => {
   const filteredTransactions = transactions.filter(
     transaction =>
       transaction.type.toLowerCase() === type.toLowerCase() &&
-      transaction.month === mm &&
-      transaction.year === year &&
+      transaction.date.includes(mm) &&
+      transaction.date.includes(year) &&
       category.toLowerCase().includes(transaction.category.toLowerCase())
   );
 
@@ -117,6 +129,7 @@ export const selectDescriptionsByCategory = state => {
   return descriptions.sort((firstEl, secondEl) => secondEl.sum - firstEl.sum);
 };
 
+//select sum of Category in REPORTS
 export const selectSummaryByCategory = state => {
   const type = selectTypeTransactionReports(state);
   const { mm, year } = selectCurrentPeriod(state);
@@ -125,8 +138,8 @@ export const selectSummaryByCategory = state => {
   const filteredTransactions = transactions.filter(
     transaction =>
       transaction.type.toLowerCase() === type.toLowerCase() &&
-      transaction.month === mm &&
-      transaction.year === year
+      transaction.date.includes(mm) &&
+      transaction.date.includes(year)
   );
 
   const descriptions = filteredTransactions.reduce(
