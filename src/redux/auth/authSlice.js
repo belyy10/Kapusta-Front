@@ -76,7 +76,7 @@ const authSlice = createSlice({
     },
     [googleUser.fulfilled]: (state, action) => {
       state.user = action.payload.user;
-      state.accessToken = `Bearer ${action.payload.accessToken}`;
+      state.accessToken = action.payload.accessToken;
       state.isLoggedIn = true;
       state.isRefreshing = false;
     },
