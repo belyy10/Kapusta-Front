@@ -29,7 +29,7 @@ export const LoginForm = () => {
   useEffect(() => {
     const accessToken = searchParams.get('accessToken');
     if (accessToken) {
-      dispatch(googleUser({ accessToken }));
+      dispatch(googleUser(accessToken));
     }
   }, [dispatch, searchParams]);
 
