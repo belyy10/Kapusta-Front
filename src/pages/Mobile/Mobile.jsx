@@ -17,7 +17,8 @@ import { changeType } from 'redux/transactions/transactionsOperations.js';
 import { useDispatch } from 'react-redux';
 
 export default function Mobile() {
-  const [trForm, openTrForm] = useState(false);
+  const [trForm, openTrForm] = useState();
+  // const [openTrForm] = useState(false);
   const currentDate = new Date().toISOString().slice(0, 10);
 
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ export default function Mobile() {
             type="date"
             min="1920-01-01"
             max={currentDate}
+            value={currentDate}
             // onChange={event =>
             //   setFieldValue(
             //     'date',
@@ -51,7 +53,7 @@ export default function Mobile() {
             //   )
             // }
           />
-          {trForm ? <TransactionListMobile openTrForm={openTrForm} /> : null}
+          {trForm ? <TransactionListMobile openTrForm={openTrForm} /> : <TransactionListMobile openTrForm={openTrForm} />}
         </MobileInfo>
       </MobileContainer>
       <MobileTypeBtn openTrForm={openTrForm} />

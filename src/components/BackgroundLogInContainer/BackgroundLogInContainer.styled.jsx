@@ -30,7 +30,7 @@ export const ContainerTop = styled.div`
   margin-right: auto;
 
   height: 320px;
-  background-color: #f5f6fb;
+  background-color: ${COLORS.backgroungColor};
 
   border-bottom-left-radius: 100px 100px;
 

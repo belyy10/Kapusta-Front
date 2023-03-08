@@ -45,7 +45,7 @@ export const InputDescription = styled(Field)`
   padding-left: 20px;
   height: 44px;
   width: 280px;
-  border: 2px solid #ffffff;
+  border: 2px solid ${COLORS.whiteColor};
   outline: none;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -79,7 +79,7 @@ export const InputDate = styled(Field)`
     border: 2px solid white;
     outline: none;
     background-color: ${COLORS.whiteColor};
-    color: #52555f;
+    color: ${COLORS.textColor};
     font-weight: 900;
     font-size: 12px;
     font-style: Roboto;
@@ -103,7 +103,7 @@ export const InputSum = styled(Field)`
   background-color: transparent;
   height: 44px;
   width: 125px;
-  border: 2px solid #ffffff;
+  border: 2px solid ${COLORS.whiteColor};
   outline: none;
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
@@ -113,7 +113,7 @@ export const InputSum = styled(Field)`
   color: ${COLORS.textColor};
 
   ::placeholder {
-    color: #000000;
+    color: ${COLORS.blackColor};
     font-weight: 700;
     font-size: 12px;
     line-height: 14.06;
@@ -123,14 +123,14 @@ export const InputSum = styled(Field)`
     margin-bottom: 0px;
     margin-top: 0px;
     width: 119px;
-    border: 2px solid #f5f6fb;
+    border: 2px solid ${COLORS.bgTableTitle};
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     border-top-right-radius: 16px;
     background-color: ${COLORS.whiteColor};
 
     ::placeholder {
-      color: #000000;
+      color: ${COLORS.blackColor};
       font-weight: 700;
       font-size: 12px;
       line-height: 14.06;
