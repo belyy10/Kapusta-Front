@@ -22,8 +22,6 @@ export default function TransactionListMobile() {
     <TransactionUl>
       {filteredTransactions.map(
         ({ _id, date, description, category, sum, type }) => {
-          // console.log(type === 'expenses');
-
           return (
             <TransactionItem key={_id}>
               <div>

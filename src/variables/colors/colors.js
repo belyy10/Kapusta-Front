@@ -16,5 +16,4 @@ const COLORS = Object.freeze({
   redColorText: '#eb5757',
 });
 
-
 export default COLORS;

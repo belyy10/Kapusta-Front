@@ -99,7 +99,7 @@ export const BtnTitle = styled.span`
   letter-spacing: 0.04em;
   text-transform: uppercase;
 
-  color: ${COLORS.textColor};
+  color: #52555f;
 `;
 
 export const IconBox = styled.div`
