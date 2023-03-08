@@ -7,6 +7,7 @@ import { useMedia } from 'hooks/useMedia';
 import CreateTransactions from './CreateTransaction/CreateTransaction';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
+import { fetchUserTransactions } from 'redux/transactions/transactionsOperations';
 
 const Header = lazy(() => import('./Header'));
 const Main = lazy(() => import('../pages/Main'));
@@ -20,6 +21,19 @@ export default function App() {
   useEffect(() => {
     const controller = new AbortController();
     dispatch(refreshUser());
+
+    dispatch(
+      fetchUserTransactions({
+        type: 'expenses',
+        controller,
+      })
+    );
+    dispatch(
+      fetchUserTransactions({
+        type: 'incomes',
+        controller,
+      })
+    );
 
     return () => controller.abort();
   }, [dispatch]);
