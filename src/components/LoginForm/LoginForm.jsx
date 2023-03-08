@@ -24,14 +24,14 @@ import { googleUser } from 'redux/auth/authOperations';
 export const LoginForm = () => {
   const [button, setButton] = useState(null);
   const dispatch = useDispatch();
-  const [searchParams] = useSearchParams();
+  // const [searchParams] = useSearchParams();
   const initialValues = { email: '', password: '' };
-  useEffect(() => {
-    const accessToken = searchParams.get('accessToken');
-    if (accessToken) {
-      dispatch(googleUser({ accessToken }));
-    }
-  }, [dispatch, searchParams]);
+  // useEffect(() => {
+  //   const accessToken = searchParams.get('accessToken');
+  //   if (accessToken) {
+  //     dispatch(googleUser({ accessToken }));
+  //   }
+  // }, [dispatch, searchParams]);
 
   const handleClick = e => {
     switch (e.target.name) {
@@ -86,10 +86,10 @@ export const LoginForm = () => {
               render={msg => <Error>{msg}</Error>}
             />
             <ButtonGroup>
-              <Button type="submit" name="login" onClick={handleClick}>
+              <Button type="login" name="login" onClick={handleClick}>
                 Log in
               </Button>
-              <Button type="button" name="register" onClick={handleClick}>
+              <Button type="register" name="register" onClick={handleClick}>
                 Registration
               </Button>
             </ButtonGroup>
