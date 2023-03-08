@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-
+import { useState } from 'react';
 import Balance from 'components/Balance';
 import TransactionListMobile from 'components/TransactionListMobile';
 import MobileTypeBtn from 'components/MobileTypeBtn';
@@ -11,27 +10,25 @@ import {
   IconLink,
   IconLinkReport,
   LinkToReport,
-  InputDate,
 } from './Mobile.styled.jsx';
-import { changeType } from 'redux/transactions/transactionsOperations.js';
-import { useDispatch } from 'react-redux';
+import SelectDate from 'components/SelectDate/SelectDate.jsx';
 
 export default function Mobile() {
   const [trForm, openTrForm] = useState();
   // const [openTrForm] = useState(false);
   const currentDate = new Date().toISOString().slice(0, 10);
-
   const dispatch = useDispatch();
+  const [date, setDate] = useState('');
 
-  useEffect(() => {
-    dispatch(changeType('all'));
-  });
+  const handleDateChange = e => {
+    setDate(e.target.value);
+  };
 
   return (
     <>
       <MobileContainer>
         <MobileInfo>
-          <LinkToTransaction to="/transaction">
+          <LinkToTransaction to="/transaction" state={{ date: date }}>
             <IconLink size={18} />
             TO TRANSACTION
           </LinkToTransaction>
@@ -54,9 +51,11 @@ export default function Mobile() {
             // }
           />
           {trForm ? <TransactionListMobile openTrForm={openTrForm} /> : <TransactionListMobile openTrForm={openTrForm} />}
+          <SelectDate value={date} handleDateChange={handleDateChange} />
+          <TransactionListMobile />
         </MobileInfo>
       </MobileContainer>
-      <MobileTypeBtn openTrForm={openTrForm} />
+      <MobileTypeBtn />
     </>
   );
 }

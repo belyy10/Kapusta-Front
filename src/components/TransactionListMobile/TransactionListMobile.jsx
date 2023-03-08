@@ -10,12 +10,12 @@ import {
   TransactionSum,
 } from './TransactionListMobile.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectTransactionsByType } from 'redux/transactions/transactionsSelectors';
+import { selectTransactionsByTypeAndDate } from 'redux/transactions/transactionsSelectors';
 import Moment from 'react-moment';
 import { removeTransaction } from 'redux/transactions/transactionsOperations';
 
-export default function TransactionListMobile({ openTrForm }) {
-  const filteredTransactions = useSelector(selectTransactionsByType);
+export default function TransactionListMobile() {
+  const filteredTransactions = useSelector(selectTransactionsByTypeAndDate);
   const dispatch = useDispatch();
 
   return (

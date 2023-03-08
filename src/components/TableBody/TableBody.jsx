@@ -6,19 +6,31 @@ import Moment from 'react-moment';
 import { deleteStranBalanseChange } from 'redux/auth/authSlice';
 import { changesSummaryDelete } from 'redux/transactions/transactionsSlice';
 import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
+import { ModalWindow } from 'components/Modal';
+import { useState } from 'react';
 
 export default function TableBody({ transaction }) {
+  const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
   const type = useSelector(selectTypeTransactionMain);
 
-  function handleDelete(id, sum, date) {
-    dispatch(removeTransaction(id));
-    dispatch(deleteStranBalanseChange(sum));
+  function handleDelete() {
+    dispatch(removeTransaction(transaction._id));
+    dispatch(deleteStranBalanseChange(transaction.sum));
 
-    const bal = type === 'expenses' ? sum * -1 : sum;
+    const bal = type === 'expenses' ? transaction.sum * -1 : transaction.sum;
 
-    dispatch(changesSummaryDelete({ date, sum: bal }));
+    dispatch(changesSummaryDelete({ date: transaction.date, sum: bal }));
+    setModalOpen(false);
   }
+
+  const handleModalOpen = () => {
+    setModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
 
   return (
     <TableBodyList>
@@ -31,14 +43,20 @@ export default function TableBody({ transaction }) {
         {transaction.sum} UAH.
       </TableBodyItem>
       <TableBodyItem>
-        <DeleteBtn
-          onClick={() =>
-            handleDelete(transaction._id, transaction.sum, transaction.date)
-          }
-        >
+        <DeleteBtn onClick={handleModalOpen}>
           <BsTrash />
         </DeleteBtn>
+        {modalOpen && (
+          <ModalWindow closeModal={handleModalClose} dispatch={handleDelete}>
+            Are you sure?
+          </ModalWindow>
+        )}
       </TableBodyItem>
     </TableBodyList>
   );
 }
+
+// onClick={() =>
+//   handleDelete(transaction._id, transaction.sum, transaction.date)
+// }
+// >

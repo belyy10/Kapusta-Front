@@ -21,22 +21,18 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { googleUser } from 'redux/auth/authOperations';
 
-export const LoginForm = ({ onRegistrationClick }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const dispatch = useDispatch();
-  const initialValues = { email: '', password: '' };
+export const LoginForm = () => {
   const [button, setButton] = useState(null);
-
+  const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
+  const initialValues = { email: '', password: '' };
   useEffect(() => {
-    const email = searchParams.get('email');
-    const token = searchParams.get('token');
-    const balance = searchParams.get('balance');
-
-    if (email && token && balance) {
-      dispatch(googleUser({ email, token, balance }));
-      setSearchParams('', { replace: true });
+    const accessToken = searchParams.get('accessToken');
+    if (accessToken) {
+      dispatch(googleUser(accessToken));
     }
-  }, [searchParams, dispatch, setSearchParams]);
+  }, [dispatch, searchParams]);
+
   const handleClick = e => {
     switch (e.target.name) {
       case 'login':
@@ -62,7 +58,7 @@ export const LoginForm = ({ onRegistrationClick }) => {
       <FormBox>
         <Google>
           <TitleGoogle>You can log in with your Google Account:</TitleGoogle>
-          <ButtonGoogle href="https://kapusta-deployment.onrender.com/api/auth/google">
+          <ButtonGoogle href="https://kapusta-deployment.onrender.com/api/users/google">
             <FcGoogle size={18} />
             <TextGoogle>Google</TextGoogle>
           </ButtonGoogle>
@@ -90,10 +86,10 @@ export const LoginForm = ({ onRegistrationClick }) => {
               render={msg => <Error>{msg}</Error>}
             />
             <ButtonGroup>
-              <Button type="submit" name="login" onClick={handleClick}>
+              <Button type="login" name="login" onClick={handleClick}>
                 Log in
               </Button>
-              <Button type="button" name="register" onClick={handleClick}>
+              <Button type="register" name="register" onClick={handleClick}>
                 Registration
               </Button>
             </ButtonGroup>

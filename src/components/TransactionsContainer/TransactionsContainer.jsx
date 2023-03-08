@@ -35,6 +35,7 @@ export default function TransactionsContainer() {
       >
         Expenses
       </Expenses>
+
       <CreateExpenses transactions={transactions} />
       {isTabletAndDesktop && <Table />}
       {/* {isMobile && <TransactionListMobile />}  */}

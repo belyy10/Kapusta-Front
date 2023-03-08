@@ -2,6 +2,24 @@ import styled from 'styled-components';
 import COLORS from 'variables/colors/colors';
 import { Form, Field } from 'formik';
 
+export const Container = styled.div`
+  display: flex;
+  margin: 0 auto;
+  width: 280px;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    margin-bottom: 40px;
+  }
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+    width: 1098px;
+    align-item: center;
+    margin-bottom: 60px;
+  }
+`;
+
 export const Wrapper = styled(Form)`
   display: flex;
   position: relative;
@@ -86,6 +104,7 @@ export const InputDate = styled(Field)`
     text-align: center;
   }
 `;
+
 
 export const InputSumWrapper = styled.div`
   @media screen and (max-width: 767px) {

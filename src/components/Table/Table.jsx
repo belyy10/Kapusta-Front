@@ -1,7 +1,7 @@
 import Summary from 'components/Summary';
 import TableBody from 'components/TableBody';
 import { useSelector } from 'react-redux';
-import { selectTransactionsByType } from 'redux/transactions/transactionsSelectors';
+import { selectTransactionsByTypeAndDate } from 'redux/transactions/transactionsSelectors';
 import {
   TableBox,
   TableTitle,
@@ -11,7 +11,7 @@ import {
 } from './Table.styled';
 
 export default function Table() {
-  const filteredTransactions = useSelector(selectTransactionsByType);
+  const filteredTransactions = useSelector(selectTransactionsByTypeAndDate);
 
   return (
     <TransactionBox>
