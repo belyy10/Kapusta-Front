@@ -21,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     const controller = new AbortController();
-    if (isLoggedIn) {
+    if (!isLoggedIn) {
       dispatch(refreshUser());
 
       dispatch(
