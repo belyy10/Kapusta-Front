@@ -17,32 +17,28 @@ const Mobile = lazy(() => import('../pages/Mobile'));
 
 export default function App() {
   const dispatch = useDispatch();
-  const { isLoggedIn, isRefreshing } = useAuth();
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     const controller = new AbortController();
     if (!isLoggedIn) {
       dispatch(refreshUser());
     }
+    dispatch(
+      fetchUserTransactions({
+        type: 'expenses',
+        controller,
+      })
+    );
 
-    if (isLoggedIn && !isRefreshing) {
-      dispatch(
-        fetchUserTransactions({
-          type: 'expenses',
-          controller,
-        })
-      );
-
-      dispatch(
-        fetchUserTransactions({
-          type: 'incomes',
-          controller,
-        })
-      );
-    }
-
+    dispatch(
+      fetchUserTransactions({
+        type: 'incomes',
+        controller,
+      })
+    );
     return () => controller.abort();
-  }, [dispatch, isLoggedIn, isRefreshing]);
+  }, [dispatch, isLoggedIn]);
 
   const { isMobile } = useMedia();
 
