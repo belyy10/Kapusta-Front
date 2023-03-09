@@ -28,6 +28,7 @@ export const LoginForm = () => {
   const [searchParams] = useSearchParams();
   useEffect(() => {
     const accessToken = searchParams.get('accessToken');
+
     if (accessToken) {
       dispatch(googleUser(accessToken));
     }
