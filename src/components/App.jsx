@@ -24,19 +24,21 @@ export default function App() {
     if (!isLoggedIn) {
       dispatch(refreshUser());
     }
-    dispatch(
-      fetchUserTransactions({
-        type: 'expenses',
-        controller,
-      })
-    );
+    if (isLoggedIn) {
+      dispatch(
+        fetchUserTransactions({
+          type: 'expenses',
+          controller,
+        })
+      );
 
-    dispatch(
-      fetchUserTransactions({
-        type: 'incomes',
-        controller,
-      })
-    );
+      dispatch(
+        fetchUserTransactions({
+          type: 'incomes',
+          controller,
+        })
+      );
+    }
     return () => controller.abort();
   }, [dispatch, isLoggedIn]);
 
