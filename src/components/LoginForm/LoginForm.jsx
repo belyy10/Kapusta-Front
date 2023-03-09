@@ -22,12 +22,14 @@ import { useSearchParams } from 'react-router-dom';
 import { googleUser } from 'redux/auth/authOperations';
 
 export const LoginForm = () => {
-  const [button, setButton] = useState(null);
   const dispatch = useDispatch();
+  const [button, setButton] = useState(null);
   const [searchParams] = useSearchParams();
   const initialValues = { email: '', password: '' };
+
   useEffect(() => {
     const accessToken = searchParams.get('accessToken');
+
     if (accessToken) {
       dispatch(googleUser(accessToken));
     }
