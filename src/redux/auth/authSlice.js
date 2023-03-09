@@ -71,7 +71,7 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
     },
     [googleUser.pending]: state => {
-      state.isLoggedIn = true;
+      state.isLoggedIn = false;
       state.isRefreshing = true;
     },
     [googleUser.fulfilled]: (state, action) => {
