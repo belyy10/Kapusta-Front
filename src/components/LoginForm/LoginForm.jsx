@@ -26,10 +26,8 @@ export const LoginForm = () => {
   const [button, setButton] = useState(null);
   const initialValues = { email: '', password: '' };
   const [searchParams] = useSearchParams();
-  console.log(searchParams);
   useEffect(() => {
     const accessToken = searchParams.get('accessToken');
-    console.log(accessToken);
     if (accessToken) {
       dispatch(googleUser(accessToken));
     }
