@@ -19,31 +19,27 @@ export default function App() {
   const dispatch = useDispatch();
   const { isLoggedIn } = useAuth();
 
-  useEffect(
-    () => {
-      const controller = new AbortController();
-      if (isLoggedIn) {
-        dispatch(refreshUser());
+  useEffect(() => {
+    const controller = new AbortController();
+    if (isLoggedIn) {
+      dispatch(refreshUser());
 
-        dispatch(
-          fetchUserTransactions({
-            type: 'expenses',
-            controller,
-          })
-        );
-        dispatch(
-          fetchUserTransactions({
-            type: 'incomes',
-            controller,
-          })
-        );
-      }
+      dispatch(
+        fetchUserTransactions({
+          type: 'expenses',
+          controller,
+        })
+      );
+      dispatch(
+        fetchUserTransactions({
+          type: 'incomes',
+          controller,
+        })
+      );
+    }
 
-      return () => controller.abort();
-    },
-    [dispatch],
-    isLoggedIn
-  );
+    return () => controller.abort();
+  }, [dispatch, isLoggedIn]);
 
   const { isMobile } = useMedia();
 
