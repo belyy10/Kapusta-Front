@@ -29,6 +29,7 @@ import {
   // fetchReportIncomes,
   // selectReportExpenses,
   getReportsData,
+  selectCurrentPeriod,
 } from 'redux/transactions/transactionsSelectors';
 import { fetchReportExpenses } from '../../redux/transactions/transactionsOperations';
 
@@ -37,13 +38,18 @@ export default function CategoryContainer() {
 
   const type = useSelector(selectTypeTransactionReports);
   console.log('type', type);
+  const date = useSelector(selectCurrentPeriod);
+  console.log('date', date);
 
   useEffect(() => {
-    dispatch(fetchReportExpenses(type));
-  }, [dispatch]);
+    dispatch(fetchReportExpenses(type, date));
+  }, [type, date]);
+
 
   const reportData = useSelector(getReportsData);
   console.log('reportData', reportData);
+
+
 
   // const categoryExpenses = useSelector(selectReportsCategoryExpenses);
   // const categoryIncomes = useSelector(selectReportsCategoryIncomes);

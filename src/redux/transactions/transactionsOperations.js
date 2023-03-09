@@ -66,11 +66,11 @@ export const fetchSummaryExpenses = createAsyncThunk(
 );
 
 export const fetchReportExpenses = createAsyncThunk(
-  'transaction/fetchSummaryInc',
-  async (type, thunkAPI) => {
+  'transaction/fetchReportExpenses',
+  async (type, date, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `/transaction/reportbyexpenses?type=${type}`
+        `/transaction/reportbyexpenses?type=${type}&date=${date}`
       );
       return data;
     } catch (error) {
