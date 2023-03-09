@@ -24,9 +24,8 @@ import { googleUser } from 'redux/auth/authOperations';
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const [button, setButton] = useState(null);
-  const [searchParams] = useSearchParams();
   const initialValues = { email: '', password: '' };
-
+  const [searchParams] = useSearchParams();
   useEffect(() => {
     const accessToken = searchParams.get('accessToken');
 
