@@ -18,9 +18,10 @@ const Mobile = lazy(() => import('../pages/Mobile'));
 export default function App() {
   const dispatch = useDispatch();
   const { isLoggedIn } = useAuth();
-  const controller = new AbortController();
+
   useEffect(
     () => {
+      const controller = new AbortController();
       if (isLoggedIn) {
         dispatch(refreshUser());
 
