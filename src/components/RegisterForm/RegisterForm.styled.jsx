@@ -11,7 +11,7 @@ export const FormBox = styled(Form)`
   flex-direction: column;
   width: 240px;
   padding: 40px 20px;
-  background-color: #ffffff;
+  background-color: ${COLORS.whiteColor};
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 30px;
 
@@ -105,7 +105,7 @@ export const Error = styled.div`
   margin-left: 20px;
   font-size: 10px;
   letter-spacing: 0.04em;
-  color: #eb5757;
+  color: ${COLORS.redColorText};
 
   ::before {
     position: absolute;

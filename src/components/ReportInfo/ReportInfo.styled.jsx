@@ -38,7 +38,7 @@ export const Wraper = styled.div`
 
     :first-child {
       padding-right: 20px;
-      border-right: 1px solid #e0e5eb;
+      border-right: 1px solid ${COLORS.borderColor};
     }
 
     @media screen and (min-width: 768px) {

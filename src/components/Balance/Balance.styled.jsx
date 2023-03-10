@@ -7,23 +7,23 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 auto 40px auto;
-  // padding-top: 104px;
 
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    position: relative;
+    justify-content: space-evenly;
     width: fit-content;
-    margin: 0 auto;
+    margin: 40px 32px 60px;
     flex-direction: row;
     align-self: center;
-    padding-bottom: 40px;
-    padding-top: 40px;
+    
   }
   @media (min-width: 1200px) {
     margin-bottom: 48px;
     padding-top: 40px;
+    margin-left: auto;
+    margin-right:auto;
+    /* justify-content: center; */
   }
 `;
 export const Title = styled.p`
