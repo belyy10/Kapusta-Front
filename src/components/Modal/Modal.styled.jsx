@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLORS from 'variables/colors/colors';
 
 export const Modal = styled.div`
   position: absolute;
@@ -6,8 +7,8 @@ export const Modal = styled.div`
   left: 50%;
   z-index: 100;
   transform: translate(-50%, -50%);
-  color: #52555f;
-  background-color: #fff;
+  color: ${COLORS.textColor};
+  background-color: ${COLORS.whiteColor};
   border-radius: 30px;
   box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
 `;

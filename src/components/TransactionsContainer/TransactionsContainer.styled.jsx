@@ -4,7 +4,7 @@ import COLORS from 'variables/colors/colors';
 export const TransactionsWrapper = styled.section`
   padding: 0 20px;
   @media screen and (min-width: 768px) {
-    margin-top: 60px;
+    /* margin-top: 60px; */
     width: 640px;
     padding: 24px 40px 42px 40px;
     display: flex;
