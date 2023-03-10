@@ -1,7 +1,7 @@
 import BackgroundPrivateContainer from 'components/BackgroundPrivateContainer';
 import Balance from 'components/Balance';
-// import Container from 'components/Container';
 import { IconLink, LinkReport, LinkToMain, IconLinkMain, MainInfo } from './Main.styled';
+
 import TransactionsContainer from 'components/TransactionsContainer/TransactionsContainer';
 import { useMedia } from 'hooks/useMedia';
 

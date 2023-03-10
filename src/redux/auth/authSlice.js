@@ -75,11 +75,7 @@ const authSlice = createSlice({
       state.isRefreshing = true;
     },
     [googleUser.fulfilled]: (state, action) => {
-      state.user = action.payload.user;
-      state.accessToken = action.payload.accessToken;
-      state.refreshToken = action.payload.refreshToken;
-      state.isLoggedIn = true;
-      state.balance = action.payload.balance;
+      state.accessToken = action.payload;
     },
     [googleUser.rejected]: state => {
       state.isRefreshing = false;

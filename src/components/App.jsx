@@ -3,11 +3,11 @@ import { lazy, Suspense, useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { useMedia } from 'hooks/useMedia';
-
 import CreateTransactions from './CreateTransaction/CreateTransaction';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'redux/auth/authOperations';
 import { fetchUserTransactions } from 'redux/transactions/transactionsOperations';
+import { useAuth } from 'hooks/useAuth';
 
 const Header = lazy(() => import('./Header'));
 const Main = lazy(() => import('../pages/Main'));
@@ -17,26 +17,30 @@ const Mobile = lazy(() => import('../pages/Mobile'));
 
 export default function App() {
   const dispatch = useDispatch();
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     const controller = new AbortController();
-    dispatch(refreshUser());
+    if (!isLoggedIn) {
+      dispatch(refreshUser());
+    }
+    if (isLoggedIn) {
+      dispatch(
+        fetchUserTransactions({
+          type: 'expenses',
+          controller,
+        })
+      );
 
-    dispatch(
-      fetchUserTransactions({
-        type: 'expenses',
-        controller,
-      })
-    );
-    dispatch(
-      fetchUserTransactions({
-        type: 'incomes',
-        controller,
-      })
-    );
-
+      dispatch(
+        fetchUserTransactions({
+          type: 'incomes',
+          controller,
+        })
+      );
+    }
     return () => controller.abort();
-  }, [dispatch]);
+  }, [dispatch, isLoggedIn]);
 
   const { isMobile } = useMedia();
 

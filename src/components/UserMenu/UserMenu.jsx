@@ -7,13 +7,13 @@ import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
 import { Email, ExitBtn, UserContainer } from './UserMenu.styled';
 import { RxExit } from 'react-icons/rx';
+import { clearTransaction } from 'redux/transactions/transactionsSlice';
 
 export default function UserMenu() {
+  const dispatch = useDispatch();
   const { userEmail } = useAuth();
   const [modalOpen, setModalOpen] = useState(false);
-
   const { isTabletAndDesktop } = useMedia();
-  const dispatch = useDispatch();
 
   const handleModalOpen = () => {
     setModalOpen(true);
@@ -25,6 +25,7 @@ export default function UserMenu() {
 
   const handleClick = () => {
     dispatch(logOut());
+    dispatch(clearTransaction());
   };
 
   return (

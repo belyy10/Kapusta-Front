@@ -15,7 +15,7 @@ const initialState = {
   reportsData: [],
   type: 'all',
   isLoading: false,
-  date: FormatDate.getDateObj(new Date()),
+  date: new Date().toISOString().slice(0, 10),
   mainType: 'expenses',
   reports: {
     type: 'Expenses',
@@ -40,6 +40,9 @@ const transactionSlice = createSlice({
       }
       state.reports.type = 'Expenses';
     },
+    changeDate(state, action) {
+      state.date = action.payload;
+    },
     changeCategoryExpenses(state, action) {
       state.reports.categoryExpenses = action.payload;
     },
@@ -56,8 +59,8 @@ const transactionSlice = createSlice({
       );
       if (summary) {
         state.mainType === 'expenses'
-          ? (summary.expenses = summary.expenses + action.payload.sum)
-          : (summary.incomes = summary.incomes - action.payload.sum);
+          ? (summary.expenses = summary.expenses - action.payload.sum)
+          : (summary.incomes = summary.incomes + action.payload.sum);
       }
     },
     changesSummaryDelete(state, action) {
@@ -69,6 +72,20 @@ const transactionSlice = createSlice({
           ? (summary.expenses = summary.expenses + action.payload.sum)
           : (summary.incomes = summary.incomes - action.payload.sum);
       }
+    },
+    clearTransaction(state, action) {
+      state.transactions = [];
+      state.summary = [];
+      state.reportsData = [];
+      state.type = 'all';
+      state.isLoading = false;
+      state.date = FormatDate.getDateObj(new Date());
+      state.mainType = 'expenses';
+      state.reportstype = 'Expenses';
+      state.reportscategoryExpenses = 'Products';
+      state.reportscategoryIncomes = 'Salary';
+      state.reportscurrentMonth = 3;
+      state.reportscurrentYear = 2023;
     },
   },
   extraReducers: {
@@ -145,9 +162,11 @@ export const {
   toggleTransaction,
   changeCategoryExpenses,
   changeCategoryIncomes,
+  changeDate,
   toggleReportType,
   setCurrentPeriod,
   changesSummary,
   changesSummaryDelete,
+  clearTransaction,
 } = transactionSlice.actions;
 export const transactionReducer = transactionSlice.reducer;
