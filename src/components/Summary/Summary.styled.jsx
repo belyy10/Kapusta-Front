@@ -28,32 +28,10 @@ export const SummaryBox = styled.div`
   }
 `;
 
-// export const SummayrTitleRow = styled.tr`
-//   width: 100%;
-//   height: 38px;
-  
-
-
-//   border: 4px solid ${COLORS.whiteColor};
-//     /* width: 100%;
-//   height: 38px; */
-
-//   /* box-sizing: 4px; */
-//   align-content: center;
-//   text-align: center;
-
-//   column-span: 2;
-
- 
-
-//    /* border-bottom: 4px solid ${COLORS.whiteColor}; */
-//   `;
-
 export const SummaryTitle = styled.h4`
-  /* width: 100%;*/
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
   height: 38px;
 
   box-sizing: 4px;
@@ -78,12 +56,10 @@ export const SummaryTitle = styled.h4`
 
 export const SummaryBody = styled.ul`
   list-style: none;
-
 `;
 
 export const SummaryList = styled.li`
   height: 38px;
-  /* width: 100%; */
   border-bottom: 2px solid ${COLORS.whiteColor};
 
   padding-left: 22px;
@@ -92,9 +68,7 @@ export const SummaryList = styled.li`
    display: flex;
   justify-content: space-between;
   align-items: center;
-  /* width: 100%; */
   height: 38px;
-  /* text-align: ; */
 
   font-family: 'Roboto';
   font-weight: 400;
@@ -102,7 +76,6 @@ export const SummaryList = styled.li`
   line-height: 1.167;
   letter-spacing: 0.04em;
 
-  /* border-bottom: 2px solid ${COLORS.whiteColor}; */
   color: ${COLORS.textColor};
 `;
 
@@ -110,9 +83,7 @@ export const SummaryItem = styled.p`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* width: 100%; */
   height: 38px;
-  /* text-align: ; */
 
   font-family: 'Roboto';
   font-weight: 400;
@@ -120,7 +91,6 @@ export const SummaryItem = styled.p`
   line-height: 1.167;
   letter-spacing: 0.04em;
 
-  /* border-bottom: 2px solid ${COLORS.whiteColor}; */
   color: ${COLORS.textColor};
 `;
 

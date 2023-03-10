@@ -34,8 +34,6 @@ export const TableBox = styled.table`
 
   background-color: ${COLORS.whiteColor};
 
-  
-
   @media screen and (min-width: 1200px) {
     width: 746px;
     height: 400px;

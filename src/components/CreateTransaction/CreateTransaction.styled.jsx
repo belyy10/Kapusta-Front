@@ -166,7 +166,7 @@ export const SelectCategory = styled.select`
   padding-left: 20px;
   height: 50px;
   width: 306px;
-  border: 2px solid #ffffff;
+  border: 2px solid ${COLORS.whiteColor};
   outline: none;
   background-color: transparent;
   color: #c7ccdc;
@@ -174,7 +174,7 @@ export const SelectCategory = styled.select`
 
   @media screen and (min-width: 768px) {
     width: 186px;
-    border: 2px solid #f5f6fb;
+    border: 2px solid ${COLORS.bgTableTitle};
     outline: none;
     background-color: ${COLORS.whiteColor};
     border-bottom-right-radius: 0px;
@@ -299,7 +299,7 @@ export const Error = styled.div`
     position: absolute;
     font-size: 9px;
     letter-spacing: 0.04em;
-    color: #eb5757;
+    color: ${COLORS.redColorText};
     top: 53px;
     left: 20px;
   }
@@ -307,7 +307,7 @@ export const Error = styled.div`
     position: absolute;
     font-size: 10px;
     letter-spacing: 0.04em;
-    color: #eb5757;
+    color: ${COLORS.redColorText};
     top: 53px;
     left: 20px;
   }
