@@ -17,6 +17,7 @@ export const Container = styled.div`
     background-image: url(${props => props.img});
     padding-bottom: 268px;
     background-position: bottom right;
+    
   }
 `;
 
@@ -28,7 +29,6 @@ export const ContainerTop = styled.div`
 
   height: 258px;
   background-color: ${COLORS.bgTableTitle};
-  /* background-color: #f5f6fb; */
 
   border-bottom-left-radius: 100px 100px;
 
@@ -42,6 +42,7 @@ export const ContainerTop = styled.div`
     height: 583px;
     padding-left:0;
     padding-right:0px;
+    
   }
 `;
 
