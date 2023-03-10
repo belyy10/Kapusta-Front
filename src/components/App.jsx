@@ -49,6 +49,12 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Header />}>
           <Route
+            index
+            element={
+              <RestrictedRoute component={<Login />} redirectTo="/main" />
+            }
+          />
+          <Route
             path="login"
             element={
               <RestrictedRoute component={<Login />} redirectTo="/main" />
