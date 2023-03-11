@@ -4,7 +4,6 @@ import COLORS from 'variables/colors/colors';
 export const TransactionsWrapper = styled.section`
   padding: 0 20px;
   @media screen and (min-width: 768px) {
-    /* margin-top: 60px; */
     width: 640px;
     padding: 24px 40px 42px 40px;
     display: flex;
@@ -27,6 +26,7 @@ export const TransactionsWrapper = styled.section`
 `;
 
 export const Expenses = styled.button`
+text-transform: uppercase;
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -54,6 +54,7 @@ export const Expenses = styled.button`
 `;
 
 export const Incomes = styled.button`
+text-transform: uppercase;
   @media screen and (max-width: 767px) {
     display: none;
   }
