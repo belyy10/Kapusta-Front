@@ -7,7 +7,6 @@ export const Container = styled.div`
 
   @media screen and (min-width: 768px) {
     padding-bottom: 442px;
-
     background-image: url(${props => props.groupImg});
     background-repeat: no-repeat;
     background-position: bottom 59px right calc(((100% - 678px)));
