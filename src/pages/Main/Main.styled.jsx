@@ -11,7 +11,8 @@ margin: 40px 32px 60px;
 
 @media screen and (min-width: 768px) {
 max-width: 704px;
-margin: 40px auto 60px;}
+margin: 40px auto 60px;
+}
 
 @media screen and (min-width: 1200px) {
 max-width: 1098px;}
