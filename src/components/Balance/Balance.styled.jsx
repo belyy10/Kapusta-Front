@@ -13,9 +13,10 @@ export const Wrapper = styled.div`
     align-items: center;
     justify-content: space-evenly;
     width: fit-content;
-    margin: 40px 32px 60px;
+    /* margin: 40px 32px 60px; */
     flex-direction: row;
     align-self: center;
+    padding-top: 40px;
     
   }
   @media (min-width: 1200px) {
@@ -72,6 +73,8 @@ export const Input = styled.input`
   height: 44px;
   border-radius: 22px 0px 0px 22px;
 
+  background-color: transparent;
+
   @media screen and (min-width: 768px) {
     margin-right: 15px;
     border-radius: 16px;
@@ -84,7 +87,9 @@ export const Input = styled.input`
   }
 
   ::placeholder {
-    color: ${COLORS.blackColor};}
+    color: ${COLORS.blackColor};
+    };
+
 `;
 export const Label = styled.label`
   position: absolute;
@@ -191,7 +196,7 @@ export const LinkReport = styled(Link)`
 
   color: rgba(82, 85, 95, 0.7);
 
-  @media screen and (min-width: 678px) {
+  @media screen and (min-width: 768px) {
     position: absolute;
     top: 57px;
     right: 0;
