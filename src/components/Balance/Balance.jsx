@@ -11,7 +11,6 @@ import {
   Text,
   Styled,
   InputContainer,
-  Label,
 } from './Balance.styled';
 import { useAuth } from 'hooks/useAuth';
 // import Container from 'components/Container';
