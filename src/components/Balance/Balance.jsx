@@ -49,13 +49,12 @@ export default function Balance() {
             type="number"
             placeholder={`${value}.00 UAH`}
             name="balance"
-            // value={value}
+            value={`${value}.00 UAH`}
             readOnly={balance}
             pattern="[0-9, .UAH]"
             disabled={balance > 0 ? true : false}
             onChange={onChange}
           />
-          {/* <Label>UAH</Label> */}
         </InputContainer>
         <Button type="submit" disabled={balance > 0 ? true : false}>
           Confirm
