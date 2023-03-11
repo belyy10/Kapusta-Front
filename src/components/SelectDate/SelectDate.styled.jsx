@@ -16,12 +16,13 @@ export const InputDate = styled.input`
     font-size: 12px;
     font-style: Roboto;
     text-align: center;
+    margin-bottom: 60px;
   }
 
   @media screen and (min-width: 768px) {
     margin-right: 16px;
     height: 44px;
-    width: 119px;
+    width: 90px;
     border: 2px solid white;
     outline: none;
     background-color: ${COLORS.whiteColor};
@@ -30,6 +31,7 @@ export const InputDate = styled.input`
     font-size: 12px;
     font-style: Roboto;
     text-align: center;
+    margin-bottom: 0px;
   }
 `;
 

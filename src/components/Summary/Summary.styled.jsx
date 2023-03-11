@@ -14,7 +14,7 @@ export const SummaryBox = styled.div`
     text-align: center;
 
     border-top-left-radius: 16px;
-    border-top-right-radius: 16px; 
+    border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
 
     background-color: ${COLORS.bgTableTitle};
@@ -37,21 +37,21 @@ export const SummaryTitle = styled.h4`
   box-sizing: 4px;
   align-content: center;
   text-align: center;
-  list-style:none;
+  list-style: none;
 
-   font-family: 'Roboto';
+  font-style: 'Roboto';
   font-weight: 700;
   font-size: 12px;
   line-height: 1.167;
   letter-spacing: 0.04em;
 
-  font-family: 'Roboto';
+  font-style: 'Roboto';
   font-weight: 700;
   font-size: 12px;
   line-height: 1.167;
   letter-spacing: 0.04em;
 
-   border-bottom: 4px solid ${COLORS.whiteColor};
+  border-bottom: 4px solid ${COLORS.whiteColor};
 `;
 
 export const SummaryBody = styled.ul`
@@ -65,12 +65,12 @@ export const SummaryList = styled.li`
   padding-left: 22px;
   padding-right: 20px;
 
-   display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   height: 38px;
 
-  font-family: 'Roboto';
+  font-style: 'Roboto';
   font-weight: 400;
   font-size: 12px;
   line-height: 1.167;
@@ -85,7 +85,7 @@ export const SummaryItem = styled.p`
   align-items: center;
   height: 38px;
 
-  font-family: 'Roboto';
+  font-style: 'Roboto';
   font-weight: 400;
   font-size: 12px;
   line-height: 1.167;
@@ -94,5 +94,4 @@ export const SummaryItem = styled.p`
   color: ${COLORS.textColor};
 `;
 
-export const SummaryItemSpan = styled.p`
-`;
+export const SummaryItemSpan = styled.p``;
