@@ -32,7 +32,7 @@ text-transform: uppercase;
   }
   @media screen and (min-width: 768px) {
     width: 138px;
-    higth: 40px;
+    height: 40px;
     display: inline-block;
     position: absolute;
     top: -38px;
