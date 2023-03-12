@@ -84,6 +84,7 @@ export const InputDate = styled(Field)`
     font-size: 12px;
     font-style: Roboto;
     text-align: center;
+  
   }
 `;
 
@@ -232,7 +233,7 @@ export const ButtonInput = styled.button`
   :focus {
     background-color: ${COLORS.activeColor};
     color: ${COLORS.whiteColor};
-    box-shadow: 1px 3px 7px rgba(255, 119, 8, 0.4);
+    box-shadow: 1px 3px 7px rgba(50, 48, 47, 0.4);
   }
 
   @media screen and (min-width: 768px) {
@@ -276,7 +277,7 @@ export const Button = styled.button`
   :focus {
     background-color: ${COLORS.activeColor};
     color: ${COLORS.whiteColor};
-    box-shadow: 1px 3px 7px rgba(255, 119, 8, 0.4);
+    box-shadow: 1px 3px 7px rgba(50, 48, 47, 0.4);
   }
 
   @media screen and (min-width: 768px) {
