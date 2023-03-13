@@ -27,6 +27,11 @@ export const TransactionsWrapper = styled.section`
 `;
 
 export const Expenses = styled.button`
+font-family:  Roboto, sans-serif;
+text-transform: uppercase;
+font-size: 12px;
+line-height: 1.167;
+font-weight: 700;
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -54,6 +59,12 @@ export const Expenses = styled.button`
 `;
 
 export const Incomes = styled.button`
+
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+text-transform: uppercase;
+font-size: 12px;
+line-height: 1.167;
+font-weight: 700;
   @media screen and (max-width: 767px) {
     display: none;
   }
