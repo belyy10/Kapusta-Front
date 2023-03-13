@@ -68,6 +68,7 @@ export const Input = styled.input`
   background-color: transparent;
   font: inherit;
   font-weight: 700;
+  font-size: 12px;
   text-align: center;
   color: ${COLORS.blackColor};
   width: 140px;
@@ -84,18 +85,22 @@ export const Input = styled.input`
     margin-right: 15px;
     border-right: 1px solid ${COLORS.whiteColor};
   }
+
+   &::placeholder {
+    color: ${COLORS.blackColor};
+  }
 `;
 export const Label = styled.label`
   position: absolute;
-  top: 21px;
-  right: 5px;
+  top: 19px;
+  right: 14px;
   font-weight: 700;
   color: black;
-  font: inherit;
+  /* font: inherit; */
   font-size: 12px;
   @media screen and (min-width: 768px) {
     top: 19px;
-    right: 22px;
+    right: 27px;
   }
 `;
 

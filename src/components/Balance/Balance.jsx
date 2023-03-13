@@ -47,7 +47,7 @@ export default function Balance() {
         <InputContainer>
           <Input
             type="number"
-            placeholder={`0.00`}
+            placeholder={`0.00 UAH`}
             name="balance"
             value={value}
             readOnly={balance}
