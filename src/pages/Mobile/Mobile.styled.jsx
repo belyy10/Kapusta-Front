@@ -58,7 +58,6 @@ margin-left: auto;
 margin-right: auto;
 
 text-decoration: none;
-font-family: 'Roboto';
 
 font-weight: 400;
 font-size: 12px;
