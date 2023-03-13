@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from 'react';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
@@ -31,7 +31,6 @@ export default function App() {
           controller,
         })
       );
-
       dispatch(
         fetchUserTransactions({
           type: 'incomes',
@@ -48,12 +47,7 @@ export default function App() {
     <Suspense>
       <Routes>
         <Route path="/" element={<Header />}>
-          <Route
-            index
-            element={
-              <RestrictedRoute component={<Login />} redirectTo="/main" />
-            }
-          />
+          <Route path="/" element={<Navigate to="/login" />} />
           <Route
             path="login"
             element={

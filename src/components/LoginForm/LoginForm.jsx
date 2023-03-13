@@ -20,6 +20,7 @@ import schemaRegister from 'schema/shemaRegister';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { googleUser } from 'redux/auth/authOperations';
+import { refreshUser } from 'redux/auth/authOperations';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ export const LoginForm = () => {
 
     if (accessToken) {
       dispatch(googleUser(accessToken));
+      dispatch(refreshUser());
     }
   }, [dispatch, searchParams]);
 
