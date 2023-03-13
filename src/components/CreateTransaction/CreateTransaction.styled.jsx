@@ -31,13 +31,11 @@ export const Wrapper = styled(Form)`
   @media screen and (min-width: 768px) {
     flex-direction: column;
     width: 704px;
-    margin-bottom: 40px;
   }
   @media screen and (min-width: 1200px) {
     flex-direction: row;
     width: 1098px;
     align-item: center;
-    margin-bottom: 60px;
   }
 `;
 
@@ -73,6 +71,10 @@ export const InputDescription = styled(Field)`
     color: #c7ccdc;
   }
 
+  :focus {
+    border-color: ${COLORS.activeColor};
+  }
+
   @media screen and (min-width: 768px) {
     width: 184px;
     border: 2px solid #f5f6fb;
@@ -84,26 +86,6 @@ export const InputDescription = styled(Field)`
     width: 290px;
   }
 `;
-
-// export const InputDate = styled(Field)`
-//   @media screen and (max-width: 767px) {
-//     display: none;
-//   }
-
-//   @media screen and (min-width: 768px) {
-//     margin-right: 16px;
-//     height: 44px;
-//     width: 119px;
-//     border: 2px solid white;
-//     outline: none;
-//     background-color: ${COLORS.whiteColor};
-//     color: #52555f;
-//     font-weight: 900;
-//     font-size: 12px;
-//     font-style: Roboto;
-//     text-align: center;
-//   }
-// `;
 
 export const InputSumWrapper = styled.div`
   @media screen and (max-width: 767px) {
@@ -135,6 +117,10 @@ export const InputSum = styled(Field)`
     font-weight: 700;
     font-size: 12px;
     line-height: 14.06;
+  }
+
+  :focus {
+    border-color: ${COLORS.activeColor};
   }
 
   @media screen and (min-width: 768px) {
@@ -180,7 +166,7 @@ export const Calculator = styled.span`
   }
 `;
 
-export const SelectCategory = styled.select`
+export const SelectCategory = styled(Field)`
   padding-left: 20px;
   height: 50px;
   width: 306px;
@@ -189,6 +175,10 @@ export const SelectCategory = styled.select`
   background-color: transparent;
   color: #c7ccdc;
   border-bottom-right-radius: 16px;
+
+  :focus {
+    border-color: ${COLORS.activeColor};
+  }
 
   @media screen and (min-width: 768px) {
     width: 186px;
@@ -216,6 +206,7 @@ export const ButtonGroup = styled.div`
   flex-direction: row;
 
   @media screen and (min-width: 768px) {
+    align-self: center;
     margin-top: 32px;
   }
   @media screen and (min-width: 1200px) {
@@ -240,7 +231,7 @@ export const ButtonInput = styled.button`
   cursor: pointer;
   align-self: center;
   transition: background-color 400ms ease-in-out, color 400ms ease-in-out,
-    box-shadow 400ms ease-in-out;
+    box-shadow 400ms ease-in-out, transform 400ms ease-in-out;
 
   :not(:first-child) {
     margin-left: 20px;
@@ -251,6 +242,7 @@ export const ButtonInput = styled.button`
     background-color: ${COLORS.activeColor};
     color: ${COLORS.whiteColor};
     box-shadow: 1px 3px 7px rgba(255, 119, 8, 0.4);
+    transform: scale(1.05);
   }
 
   @media screen and (min-width: 768px) {
@@ -284,7 +276,7 @@ export const Button = styled.button`
   cursor: pointer;
   align-self: center;
   transition: background-color 400ms ease-in-out, color 400ms ease-in-out,
-    box-shadow 400ms ease-in-out;
+    box-shadow 400ms ease-in-out, transform 400ms ease-in-out;
 
   :not(:first-child) {
     margin-left: 20px;
@@ -295,6 +287,7 @@ export const Button = styled.button`
     background-color: ${COLORS.activeColor};
     color: ${COLORS.whiteColor};
     box-shadow: 1px 3px 7px rgba(255, 119, 8, 0.4);
+    transform: scale(1.05);
   }
 
   @media screen and (min-width: 768px) {

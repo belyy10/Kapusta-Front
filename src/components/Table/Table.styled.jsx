@@ -2,13 +2,12 @@ import styled from 'styled-components';
 import COLORS from 'variables/colors/colors';
 
 export const TransactionBox = styled.div`
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
   overflow: hidden;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-
 
   @media screen and (min-width: 768px) {
     width: 624px;
@@ -16,7 +15,7 @@ justify-content: space-between;
   }
 
   @media screen and (min-width: 1200px) {
-     flex-direction: row;
+    flex-direction: row;
     width: 1079px;
     height: 400px;
   }
@@ -69,11 +68,13 @@ export const TableBodys = styled.tbody`
     background-color: ${COLORS.activeColor};
   }
 
-   @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 624px;
-    height: 400px;}
+    height: 400px;
+  }
 
-       @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1200px) {
     width: 746px;
-    height: 400px;}
+    height: 400px;
+  }
 `;
