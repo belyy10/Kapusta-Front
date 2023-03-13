@@ -9,14 +9,12 @@ export const TransactionItem = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* width: 280px; */
 
   padding: 8px 0;
   border-bottom: 1px solid ${COLORS.bgTableTitle};
 `;
 
 export const TransactionDescription = styled.p`
-  font-family: 'Roboto';
   font-weight: 700;
   font-size: 12px;
   line-height: calc(14 / 12);
@@ -32,7 +30,6 @@ export const TransactionInfoBox = styled.div`
 `;
 
 export const TransactionInfo = styled.p`
-  font-family: 'Roboto';
   font-weight: 400;
   font-size: 8px;
   line-height: calc(9 / 8);
