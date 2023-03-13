@@ -27,7 +27,7 @@ export default function TransactionsContainer() {
         isActive={transactions === 'incomes'}
         onClick={() => dispatch(toggleTransaction('incomes'))}
       >
-        Incomes
+        Income
       </Incomes>
       <Expenses
         isActive={transactions === 'expenses'}
