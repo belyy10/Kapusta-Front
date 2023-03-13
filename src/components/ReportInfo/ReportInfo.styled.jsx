@@ -12,6 +12,7 @@ export const Wraper = styled.div`
   margin-bottom: 32px;
   margin-right: auto;
   margin-left: auto;
+  padding-top: 55px
   background: ${COLORS.whiteColor};
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
 
