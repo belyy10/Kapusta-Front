@@ -1,7 +1,8 @@
 import Summary from 'components/Summary';
 import TableBody from 'components/TableBody';
-import { useSelector } from 'react-redux';
-import { selectTransactionsByTypeAndDate } from 'redux/transactions/transactionsSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSummaryExpenses } from 'redux/transactions/transactionsOperations';
+import { selectSummaryExpenses, selectTransactionsByTypeAndDate } from 'redux/transactions/transactionsSelectors';
 import {
   TableBox,
   TableTitle,
@@ -9,9 +10,19 @@ import {
   TransactionBox,
   TableBodys,
 } from './Table.styled';
+import { useEffect } from 'react';
 
 export default function Table() {
   const filteredTransactions = useSelector(selectTransactionsByTypeAndDate);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(fetchSummaryExpenses());
+   }, [dispatch])
+  const monthSumm = useSelector(selectSummaryExpenses);
+
+  // console.log('filteredTransactions', filteredTransactions);
+  // console.log('summary', monthSumm);
 
   return (
     <TransactionBox>
@@ -32,7 +43,7 @@ export default function Table() {
             ))}
         </TableBodys>
       </TableBox>
-      <Summary />
+      <Summary key={monthSumm._id} monthSumm={monthSumm} />
     </TransactionBox>
   );
 }

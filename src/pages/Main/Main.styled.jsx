@@ -36,7 +36,7 @@ export const LinkReport = styled(Link)`
   color: rgba(82, 85, 95, 0.7);
 
   @media screen and (min-width: 768px) {
-    /* position: absolute; */
+    position: absolute;
     top: 103px;
     right: 37px;
     z-index: 20;

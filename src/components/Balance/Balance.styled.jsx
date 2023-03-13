@@ -13,17 +13,16 @@ export const Wrapper = styled.div`
     align-items: center;
     justify-content: space-evenly;
     width: fit-content;
-    margin: 40px 32px 60px;
+    margin: 0px auto 60px;
     flex-direction: row;
     align-self: center;
-    
+    padding-top: 52px;
   }
   @media (min-width: 1200px) {
     margin-bottom: 48px;
-    padding-top: 40px;
     margin-left: auto;
     margin-right:auto;
-    /* justify-content: center; */
+    margin-top: -12px;
   }
 `;
 export const Title = styled.p`
@@ -68,6 +67,7 @@ export const Input = styled.input`
   background-color: transparent;
   font: inherit;
   font-weight: 700;
+  font-size: 12px;
   text-align: center;
   color: ${COLORS.blackColor};
   width: 140px;
@@ -84,18 +84,22 @@ export const Input = styled.input`
     margin-right: 15px;
     border-right: 1px solid ${COLORS.whiteColor};
   }
+
+   &::placeholder {
+    color: ${COLORS.blackColor};
+  }
 `;
 export const Label = styled.label`
   position: absolute;
-  top: 21px;
-  right: 5px;
+  top: 19px;
+  right: 14px;
   font-weight: 700;
   color: black;
-  font: inherit;
+  /* font: inherit; */
   font-size: 12px;
   @media screen and (min-width: 768px) {
     top: 19px;
-    right: 22px;
+    right: 27px;
   }
 `;
 
@@ -191,7 +195,7 @@ export const LinkReport = styled(Link)`
 
   color: rgba(82, 85, 95, 0.7);
 
-  @media screen and (min-width: 678px) {
+  @media screen and (min-width: 768px) {
     position: absolute;
     top: 57px;
     right: 0;

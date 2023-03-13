@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import COLORS from 'variables/colors/colors';
 
-export const Form = styled.form``;
+export const Form = styled.form`
+`;
 
 export const InputDate = styled.input`
   @media screen and (max-width: 767px) {
@@ -22,7 +23,7 @@ export const InputDate = styled.input`
   @media screen and (min-width: 768px) {
     margin-right: 16px;
     height: 44px;
-    width: 90px;
+    width: 93px;
     border: 2px solid white;
     outline: none;
     background-color: ${COLORS.whiteColor};

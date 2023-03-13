@@ -11,7 +11,13 @@ import {
 
 const initialState = {
   transactions: [],
-  summary: [],
+  summary: [
+{_id: '2023-03', expenses: -55, incomes: 8100},
+{_id: '2023-02', expenses: 680, incomes: 4000},
+    {_id: '2023-01', expenses: 0, incomes: 0 },
+  {_id: '2022-12', expenses: 0, incomes: 0 },
+  {_id: '2022-11', expenses: 0, incomes: 0 },
+  {_id: '2022-10', expenses: 0, incomes: 0}],
   reportsData: [],
   type: 'all',
   isLoading: false,
@@ -62,6 +68,15 @@ const transactionSlice = createSlice({
           ? (summary.expenses = summary.expenses - action.payload.sum)
           : (summary.incomes = summary.incomes + action.payload.sum);
       }
+      // else {
+    
+      //    (state.summary.push(action.payload.sum))
+       
+          // ? (summary.expenses = summary.expenses.push(action.payload.sum)
+          // : (summary.incomes = summary.incomes + action.payload.sum);
+        //  fetchSummaryExpenses
+      // }
+
     },
     changesSummaryDelete(state, action) {
       const summary = state.summary.find(element =>

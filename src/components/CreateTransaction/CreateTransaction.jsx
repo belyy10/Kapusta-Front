@@ -67,11 +67,17 @@ export default function CreateTransaction() {
     );
 
     dispatch(changeBalance(bal));
-    dispatch(changesSummary({ sum, date }));
 
+    // dispatch(fetchSummaryExpenses());
+    dispatch(changesSummary({ sum, date }));
+      dispatch()
     resetForm(initialValues);
   };
 
+  
+    // dispatch(fetchSummaryExpenses());
+ 
+  // const monthSummary = useSelector(selectSummaryExpenses);
   return (
     <Container>
       {isTabletAndDesktop && <SelectDate />}
