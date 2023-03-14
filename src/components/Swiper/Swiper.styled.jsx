@@ -43,22 +43,6 @@ export const SwagerTitle = styled.p`
   color: rgba(82, 85, 95, 0.7);
 `;
 
-export const StyledNextBtn = styled.button`
-  position: absolute;
-  top: 0;
-
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #fff;
-  color: #000;
-  font-size: 20px;
-  text-align: center;
-  line-height: 40px;
-  cursor: pointer;
-  right: 0;
-`;
-
 export const Slide = styled(SwiperSlide)`
   font-family: 'Roboto';
   font-weight: 700;
