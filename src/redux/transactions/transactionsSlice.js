@@ -12,12 +12,13 @@ import {
 const initialState = {
   transactions: [],
   summary: [
-{_id: '2023-03', expenses: -55, incomes: 8100},
-{_id: '2023-02', expenses: 680, incomes: 4000},
-    {_id: '2023-01', expenses: 0, incomes: 0 },
-  {_id: '2022-12', expenses: 0, incomes: 0 },
-  {_id: '2022-11', expenses: 0, incomes: 0 },
-  {_id: '2022-10', expenses: 0, incomes: 0}],
+    { _id: '2023-03', expenses: 0, incomes: 0 },
+    { _id: '2023-02', expenses: 0, incomes: 0 },
+    { _id: '2023-01', expenses: 0, incomes: 0 },
+    { _id: '2022-12', expenses: 0, incomes: 0 },
+    { _id: '2022-11', expenses: 0, incomes: 0 },
+    { _id: '2022-10', expenses: 0, incomes: 0 },
+  ],
   reportsData: [],
   type: 'all',
   isLoading: false,
@@ -29,6 +30,7 @@ const initialState = {
     categoryIncomes: 'Salary',
     currentMonth: 3,
     currentYear: 2023,
+    period: '2023-03',
   },
 };
 
@@ -58,6 +60,7 @@ const transactionSlice = createSlice({
     setCurrentPeriod(state, action) {
       state.reports.currentMonth = action.payload.mm;
       state.reports.currentYear = action.payload.year;
+      state.reports.period = action.payload.period;
     },
     changesSummary(state, action) {
       const summary = state.summary.find(element =>
@@ -69,14 +72,13 @@ const transactionSlice = createSlice({
           : (summary.incomes = summary.incomes + action.payload.sum);
       }
       // else {
-    
-      //    (state.summary.push(action.payload.sum))
-       
-          // ? (summary.expenses = summary.expenses.push(action.payload.sum)
-          // : (summary.incomes = summary.incomes + action.payload.sum);
-        //  fetchSummaryExpenses
-      // }
 
+      //    (state.summary.push(action.payload.sum))
+
+      // ? (summary.expenses = summary.expenses.push(action.payload.sum)
+      // : (summary.incomes = summary.incomes + action.payload.sum);
+      //  fetchSummaryExpenses
+      // }
     },
     changesSummaryDelete(state, action) {
       const summary = state.summary.find(element =>

@@ -15,6 +15,7 @@ export const getReportsData = state => state.transactions.reportsData;
 export const isLoading = state => state.transactions.isLoading;
 
 export const selectTransactions = state => state.transactions.transactions;
+export const selectPeriod = state => state.transactions.reports.period;
 
 export const selectTypeTransactionMain = state => state.transactions.mainType;
 export const selectTypeTransactionReports = state =>
@@ -60,21 +61,17 @@ export const selectCategoryByType = state => {
 
 // selectSummary in REPORTS
 export const selectSummary = state => {
-  const { year, mm } = selectCurrentPeriod(state);
   const transactions = selectTransactions(state);
+  const period = selectPeriod(state);
 
   const filteredExpenses = transactions.filter(
     transaction =>
-      transaction.date.includes(mm) &&
-      transaction.date.includes(year) &&
-      transaction.type === 'expenses'
+      transaction.date.includes(period) && transaction.type === 'expenses'
   );
 
   const filteredIncomes = transactions.filter(
     transaction =>
-      transaction.date.includes(mm) &&
-      transaction.date.includes(year) &&
-      transaction.type === 'incomes'
+      transaction.date.includes(period) && transaction.type === 'incomes'
   );
 
   const summaryExpenses = filteredExpenses.reduce(
@@ -132,14 +129,13 @@ export const selectDescriptionsByCategory = state => {
 //select sum of Category in REPORTS
 export const selectSummaryByCategory = state => {
   const type = selectTypeTransactionReports(state);
-  const { mm, year } = selectCurrentPeriod(state);
   const transactions = selectTransactions(state);
+  const period = selectPeriod(state);
 
   const filteredTransactions = transactions.filter(
     transaction =>
       transaction.type.toLowerCase() === type.toLowerCase() &&
-      transaction.date.includes(mm) &&
-      transaction.date.includes(year)
+      transaction.date.includes(period)
   );
 
   const descriptions = filteredTransactions.reduce(
