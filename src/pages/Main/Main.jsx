@@ -1,12 +1,27 @@
 import BackgroundPrivateContainer from 'components/BackgroundPrivateContainer';
 import Balance from 'components/Balance';
-import { IconLink, LinkReport, LinkToMain, IconLinkMain, MainInfo } from './Main.styled';
-
+import {
+  IconLink,
+  LinkReport,
+  LinkToMain,
+  IconLinkMain,
+  MainInfo,
+} from './Main.styled';
+import { refreshUser } from 'redux/auth/authOperations';
 import TransactionsContainer from 'components/TransactionsContainer/TransactionsContainer';
 import { useMedia } from 'hooks/useMedia';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 export default function Main() {
-  const { isMobile } = useMedia();
+  const { isMobile, isNeedRefreshUser } = useMedia();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isNeedRefreshUser) {
+      dispatch(refreshUser());
+    }
+  }, [isNeedRefreshUser, dispatch]);
 
   return (
     <BackgroundPrivateContainer>
@@ -19,7 +34,7 @@ export default function Main() {
       ) : null}
 
       {!isMobile && (
-        <MainInfo >
+        <MainInfo>
           <Balance />
           <LinkReport to="/reports">
             Reports
