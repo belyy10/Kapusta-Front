@@ -49,10 +49,11 @@ export const removeTransaction = createAsyncThunk(
 export const fetchSummaryExpenses = createAsyncThunk(
   'transaction/fetchSummaryExp',
   // async (controller, thunkAPI) => {
-  async (controller, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const response = await axios.get('/transaction/expensesByMonthYear',
-      { signal: controller.signal,} );
+        // { signal: controller.signal,} 
+      );
       // const response = await axios.get('/transaction/incomesByMonthYear', {
       //   signal: controller.signal,
       // });
