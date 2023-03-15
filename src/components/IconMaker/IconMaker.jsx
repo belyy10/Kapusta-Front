@@ -2,7 +2,7 @@ import reportsIcon from '../../images/icons.svg';
 import { IconBox } from './IconMaker.styled';
 
 export default function IconMaker({ category, bgColor, color }) {
-  if (category === 'Products') {
+  if (category === 'products') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -11,7 +11,7 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Alcohol') {
+  if (category === 'alcohol') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -20,7 +20,7 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Entertainment') {
+  if (category === 'entertainment') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -29,7 +29,7 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Health') {
+  if (category === 'health') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -38,7 +38,7 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Transport') {
+  if (category === 'transport') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -47,7 +47,7 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Housing') {
+  if (category === 'housing') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -56,7 +56,7 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Technique') {
+  if (category === 'technique') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -65,7 +65,8 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Communal, communication') {
+  // if (category === 'communal, communication') {
+    if (category === 'communal') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -74,7 +75,8 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Sports, hobbies') {
+  // if (category === 'sports, hobbies') {
+    if (category === 'sports') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -83,7 +85,7 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Education') {
+  if (category === 'education') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -92,7 +94,7 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Other') {
+  if (category === 'other') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -101,7 +103,7 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Salary') {
+  if (category === 'salary') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>
@@ -110,7 +112,7 @@ export default function IconMaker({ category, bgColor, color }) {
       </IconBox>
     );
   }
-  if (category === 'Add. income') {
+  if (category === 'add.income') {
     return (
       <IconBox style={{ backgroundColor: bgColor }}>
         <svg width="59" height="57" fill={color}>

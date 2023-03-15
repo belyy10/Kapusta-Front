@@ -13,7 +13,9 @@ export default function Summary({ monthSumm }) {
 
   useEffect(() => {
     if (isLoggedIn) {
-      dispatch(fetchSummaryExpenses());
+      const сontroller = new AbortController();
+      dispatch(fetchSummaryExpenses(сontroller));
+      return () =>  сontroller.abort();
     }
   }, [dispatch, isLoggedIn]);
 

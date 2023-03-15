@@ -1,44 +1,54 @@
 import { Btn, BtnTitle } from './CategoryBtn.styled';
 import IconMaker from 'components/IconMaker';
-import { useSelector } from 'react-redux';
-import {
-  selectSummaryByCategory,
-  selectReportsCategoryExpenses,
-  selectReportsCategoryIncomes,
-} from 'redux/transactions/transactionsSelectors';
+// import { useSelector } from 'react-redux';
+// import {
+//   selectSummaryByCategory,
+//   selectReportsCategoryExpenses,
+//   selectReportsCategoryIncomes,
+// } from 'redux/transactions/transactionsSelectors';
 import COLORS from 'variables/colors/colors';
 
-export default function CategoryBtn({ element, handleSetCategory }) {
-  const summary = useSelector(selectSummaryByCategory);
-  const categoryExpenses = useSelector(selectReportsCategoryExpenses);
-  const categoryIncomes = useSelector(selectReportsCategoryIncomes);
+export default function CategoryBtn({ element  }) {
+  // const summary = useSelector(selectSummaryByCategory);
+  // const categoryExpenses = useSelector(selectReportsCategoryExpenses);
+  // const categoryIncomes = useSelector(selectReportsCategoryIncomes);
+  // console.log("categoryExpenses",categoryExpenses);
+  // console.log("categoryIncomes",categoryIncomes)
 
-  function summaryCategory(name) {
-    if (summary.length === 0) {
-      return 0;
-    }
+  // function summaryCategory(name) {
+  //   if (summary.length === 0) {
+  //     return 0;
+  //   }
 
-    const index = summary.findIndex(
-      el =>
-        el.name.toLowerCase() === name.toLowerCase() ||
-        name.toLowerCase().includes(el.name.toLowerCase())
-    );
-    if (index === -1) {
-      return 0;
-    }
+  //   const index = summary.findIndex(
+  //     el =>
+  //       el.name.toLowerCase() === name.toLowerCase() ||
+  //       name.toLowerCase().includes(el.name.toLowerCase())
+  //   );
+  //   if (index === -1) {
+  //     return 0;
+  //   }
 
-    return summary[index].sum;
+  //   return summary[index].sum;
+  // }
+
+  const changeCategory ='';
+
+  function handleClick(e){
+    const changeCategory= e.currentTarget.innerText.toLowerCase();
+    console.log(changeCategory)
+    return changeCategory;
   }
 
   return (
     <>
       <BtnTitle
         style={{
-          pointerEvents: summaryCategory(element.name) > 0 ? 'auto' : 'none',
-          opacity: summaryCategory(element.name) > 0 ? 1 : 0.5,
+          pointerEvents: element.sum > 0 ? 'auto' : 'none',
+          opacity: element.sum > 0 ? 1 : 0.5,
         }}
       >
-        {summaryCategory(element.name)}
+       {element.sum}
       </BtnTitle>
 
       <Btn
@@ -48,24 +58,23 @@ export default function CategoryBtn({ element, handleSetCategory }) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          pointerEvents: summaryCategory(element.name) > 0 ? 'auto' : 'none',
-          opacity: summaryCategory(element.name) > 0 ? 1 : 0.5,
+          pointerEvents: element.sum > 0 ? 'auto' : 'none',
+          opacity: element.sum > 0 ? 1 : 0.5,
         }}
-        onClick={() => {
-          handleSetCategory(element.name);
-        }}
+        name={element.name}
+        onClick={
+          // () => {
+          // handleSetCategory(element.name);
+        handleClick }
       >
         <IconMaker
-          category={element.name}
-          color={
-            categoryExpenses === element.name ||
-            categoryIncomes === element.name
+          category={element.name.toLowerCase()}
+          color={ element.name === changeCategory
               ? COLORS.activeColor
               : '#071F41'
           }
           bgColor={
-            categoryExpenses === element.name ||
-            categoryIncomes === element.name
+            element.name === changeCategory
               ? COLORS.reportsIconBg
               : '#F5F6FB'
           }

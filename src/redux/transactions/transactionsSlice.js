@@ -6,7 +6,7 @@ import {
   removeTransaction,
   fetchSummaryExpenses,
   fetchReportExpenses,
-  fetchReportIncomes,
+  // fetchReportIncomes,
 } from './transactionsOperations';
 
 const initialState = {
@@ -158,16 +158,16 @@ const transactionSlice = createSlice({
     [fetchReportExpenses.rejected]: state => {
       state.isLoading = false;
     },
-    [fetchReportIncomes.pending]: state => {
-      state.isLoading = true;
-    },
-    [fetchReportIncomes.fulfilled]: (state, action) => {
-      state.reportsData = action.payload.data;
-      state.isLoading = false;
-    },
-    [fetchReportIncomes.rejected]: state => {
-      state.isLoading = false;
-    },
+    // [fetchReportIncomes.pending]: state => {
+    //   state.isLoading = true;
+    // },
+    // [fetchReportIncomes.fulfilled]: (state, action) => {
+    //   state.reportsData = action.payload.data;
+    //   state.isLoading = false;
+    // },
+    // [fetchReportIncomes.rejected]: state => {
+    //   state.isLoading = false;
+    // },
   },
 });
 

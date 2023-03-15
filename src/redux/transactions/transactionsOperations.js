@@ -48,17 +48,10 @@ export const removeTransaction = createAsyncThunk(
 
 export const fetchSummaryExpenses = createAsyncThunk(
   'transaction/fetchSummaryExp',
-  // async (controller, thunkAPI) => {
-  async (_, thunkAPI) => {
+  async (controller, thunkAPI) => {
     try {
       const response = await axios.get('/transaction/expensesByMonthYear',
-        // { signal: controller.signal,} 
-      );
-      // const response = await axios.get('/transaction/incomesByMonthYear', {
-      //   signal: controller.signal,
-      // });
-
-      // console.log('daat', response.data);
+      { signal: controller.signal,} );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -68,24 +61,28 @@ export const fetchSummaryExpenses = createAsyncThunk(
 
 export const fetchReportExpenses = createAsyncThunk(
   'transaction/fetchSummaryInc',
-  async (_, thunkAPI) => {
+  async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.get('/transaction/reportbyexpenses');
-      return data;
+      const res  = await axios.get(
+        `/transaction/reportbyexpenses?type=${credentials.type}&date=${credentials.date}`, 
+      { signal: credentials.сontroller.signal}
+      );
+    return res;
     } catch (error) {
+      console.error("ERROR")
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const fetchReportIncomes = createAsyncThunk(
-  'transaction/fetchSummaryInc',
-  async (_, thunkAPI) => {
-    try {
-      const { data } = await axios.get('/transaction/reportbyincomes');
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+// export const fetchReportIncomes = createAsyncThunk(
+//   'transaction/fetchSummaryInc',
+//   async (_, thunkAPI) => {
+//     try {
+//       const { data } = await axios.get('/transaction/reportbyincomes');
+//       return data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
