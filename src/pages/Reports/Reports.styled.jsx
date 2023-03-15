@@ -18,7 +18,7 @@ export const LinkToMain = styled(Link)`
 
   color: rgba(82, 85, 95, 0.7);
 
-  @media screen and (min-width: 678px) {
+  @media screen and (min-width: 768px) {
     position: absolute;
     top: 112px;
     left: calc((100% - 704px) / 2);

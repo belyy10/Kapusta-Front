@@ -11,11 +11,11 @@ margin: 40px 32px 60px;
 
 @media screen and (min-width: 768px) {
 max-width: 704px;
-margin: 40px auto 60px;}
+margin: 0px auto 0px;}
 
 @media screen and (min-width: 1200px) {
 max-width: 1098px;}
-margin: 40px auto 20px;
+margin: 0px auto 0px;
 `
 
 export const LinkReport = styled(Link)`
@@ -35,20 +35,10 @@ export const LinkReport = styled(Link)`
 
   color: rgba(82, 85, 95, 0.7);
 
-  @media screen and (min-width: 768px) {
-    position: absolute;
-    top: 103px;
-    right: 37px;
-    z-index: 20;
-  }
-
   :hover,
   :focus {
     color: ${COLORS.activeColor};
 
-    @media screen and (min-width: 1200px) {
-      right: 37px;
-    }
   }
 `;
 

@@ -11,14 +11,7 @@ import {
 
 const initialState = {
   transactions: [],
-  summary: [
-    { _id: '2023-03', expenses: 0, incomes: 0 },
-    { _id: '2023-02', expenses: 0, incomes: 0 },
-    { _id: '2023-01', expenses: 0, incomes: 0 },
-    { _id: '2022-12', expenses: 0, incomes: 0 },
-    { _id: '2022-11', expenses: 0, incomes: 0 },
-    { _id: '2022-10', expenses: 0, incomes: 0 },
-  ],
+  summary: [],
   reportsData: [],
   type: 'all',
   isLoading: false,
@@ -70,15 +63,18 @@ const transactionSlice = createSlice({
         state.mainType === 'expenses'
           ? (summary.expenses = summary.expenses - action.payload.sum)
           : (summary.incomes = summary.incomes + action.payload.sum);
+      } else {
+        const dateSum = action.payload.date.slice(0, 7);
+        state.mainType === 'expenses'
+          ? (state.summary = [
+              ...state.summary,
+              { _id: dateSum, expenses: action.payload.sum * -1, incomes: 0 },
+            ])
+          : (state.summary = [
+              ...state.summary,
+              { _id: dateSum, expenses: 0, incomes: action.payload.sum },
+            ]);
       }
-      // else {
-
-      //    (state.summary.push(action.payload.sum))
-
-      // ? (summary.expenses = summary.expenses.push(action.payload.sum)
-      // : (summary.incomes = summary.incomes + action.payload.sum);
-      //  fetchSummaryExpenses
-      // }
     },
     changesSummaryDelete(state, action) {
       const summary = state.summary.find(element =>

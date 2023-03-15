@@ -40,7 +40,6 @@ export default function Balance() {
   };
 
   return (
-    // <Container>
     <Wrapper>
       <Title>Balance:</Title>
       <Section autoComplete="off" onSubmit={onSubmit}>
@@ -70,6 +69,5 @@ export default function Balance() {
         </Wrapper2>
       )}
     </Wrapper>
-    // </Container>
   );
 }

@@ -27,7 +27,7 @@ export const ContainerTop = styled.div`
   padding-left:20px;
   padding-right:20px;
 
-  height: 258px;
+  height: 286px;
   background-color: ${COLORS.bgTableTitle};
 
   border-bottom-left-radius: 100px 100px;

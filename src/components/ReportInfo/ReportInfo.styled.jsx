@@ -12,7 +12,6 @@ export const Wraper = styled.div`
   margin-bottom: 32px;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 55px
   background: ${COLORS.whiteColor};
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
 
@@ -22,11 +21,13 @@ export const Wraper = styled.div`
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     margin-left: auto;
     margin-right: auto;
+    margin-top: 44px;
     width: 704px;
   }
 
   @media screen and (min-width: 1200px) {
     width: 1034px;
+    margin-top: 32px;
   }
 
   div {

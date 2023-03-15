@@ -6,23 +6,22 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 32px auto;
 
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     width: fit-content;
-    margin: 0px auto 60px;
+    margin: 0px auto;
+    padding-top: 52px; 
     flex-direction: row;
     align-self: center;
-    padding-top: 52px;
+   
   }
   @media (min-width: 1200px) {
-    margin-bottom: 48px;
     margin-left: auto;
     margin-right:auto;
-    margin-top: -12px;
   }
 `;
 export const Title = styled.p`
@@ -35,11 +34,10 @@ export const Title = styled.p`
 
   @media screen and (max-width: 767px) {
       padding-top: 15px;
-  margin-right: 20px;
-  padding-bottom: 8px;
+      padding-bottom: 8px;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1280px) {
+  @media screen and (min-width: 768px) {
     margin-right: 21px;
     padding-bottom: 0px;
   }
@@ -141,7 +139,9 @@ export const Button = styled.button`
 `;
 export const Wrapper2 = styled.div`
   position: absolute;
-  bottom: 42px;
+  top:54px;
+
+  /* bottom: 42px; */
   transform: translateY(calc(100% + 18px)) translateX(16%);
   width: 200px;
   background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
@@ -164,6 +164,7 @@ export const Wrapper2 = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 292px;
+    top: 2px;
   }
 `;
 
