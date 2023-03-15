@@ -23,6 +23,7 @@ const initialState = {
     categoryIncomes: 'Salary',
     currentMonth: 3,
     currentYear: 2023,
+    period: '2023-03',
   },
 };
 
@@ -52,6 +53,7 @@ const transactionSlice = createSlice({
     setCurrentPeriod(state, action) {
       state.reports.currentMonth = action.payload.mm;
       state.reports.currentYear = action.payload.year;
+      state.reports.period = action.payload.period;
     },
     changesSummary(state, action) {
       const summary = state.summary.find(element =>
@@ -61,14 +63,18 @@ const transactionSlice = createSlice({
         state.mainType === 'expenses'
           ? (summary.expenses = summary.expenses - action.payload.sum)
           : (summary.incomes = summary.incomes + action.payload.sum);
-      }
-      else {
-        const dateSum = action.payload.date.slice(0,7)
+      } else {
+        const dateSum = action.payload.date.slice(0, 7);
         state.mainType === 'expenses'
-          ? (state.summary = [...state.summary, { '_id': dateSum, 'expenses': action.payload.sum * -1 , 'incomes': 0}])
-          : (state.summary = [...state.summary, { '_id': dateSum, 'expenses': 0, 'incomes': action.payload.sum }])
+          ? (state.summary = [
+              ...state.summary,
+              { _id: dateSum, expenses: action.payload.sum * -1, incomes: 0 },
+            ])
+          : (state.summary = [
+              ...state.summary,
+              { _id: dateSum, expenses: 0, incomes: action.payload.sum },
+            ]);
       }
-
     },
     changesSummaryDelete(state, action) {
       const summary = state.summary.find(element =>
