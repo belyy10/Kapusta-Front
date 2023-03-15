@@ -4,7 +4,7 @@ import COLORS from 'variables/colors/colors';
 export const TransactionsWrapper = styled.section`
   padding: 0 20px;
   @media screen and (min-width: 768px) {
-    /* margin-top: 60px; */
+    margin-top: 100px;
     width: 640px;
     padding: 24px 40px 42px 40px;
     display: flex;
@@ -23,6 +23,7 @@ export const TransactionsWrapper = styled.section`
   @media screen and (min-width: 1200px) {
     width: 1098px;
     padding: 32px 32px;
+    margin-top: 48px;
   }
 `;
 
@@ -37,7 +38,7 @@ font-weight: 700;
   }
   @media screen and (min-width: 768px) {
     width: 138px;
-    higth: 40px;
+    height: 40px;
     display: inline-block;
     position: absolute;
     top: -38px;
@@ -70,7 +71,7 @@ font-weight: 700;
   }
   @media screen and (min-width: 768px) {
     width: 138px;
-    higth: 40px;
+    height: 40px;
     display: inline-block;
     position: absolute;
     top: -38px;
