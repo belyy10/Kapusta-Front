@@ -27,6 +27,7 @@ export const LoginForm = () => {
   const [button, setButton] = useState(null);
   const initialValues = { email: '', password: '' };
   const [searchParams] = useSearchParams();
+
   useEffect(() => {
     const accessToken = searchParams.get('accessToken');
 
