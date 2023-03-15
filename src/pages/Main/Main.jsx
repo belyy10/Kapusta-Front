@@ -7,21 +7,11 @@ import {
   IconLinkMain,
   MainInfo,
 } from './Main.styled';
-import { refreshUser } from 'redux/auth/authOperations';
 import TransactionsContainer from 'components/TransactionsContainer/TransactionsContainer';
 import { useMedia } from 'hooks/useMedia';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
 export default function Main() {
-  const { isMobile, isNeedRefreshUser } = useMedia();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isNeedRefreshUser) {
-      dispatch(refreshUser());
-    }
-  }, [isNeedRefreshUser, dispatch]);
+  const { isMobile } = useMedia();
 
   return (
     <BackgroundPrivateContainer>
