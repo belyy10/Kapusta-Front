@@ -39,7 +39,7 @@ export default function App() {
       );
     }
     return () => controller.abort();
-  }, [dispatch, isLoggedIn]);
+  }, [dispatch, isLoggedIn, isNeedRefreshUser]);
 
   const { isMobile } = useMedia();
 

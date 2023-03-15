@@ -11,9 +11,7 @@ export const TableBodyList = styled.tr`
 
   @media screen and (min-width: 1200px) {
     width: 746px;
-
     height: 40px;
-
   }
 `;
 
@@ -26,13 +24,11 @@ export const TableBodyItem = styled.td`
   }
 
   text-align: center;
-
   font-style: 'Roboto';
   font-weight: 400;
   font-size: 12px;
   line-height: calc(14 / 12);
   letter-spacing: 0.04em;
-
   color: ${COLORS.textColor};
 
   :nth-child(4) {
@@ -46,26 +42,23 @@ export const TableBodyItem = styled.td`
     align-items: center;
   }
 
-   @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: calc (624px / 5);
-    }
+  }
 
-       @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1200px) {
     width: calc (746px / 5);
-    }
+  }
 `;
 
 export const DeleteBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 32px;
   height: 32px;
-
   border: none;
   border-radius: 50%;
-
   background-color: ${COLORS.bgTableTitle};
   cursor: pointer;
 

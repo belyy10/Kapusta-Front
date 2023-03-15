@@ -11,7 +11,7 @@ export const FormBox = styled.div`
   flex-direction: column;
   width: 240px;
   padding: 40px 20px;
-  background-color:  ${COLORS.whiteColor};
+  background-color: ${COLORS.whiteColor};
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 30px;
 
@@ -148,9 +148,6 @@ export const Button = styled.button`
     box-shadow: 1px 3px 7px rgba(255, 119, 8, 0.4);
   }
 
-  /* {
-    :active
-  } */
   @media screen and (min-width: 768px) {
     width: 122px;
   }

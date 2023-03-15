@@ -4,7 +4,6 @@ import COLORS from 'variables/colors/colors';
 export const TransactionBox = styled.div`
   display: flex;
   justify-content: space-between;
-
   overflow: hidden;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -23,14 +22,10 @@ export const TransactionBox = styled.div`
 
 export const TableBox = styled.table`
   width: 100%;
-
   border: none;
-
   border-spacing: 0;
   border-collapse: collapse;
-
   table-layout: fixed;
-
   background-color: ${COLORS.whiteColor};
 
   @media screen and (min-width: 1200px) {
@@ -44,9 +39,7 @@ export const TableTitle = styled.tr``;
 export const TableTitleItem = styled.th`
   width: calc(100% / 4);
   height: 40px;
-
   border-spacing: 0;
-
   background-color: ${COLORS.bgTableTitle};
   text-transform: uppercase;
 `;

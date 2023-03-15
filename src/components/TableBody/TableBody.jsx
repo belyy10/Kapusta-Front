@@ -17,9 +17,7 @@ export default function TableBody({ transaction }) {
   function handleDelete() {
     dispatch(removeTransaction(transaction._id));
     dispatch(deleteStranBalanseChange(transaction.sum));
-
     const bal = type === 'expenses' ? transaction.sum * -1 : transaction.sum;
-
     dispatch(changesSummaryDelete({ date: transaction.date, sum: bal }));
     setModalOpen(false);
   }
@@ -55,8 +53,3 @@ export default function TableBody({ transaction }) {
     </TableBodyList>
   );
 }
-
-// onClick={() =>
-//   handleDelete(transaction._id, transaction.sum, transaction.date)
-// }
-// >

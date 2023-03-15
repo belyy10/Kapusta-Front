@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const Wraper = styled.div`
   display: flex;
-  /* align-items: center; */
   justify-content: space-between;
   width: 134px;
   margin-left: auto;

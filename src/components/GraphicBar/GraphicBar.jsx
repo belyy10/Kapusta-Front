@@ -47,14 +47,13 @@ const CustomizedTickLabel = ({ x, y, payload }) => {
 };
 
 export default function GraphicBar({ transaction }) {
-
   const { isDesktop } = useMedia();
   const desriptions = useSelector(selectDescriptionsByCategory);
-
   const padding = isDesktop ? 77 : 5;
   const margin = isDesktop ? 150 : 50;
- 
-  if (transaction.length === 0) { return('No data to display') };
+  if (transaction.length === 0) {
+    return 'No data to display';
+  }
   return (
     <ResponsiveContainer>
       <BarChart
@@ -77,7 +76,6 @@ export default function GraphicBar({ transaction }) {
           tick={<CustomizedTickLabel />}
         />
         <YAxis tickCount={9} hide={true} />
-
         <Bar
           dataKey="sum"
           fill={COLORS.activeColor}

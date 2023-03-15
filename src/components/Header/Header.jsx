@@ -15,17 +15,14 @@ export default function Header() {
               srcSet={process.env.PUBLIC_URL + '/images/logo/logo.webp 1x'}
               type="image/webp"
             />
-
             <img
               src={process.env.PUBLIC_URL + '/images/logo/logo.png'}
               alt="logo"
             />
           </picture>
         </Link>
-
         {isLoggedIn && <UserMenu />}
       </HeaderBox>
-
       <Outlet />
     </>
   );

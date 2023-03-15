@@ -2,8 +2,8 @@ import { Formik, ErrorMessage } from 'formik';
 import { BiCalculator } from 'react-icons/bi';
 import Notiflix from 'notiflix';
 import schemaTransactions from 'schema/schemaTransactions';
-import expenseCategories from './ExpenseCategories';
-import incomeCategories from './IncomeCategories';
+import expenseCategories from 'variables/category/expense';
+import incomeCategories from 'variables/category/incomes';
 import {
   Wrapper,
   Container,
@@ -55,7 +55,6 @@ export default function CreateTransaction() {
       );
       return;
     }
-
     dispatch(
       addTransaction({
         description,
@@ -65,19 +64,12 @@ export default function CreateTransaction() {
         date: date,
       })
     );
-
     dispatch(changeBalance(bal));
-
-    // dispatch(fetchSummaryExpenses());
     dispatch(changesSummary({ sum, date }));
-      dispatch()
+    dispatch();
     resetForm(initialValues);
   };
 
-  
-    // dispatch(fetchSummaryExpenses());
- 
-  // const monthSummary = useSelector(selectSummaryExpenses);
   return (
     <Container>
       {isTabletAndDesktop && <SelectDate />}
@@ -101,7 +93,6 @@ export default function CreateTransaction() {
                     render={msg => <Error>{msg}</Error>}
                   />
                 </Label>
-
                 <Label>
                   {type.toLowerCase() === 'incomes' ? (
                     <SelectCategory
@@ -130,13 +121,11 @@ export default function CreateTransaction() {
                       ))}
                     </SelectCategory>
                   )}
-
                   <ErrorMessage
                     name="category"
                     render={msg => <Error>{msg}</Error>}
                   />
                 </Label>
-
                 <InputSumWrapper>
                   <InputSum
                     type="number"
@@ -147,14 +136,12 @@ export default function CreateTransaction() {
                   <Calculator>
                     <BiCalculator size={18} />
                   </Calculator>
-
                   <ErrorMessage
                     name="sum"
                     render={msg => <Error>{msg}</Error>}
                   />
                 </InputSumWrapper>
               </InputGroup>
-
               <ButtonGroup>
                 <ButtonInput type="submit">Input</ButtonInput>
                 <Button type="button" onClick={resetForm}>

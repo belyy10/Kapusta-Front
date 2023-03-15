@@ -17,8 +17,6 @@ const CustomizedLabel = ({ x, y, width, value }) => {
   );
 };
 
-//x + width
-
 const CustomizedTickLabel = ({ x, y, payload }) => {
   return (
     <Text

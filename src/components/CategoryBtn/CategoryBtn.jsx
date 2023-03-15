@@ -17,7 +17,6 @@ export default function CategoryBtn({ element, handleSetCategory }) {
     if (summary.length === 0) {
       return 0;
     }
-
     const index = summary.findIndex(
       el =>
         el.name.toLowerCase() === name.toLowerCase() ||
@@ -26,7 +25,6 @@ export default function CategoryBtn({ element, handleSetCategory }) {
     if (index === -1) {
       return 0;
     }
-
     return summary[index].sum;
   }
 
@@ -44,7 +42,6 @@ export default function CategoryBtn({ element, handleSetCategory }) {
       <Btn
         style={{
           width: 90,
-
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -70,7 +67,6 @@ export default function CategoryBtn({ element, handleSetCategory }) {
               : '#F5F6FB'
           }
         />
-
         <BtnTitle>{element.name}</BtnTitle>
       </Btn>
     </>

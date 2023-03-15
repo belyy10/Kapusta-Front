@@ -5,10 +5,8 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
-
   padding: 36px 0;
   width: 100%;
-
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   background-color: ${COLORS.whiteColor};
 
@@ -28,20 +26,16 @@ export const ChoseBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   margin-bottom: 20px;
 `;
 
 export const ChosenTitle = styled.p`
   padding: 0 16px;
-
   font-weight: 700;
   font-size: 14px;
   line-height: calc(16 / 14);
-
   letter-spacing: 0.02;
   text-transform: uppercase;
-
   color: ${COLORS.blackColor};
 `;
 
@@ -98,7 +92,6 @@ export const BtnTitle = styled.span`
   line-height: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-
   color: #52555f;
 `;
 

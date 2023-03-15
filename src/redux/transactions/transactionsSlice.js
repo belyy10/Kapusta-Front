@@ -142,7 +142,6 @@ const transactionSlice = createSlice({
     },
     [fetchSummaryExpenses.fulfilled]: (state, action) => {
       state.summary = action.payload;
-
       state.isLoading = false;
     },
     [fetchSummaryExpenses.rejected]: state => {

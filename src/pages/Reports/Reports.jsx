@@ -1,7 +1,6 @@
 import BackgroundPrivateContainer from 'components/BackgroundPrivateContainer';
 import Balance from 'components/Balance';
 import CategoryContainer from 'components/CategoryContainer';
-// import Container from 'components/Container';
 import Graphic from 'components/Graphic';
 import Swager from 'components/Swiper';
 import { IconLink, LinkToMain, IconLinkMain } from './Reports.styled';

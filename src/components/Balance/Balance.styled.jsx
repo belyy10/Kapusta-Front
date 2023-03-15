@@ -140,8 +140,6 @@ export const Button = styled.button`
 export const Wrapper2 = styled.div`
   position: absolute;
   top:54px;
-
-  /* bottom: 42px; */
   transform: translateY(calc(100% + 18px)) translateX(16%);
   width: 200px;
   background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);

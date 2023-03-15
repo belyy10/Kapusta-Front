@@ -44,7 +44,6 @@ export default function CategoryContainer() {
           <MdKeyboardArrowRight size={20} color={COLORS.activeColor} />
         </ChoseBtn>
       </ChoseBox>
-
       <BtnList>
         {fileredCategory.map(element => {
           return (
