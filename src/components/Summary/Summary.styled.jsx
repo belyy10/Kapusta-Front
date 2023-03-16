@@ -8,17 +8,13 @@ export const SummaryBox = styled.div`
     width: 230px;
     height: 280px;
     margin-top: 40px;
-
     display: inline-flex;
     flex-direction: column;
     text-align: center;
-
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
-
     background-color: ${COLORS.bgTableTitle};
-
     text-transform: uppercase;
   }
 
@@ -33,24 +29,20 @@ export const SummaryTitle = styled.h4`
   justify-content: center;
   align-items: center;
   height: 38px;
-
   box-sizing: 4px;
   align-content: center;
   text-align: center;
   list-style: none;
-
   font-style: 'Roboto';
   font-weight: 700;
   font-size: 12px;
   line-height: 1.167;
   letter-spacing: 0.04em;
-
   font-style: 'Roboto';
   font-weight: 700;
   font-size: 12px;
   line-height: 1.167;
   letter-spacing: 0.04em;
-
   border-bottom: 4px solid ${COLORS.whiteColor};
 `;
 
@@ -61,21 +53,17 @@ export const SummaryBody = styled.ul`
 export const SummaryList = styled.li`
   height: 38px;
   border-bottom: 2px solid ${COLORS.whiteColor};
-
   padding-left: 22px;
   padding-right: 20px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 38px;
-
   font-style: 'Roboto';
   font-weight: 400;
   font-size: 12px;
   line-height: 1.167;
   letter-spacing: 0.04em;
-
   color: ${COLORS.textColor};
 `;
 
@@ -84,13 +72,11 @@ export const SummaryItem = styled.p`
   justify-content: space-between;
   align-items: center;
   height: 38px;
-
   font-style: 'Roboto';
   font-weight: 400;
   font-size: 12px;
   line-height: 1.167;
   letter-spacing: 0.04em;
-
   color: ${COLORS.textColor};
 `;
 

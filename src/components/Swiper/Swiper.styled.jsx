@@ -4,7 +4,6 @@ import COLORS from 'variables/colors/colors';
 
 export const SwagerBox = styled.div`
   width: 180px;
- 
   @media screen and (max-width: 768px) {
     margin: 6px auto 32px;
   }
@@ -26,16 +25,12 @@ export const SwagerBox = styled.div`
 
 export const SwagerTitle = styled.p`
   padding-bottom: 5px;
-
   font-family: 'Roboto';
   font-weight: 400;
   font-size: 12px;
   line-height: calc(14 / 12);
-  /* identical to box height */
-
   text-align: center;
   letter-spacing: 0.04;
-
   color: rgba(82, 85, 95, 0.7);
 `;
 
@@ -46,7 +41,6 @@ export const Slide = styled(SwiperSlide)`
   line-height: 16px;
   letter-spacing: 0.02;
   text-transform: uppercase;
-
   text-align: center;
 
   color: ${COLORS.blackColor};

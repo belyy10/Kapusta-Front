@@ -40,11 +40,9 @@ export const SpanTitle = styled.span`
     content: '';
     width: 8px;
     height: 13px;
-
     position: absolute;
     right: calc((100% - 8px) / 2);
     top: 33px;
-
     background-color: ${COLORS.blackColor};
   }
 
@@ -52,12 +50,10 @@ export const SpanTitle = styled.span`
     content: '';
     width: 8px;
     height: 13px;
-
     position: absolute;
     bottom: 0;
     right: calc((100% - 8px) / 2);
     bottom: 8px;
-
     background-color: ${COLORS.blackColor};
   }
 `;
@@ -67,12 +63,9 @@ export const SubTitle = styled.p`
   font-weight: 700;
   font-size: 16px;
   line-height: calc(19 / 16);
-  /* identical to box height */
-
   letter-spacing: 0.18;
   text-align: center;
   text-transform: uppercase;
-
   color: ${COLORS.textColor};
 
   @media screen and (min-width: 767px) {

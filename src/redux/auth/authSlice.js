@@ -20,6 +20,7 @@ const authSlice = createSlice({
     refreshToken: '',
     isLoggedIn: false,
     isRefreshing: false,
+    isNeedRefreshUser: false,
   },
   reducers: {
     changeBalance(state, action) {
@@ -54,6 +55,7 @@ const authSlice = createSlice({
     [refreshUser.fulfilled](state, action) {
       state.user = action.payload.user;
       state.isLoggedIn = true;
+      state.isNeedRefreshUser = false;
       state.isRefreshing = false;
       state.balance = action.payload.balance;
     },
@@ -76,8 +78,9 @@ const authSlice = createSlice({
     },
     [googleUser.fulfilled]: (state, action) => {
       state.accessToken = action.payload;
-
+      state.isLoggedIn = true;
       state.isRefreshing = false;
+      state.isNeedRefreshUser = true;
     },
     [googleUser.rejected]: state => {
       state.isRefreshing = false;

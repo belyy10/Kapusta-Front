@@ -8,7 +8,7 @@ import IconMaker from 'components/IconMaker';
 // } from 'redux/transactions/transactionsSelectors';
 import COLORS from 'variables/colors/colors';
 
-export default function CategoryBtn({ element  }) {
+export default function CategoryBtn({ element }) {
   // const summary = useSelector(selectSummaryByCategory);
   // const categoryExpenses = useSelector(selectReportsCategoryExpenses);
   // const categoryIncomes = useSelector(selectReportsCategoryIncomes);
@@ -32,11 +32,11 @@ export default function CategoryBtn({ element  }) {
   //   return summary[index].sum;
   // }
 
-  const changeCategory ='';
+  const changeCategory = '';
 
-  function handleClick(e){
-    const changeCategory= e.currentTarget.innerText.toLowerCase();
-    console.log(changeCategory)
+  function handleClick(e) {
+    const changeCategory = e.currentTarget.innerText.toLowerCase();
+    console.log(changeCategory);
     return changeCategory;
   }
 
@@ -48,13 +48,12 @@ export default function CategoryBtn({ element  }) {
           opacity: element.sum > 0 ? 1 : 0.5,
         }}
       >
-       {element.sum}
+        {element.sum}
       </BtnTitle>
 
       <Btn
         style={{
           width: 90,
-
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -65,21 +64,18 @@ export default function CategoryBtn({ element  }) {
         onClick={
           // () => {
           // handleSetCategory(element.name);
-        handleClick }
+          handleClick
+        }
       >
         <IconMaker
           category={element.name.toLowerCase()}
-          color={ element.name === changeCategory
-              ? COLORS.activeColor
-              : '#071F41'
+          color={
+            element.name === changeCategory ? COLORS.activeColor : '#071F41'
           }
           bgColor={
-            element.name === changeCategory
-              ? COLORS.reportsIconBg
-              : '#F5F6FB'
+            element.name === changeCategory ? COLORS.reportsIconBg : '#F5F6FB'
           }
         />
-
         <BtnTitle>{element.name}</BtnTitle>
       </Btn>
     </>

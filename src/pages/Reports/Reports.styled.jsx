@@ -9,13 +9,10 @@ export const LinkToMain = styled(Link)`
   align-items: center;
   padding-top: 10px;
   text-decoration: none;
-
   font-weight: 400;
   font-size: 12px;
   line-height: calc(14 / 12);
-
   letter-spacing: 0.04;
-
   color: rgba(82, 85, 95, 0.7);
 
   @media screen and (min-width: 768px) {

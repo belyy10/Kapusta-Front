@@ -17,11 +17,11 @@ const Mobile = lazy(() => import('../pages/Mobile'));
 
 export default function App() {
   const dispatch = useDispatch();
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isNeedRefreshUser } = useAuth();
 
   useEffect(() => {
     const controller = new AbortController();
-    if (!isLoggedIn) {
+    if (!isLoggedIn || isNeedRefreshUser) {
       dispatch(refreshUser());
     }
     if (isLoggedIn) {
@@ -39,7 +39,7 @@ export default function App() {
       );
     }
     return () => controller.abort();
-  }, [dispatch, isLoggedIn]);
+  }, [dispatch, isLoggedIn, isNeedRefreshUser]);
 
   const { isMobile } = useMedia();
 

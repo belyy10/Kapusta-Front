@@ -14,12 +14,10 @@ import {
   Label,
 } from './Balance.styled';
 import { useAuth } from 'hooks/useAuth';
-// import Container from 'components/Container';
 
 export default function Balance() {
   const dispatch = useDispatch();
   const { balance } = useAuth();
-
   const [value, setValue] = useState({ balance } ?? 0);
   const [tooltipOpen, setTooltipOpen] = useState(true);
 
