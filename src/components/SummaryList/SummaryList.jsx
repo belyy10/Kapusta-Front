@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { selectTypeTransactionMain } from 'redux/transactions/transactionsSelectors';
-import { SummaryList, SummaryItemSpan } from './Summary.styled';
+import { SummaryList, SummaryItemSpan } from './SummaryList.styled';
 let nameMon;
 
 export default function SummaryBodyList({ item }) {
