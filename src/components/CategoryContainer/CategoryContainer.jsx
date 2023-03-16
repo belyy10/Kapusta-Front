@@ -12,52 +12,45 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import COLORS from 'variables/colors/colors';
 // import { categoryList } from 'variables/category/category';
 
+import { toggleReportType } from 'redux/transactions/transactionsSlice';
 import {
-  // changeCategoryExpenses,
-  // changeCategoryIncomes,
-  toggleReportType,
-} from 'redux/transactions/transactionsSlice';
-import { selectTypeTransactionReports,  getReportsData,
-  selectCurrentPeriod,   
+  selectTypeTransactionReports,
+  getReportsData,
+  selectPeriod,
 } from 'redux/transactions/transactionsSelectors';
-  import { fetchReportExpenses } from '../../redux/transactions/transactionsOperations';
+import { fetchReportExpenses } from '../../redux/transactions/transactionsOperations';
 import CategoryBtn from 'components/CategoryBtn';
 
 export default function CategoryContainer() {
-
   const dispatch = useDispatch();
 
   const type = useSelector(selectTypeTransactionReports).toLowerCase();
   // const type=typeEl.toLowerCase();
   console.log('type', type);
-  const date = useSelector(selectCurrentPeriod);
-  console.log('date', date);
+  const period = useSelector(selectPeriod);
+  console.log('date', period);
 
   // const handleToggleReportType=() => {
-  //   dispatch(toggleReportType()); 
+  //   dispatch(toggleReportType());
   // }
 
-useEffect(() => {
-  const сontroller = new AbortController();
+  useEffect(() => {
+    const сontroller = new AbortController();
 
-  dispatch(fetchReportExpenses({type, date: {mm: 3, year: 2023 }, сontroller}));
- 
-   return () =>  сontroller.abort();
+    dispatch(fetchReportExpenses({ type, date: period, сontroller }));
 
-},[type, dispatch]);
+    return () => сontroller.abort();
+  }, [type, dispatch, period]);
 
+  const reportsData = useSelector(getReportsData);
 
-const reportsData = useSelector(getReportsData);
-console.log('reporstData', reportsData); 
-
-// if(type === "expenses"){
-//   const reportsArr = reportsData.reverse();
-//   console.log("reportsArr", reportsArr)
-//   return reportsArr;
-// }else if (type === "incomes") {
-// return reportsData;
-// };
-  
+  // if(type === "expenses"){
+  //   const reportsArr = reportsData.reverse();
+  //   console.log("reportsArr", reportsArr)
+  //   return reportsArr;
+  // }else if (type === "incomes") {
+  // return reportsData;
+  // };
 
   // const dispatch = useDispatch();
   // const type = useSelector(selectTypeTransactionReports);
@@ -86,23 +79,21 @@ console.log('reporstData', reportsData);
       </ChoseBox>
 
       {reportsData?.length > 0 ? (
-
-      <BtnList>
-        {reportsData.map(element => {
-          return (
-            <BtnListItem key={element.id}>
-              <CategoryBtn
-                element={element}
-                // handleSetCategory={handleSetCategory}
-              />
-            </BtnListItem>
-          );
-        })}
-      </BtnList>
-
-) : (
-  <p>There are no {type} for the current period :-)</p>
-)}
+        <BtnList>
+          {reportsData.map(element => {
+            return (
+              <BtnListItem key={element.id}>
+                <CategoryBtn
+                  element={element}
+                  // handleSetCategory={handleSetCategory}
+                />
+              </BtnListItem>
+            );
+          })}
+        </BtnList>
+      ) : (
+        <p>There are no {type} for the current period :-)</p>
+      )}
     </Container>
   );
 }

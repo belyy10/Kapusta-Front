@@ -21,7 +21,7 @@ const initialState = {
     type: 'Expenses',
     categoryExpenses: 'Products',
     categoryIncomes: 'Salary',
-    currentMonth: 3,
+    currentMonth: 2,
     currentYear: 2023,
     period: '2023-03',
   },

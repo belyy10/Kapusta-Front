@@ -24,6 +24,7 @@ export const selectReportsCategoryExpenses = state =>
   state.transactions.reports.categoryExpenses;
 export const selectReportsCategoryIncomes = state =>
   state.transactions.reports.categoryIncomes;
+
 export const selectCurrentPeriod = state => ({
   mm: state.transactions.reports.currentMonth,
   year: state.transactions.reports.currentYear,
