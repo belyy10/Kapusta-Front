@@ -8,13 +8,12 @@ import SummaryBodyList from '../SummaryList/SummaryList';
 export default function Summary({ monthSumm }) {
   const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
-  console.log('isLogged', isLoggedIn);
+  
   useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(fetchSummaryExpenses());
-    }
-  }, [dispatch, isLoggedIn]);
-
+      if (isLoggedIn) {
+        dispatch(fetchSummaryExpenses());
+      }
+    }, [dispatch, isLoggedIn]);
   return (
     <SummaryBox>
       <SummaryTitle>Summary</SummaryTitle>
