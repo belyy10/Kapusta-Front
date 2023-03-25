@@ -7,11 +7,15 @@ const makePeriod = (year, month) => {
 export const createPeriods = (month = 8, year = 2022, period, periods = []) => {
   if (period) {
     const options = { month: 'long' };
+
+    const mm = period.getMonth() + 1;
+    const mmFormated = String(mm).length === 2 ? mm : `0${mm}`;
+
     periods.push({
       id: nanoid(),
-      period: period.toISOString().slice(0, 7),
+      period: `${period.getFullYear()}-${mmFormated}`,
       month: new Intl.DateTimeFormat('en-US', options).format(period),
-      mm: period.getMonth(),
+      mm: period.getMonth() + 1,
       year: period.getFullYear(),
     });
   }
