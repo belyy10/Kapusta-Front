@@ -12,6 +12,8 @@ export default function SwiperComponent() {
   const dispatch = useDispatch();
   const [periods] = useState(createPeriods());
 
+  console.log(periods);
+
   return (
     <SwagerBox>
       <SwagerTitle>Current period: </SwagerTitle>
