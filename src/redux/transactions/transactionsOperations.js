@@ -60,7 +60,7 @@ export const fetchSummaryExpenses = createAsyncThunk(
 );
 
 export const fetchReportExpenses = createAsyncThunk(
-  'transaction/fetchSummaryInc',
+  'transaction/fetchReportExpenses',
   async (credentials, thunkAPI) => {
     try {
       const res  = await axios.get(

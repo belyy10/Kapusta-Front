@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   BtnList,
@@ -7,6 +7,7 @@ import {
   ChosenTitle,
   ChoseBtn,
   BtnListItem,
+  TextInfo,
 } from './CategoryContainer.styled';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import COLORS from 'variables/colors/colors';
@@ -25,10 +26,9 @@ export default function CategoryContainer() {
   const dispatch = useDispatch();
 
   const type = useSelector(selectTypeTransactionReports).toLowerCase();
-  // const type=typeEl.toLowerCase();
   console.log('type', type);
-  const period = useSelector(selectPeriod);
-  console.log('date', period);
+  const date = useSelector(selectPeriod);
+  console.log('date', date);
 
   // const handleToggleReportType=() => {
   //   dispatch(toggleReportType());
@@ -37,34 +37,13 @@ export default function CategoryContainer() {
   useEffect(() => {
     const сontroller = new AbortController();
 
-    dispatch(fetchReportExpenses({ type, date: period, сontroller }));
+    dispatch(fetchReportExpenses({ type, date, сontroller }));
 
     return () => сontroller.abort();
-  }, [type, dispatch, period]);
+  }, [type, dispatch, date]);
 
   const reportsData = useSelector(getReportsData);
-
-  // if(type === "expenses"){
-  //   const reportsArr = reportsData.reverse();
-  //   console.log("reportsArr", reportsArr)
-  //   return reportsArr;
-  // }else if (type === "incomes") {
-  // return reportsData;
-  // };
-
-  // const dispatch = useDispatch();
-  // const type = useSelector(selectTypeTransactionReports);
-  // const fileredCategory = categoryList.filter(
-  //   category => category.type === type
-  // );
-
-  // function handleSetCategory(name) {
-  //   if (type === 'Expenses') {
-  //     dispatch(changeCategoryExpenses(name));
-  //     return;
-  //   }
-  //   dispatch(changeCategoryIncomes(name));
-  // }
+  console.log("reportsData", reportsData)
 
   return (
     <Container>
@@ -85,15 +64,15 @@ export default function CategoryContainer() {
               <BtnListItem key={element.id}>
                 <CategoryBtn
                   element={element}
-                  // handleSetCategory={handleSetCategory}
                 />
               </BtnListItem>
             );
           })}
         </BtnList>
       ) : (
-        <p>There are no {type} for the current period :-)</p>
+        <TextInfo>There are no {type} for the current period :-)</TextInfo>
       )}
+
     </Container>
   );
 }

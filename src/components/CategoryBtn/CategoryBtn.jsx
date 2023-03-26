@@ -1,53 +1,18 @@
 import { Btn, BtnTitle } from './CategoryBtn.styled';
 import IconMaker from 'components/IconMaker';
-// import { useSelector } from 'react-redux';
-// import {
-//   selectSummaryByCategory,
-//   selectReportsCategoryExpenses,
-//   selectReportsCategoryIncomes,
-// } from 'redux/transactions/transactionsSelectors';
+import { useState } from 'react';
 import COLORS from 'variables/colors/colors';
 
 export default function CategoryBtn({ element }) {
-  // const summary = useSelector(selectSummaryByCategory);
-  // const categoryExpenses = useSelector(selectReportsCategoryExpenses);
-  // const categoryIncomes = useSelector(selectReportsCategoryIncomes);
-  // console.log("categoryExpenses",categoryExpenses);
-  // console.log("categoryIncomes",categoryIncomes)
-
-  // function summaryCategory(name) {
-  //   if (summary.length === 0) {
-  //     return 0;
-  //   }
-
-  //   const index = summary.findIndex(
-  //     el =>
-  //       el.name.toLowerCase() === name.toLowerCase() ||
-  //       name.toLowerCase().includes(el.name.toLowerCase())
-  //   );
-  //   if (index === -1) {
-  //     return 0;
-  //   }
-
-  //   return summary[index].sum;
-  // }
-
-  const changeCategory = '';
+  const [changeCategory, setChangeCategory] = useState("");
 
   function handleClick(e) {
-    const changeCategory = e.currentTarget.innerText.toLowerCase();
-    console.log(changeCategory);
-    return changeCategory;
+  setChangeCategory(e.currentTarget.innerText.toLowerCase());
   }
 
   return (
     <>
-      <BtnTitle
-        style={{
-          pointerEvents: element.sum > 0 ? 'auto' : 'none',
-          opacity: element.sum > 0 ? 1 : 0.5,
-        }}
-      >
+      <BtnTitle>
         {element.sum}
       </BtnTitle>
 
@@ -57,18 +22,19 @@ export default function CategoryBtn({ element }) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          pointerEvents: element.sum > 0 ? 'auto' : 'none',
-          opacity: element.sum > 0 ? 1 : 0.5,
         }}
         name={element.name}
-        onClick={
-          // () => {
-          // handleSetCategory(element.name);
+        onFocus={
           handleClick
         }
+        onBlur={() => {
+          setChangeCategory("");
+        }}
       >
         <IconMaker
           category={element.name.toLowerCase()}
+          focused={element.name === changeCategory}
+
           color={
             element.name === changeCategory ? COLORS.activeColor : '#071F41'
           }

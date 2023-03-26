@@ -92,9 +92,23 @@ export const BtnTitle = styled.span`
   line-height: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #52555f;
+  color: ${COLORS.textColor};
 `;
 
 export const IconBox = styled.div`
   border-radius: 24px;
+`;
+
+export const TextInfo=styled.p`
+  margin-top: 40px;
+  margin-bottom: 50px;
+
+  /* font-style: normal;
+  font-weight: 700; */
+  font-size: 18px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  text-align: center;
+
+  /* color: ${COLORS.textColor}; */
 `;
